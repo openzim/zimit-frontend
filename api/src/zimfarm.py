@@ -14,12 +14,15 @@ GET = "GET"
 POST = "POST"
 PATCH = "PATCH"
 DELETE = "DELETE"
-ACCESS_TOKEN = None
-ACCESS_TOKEN_EXPIRY = None
-REFRESH_TOKEN = None
-REFRESH_TOKEN_EXPIRY = None
 
 logger = logging.getLogger(__name__)
+
+
+class TokenData:
+    ACCESS_TOKEN = None
+    ACCESS_TOKEN_EXPIRY = None
+    REFRESH_TOKEN = None
+    REFRESH_TOKEN_EXPIRY = None
 
 
 class ZimfarmAPIError(Exception):
@@ -51,12 +54,10 @@ def get_token(username, password):
 
 
 def authenticate(force=False):
-    global ACCESS_TOKEN, REFRESH_TOKEN, ACCESS_TOKEN_EXPIRY, REFRESH_TOKEN_EXPIRY
-
     if (
         not force
-        and ACCESS_TOKEN is not None
-        and ACCESS_TOKEN_EXPIRY
+        and TokenData.ACCESS_TOKEN is not None
+        and TokenData.ACCESS_TOKEN_EXPIRY
         > datetime.datetime.now() + datetime.timedelta(minutes=2)
     ):
         return
@@ -68,11 +69,17 @@ def authenticate(force=False):
             username=ZIMFARM_USERNAME, password=ZIMFARM_PASSWORD
         )
     except Exception:
-        ACCESS_TOKEN = REFRESH_TOKEN = ACCESS_TOKEN_EXPIRY = None
+        TokenData.ACCESS_TOKEN = (
+            TokenData.REFRESH_TOKEN
+        ) = TokenData.ACCESS_TOKEN_EXPIRY = None
     else:
-        ACCESS_TOKEN, REFRESH_TOKEN = access_token, refresh_token
-        ACCESS_TOKEN_EXPIRY = datetime.datetime.now() + datetime.timedelta(minutes=59)
-        REFRESH_TOKEN_EXPIRY = datetime.datetime.now() + datetime.timedelta(days=29)
+        TokenData.ACCESS_TOKEN, TokenData.REFRESH_TOKEN = access_token, refresh_token
+        TokenData.ACCESS_TOKEN_EXPIRY = datetime.datetime.now() + datetime.timedelta(
+            minutes=59
+        )
+        TokenData.REFRESH_TOKEN_EXPIRY = datetime.datetime.now() + datetime.timedelta(
+            days=29
+        )
 
 
 def auth_required(func):
@@ -88,7 +95,7 @@ def query_api(method, path, payload=None, params=None):
     try:
         req = getattr(requests, method.lower(), "get")(
             url=get_url(path),
-            headers=get_token_headers(ACCESS_TOKEN),
+            headers=get_token_headers(TokenData.ACCESS_TOKEN),
             json=payload,
             params=params,
         )
