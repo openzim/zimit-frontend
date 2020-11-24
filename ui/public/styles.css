@@ -1,0 +1,45 @@
+body {
+    background-color: #fafafa;
+}
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: rgb(102, 102, 102);
+}
+
+/* Navbar */
+.navbar {
+    background-color: #ff9933;
+    margin-bottom: 1rem;
+}
+
+.branding .icon {
+    padding: 0.4rem;
+    background: rgba(255, 255, 255, 0.15);
+    margin-right: 0.5rem;
+    border-radius: 4px;
+    display: inline-flex;
+
+    width: 2.5rem;
+    height: 2.5rem;
+    position: absolute;
+}
+
+.branding .icon img {
+    border-style: none;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.branding label {
+    margin-left: 3rem;
+    margin-bottom: 0;
+    color: #fafafa;
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-family: Metropolis,"Avenir Next","Helvetica Neue",Arial,sans-serif;
+    letter-spacing: .01em;
+    line-height: 2.5rem;
+    text-decoration: none;
+}

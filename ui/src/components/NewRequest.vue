@@ -1,0 +1,254 @@
+<template>
+  <div class="home">
+    <h1>Want an offline version of a website? Just <strong>Zim it</strong>!</h1>
+    <b-form @submit.prevent="requestZim" v-if="editorReady">
+        <b-form-group
+            label="URL:"
+            label-for="new_url"
+            description="URL of the website to convert"
+            >
+            <b-form-input
+                type="url"
+                id="new_url"
+                placeholder="https://perdu.com"
+                required="required"
+                v-model="form.url" />
+        </b-form-group>
+
+        <b-form-group
+            label="Email:"
+            label-for="new_email"
+            description="Your e-mail to receive completion notification"
+            >
+            <b-form-input
+                type="email"
+                id="new_email"
+                placeholder="me@provider.com"
+                v-model="form.email" />
+        </b-form-group>
+
+        <p><b-button
+            pill
+            size="sm"
+            :pressed.sync="showAdvanced"
+            variant="outline-secondary">toggle advanced options</b-button></p>
+
+        <div v-if="showAdvanced">
+            <table class="table table-striped table-hover table-sm table-responsive-md">
+            <tbody>
+            <tr v-for="field in form_fields" :key="field.data_key">
+            <th>{{ field.label }}<sup v-if="field.required">&nbsp;<b-icon icon="asterisk" font-scale=".5" style="color: red;"></b-icon></sup></th>
+            <td>
+               <SwitchButton
+                    v-if="field.component == 'switchbutton'"
+                    :name="'es_flags_' + field.data_key"
+                    v-model="form[field.data_key]">{{ form[field.data_key]|yes_no("Enabled", "Not set") }}
+                </SwitchButton>
+              <multiselect v-if="field.component == 'multiselect'"
+                v-model="form[field.data_key]"
+                :options="field.options"
+                :multiple="true"
+                :clear-on-select="true"
+                :preserve-search="true"
+                :searchable="true"
+                :closeOnSelect="true"
+                :placeholder="field.placeholder"
+                size="sm"></multiselect>
+              <component v-if="field.component != 'multiselect' && field.component != 'switchbutton'"
+                :is="field.component"
+                :name="'es_flags_' + field.data_key"
+                :required="field.required"
+                :placeholder="field.placeholder"
+                v-model="form[field.data_key]"
+                :style="{backgroundColor: field.bind_color ? form[field.data_key]: ''}"
+                size="sm"
+                :step="field.step"
+                :type="field.component_type">
+                  <option v-for="option in field.options" :key="option.value" :value="option.value">{{ option.text }}</option>
+               </component>
+              <b-form-text>{{ field.description }}</b-form-text>
+            </td>
+            </tr>
+            </tbody>
+            </table>
+        </div>
+
+        <b-button
+            type="submit"
+            :disabled="!editorReady || !payload.url"
+            variant="primary">
+            Request Zim</b-button>
+
+    </b-form>
+  </div>
+</template>
+
+<script>
+    import Constants from '../constants.js'
+    import Mixins from '../components/mixins.js'
+    import SwitchButton from '../components/SwitchButton.vue'
+
+    import { v4 as uuidv4 } from 'uuid';
+
+    export default {
+      name: 'NewRequest',
+      mixins: [Mixins],
+      components: {SwitchButton},
+      data() {
+        return {
+            form: {},
+            showAdvanced: false,
+        };
+      },
+      computed: {
+        editorReady() {
+            console.log("offliner_def", this.offliner_def);
+            console.log("store offliner_def", this.$store.getters.offliner_def);
+            console.log("form", this.form);
+            return this.form && this.offliner_def !== null; },
+        form_fields() {
+            let fields = [];
+            for (var i=0;i<this.offliner_def.length;i++) {
+              let field = this.offliner_def[i];
+              let component = "b-form-input";
+              let options = null;
+              let component_type = null;
+              let bind_color = null;
+              let step = null;
+
+              if (field.type == "hex-color") {
+                bind_color = true;
+              }
+
+              if (field.type == "url") {
+                component = "b-form-input";
+                component_type = "url";
+              }
+
+              if (field.type == "email") {
+                component = "b-form-input";
+                component_type = "email";
+              }
+
+              if (field.type == "integer") {
+                component = "b-form-input";
+                component_type = "number";
+                step = 1;
+              }
+
+              if (field.type == "float") {
+                component = "b-form-input";
+                component_type = "number";
+                step = 0.1
+              }
+
+              if (field.type == "list-of-string-enum") {
+                component = "multiselect";
+                options = field.choices;
+              }
+
+              if (field.type == "boolean") {
+                component = "switchbutton";
+                options = [{text: "True", value: true}, {text: "Not set", value: undefined}];
+              }
+
+              if (field.type == "string-enum") {
+                component = "b-form-select";
+                options = field.choices.map(function (option) { return {text: option, value: option}; });
+                options.push({text: "Not set", value: undefined});
+              }
+
+              if (field.type == "text") {
+                component = "b-form-input";
+                component_type = "text";
+              }
+
+              fields.push({
+                label: field.label || field.data_key,
+                data_key: field.data_key,
+                required: field.required,
+                description: field.description,
+                placeholder: "Not set",  //field.placeholder,
+
+                component: component,
+                component_type: component_type,
+                options: options,
+                bind_color: bind_color,
+                step: step,
+              });
+
+            }
+            return fields;
+          },
+          payload() {
+            return this.form;
+          }
+      },
+      methods: {
+        loadRecipeDefinition(force_reload, on_success, on_error) {
+            console.log("loadRecipeDefinition");
+            // https://api.farm.openzim.org/v1/offliners/zimit
+            if (!force_reload && this.$store.getters.offliner_def.length){
+                console.debug("already preset");
+                if (on_success) { on_success(); }
+                return;
+            }
+
+            let parent = this;
+            console.debug("fetching definition…");
+            parent.toggleLoader("fetching definition…");
+            parent.queryAPI('get', Constants.zimfarm_webapi + '/offliners/zimit')
+              .then(function (response) {
+                  // parent.error = null;
+                  console.log("received response");
+                  console.debug(response.data);
+                  let definition = response.data.filter(field => Constants.zimit_fields.indexOf(field.key) > -1);
+                  parent.$store.dispatch('setOfflinerDef', definition);
+
+                  if (on_success) { on_success(); }
+              })
+              .catch(function (error) {
+                if (on_error) { on_error(Constants.standardHTTPError(error.response)); }
+              })
+              .then(function () {
+                  parent.toggleLoader(false);
+              });
+        },
+        requestZim() {
+            console.log("requestZim");
+            console.debug(this.payload);
+
+            // generate uuid for our schedule
+            var schedule_name = uuidv4();
+
+            // create a schedule payload
+            var schedule = {
+                name: schedule_name,
+                language: "eng",
+                category: "other",
+                periodicity: "manual",
+                tags: [],
+                enabled: true,
+                config: this.payload
+            }
+
+            // POST to zimfarm to create schedule
+            console.log("POST", "/schedules", schedule);
+
+            // create requested-tasks payload with schedule id
+            var request_payload = {schedule_names: [schedule_name]};
+
+            // POST to zimfarm to request
+            console.log("POST", "/requested-tasks", request_payload);
+            // result in {requested: [uuid]}
+
+            // DELETE to zimfarm to delete
+            console.log("DELETE", "/schedules/" + schedule_name);
+        },
+      },
+      mounted() {
+        console.log("mounted!!");
+        this.loadRecipeDefinition(false);
+    },
+    }
+</script>
