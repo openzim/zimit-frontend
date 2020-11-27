@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 
+import Request from './components/Request.vue'
 import NotFound from './components/NotFound.vue'
 import NewRequest from './components/NewRequest.vue'
 
@@ -10,12 +11,13 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    redirect: {name: 'new'},
+    component: NewRequest,
   },
   {
-    path: '/new',
-    name: 'new',
-    component: NewRequest,
+    path: '/requests/:task_id',
+    name: 'request',
+    component: Request,
+    props: true,
   },
   {
     path: '*',

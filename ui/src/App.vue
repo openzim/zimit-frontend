@@ -1,10 +1,8 @@
 <template>
   <div id="app">
     <NavBar />
-    <div class="container">
       <AlertFeedback />
       <router-view />
-    </div>
     <footer>
       Powered By <a href="https://kiwix.org">Kiwix</a> 
       <router-link class="btn btn-light btn-sm ml-1 mt-1 mb-1" :to="{ name: 'support-us' }">

@@ -1,12 +1,15 @@
-// import moment from 'moment'
-// import filesize from 'filesize'
+import moment from 'moment'
+import humanizeDuration from 'humanize-duration';
+import filesize from 'filesize'
+
 
 export default {
   isProduction() {
     return this.zimfarm_webapi.indexOf("https://") == 0;
   },
-  zimfarm_webapi: window.environ.ZIMFARM_WEBAPI || process.env.ZIMFARM_WEBAPI || "https://api.farm.openzim.org/v1",
-  zimfarm_logs_url: window.environ.ZIMFARM_LOGS_URL || process.env.ZIMFARM_LOGS_URL || "https://logs.warehouse.farm.openzim.org",
+  zimfarm_webapi: window.environ.ZIMFARM_WEBAPI || "https://api.farm.openzim.org/v1",
+  zimitui_api: window.environ.ZIMIT_API_URL || "/api/v1",
+  zimfarm_logs_url: window.environ.ZIMFARM_LOGS_URL || "https://logs.warehouse.farm.openzim.org",
   ALERT_DEFAULT_DURATION: 5,
   ALERT_LONG_DURATION: 10,
   ALERT_PERMANENT_DURATION: true,
@@ -111,5 +114,47 @@ export default {
         status_text += "<br />" + JSON.stringify(response.data.message);
     }
     return response.status + ": " + status_text + ".";
+  },
+  format_dt(value) { // display a datetime in a standard format
+    if (!value)
+      return '';
+    let mom = moment(value);
+    return mom.isValid() ? mom.format("LLL") : value;
+  },
+  format_duration(diff) { // display a duration in a standard format
+    return moment.duration(diff).locale("en").humanize();
+  },
+  format_duration_between(start, end) { // display a duration between two datetimes
+    let diff = moment(end).diff(start);
+     const humanize_duration = humanizeDuration.humanizer({
+        language: "shortEn",
+        languages: {
+          shortEn: {
+            y: () => "y",
+            mo: () => "mo",
+            w: () => "w",
+            d: () => "d",
+            h: () => "h",
+            m: () => "m",
+            s: () => "s",
+            ms: () => "ms",
+          },
+        }, largest: 2, round: true , delimiter: " ", spacer: ""});
+        return humanize_duration(diff);
+  },
+  from_now(value) {
+    let mom = moment(value);
+    return mom.isValid() ? mom.fromNow() : value;
+  },
+  image_human(config) {
+    return config.image.name + ":" + config.image.tag;
+  },
+  now() {
+   return moment();
+  },
+  filesize(value) {
+    if (!value)
+      return '';
+    return filesize(value);
   },
 };

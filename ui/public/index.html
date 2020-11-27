@@ -6,7 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <script type="application/javascript" src="<%= BASE_URL %>environ.js"></script>
+    <script type="application/javascript">
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", "<%= BASE_URL %>environ.json", false);
+      if (xhr.overrideMimeType)
+        xhr.overrideMimeType("application/json");
+      xhr.send();
+      try {
+        if (xhr.status != 200 || xhr.readyState != 4)
+          throw "Connection Error";
+        window.environ = JSON.parse(xhr.responseText);
+      } catch (exc) { console.error("Failed to load file ", xhr.responseURL, exc); }
+    </script>
   </head>
   <body>
     <noscript>
