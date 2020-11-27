@@ -27,7 +27,7 @@ WORKDIR /app/
 ENV MONGODB_URI mongodb://localhost
 ENV MAIN_PREFIX /api
 ENV ZIMIT_API_URL /api/v1
-ENV ZIMFARM_WEBAPI https://farm.youzim.it/v1
+ENV ZIMFARM_WEBAPI https://api.farm.youzim.it/v1
 ENV _ZIMFARM_USERNAME -
 ENV _ZIMFARM_PASSWORD -
 

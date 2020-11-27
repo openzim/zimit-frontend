@@ -6,7 +6,9 @@ import logging
 from flask import Flask, jsonify, redirect
 from flask_cors import CORS
 
+from routes import errors
 from routes import MAIN_PREFIX, API_PREFIX
+from routes.requests import Blueprint as RequestBlueprint
 from settings import ZIMFARM_API_URL
 from utils import ZimitEncoder
 from zimfarm import test_connection
@@ -38,8 +40,8 @@ def test():
     return jsonify({"zimfarm_api": ZIMFARM_API_URL, "connected": test_connection()})
 
 
-# application.register_blueprint(auth.Blueprint())
-# errors.register_handlers(application)
+application.register_blueprint(RequestBlueprint())
+errors.register_handlers(application)
 
 if __name__ == "__main__":
     # Initializer.create_initial_user()
