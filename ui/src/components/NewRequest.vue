@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="container">
     <h1>Want an offline version of a website? Just <strong>Zim it</strong>!</h1>
     <b-form @submit.prevent="requestZim" v-if="editorReady">
         <b-form-group
@@ -42,10 +42,10 @@
                <SwitchButton
                     v-if="field.component == 'switchbutton'"
                     :name="'es_flags_' + field.data_key"
-                    v-model="form[field.data_key]">{{ form[field.data_key]|yes_no("Enabled", "Not set") }}
+                    v-model="flags[field.data_key]">{{ flags[field.data_key]|yes_no("Enabled", "Not set") }}
                 </SwitchButton>
               <multiselect v-if="field.component == 'multiselect'"
-                v-model="form[field.data_key]"
+                v-model="flags[field.data_key]"
                 :options="field.options"
                 :multiple="true"
                 :clear-on-select="true"
@@ -59,8 +59,8 @@
                 :name="'es_flags_' + field.data_key"
                 :required="field.required"
                 :placeholder="field.placeholder"
-                v-model="form[field.data_key]"
-                :style="{backgroundColor: field.bind_color ? form[field.data_key]: ''}"
+                v-model="flags[field.data_key]"
+                :style="{backgroundColor: field.bind_color ? flags[field.data_key]: ''}"
                 size="sm"
                 :step="field.step"
                 :type="field.component_type">
@@ -88,8 +88,6 @@
     import Mixins from '../components/mixins.js'
     import SwitchButton from '../components/SwitchButton.vue'
 
-    import { v4 as uuidv4 } from 'uuid';
-
     export default {
       name: 'NewRequest',
       mixins: [Mixins],
@@ -97,14 +95,12 @@
       data() {
         return {
             form: {},
+            flags: {},
             showAdvanced: false,
         };
       },
       computed: {
         editorReady() {
-            console.log("offliner_def", this.offliner_def);
-            console.log("store offliner_def", this.$store.getters.offliner_def);
-            console.log("form", this.form);
             return this.form && this.offliner_def !== null; },
         form_fields() {
             let fields = [];
@@ -181,15 +177,12 @@
             return fields;
           },
           payload() {
-            return this.form;
+            return {url: this.form.url, email:this.form.email, flags: this.flags};
           }
       },
       methods: {
         loadRecipeDefinition(force_reload, on_success, on_error) {
-            console.log("loadRecipeDefinition");
-            // https://api.farm.openzim.org/v1/offliners/zimit
             if (!force_reload && this.$store.getters.offliner_def.length){
-                console.debug("already preset");
                 if (on_success) { on_success(); }
                 return;
             }
@@ -199,9 +192,6 @@
             parent.toggleLoader("fetching definition…");
             parent.queryAPI('get', Constants.zimfarm_webapi + '/offliners/zimit')
               .then(function (response) {
-                  // parent.error = null;
-                  console.log("received response");
-                  console.debug(response.data);
                   let definition = response.data.filter(field => Constants.zimit_fields.indexOf(field.key) > -1);
                   parent.$store.dispatch('setOfflinerDef', definition);
 
@@ -218,36 +208,28 @@
             console.log("requestZim");
             console.debug(this.payload);
 
-            // generate uuid for our schedule
-            var schedule_name = uuidv4();
-
-            // create a schedule payload
-            var schedule = {
-                name: schedule_name,
-                language: "eng",
-                category: "other",
-                periodicity: "manual",
-                tags: [],
-                enabled: true,
-                config: this.payload
-            }
-
-            // POST to zimfarm to create schedule
-            console.log("POST", "/schedules", schedule);
-
-            // create requested-tasks payload with schedule id
-            var request_payload = {schedule_names: [schedule_name]};
-
-            // POST to zimfarm to request
-            console.log("POST", "/requested-tasks", request_payload);
-            // result in {requested: [uuid]}
-
-            // DELETE to zimfarm to delete
-            console.log("DELETE", "/schedules/" + schedule_name);
+            let parent = this;
+            let task_id = null;
+            parent.toggleLoader("Creating schedule…");
+            parent.queryAPI('post', Constants.zimitui_api + '/requests/', this.payload)
+              .then(function (response) {
+                console.log(response);
+                if (response.data && response.data.id) {
+                  task_id = response.data.id;
+                  parent.alertSuccess("ZIM requested: " + task_id);
+                  parent.redirectTo('request', {task_id: task_id});
+                } else
+                  throw "Didn't receive task_id";
+              })
+              .catch(function (error) {
+                parent.alertError("Unable to create schedule:\n" + Constants.standardHTTPError(error.response));
+              })
+              .then(function () {
+                parent.toggleLoader(false);
+              });
         },
       },
       mounted() {
-        console.log("mounted!!");
         this.loadRecipeDefinition(false);
     },
     }

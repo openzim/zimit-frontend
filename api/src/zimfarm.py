@@ -125,7 +125,10 @@ def query_api(method, path, payload=None, params=None):
     if req.status_code == 401:
         authenticate(True)
 
-    return (False, req.status_code, resp["error"] if "error" in resp else str(resp))
+    reason = resp["error"] if "error" in resp else str(resp)
+    if "error_description" in resp:
+        reason = f"{reason}: {resp['error_description']}"
+    return (False, req.status_code, reason)
 
 
 @auth_required
