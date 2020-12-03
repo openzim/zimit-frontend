@@ -7,9 +7,10 @@ export default {
   isProduction() {
     return this.zimfarm_webapi.indexOf("https://") == 0;
   },
-  zimfarm_webapi: window.environ.ZIMFARM_WEBAPI || "https://api.farm.openzim.org/v1",
+  zimfarm_webapi: window.environ.ZIMFARM_WEBAPI || "https://api.farm.youzim.it/v1",
   zimitui_api: window.environ.ZIMIT_API_URL || "/api/v1",
-  zimfarm_logs_url: window.environ.ZIMFARM_LOGS_URL || "https://logs.warehouse.farm.openzim.org",
+  zimfarm_logs_url: window.environ.ZIMFARM_LOGS_URL || "https://s3.us-west-1.wasabisys.com/org-kiwix-zimit/logs",
+  zimfarm_download_url:  window.environ.ZIMFARM_DOWNLOAD_URL || "https://s3.us-west-1.wasabisys.com/org-kiwix-zimit/zim",
   ALERT_DEFAULT_DURATION: 5,
   ALERT_LONG_DURATION: 10,
   ALERT_PERMANENT_DURATION: true,
