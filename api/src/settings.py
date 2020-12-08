@@ -3,6 +3,7 @@
 # vim: ai ts=4 sts=4 et sw=4 nu
 
 import os
+import uuid
 import logging
 
 import humanfriendly
@@ -40,3 +41,18 @@ except Exception as exc:
         f"Using {DEFAULT_DISK}. Error: {exc}"
     )
     TASK_DISK = humanfriendly.parse_size(DEFAULT_DISK)
+
+# mailgun
+MAILGUN_FROM = os.getenv("MAILGUN_FROM", "Youzim.it <info@youzim.it>")
+MAILGUN_API_KEY = os.getenv("MAILGUN_API_KEY", "")
+MAILGUN_API_URL = os.getenv(
+    "MAILGUN_API_URL", "https://api.mailgun.net/v3/mg.youzim.it"
+)
+# notifications callback
+PUBLIC_URL = os.getenv("PUBLIC_URL", "https://youzim.it")
+PUBLIC_API_URL = os.getenv("PUBLIC_API_URL", "https://youzim.it/api/v1")
+ZIM_DOWNLOAD_URL = os.getenv(
+    "ZIM_DOWNLOAD_URL", "https://s3.us-west-1.wasabisys.com/org-kiwix-zimit/zim"
+)
+CALLBACK_BASE_URL = os.getenv("CALLBACK_BASE_URL", f"{PUBLIC_API_URL}/requests/hook")
+HOOK_TOKEN = os.getenv("HOOK_TOKEN", uuid.uuid4().hex)

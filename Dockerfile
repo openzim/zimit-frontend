@@ -31,6 +31,14 @@ ENV ZIMFARM_WEBAPI https://api.farm.youzim.it/v1
 ENV _ZIMFARM_USERNAME -
 ENV _ZIMFARM_PASSWORD -
 
+# notifications
+ENV MAILGUN_API_URL https://api.mailgun.net/v3/mg.youzim.it
+ENV MAILGUN_FROM Youzim.it <info@youzim.it>
+# ENV MAILGUN_API_KEY -
+ENV PUBLIC_URL https://youzim.it
+ENV PUBLIC_API_URL https://youzim.it/api/v1
+# ENV HOOK_TOKEN somestring
+
 # prestart script (former entrypoint - database init)
 COPY api/prestart.sh /app/prestart.sh
 RUN chmod +x /app/prestart.sh
