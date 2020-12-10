@@ -15,6 +15,7 @@ from settings import (
     TASK_CPU,
     TASK_MEMORY,
     TASK_DISK,
+    ZIMIT_LIMIT,
     CALLBACK_BASE_URL,
     HOOK_TOKEN,
 )
@@ -51,6 +52,11 @@ class RequestsRoute(BaseRoute):
         # build zimit config
         if not document["flags"].get("name"):
             document["flags"]["name"] = f"{url.hostname}_en_all"
+
+        # make sure we cap requests to ZIMIT_LIMIT at most
+        document["flags"]["limit"] = min(
+            [ZIMIT_LIMIT, document["flags"].get("limit", ZIMIT_LIMIT)]
+        )
 
         config = {
             "task_name": "zimit",
@@ -135,9 +141,6 @@ class RequestRoute(BaseRoute):
         success, status, task = query_api("GET", f"/tasks/{request_id}")
         if status == 404:
             success, status, task = query_api("GET", f"/requested-tasks/{request_id}")
-
-        # do something with returned data?
-        task["progress"] = {"overall": 54}
 
         return jsonify(task)
 

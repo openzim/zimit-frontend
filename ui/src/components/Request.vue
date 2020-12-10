@@ -5,11 +5,11 @@
     <div v-if="!error && task">
         <b-progress>
             <b-progress-bar
-            :value="task.progress.overall"
+            :value="progression"
             :variant="progress_variant"
             striped
-            :animated="ongoing && task.progress.overall > 0 && task.progress.overall < 100">
-            {{task.progress.overall.toFixed(0)}}&nbsp;%
+            :animated="ongoing">
+            {{progression.toFixed(0)}}&nbsp;%
             </b-progress-bar>
         </b-progress>
 
@@ -136,6 +136,10 @@
           // succeeded() { return this.task.status == "succeeded" ; },
           succeeded() { return this.task.status == "succeeded" || this.task.status == "scraper_completed" ; }, // awaiting success upload to S3
           failed() { return ["canceled", "cancel_requested", "failed", "scraper_killed"].indexOf(this.task.status) != -1; },
+          progression() {
+            if (this.ended)
+              return 100;
+            return (this.task.container && this.task.container.progress && this.task.container.progress.overall) ? this.task.container.progress.overall : 0; },
           progress_variant() {
             if (this.succeeded === true)
                 return "success";

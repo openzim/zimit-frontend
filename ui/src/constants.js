@@ -14,7 +14,7 @@ export default {
   ALERT_DEFAULT_DURATION: 5,
   ALERT_LONG_DURATION: 10,
   ALERT_PERMANENT_DURATION: true,
-  zimit_fields: ["lang", "title", "description", "favicon", "zim_file",
+  zimit_fields: ["lang", "title", "description", "favicon", "zim_file", "limit",
                  "tags", "creator", "source", "include_domains", "exclude",
                  "wait_until", "scope", "scroll", "page", "use_sitemap", "mobile_device"],
   contact_email: "contact+zimit@kiwix.org",
