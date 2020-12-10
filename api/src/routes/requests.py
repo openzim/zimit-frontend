@@ -55,7 +55,7 @@ class RequestsRoute(BaseRoute):
 
         # make sure we cap requests to ZIMIT_LIMIT at most
         document["flags"]["limit"] = min(
-            [ZIMIT_LIMIT, document["flags"].get("limit", ZIMIT_LIMIT)]
+            [ZIMIT_LIMIT, int(document["flags"].get("limit", ZIMIT_LIMIT))]
         )
 
         config = {
