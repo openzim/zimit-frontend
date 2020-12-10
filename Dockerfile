@@ -28,8 +28,12 @@ ENV MONGODB_URI mongodb://localhost
 ENV MAIN_PREFIX /api
 ENV ZIMIT_API_URL /api/v1
 ENV ZIMFARM_WEBAPI https://api.farm.youzim.it/v1
+ENV INTERNAL_ZIMFARM_WEBAPI http://dispatcher.backend.zimit.kiwixoffline.node.intern/v1
 ENV _ZIMFARM_USERNAME -
 ENV _ZIMFARM_PASSWORD -
+
+# max --limit for recipes
+# ENV ZIMIT_LIMIT 100
 
 # notifications
 ENV MAILGUN_API_URL https://api.mailgun.net/v3/mg.youzim.it
