@@ -32,7 +32,7 @@
             <b-alert fade show variant="success">
                 <h2>Your request succeeded!</h2>
                 <p>Please find the link to your ZIM file bellow. Note that this link will expire and the file deleted after a week.</p>
-                <a href=""><b-button variant="primary">Download {{ file.name}} ({{ file.size | filesize }})</b-button></a>
+                <a :href="zim_download_url + task.config.warehouse_path + '/' + file.name"><b-button variant="primary">Download {{ file.name}} ({{ file.size | filesize }})</b-button></a>
             </b-alert>
         </div>
 
@@ -55,7 +55,7 @@
                   <table class="table table-responsive-md table-striped table-sm">
                     <thead><tr><th>Filename</th><th>Size</th><th>Created After</th><th>Upload Duration</th></tr></thead>
                     <tr v-for="file in sorted_files" :key="file.name">
-                      <td><a target="_blank" :href="zimfarm_download_url + task.config.warehouse_path + '/' + file.name">{{ file.name}}</a></td>
+                      <td><a target="_blank" :href="zim_download_url + task.config.warehouse_path + '/' + file.name">{{ file.name}}</a></td>
                       <td>{{ file.size | filesize }}</td>
                       <td title="file.created_timestamp | format_dt">{{ file | created_after(task) }}</td>
                       <td title="file.uploaded_timestamp | format_dt" v-if="file.status == 'uploaded'">{{ file | upload_duration }}</td>
@@ -176,7 +176,7 @@
           },
           started_on() { return this.task.timestamp.started || this.task.timestamp.reserved; },
           pipe_duration() { return Constants.format_duration_between(this.task.timestamp.requested, this.task.timestamp.started); },
-          zimfarm_download_url() { return Constants.zimfarm_download_url; },
+          zim_download_url() { return Constants.zim_download_url; },
           command() { return this.task_container.command.join(" "); },
           image_human() { return Constants.image_human(this.task.config); },
         },
