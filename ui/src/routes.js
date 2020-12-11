@@ -4,6 +4,7 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 import Request from './components/Request.vue'
+import Faq from './components/Faq.vue'
 import NotFound from './components/NotFound.vue'
 import NewRequest from './components/NewRequest.vue'
 
@@ -14,10 +15,16 @@ const routes = [
     component: NewRequest,
   },
   {
-    path: '/requests/:task_id',
+    path: '/faq',
+    name: 'faq',
+    component: Faq,
+  },
+  {
+    path: '/:task_id([a-z0-9]{24})',
     name: 'request',
     component: Request,
     props: true,
+
   },
   {
     path: '*',
