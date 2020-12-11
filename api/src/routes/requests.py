@@ -135,14 +135,14 @@ class RequestsRoute(BaseRoute):
 class RequestRoute(BaseRoute):
     rule = "/<string:request_id>"
     name = "request"
-    methods = ["GET", "POST", "PATCH"]
+    methods = ["GET"]
 
     def get(self, request_id: str):
         success, status, task = query_api("GET", f"/tasks/{request_id}")
         if status == 404:
             success, status, task = query_api("GET", f"/requested-tasks/{request_id}")
 
-        return jsonify(task)
+        return jsonify(task), status
 
 
 class RequestsHookRoute(BaseRoute):

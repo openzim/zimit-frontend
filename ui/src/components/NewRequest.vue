@@ -2,36 +2,36 @@
   <div class="container">
     <h1>Want an offline version of a website? Just <strong>Zim it</strong>!</h1>
     <b-form @submit.prevent="requestZim" v-if="editorReady">
-        <b-form-group
-            label="URL:"
-            label-for="new_url"
-            description="URL of the website to convert"
-            >
+        <b-form-group>
             <b-form-input
                 type="url"
                 id="new_url"
-                placeholder="https://perdu.com"
+                placeholder="Full URL of the website to convert"
                 required="required"
                 v-model="form.url" />
         </b-form-group>
 
-        <b-form-group
-            label="Email:"
-            label-for="new_email"
-            description="Your e-mail to receive completion notification"
-            >
+        <b-form-group>
             <b-form-input
                 type="email"
                 id="new_email"
-                placeholder="me@provider.com"
+                placeholder="Your e-mail to receive a download link. Address not stored*"
                 v-model="form.email" />
         </b-form-group>
 
-        <p><b-button
+
+        <b-form-group>
+          <b-button
+            type="submit"
+            :disabled="!editorReady || !payload.url"
+            variant="primary">
+            Let's Zim it!</b-button> 
+          <b-button
             pill
             size="sm"
             :pressed.sync="showAdvanced"
-            variant="outline-secondary">toggle advanced options</b-button></p>
+            variant="link">advanced options</b-button>
+        </b-form-group>
 
         <div v-if="showAdvanced">
             <table class="table table-striped table-hover table-sm table-responsive-md">
@@ -71,13 +71,16 @@
             </tr>
             </tbody>
             </table>
-        </div>
 
-        <b-button
-            type="submit"
-            :disabled="!editorReady || !payload.url"
-            variant="primary">
-            Request Zim</b-button>
+            <b-form-group>
+              <b-button
+                type="submit"
+                :disabled="!editorReady || !payload.url"
+                variant="primary">
+                Let's Zim it!</b-button>
+            </b-form-group>
+
+        </div>
 
     </b-form>
   </div>
@@ -234,3 +237,21 @@
     },
     }
 </script>
+
+<style type="text/css" scoped>
+  .container h1 {
+    text-align: center;
+  }
+  form {
+    max-width: 700px;
+    margin: auto;
+    /*text-align: center;*/
+  }
+
+  form fieldset, form fieldset {
+    /*background-color: red !important;*/
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
