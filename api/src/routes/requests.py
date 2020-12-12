@@ -49,9 +49,21 @@ class RequestsRoute(BaseRoute):
         except ValidationError as e:
             raise InvalidRequestJSON(e.messages)
 
+        ident = uuid.uuid4().hex
+
         # build zimit config
-        if not document["flags"].get("name"):
-            document["flags"]["name"] = f"{url.hostname}_en_all"
+        document["flags"]["name"] = document["flags"].get(
+            "name", f"{url.hostname}_{ident}"
+        )
+
+        document["flags"]["zim-file"] = (
+            document["flags"].get("zim-file", url.hostname) + f"_{ident}"
+        )
+
+        # remove flags we don't want to overwrite
+        for flag in ("adminEmail", "output", "statsFilename"):
+            if flag in document["flags"]:
+                del document["flags"][flag]
 
         # make sure we cap requests to ZIMIT_LIMIT at most
         document["flags"]["limit"] = min(
@@ -77,7 +89,7 @@ class RequestsRoute(BaseRoute):
         }
 
         # gen schedule name
-        schedule_name = f"{url.hostname}_{uuid.uuid4().hex}"
+        schedule_name = f"{url.hostname}_{ident}"
         # create schedule payload
         payload = {
             "name": schedule_name,
