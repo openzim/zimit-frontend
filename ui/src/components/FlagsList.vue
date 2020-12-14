@@ -2,7 +2,7 @@
   <table class="table table-sm table-striped" :class="{'table-responsive': shrink}">
     <tbody>
       <tr v-for="(value, name) in flags" :key="name">
-        <td><code>{{ name }}</code></td>
+        <td>{{ name }}</td>
         <td v-if="is_protected_key(name)" v-tooltip="'Actual content hidden'">{{ secret_replacement }}</td>
         <td v-else>{{ value }}</td>
       </tr>

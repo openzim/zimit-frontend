@@ -16,38 +16,38 @@
 
         <div v-if="is_requested">
             <b-alert fade show variant="warning">
-                <h2>Request pending slot</h2>
+                <h2>Requesting slot</h2>
                 <p>Your request has been recorded and is awaiting a slot on our infrastructure to run.</p>
             </b-alert>
         </div>
 
         <div v-if="failed">
             <b-alert fade show variant="danger">
-                <h2>Your request failed!</h2>
-                <p>We're sorry about that but a number of reasons can lead to a ziming failure.</p>
-                <p>Most of the time, it's an inadequate URL… Please triple check it and create a new request! If that doesn't work, just contact us.</p>
+                <h2>You request has failed! We are sorry about that.</h2>
+                <p>A number of reasons can lead to a ziming failure. Most of the time, it's an inadequate URL… Please triple check it and create a new request. If that doesn't work, <a href="https://github.com/openzim/zimit/issues/new">open a ticket in github</a>.</p>
             </b-alert>
         </div>
 
         <div v-if="succeeded">
             <b-alert fade show variant="success">
-                <h2>Your request succeeded!</h2>
-                <p>Please find the link to your ZIM file bellow. Note that this link <strong>will expire</strong> and the file <strong>will be deleted</strong> <u>after a week</u>.</p>
-                <a :href="zim_download_url + task.config.warehouse_path + '/' + file.name"><b-button variant="primary">Download</b-button></a>
+                <h2>Success!</h2>
+                <p>The link below will expire and the file will be deleted after a week.</p>
+                <a :href="zim_download_url + task.config.warehouse_path + '/' + file.name"><b-button pill variant="grey">Download</b-button></a>
             </b-alert>
         </div>
 
         <div v-if="ongoing && !is_requested">
             <b-alert fade show variant="info">
                 <h2>Your request is being processed</h2>
-                <p>One of our servers is currently converting that URL into a nice ZIM file. Depending on the number of pages and resources to scrape, it can be a matter of minutes, hours or even days!</p>
-                <p>Check the progress bar above with caution as the number of resources to fetch (and thus the total amount of work) evolve over time.</p>
+                <p>One of our servers is currently converting that URL into a nice ZIM file. Depending on the number of pages and resources available, it can be a matter of minutes, hours or even days! Please be patient.</p>
+                <p
+                  v-if="task.notification && task.notification.ended && task.notification.ended.mailgun"
+                  >You can close this window. You will get an email notification when the task is completed.</p>
             </b-alert>
         </div>
-
-        <div class="tab-contents">
-          <h3>Settings</h3>
-          <FlagsList :flags="task.config.flags" :shrink="false" />
+        <div v-if="!Object.isEmpty(flags)">
+          <h2>Settings</h2>
+          <FlagsList :flags="flags" :shrink="false" />
         </div>
     </div>
     <ErrorMessage v-bind:message="error" v-if="error" />
@@ -103,16 +103,20 @@
             return "in-progress";
           },
           sorted_files() { return Object.values(this.task.files).sortBy('created_timestamp'); },
-          file() { return Object.values(this.sorted_files.files)[0] || {}; },
+          file() { return Object.values(this.sorted_files)[0] || {}; },
           zim_download_url() { return Constants.zim_download_url; },
-        },
-        filters: {
-          created_after(value, task) {
-            return Constants.format_duration_between(task.timestamp.scraper_started, value.created_timestamp);
+          flags() {
+            if (!this.task || !this.task.config.flags)
+              return {};
+            var parent = this;
+            return Object.filter(parent.task.config.flags, function(val, key) {
+              if (Constants.hidden_flags.indexOf(key) != -1)
+                return false;
+              if (key == "limit" && Object.has(parent.task.config.flags, 'limit') && parent.task.config.flags.limit >= Constants.zimit_limit)
+                return false;
+              return true;
+            });
           },
-          upload_duration(value) {
-            return Constants.format_duration_between(value.created_timestamp, value.uploaded_timestamp);
-          }
         },
         methods: {
             loadTask() {
@@ -129,7 +133,7 @@
                   .catch(function (error) {
                     console.error(error);
                     if (error.response && error.response.status && error.response.status == 404) {
-                      parent.alertError("Task Not Found with this ID. Please make sure to follow a legit link.");
+                      parent.alertError("No task found with this ID. It probably has expired.");
                     }
                     else
                       parent.alertError("Unable to retrieve task:\n" + Constants.standardHTTPError(error.response));
@@ -146,41 +150,9 @@
 </script>
 
 <style type="text/css" scoped>
-  .stdout, .stderr {
-    max-height: 9rem;
-    overflow: scroll;
-  }
-
   table td { padding: .5rem; }
   table th { white-space: nowrap; }
   table caption { caption-side: top; }
-
-  /* Tabs in schedule/task
-
-  first row of table inside a tab should not have a top border
-  as the tab has a border right above
-  */
-  .table-in-tab tr:first-of-type td, .table-in-tab tr:first-of-type th {
-      border-top: 0;
-  }
-
-  .tab-content {
-      background-color: white;
-      /*padding: .5rem;*/
-      border: 1px solid #dee2e6;
-      /*border-top: 0;*/
-      border-radius: .25rem;
-      overflow-x: scroll;
-  }
-  .command { word-wrap: anywhere; }
-
-  /* hide pipeline's content while loading/changing */
-  table.loading tbody tr td,
-  table.loading tbody tr th,
-  table.loading tbody tr a,
-  table.loading tbody tr code,
-  table.loading tbody tr span { color: transparent; }
-  table.loading tbody tr span { background-color: transparent; }
 
   .progress {
     height: 1.5rem;
@@ -194,5 +166,13 @@
   .visible-text {
     overflow: visible;
     color: rgb(102, 102, 102);
+  }
+
+  .alert {
+    margin-bottom: 2em;
+  }
+
+  code {
+    color: rgb(30, 30, 30);
   }
 </style>

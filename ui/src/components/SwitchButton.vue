@@ -21,7 +21,7 @@
       color: {
         type: String,
         required: false,
-        default: "#007bff"
+        default: "#231F20"
       }
     },
     methods: {

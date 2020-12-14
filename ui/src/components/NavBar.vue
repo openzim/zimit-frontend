@@ -1,14 +1,7 @@
 <template>
     <header>
-      <router-link :to="{ name: 'home' }"><img alt="Youzim.it logo" src="../assets/Youzimit-logo.png"></router-link>
+      <router-link :to="{ name: 'home' }"><img alt="Youzim.it logo" src="../assets/ZIMIT_LOGO_RGB.svg"></router-link>
       <Loading/>
-      <router-link :to="{ name: 'faq' }">
-        <b-icon
-          icon="info-circle"
-          variant="primary"
-          font-scale="2.5"
-          v-b-tooltip.hover
-          title="FAQ"></b-icon></router-link>
     </header>
 </template>
 
@@ -28,8 +21,4 @@
     padding-bottom: 2em;
   }
   header img { max-width: 80%; width: 400px; }
-  header .b-icon {
-    position: absolute;
-    right: 5%;
-  }
 </style>

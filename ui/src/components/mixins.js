@@ -1,5 +1,4 @@
 
-// import moment from 'moment';
 import axios from 'axios';
 import Constants from '../constants.js'
 
@@ -12,9 +11,6 @@ export default {
     offliner_def() { return this.$store.getters.offliner_def; }, // offliner def for requests
   },
   methods: {
-    scrollToTop() { window.scrollTo(0,0); },
-    // format_dt(dt) { return Constants.format_dt(dt); },
-    // from_now(dt) { return Constants.from_now(dt); },
     toggleLoader(text) { // shortcut to store's loader status changer
       let payload = text ? {status: true, text: text} : {status: false};
       this.$store.dispatch('setLoading', payload);
@@ -25,33 +21,6 @@ export default {
         route_entry.params = params;
       this.$router.push(route_entry);
     },
-
-    confirmAction(action, onConfirm, onRefuse, onError) {
-      let options = {
-        title: "Please Confirm",
-        size: "sm",
-        buttonSize: 'sm',
-        okVariant: 'danger',
-        okTitle: 'YES',
-        cancelTitle: 'NO',
-        centered: true
-      };
-      this.$bvModal.msgBoxConfirm("Do you want to " + action + "?", options)
-        .then(value => {
-          if (value === true && onConfirm) {
-            onConfirm();
-          }
-          if (value === false && onRefuse){
-            onRefuse();
-          }
-        })
-        .catch(err => {
-          if (onError){
-            onError(err);
-          }
-        });
-    },
-
     alert(level, title, text, duration) {
       let message = "<strong>" + title + "</strong>";
       if (text)

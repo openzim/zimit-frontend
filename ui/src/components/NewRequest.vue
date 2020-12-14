@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <h1>Want an offline version of a website? Just <strong>Zim it</strong>!</h1>
+
     <b-form @submit.prevent="requestZim" v-if="editorReady">
         <b-form-group>
             <b-form-input
@@ -15,22 +16,23 @@
             <b-form-input
                 type="email"
                 id="new_email"
-                placeholder="Your e-mail to receive a download link. Address not stored*"
+                placeholder="Your e-mail to receive a download link. Address not kept"
                 v-model="form.email" />
         </b-form-group>
 
 
         <b-form-group>
           <b-button
+            pill
             type="submit"
             :disabled="!editorReady || !payload.url"
-            variant="primary">
-            Let's Zim it!</b-button> 
+            variant="grey">
+            Let's Zim it!</b-button>
           <b-button
             pill
             size="sm"
             :pressed.sync="showAdvanced"
-            variant="link">advanced options</b-button>
+            variant="link-grey">advanced options</b-button>
         </b-form-group>
 
         <div v-if="showAdvanced">
@@ -74,13 +76,17 @@
 
             <b-form-group>
               <b-button
+                pill
                 type="submit"
                 :disabled="!editorReady || !payload.url"
-                variant="primary">
+                variant="grey">
                 Let's Zim it!</b-button>
             </b-form-group>
 
         </div>
+
+        <Faq />
+
 
     </b-form>
   </div>
@@ -90,11 +96,12 @@
     import Constants from '../constants.js'
     import Mixins from '../components/mixins.js'
     import SwitchButton from '../components/SwitchButton.vue'
+    import Faq from '../components/Faq.vue'
 
     export default {
       name: 'NewRequest',
       mixins: [Mixins],
-      components: {SwitchButton},
+      components: {SwitchButton, Faq},
       data() {
         return {
             form: {},
@@ -219,7 +226,6 @@
                 console.log(response);
                 if (response.data && response.data.id) {
                   task_id = response.data.id;
-                  parent.alertSuccess("ZIM requested: " + task_id);
                   parent.redirectTo('request', {task_id: task_id});
                 } else
                   throw "Didn't receive task_id";
@@ -239,19 +245,24 @@
 </script>
 
 <style type="text/css" scoped>
-  .container h1 {
+  h1 {
     text-align: center;
   }
+
   form {
     max-width: 700px;
     margin: auto;
-    /*text-align: center;*/
   }
 
-  form fieldset, form fieldset {
-    /*background-color: red !important;*/
+  .form-group, h1 {
     max-width: 500px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 1.5em;
+  }
+
+  .faq {
+    margin-top: 5rem;
+    margin-bottom: 3rem;
   }
 </style>

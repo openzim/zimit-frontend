@@ -1,14 +1,40 @@
 <template>
-    <div class="container">
-      <h1>Frequently Asked Questions</h1>
-    </div>
+  <div class="faq" role="tablist">
+    <FaqEntry
+      id="what-is-zim"
+      title="What is a Zim file?">
+      The Zim file format stores website content for <a target="_blank" href="https://en.wikipedia.org/wiki/Offline">offline</a> usage. It assembles the normal constituent of a website into a single archive, and compresses it so as to make it easier to save, share, and store.
+    </FaqEntry>
+
+    <FaqEntry
+      id="how-to-read"
+      title="How do I read my Zim files?">
+      You will need a Zim file reader. This usually means <a target="_blank" href="https://kiwix.org/">Kiwix</a>, which is available on <a target="_blank" href="https://www.kiwix.org/en/download/">desktop computers, mobile devices, and more</a>. Currently only Kiwix-serve and Kiwix-Android can read all Zimit-generated files. If using Kiwix-Desktop, then you will need to configure it as a Kiwix-serve instance in the settings. We expect most platforms to be upgraded by the end of 2021.
+    </FaqEntry>
+
+    <FaqEntry
+      id="missing-content"
+      title="The Zim file is incomplete or smaller than the original website">
+      Because of the very nature of this tool, we can’t leave it open for unlimited requests towards any website. That could be harmful both for our infrastructure, but also for the target websites. We currently enforce a limit of at most {{ limit }} pages.
+    </FaqEntry>
+
+    <FaqEntry
+      id="got-error"
+      title="I got an error message (no zim) or could not read a zim file">
+      Triple-check the URL you entered, and if it is still not working then open a bug ticket on <a target="_blank" href="https://github.com/openzim/zimit/issues">github</a>. Indicate the target website, the request number (it’s in the email you received), and the device you tried to open your zim file on.
+    </FaqEntry>
+  </div>
 </template>
 
-<script>
+<script type="text/javascript">
+  import FaqEntry from './FaqEntry.vue'
+  import Constants from '../constants.js'
+
   export default {
     name: 'Faq',
+    components: {FaqEntry},
+    computed: {
+      limit() { return Constants.zimit_limit; },
+    }
   }
 </script>
-
-<style type="text/css" scoped="">
-</style>

@@ -8,38 +8,40 @@ body {
   color: rgb(102, 102, 102);
 }
 
-/* Navbar */
-.navbar {
-    background-color: #ff9933;
-    margin-bottom: 1rem;
+/*
+    green: #82ca2a;
+    green-b: #54821c;
+    grey: #231F20;
+    btn-grey: #303030;
+*/
+
+.btn-grey {
+    color: white;
+    background-color: #231F20;
+}
+.btn-grey:hover {
+    color: white;
+    background-color: #303030;
 }
 
-.branding .icon {
-    padding: 0.4rem;
-    background: rgba(255, 255, 255, 0.15);
-    margin-right: 0.5rem;
-    border-radius: 4px;
-    display: inline-flex;
-
-    width: 2.5rem;
-    height: 2.5rem;
-    position: absolute;
+.btn-link-grey {
+    color: #231F20;
 }
 
-.branding .icon img {
-    border-style: none;
-    vertical-align: middle;
-    width: 100%;
+a {
+  color: #82ca2a;
 }
 
-.branding label {
-    margin-left: 3rem;
-    margin-bottom: 0;
-    color: #fafafa;
-    font-size: 1.5rem;
-    font-weight: 400;
-    font-family: Metropolis,"Avenir Next","Helvetica Neue",Arial,sans-serif;
-    letter-spacing: .01em;
-    line-height: 2.5rem;
-    text-decoration: none;
+a:hover {
+  color: #54821c;
+}
+
+
+.btn-green {
+    color: white;
+    background-color: #82ca2a;
+}
+.btn-green:hover {
+    color: white;
+    background-color: #54821c;
 }
