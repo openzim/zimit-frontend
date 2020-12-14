@@ -71,13 +71,14 @@
             return {
                 error: null,
                 task: null,
+                interval: null,
             };
         },
         computed: {
           is_requested() { return this.task.status == "requested"; },
           ended() { return this.succeeded === true || this.failed === true; },
           ongoing() { return this.succeeded !== true && this.failed !== true; },
-          succeeded() { return this.task.status == "succeeded" || this.task.status == "scraper_completed" ; }, // awaiting success upload to S3
+          succeeded() { return this.task.status == "succeeded"; },
           failed() { return ["canceled", "cancel_requested", "failed", "scraper_killed"].indexOf(this.task.status) != -1; },
           progression() {
             if (this.ended)
@@ -124,9 +125,10 @@
                 parent.toggleLoader("Retrieving task…");
                 parent.queryAPI('get', Constants.zimitui_api + '/requests/' + this.task_id)
                   .then(function (response) {
-                    console.log(response);
                     if (response.data) {
                       parent.task = response.data;
+                      if (parent.ended && parent.interval)
+                        clearInterval(parent.interval);
                     } else
                       throw "Didn't receive task";
                   })
@@ -144,7 +146,9 @@
             },
         },
         mounted() {
-            this.loadTask(false);
+          // refresh this periodically
+          this.loadTask(false);
+          this.interval = setInterval(this.loadTask, Constants.zimit_refresh_after * 1000, false);
         },
     }
 </script>
