@@ -17,7 +17,7 @@ DEFAULT_MAX_LIMIT = 1000
 ZIMFARM_API_URL = os.getenv("INTERNAL_ZIMFARM_WEBAPI", "https://api.farm.youzim.it/v1")
 ZIMFARM_USERNAME = os.getenv("_ZIMFARM_USERNAME", "-")
 ZIMFARM_PASSWORD = os.getenv("_ZIMFARM_PASSWORD", "-")
-ZIMIT_IMAGE = os.getenv("ZIMIT_IMAGE", "openzim/zimit:1.0")
+ZIMIT_IMAGE = os.getenv("ZIMIT_IMAGE", "openzim/zimit:1.1")
 try:
     ZIMIT_LIMIT = int(os.getenv("ZIMIT_LIMIT", DEFAULT_MAX_LIMIT))
 except Exception as exc:
