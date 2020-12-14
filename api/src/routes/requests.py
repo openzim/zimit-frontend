@@ -3,10 +3,10 @@
 # vim: ai ts=4 sts=4 et sw=4 nu
 
 import http
-import uuid
 import logging
 import urllib.parse
 
+from bson import ObjectId
 from flask import request, jsonify, make_response
 from marshmallow import Schema, fields, ValidationError
 
@@ -49,7 +49,7 @@ class RequestsRoute(BaseRoute):
         except ValidationError as e:
             raise InvalidRequestJSON(e.messages)
 
-        ident = uuid.uuid4().hex
+        ident = str(ObjectId())[::-1][:8]
 
         # build zimit config
         document["flags"]["name"] = document["flags"].get(
