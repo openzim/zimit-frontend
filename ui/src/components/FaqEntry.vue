@@ -5,7 +5,7 @@
           <b-icon icon="plus" class="plus" font-scale="1.5"></b-icon>
           <b-icon icon="dash" class="minus" font-scale="1.5"></b-icon></b-button>
       </b-card-header>
-      <b-collapse :id="id" visible accordion="faq-accordion" role="tabpanel">
+      <b-collapse :id="id" accordion="faq-accordion" role="tabpanel">
         <b-card-body>
           <b-card-text><slot></slot></b-card-text>
         </b-card-body>
