@@ -9,7 +9,7 @@
     <FaqEntry
       id="how-to-read"
       title="How do I read my Zim files?">
-      You will need a Zim file reader. This usually means <a target="_blank" href="https://kiwix.org/">Kiwix</a>, which is available on <a target="_blank" href="https://www.kiwix.org/en/download/">desktop computers, mobile devices, and more</a>. Currently only Kiwix-serve and Kiwix-Android can read all Zimit-generated files. If using Kiwix-Desktop, then you will need to configure it as a Kiwix-serve instance in the settings. We expect most platforms to be upgraded by the end of 2021.
+      You will need a Zim file reader. This usually means <a target="_blank" href="https://kiwix.org/">Kiwix</a>, which is available on <a target="_blank" href="https://www.kiwix.org/en/download/">desktop computers, mobile devices, and more</a>. Currently only Kiwix-serve and Kiwix-Android can read all Zimit-generated files. If using Kiwix-Desktop for Microsoft Windows and GNU/Linux, then you will need to configure it as a Kiwix-serve instance in the settings. We expect most platforms to be upgraded by the end of 2021.
     </FaqEntry>
 
     <FaqEntry
