@@ -40,8 +40,7 @@
             <b-alert fade show variant="info">
                 <h2>Your request is being processed</h2>
                 <p>One of our servers is currently converting that URL into a nice ZIM file. Depending on the number of pages and resources available, it can be a matter of minutes, hours or even days! Please be patient.</p>
-                <p
-                  v-if="task.notification && task.notification.ended && task.notification.ended.mailgun"
+                <p v-if="task.has_email"
                   >You can close this window. You will get an email notification when the task is completed.</p>
             </b-alert>
         </div>

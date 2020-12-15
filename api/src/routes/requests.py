@@ -154,6 +154,15 @@ class RequestRoute(BaseRoute):
         if status == 404:
             success, status, task = query_api("GET", f"/requested-tasks/{request_id}")
 
+        # clear notification details and replace with `has_email` boolean
+        if isinstance(task, dict):
+            try:
+                task["has_email"] = bool(
+                    task.get("notification", {}).get("ended", {}).get("mailgun")
+                )
+            except Exception:
+                task["has_email"] = False
+
         return jsonify(task), status
 
 
