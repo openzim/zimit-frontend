@@ -39,4 +39,18 @@
   .card-header .not-collapsed .plus {
     display: none;
   }
+
+  .card {
+    background-color: transparent;
+    border-left: 0;
+    border-right: 0;
+    margin-bottom: 0 !important;
+  }
+  .faq .card:not(:first-child) {
+    border-top: 0;
+  }
+  .card-header {
+    background-color: transparent;
+    border: 0;
+  }
 </style>
