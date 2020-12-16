@@ -45,6 +45,7 @@
     border-left: 0;
     border-right: 0;
     margin-bottom: 0 !important;
+    border-radius: 0;
   }
   .faq .card:not(:first-child) {
     border-top: 0;
