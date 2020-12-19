@@ -69,6 +69,8 @@ class RequestsRoute(BaseRoute):
         document["flags"]["limit"] = min(
             [ZIMIT_LIMIT, int(document["flags"].get("limit", ZIMIT_LIMIT))]
         )
+        if document["flags"]["limit"] == 0:
+            document["flags"]["limit"] = ZIMIT_LIMIT
 
         config = {
             "task_name": "zimit",
