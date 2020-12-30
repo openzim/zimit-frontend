@@ -6,7 +6,7 @@ export default {
   ALERT_DEFAULT_DURATION: 5,
   ALERT_LONG_DURATION: 10,
   ALERT_PERMANENT_DURATION: true,
-  zimit_refresh_after: parseInt(window.environ.ZIM_DOWNLOAD_URL || "60"),
+  zimit_refresh_after: parseInt(window.environ.ZIMIT_REFRESH_AFTER || "60"),
   zimit_fields: ["lang", "title", "description", "favicon", "zim_file", "limit",
                  "tags", "creator", "source", "include_domains", "exclude",
                  "wait_until", "scope", "scroll", "page", "use_sitemap", "mobile_device"],
