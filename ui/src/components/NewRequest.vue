@@ -25,7 +25,7 @@
           <b-button
             pill
             type="submit"
-            :disabled="!editorReady || !payload.url"
+            :disabled="!editorReady || !payload.url || busy"
             variant="grey">
             Let's Zim it!</b-button>
           <b-button
@@ -78,7 +78,7 @@
               <b-button
                 pill
                 type="submit"
-                :disabled="!editorReady || !payload.url"
+                :disabled="!editorReady || !payload.url || busy"
                 variant="grey">
                 Let's Zim it!</b-button>
             </b-form-group>
@@ -107,6 +107,7 @@
             form: {},
             flags: {},
             showAdvanced: false,
+            busy: false, // whether a request is currently being sent
         };
       },
       computed: {
@@ -216,14 +217,13 @@
         },
         requestZim() {
             console.log("requestZim");
-            console.debug(this.payload);
 
             let parent = this;
+            parent.busy = true;
             let task_id = null;
             parent.toggleLoader("Creating schedule…");
             parent.queryAPI('post', Constants.zimitui_api + '/requests/', this.payload)
               .then(function (response) {
-                console.log(response);
                 if (response.data && response.data.id) {
                   task_id = response.data.id;
                   parent.redirectTo('request', {task_id: task_id});
@@ -235,6 +235,7 @@
               })
               .then(function () {
                 parent.toggleLoader(false);
+                parent.busy = false;
               });
         },
       },
