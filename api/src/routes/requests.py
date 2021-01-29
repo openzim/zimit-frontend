@@ -66,11 +66,7 @@ class RequestsRoute(BaseRoute):
                 del document["flags"][flag]
 
         # make sure we cap requests to ZIMIT_LIMIT at most
-        document["flags"]["limit"] = min(
-            [ZIMIT_LIMIT, int(document["flags"].get("limit", ZIMIT_LIMIT))]
-        )
-        if document["flags"]["limit"] == 0:
-            document["flags"]["limit"] = ZIMIT_LIMIT
+        document["flags"]["limit"] = ZIMIT_LIMIT
 
         config = {
             "task_name": "zimit",
@@ -155,6 +151,9 @@ class RequestRoute(BaseRoute):
         success, status, task = query_api("GET", f"/tasks/{request_id}")
         if status == 404:
             success, status, task = query_api("GET", f"/requested-tasks/{request_id}")
+
+        if not success:
+            return jsonify({"error": task}), status if isinstance(status, int) else 500
 
         # clear notification details and replace with `has_email` boolean
         if isinstance(task, dict):
