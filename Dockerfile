@@ -11,6 +11,8 @@ RUN NODE_ENV=production yarn build
 
 FROM tiangolo/uwsgi-nginx:python3.8
 
+LABEL org.opencontainers.image.source https://github.com/openzim/zimit-frontend
+
 COPY --from=builder /src/ui/dist /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
