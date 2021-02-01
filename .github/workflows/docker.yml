@@ -16,7 +16,7 @@ jobs:
         with:
           image-name: openzim/zimit-ui
           on-master: latest
-          restrict-to: openzim/zimit-ui
+          restrict-to: openzim/zimit-frontend
           credentials:
             DOCKERIO_USERNAME=${{ secrets.DOCKERHUB_USERNAME }}
             DOCKERIO_TOKEN=${{ secrets.DOCKERHUB_PASSWORD }}
