@@ -15,7 +15,7 @@
     <FaqEntry
       id="missing-content"
       title="The Zim file is incomplete or smaller than the original website">
-      Because of the very nature of this tool, we can’t leave it open for unlimited requests towards any website. That could be harmful both for our infrastructure, but also for the target websites. We currently enforce a limit of at most {{ limit }} pages.
+      Because of the very nature of this tool, we can’t leave it open for unlimited requests towards any website. That could be harmful both for our infrastructure, but also for the target websites. We currently enforce a limit of at most {{ (limit).format() }} pages.
     </FaqEntry>
 
     <FaqEntry

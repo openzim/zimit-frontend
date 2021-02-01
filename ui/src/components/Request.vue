@@ -2,7 +2,7 @@
   <div class="container">
 
     <div v-if="!error && task">
-        <h1 v-if="task.config">Ziming of <a :href="task.config.flags.url" target="_blank">{{ task.config.flags.url }}</a></h1>
+        <h1 v-if="task && task.config">Ziming of <a :href="task.config.flags.url" target="_blank">{{ task.config.flags.url }}</a></h1>
         <b-progress>
             <b-progress-bar
             :value="progression"
@@ -32,7 +32,8 @@
             <b-alert fade show variant="success">
                 <h2>Success!</h2>
                 <p>The link below will expire and the file will be deleted after a week.</p>
-                <a :href="zim_download_url + task.config.warehouse_path + '/' + file.name"><b-button pill variant="grey">Download</b-button></a>
+                <p><a :href="zim_download_url + task.config.warehouse_path + '/' + file.name"><b-button pill variant="grey">Download</b-button></a></p>
+                <p v-if="limit_hit">You have reached the maximum number of pages ({{ (zimit_limit).format() }}) allowed for free crawling. <a href="https://www.kiwix.org/en/contact/">Contact us</a> to help us purchase additional server space for you.</p>
             </b-alert>
         </div>
 
@@ -106,16 +107,19 @@
           file() { return Object.values(this.sorted_files)[0] || {}; },
           zim_download_url() { return Constants.zim_download_url; },
           flags() {
-            if (!this.task || !this.task.config.flags)
+            if (!this.task || !this.task.config || !this.task.config.flags)
               return {};
             var parent = this;
             return Object.filter(parent.task.config.flags, function(val, key) {
               if (Constants.hidden_flags.indexOf(key) != -1)
                 return false;
-              if (key == "limit" && Object.has(parent.task.config.flags, 'limit') && parent.task.config.flags.limit >= Constants.zimit_limit)
+              if (key == "limit" && Object.has(parent.task.config.flags, 'limit') && parent.task.config.flags.limit >= parent.zimit_limit)
                 return false;
               return true;
             });
+          },
+          zimit_limit() { return Constants.zimit_limit; },
+          limit_hit() { return this.task.container && this.task.container.progress && this.task.container.progress.limit && this.task.container && this.task.container.progress && this.task.container.progress.limit.hit;
           },
         },
         methods: {

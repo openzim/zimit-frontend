@@ -11,20 +11,15 @@
 <h2>Zim is ready!</h2>
 <p>Your Zim request of <a href="{{ task.config.flags.url }}">{{ task.config.flags.url }}</a> has completed.</p>
 <p>Here it is:</p>
-{% if task.files %}
-<ul>
-{% for file in task.files.values() %}
-<li><a href="{{ download_url }}{{ task.config.warehouse_path }}/{{ file.name }}">{{ file.name }}</a> ({{ file.size|format_size }})</li>
-{% endfor %}
-</ul>
-{% endif %}
+{% if task.files %}<ul>
+{% for file in task.files.values() %}<li><a href="{{ download_url }}{{ task.config.warehouse_path }}/{{ file.name }}">{{ file.name }}</a> ({{ file.size|format_size }})</li>{% endfor %}
+</ul>{% endif %}
+
+{% if "limit" in task.container.progress.keys() and task.container.progress.limit.hit %}<p>You have reached the maximum number of pages ({{ limit }}) allowed for free crawling. <a href="https://www.kiwix.org/en/contact/">Contact us</a> to help us purchase additional server space for you.</p>{% endif %}
 {% endif %}
 
-{% if task.status in ("failed", "canceled") %}
-<h2>Your zim request has failed!</h2>
+{% if task.status in ("failed", "canceled") %}<h2>Your zim request has failed!</h2>
 <p>We are really sorry. </p>
-<p>This might be due to an error with the URL you entered (<a href="{{ task.config.flags.url }}">{{ task.config.flags.url }}</a>). Please double check and <a href="https://youzim.it">try again</a>.</p>
-{% endif %}
-
+<p>This might be due to an error with the URL you entered (<a href="{{ task.config.flags.url }}">{{ task.config.flags.url }}</a>). Please double check and <a href="https://youzim.it">try again</a>.</p>{% endif %}
 </body>
 </html>

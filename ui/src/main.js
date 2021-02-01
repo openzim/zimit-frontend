@@ -17,7 +17,7 @@ import '../public/styles.css'
 
 // Sugar extensions
 import Sugar from 'sugar'
-Sugar.extend({namespaces: [Array, Object]});
+Sugar.extend({namespaces: [Array, Object, Number]});
 
 // Own modules
 import App from './App.vue'
