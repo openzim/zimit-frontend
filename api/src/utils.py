@@ -61,15 +61,9 @@ def send_email_via_mailgun(
         ("subject", subject),
         ("html", contents),
     ]
-    values += [
-        ("to", value) for value in (to if isinstance(to, (list, tuple)) else [to])
-    ]
-    values += [
-        ("cc", value) for value in (cc if isinstance(cc, (list, tuple)) else [cc])
-    ]
-    values += [
-        ("bcc", value) for value in (bcc if isinstance(bcc, (list, tuple)) else [bcc])
-    ]
+    values += [("to", to if isinstance(to, (list, tuple)) else [to])]
+    values += [("cc", cc if isinstance(cc, (list, tuple)) else [cc])]
+    values += [("bcc", bcc if isinstance(bcc, (list, tuple)) else [bcc])]
     data = MultiDict(values)
 
     try:
