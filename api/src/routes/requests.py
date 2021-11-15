@@ -18,6 +18,7 @@ from settings import (
     ZIMIT_LIMIT,
     CALLBACK_BASE_URL,
     HOOK_TOKEN,
+    TASK_WORKER,
 )
 from zimfarm import query_api
 from utils import jinja_env, send_email_via_mailgun, get_context
@@ -119,7 +120,9 @@ class RequestsRoute(BaseRoute):
 
         # request a task for that newly created schedule
         success, status, resp = query_api(
-            "POST", "/requested-tasks/", payload={"schedule_names": [schedule_name]}
+            "POST",
+            "/requested-tasks/",
+            payload={"schedule_names": [schedule_name], "worker": TASK_WORKER},
         )
         if not success:
             logger.error(f"Unable to request {schedule_name} via HTTP {status}")

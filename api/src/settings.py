@@ -51,6 +51,7 @@ except Exception as exc:
         f"Using {DEFAULT_DISK}. Error: {exc}"
     )
     TASK_DISK = humanfriendly.parse_size(DEFAULT_DISK)
+TASK_WORKER = os.getenv("TASK_WORKER")
 
 # mailgun
 MAILGUN_FROM = os.getenv("MAILGUN_FROM", "Youzim.it <info@youzim.it>")
