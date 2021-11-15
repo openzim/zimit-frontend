@@ -20,5 +20,5 @@ jobs:
         pip install -r api/requirements.txt
     - name: black code formatting check
       run: |
-        pip install -U "black>=20.8b1"
+        pip install -U "black==20.8b1"
         black --check .
