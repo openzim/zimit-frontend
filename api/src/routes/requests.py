@@ -84,6 +84,7 @@ class RequestsRoute(BaseRoute):
                 "cap_add": ["SYS_ADMIN", "NET_ADMIN"],
             },
             "platform": None,
+            "monitor": False,
             "flags": document["flags"],
         }
 
