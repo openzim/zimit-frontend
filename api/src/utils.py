@@ -86,7 +86,7 @@ def send_email_via_mailgun(
 
 
 def get_context(task):
-    """ Jinja context dict for email notifications """
+    """Jinja context dict for email notifications"""
     return {
         "base_url": PUBLIC_URL,
         "download_url": ZIM_DOWNLOAD_URL,
