@@ -13,19 +13,29 @@ logger = logging.getLogger(__name__)
 DEFAULT_CPU = 3
 DEFAULT_MEMORY = "1GiB"
 DEFAULT_DISK = "1GiB"
-DEFAULT_MAX_LIMIT = 1000
+DEFAULT_MAX_SIZE_LIMIT = 2**30 * 4
+DEFAULT_MAX_TIME_LIMIT = 3600 * 2
 ZIMFARM_API_URL = os.getenv("INTERNAL_ZIMFARM_WEBAPI", "https://api.farm.youzim.it/v1")
 ZIMFARM_USERNAME = os.getenv("_ZIMFARM_USERNAME", "-")
 ZIMFARM_PASSWORD = os.getenv("_ZIMFARM_PASSWORD", "-")
-ZIMIT_IMAGE = os.getenv("ZIMIT_IMAGE", "openzim/zimit:1.1.1")
+ZIMIT_IMAGE = os.getenv("ZIMIT_IMAGE", "openzim/zimit:1.2.0")
 try:
-    ZIMIT_LIMIT = int(os.getenv("ZIMIT_LIMIT", DEFAULT_MAX_LIMIT))
+    ZIMIT_SIZE_LIMIT = int(os.getenv("ZIMIT_SIZE_LIMIT", DEFAULT_MAX_SIZE_LIMIT))
 except Exception as exc:
     logger.error(
-        f"Unable to parse ZIMIT_LIMIT: {os.getenv('ZIMIT_LIMIT')}."
-        f"Using {DEFAULT_MAX_LIMIT}. Error: {exc}"
+        f"Unable to parse ZIMIT_SIZE_LIMIT: {os.getenv('ZIMIT_SIZE_LIMIT')}."
+        f"Using {DEFAULT_MAX_SIZE_LIMIT}. Error: {exc}"
     )
-    ZIMIT_LIMIT = DEFAULT_MAX_LIMIT
+    ZIMIT_SIZE_LIMIT = DEFAULT_MAX_SIZE_LIMIT
+
+try:
+    ZIMIT_TIME_LIMIT = int(os.getenv("ZIMIT_TIME_LIMIT", DEFAULT_MAX_TIME_LIMIT))
+except Exception as exc:
+    logger.error(
+        f"Unable to parse ZIMIT_TIME_LIMIT: {os.getenv('ZIMIT_TIME_LIMIT')}."
+        f"Using {DEFAULT_MAX_TIME_LIMIT}. Error: {exc}"
+    )
+    ZIMIT_TIME_LIMIT = DEFAULT_MAX_TIME_LIMIT
 
 try:
     TASK_CPU = int(os.getenv("TASK_CPU", DEFAULT_CPU))

@@ -15,7 +15,8 @@ from settings import (
     TASK_CPU,
     TASK_MEMORY,
     TASK_DISK,
-    ZIMIT_LIMIT,
+    ZIMIT_SIZE_LIMIT,
+    ZIMIT_TIME_LIMIT,
     CALLBACK_BASE_URL,
     HOOK_TOKEN,
     TASK_WORKER,
@@ -61,13 +62,20 @@ class RequestsRoute(BaseRoute):
             document["flags"].get("zim-file", url.hostname) + f"_{ident}"
         )
 
+        document["flags"]["user_agent_suffix"] = "Youzim.it+"
+
         # remove flags we don't want to overwrite
         for flag in ("adminEmail", "output", "statsFilename"):
             if flag in document["flags"]:
                 del document["flags"][flag]
 
         # make sure we cap requests to ZIMIT_LIMIT at most
-        document["flags"]["limit"] = ZIMIT_LIMIT
+        document["flags"]["size_limit"] = min(
+            [document["flags"].get("size_limit", ZIMIT_SIZE_LIMIT), ZIMIT_SIZE_LIMIT]
+        )
+        document["flags"]["time_limit"] = min(
+            [document["flags"].get("time_limit", ZIMIT_TIME_LIMIT), ZIMIT_TIME_LIMIT]
+        )
 
         config = {
             "task_name": "zimit",

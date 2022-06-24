@@ -1,5 +1,5 @@
 export default {
-  zimfarm_webapi: window.environ.ZIMFARM_WEBAPI || "https://api.farm.youzim.it/v1",
+  zimfarm_webapi: "https://api.farm.openzim.org/v1",
   zimitui_api: window.environ.ZIMIT_API_URL || "/api/v1",
   zimit_limit: parseInt(window.environ.ZIMIT_LIMIT) || 1000,
   zim_download_url: window.environ.ZIM_DOWNLOAD_URL || "https://s3.us-west-1.wasabisys.com/org-kiwix-zimit/zim",
@@ -8,9 +8,12 @@ export default {
   ALERT_PERMANENT_DURATION: true,
   zimit_refresh_after: parseInt(window.environ.ZIMIT_REFRESH_AFTER || "60"),
   zimit_fields: ["lang", "title", "description", "favicon", "zim_file",
-                 "tags", "creator", "source", "include_domains", "exclude",
-                 "wait_until", "scope", "scroll", "page", "use_sitemap", "mobile_device"],
-  hidden_flags: ["adminEmail", "name", "output", "statsFilename", "url", "zim-file"],
+                 "tags", "creator", "source", "new_context", "wait_until", "depth",
+                 "extra_hops", "scope_type", "include", "exclude", "allow_hash_urls",
+                 "mobile_device", "user_agent", "use_sitemap", "behaviors",
+                 "behavior_timeout", "size_limit", "time_limit"],
+  hidden_flags: ["adminEmail", "name", "output", "statsFilename", "url",
+                 "zim-file", "user_agent_suffix"],
   yes_no(value, value_yes, value_no) {
     if (!value_yes)
       value_yes = "yes";
