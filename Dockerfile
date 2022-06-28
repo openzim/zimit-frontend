@@ -35,7 +35,8 @@ ENV _ZIMFARM_USERNAME -
 ENV _ZIMFARM_PASSWORD -
 
 # max --limit for recipes
-# ENV ZIMIT_LIMIT 100
+# ENV ZIMIT_SIZE_LIMIT 4294967296
+# ENV ZIMIT_TIME_LIMIT 7200
 
 # notifications
 ENV MAILGUN_API_URL https://api.mailgun.net/v3/mg.youzim.it

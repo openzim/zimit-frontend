@@ -1,7 +1,8 @@
 export default {
   zimfarm_webapi: "https://api.farm.openzim.org/v1",
   zimitui_api: window.environ.ZIMIT_API_URL || "/api/v1",
-  zimit_limit: parseInt(window.environ.ZIMIT_LIMIT) || 1000,
+  zimit_size_limit: parseInt(window.environ.ZIMIT_SIZE_LIMIT) || 2147483648,
+  zimit_time_limit: parseInt(window.environ.ZIMIT_TIME_LIMIT) || 5400,
   zim_download_url: window.environ.ZIM_DOWNLOAD_URL || "https://s3.us-west-1.wasabisys.com/org-kiwix-zimit/zim",
   ALERT_DEFAULT_DURATION: 5,
   ALERT_LONG_DURATION: 10,

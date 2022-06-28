@@ -33,7 +33,7 @@
                 <h2>Success!</h2>
                 <p>The link below will expire and the file will be deleted after a week.</p>
                 <p><a :href="zim_download_url + task.config.warehouse_path + '/' + file.name"><b-button pill variant="grey">Download</b-button></a></p>
-                <p v-if="limit_hit">You have reached the maximum number of pages ({{ (zimit_limit).format() }}) allowed for free crawling. <a href="https://www.kiwix.org/en/contact/">Contact us</a> to help us purchase additional server space for you.</p>
+                <p v-if="limit_hit">You have reached the maximum file size ({{ zimit_size_limit }}) or duration ({{ (zimit_time_limit) }}) allowed for free crawling. <a href="https://www.kiwix.org/en/contact/">Contact us</a> to help us purchase additional server space for you.</p>
             </b-alert>
         </div>
 
@@ -113,12 +113,15 @@
             return Object.filter(parent.task.config.flags, function(val, key) {
               if (Constants.hidden_flags.indexOf(key) != -1)
                 return false;
-              if (key == "limit" && Object.has(parent.task.config.flags, 'limit') && parent.task.config.flags.limit >= parent.zimit_limit)
+              if (key == "size_limit" && Object.has(parent.task.config.flags, 'size_limit') && parent.task.config.flags.size_limit >= parent.zimit_size_limit)
+                return false;
+              if (key == "time_limit" && Object.has(parent.task.config.flags, 'time_limit') && parent.task.config.flags.time_limit >= parent.zimit_time_limit)
                 return false;
               return true;
             });
           },
-          zimit_limit() { return Constants.zimit_limit; },
+          human_size_limit() { return `${parseInt(Constants.zimit_size_limit / 1073741824).format()} GiB`; },
+          human_time_limit() { return `${parseInt(Constants.zimit_time_limit / 3600)} hours`; },
           limit_hit() { return this.task.container && this.task.container.progress && this.task.container.progress.limit && this.task.container && this.task.container.progress && this.task.container.progress.limit.hit;
           },
         },

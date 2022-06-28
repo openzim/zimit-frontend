@@ -19,7 +19,8 @@ from settings import (
     MAILGUN_FROM,
     PUBLIC_URL,
     ZIM_DOWNLOAD_URL,
-    ZIMIT_LIMIT,
+    ZIMIT_SIZE_LIMIT,
+    ZIMIT_TIME_LIMIT,
 )
 
 logger = logging.getLogger(__name__)
@@ -90,6 +91,7 @@ def get_context(task):
     return {
         "base_url": PUBLIC_URL,
         "download_url": ZIM_DOWNLOAD_URL,
-        "limit": ZIMIT_LIMIT,
+        "size_limit": ZIMIT_SIZE_LIMIT,
+        "time_limit": ZIMIT_TIME_LIMIT,
         "task": task,
     }
