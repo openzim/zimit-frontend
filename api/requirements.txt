@@ -4,3 +4,5 @@ Flask-Cors>=3.0.9,<3.1
 requests>=2.25.0,<2.26
 marshmallow>=3.9.1,<3.10
 humanfriendly>=8.2,<9
+# jinja2/Flask dependency (https://github.com/pallets/markupsafe/issues/284)
+markupsafe==2.0.1
