@@ -62,7 +62,7 @@ class RequestsRoute(BaseRoute):
             document["flags"].get("zim-file", url.hostname) + f"_{ident}"
         )
 
-        document["flags"]["user_agent_suffix"] = "Youzim.it+"
+        document["flags"]["userAgentSuffix"] = "Youzim.it+"
 
         # remove flags we don't want to overwrite
         for flag in ("adminEmail", "output", "statsFilename"):
@@ -70,11 +70,11 @@ class RequestsRoute(BaseRoute):
                 del document["flags"][flag]
 
         # make sure we cap requests to ZIMIT_LIMIT at most
-        document["flags"]["size_limit"] = min(
-            [document["flags"].get("size_limit", ZIMIT_SIZE_LIMIT), ZIMIT_SIZE_LIMIT]
+        document["flags"]["sizeLimit"] = min(
+            [document["flags"].get("sizeLimit", ZIMIT_SIZE_LIMIT), ZIMIT_SIZE_LIMIT]
         )
-        document["flags"]["time_limit"] = min(
-            [document["flags"].get("time_limit", ZIMIT_TIME_LIMIT), ZIMIT_TIME_LIMIT]
+        document["flags"]["timeLimit"] = min(
+            [document["flags"].get("timeLimit", ZIMIT_TIME_LIMIT), ZIMIT_TIME_LIMIT]
         )
 
         config = {
