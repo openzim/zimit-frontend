@@ -70,11 +70,15 @@ class RequestsRoute(BaseRoute):
                 del document["flags"][flag]
 
         # make sure we cap requests to ZIMIT_LIMIT at most
-        document["flags"]["sizeLimit"] = min(
-            [document["flags"].get("sizeLimit", ZIMIT_SIZE_LIMIT), ZIMIT_SIZE_LIMIT]
+        document["flags"]["sizeLimit"] = str(
+            min(
+                [document["flags"].get("sizeLimit", ZIMIT_SIZE_LIMIT), ZIMIT_SIZE_LIMIT]
+            )
         )
-        document["flags"]["timeLimit"] = min(
-            [document["flags"].get("timeLimit", ZIMIT_TIME_LIMIT), ZIMIT_TIME_LIMIT]
+        document["flags"]["timeLimit"] = str(
+            min(
+                [document["flags"].get("timeLimit", ZIMIT_TIME_LIMIT), ZIMIT_TIME_LIMIT]
+            )
         )
 
         config = {
