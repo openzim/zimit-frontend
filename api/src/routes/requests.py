@@ -59,7 +59,7 @@ class RequestsRoute(BaseRoute):
         )
 
         document["flags"]["zim-file"] = (
-            document["flags"].get("zim-file", url.hostname) + f"_{ident}"
+            document["flags"].get("zim-file", url.hostname) + f"_{ident}.zim"
         )
 
         document["flags"]["userAgentSuffix"] = "Youzim.it+"
