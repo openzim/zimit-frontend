@@ -15,7 +15,7 @@
 {% for file in task.files.values() %}<li><a href="{{ download_url }}{{ task.config.warehouse_path }}/{{ file.name }}">{{ file.name }}</a> ({{ file.size|format_size }})</li>{% endfor %}
 </ul>{% endif %}
 
-{% if "limit" in task.container.progress.keys() and task.container.progress.limit.hit %}<p>You have reached the maximum number of pages ({{ limit }}) allowed for free crawling. <a href="https://www.kiwix.org/en/contact/">Contact us</a> to help us purchase additional server space for you.</p>{% endif %}
+{% if task.container.progress and "limit" in task.container.progress.keys() and task.container.progress.limit.hit %}<p>You have reached the maximum number of pages ({{ limit }}) allowed for free crawling. <a href="https://www.kiwix.org/en/contact/">Contact us</a> to help us purchase additional server space for you.</p>{% endif %}
 {% endif %}
 
 {% if task.status in ("failed", "canceled") %}<h2>Your zim request has failed!</h2>
