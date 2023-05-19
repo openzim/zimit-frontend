@@ -175,10 +175,11 @@ class RequestRoute(BaseRoute):
         if isinstance(task, dict):
             try:
                 task["has_email"] = bool(
-                    task.get("notification", {}).get("ended", {}).get("mailgun")
+                    task.get("notification", {}).get("ended", {}).get("webhook")
                 )
             except Exception:
                 task["has_email"] = False
+            task["notification"] = None
 
         return jsonify(task), status
 
