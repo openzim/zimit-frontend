@@ -174,9 +174,7 @@ class RequestRoute(BaseRoute):
         # clear notification details and replace with `has_email` boolean
         if isinstance(task, dict):
             try:
-                task["has_email"] = bool(
-                    task.get("notification", {}).get("ended", {}).get("webhook")
-                )
+                task["has_email"] = bool(task["notification"]["ended"]["webhook"])
             except Exception:
                 task["has_email"] = False
             task["notification"] = None
