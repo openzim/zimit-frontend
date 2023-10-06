@@ -162,7 +162,9 @@
               if (field.type == "string-enum") {
                 component = "b-form-select";
                 options = field.choices.map(function (option) { return {text: option, value: option}; });
-                options.push({text: "Not set", value: undefined});
+                if (field.required != true) {
+                  options.push({text: "Not set", value: undefined});
+                }
               }
 
               if (field.type == "text") {
