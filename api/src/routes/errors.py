@@ -67,44 +67,40 @@ def register_handlers(app: Flask):
         return make_response(jsonify({"message": e.messages}), HTTPStatus.BAD_REQUEST)
 
 
-# 400
-class BadRequest(Exception):
+class ExceptionWithMessage(Exception):
     def __init__(self, message: str = None):
         self.message = message
 
     @staticmethod
+    def handler(e, status: HTTPStatus):
+        if isinstance(e, ExceptionWithMessage) and e.message is not None:
+            return make_response(jsonify({"error": e.message}), status)
+        return Response(status=status)
+
+
+# 400
+class BadRequest(ExceptionWithMessage):
+    @staticmethod
     def handler(e):
-        if isinstance(e, BadRequest) and e.message is not None:
-            return make_response(jsonify({"error": e.message}), HTTPStatus.BAD_REQUEST)
-        return Response(status=HTTPStatus.BAD_REQUEST)
+        return super().handler(e, HTTPStatus.BAD_REQUEST)
 
 
 # 401
-class Unauthorized(Exception):
-    def __init__(self, message: str = None):
-        self.message = message
-
+class Unauthorized(ExceptionWithMessage):
     @staticmethod
     def handler(e):
-        if isinstance(e, Unauthorized) and e.message is not None:
-            return make_response(jsonify({"error": e.message}), HTTPStatus.UNAUTHORIZED)
-        return Response(status=HTTPStatus.UNAUTHORIZED)
+        return super().handler(e, HTTPStatus.UNAUTHORIZED)
 
 
 # 404
-class NotFound(Exception):
-    def __init__(self, message: str = None):
-        self.message = message
-
+class NotFound(ExceptionWithMessage):
     @staticmethod
     def handler(e):
-        if isinstance(e, NotFound) and e.message is not None:
-            return make_response(jsonify({"error": e.message}), HTTPStatus.NOT_FOUND)
-        return Response(status=HTTPStatus.NOT_FOUND)
+        return super().handler(e, HTTPStatus.NOT_FOUND)
 
 
 # 500
-class InternalError(Exception):
+class InternalError(ExceptionWithMessage):
     @staticmethod
     def handler(e):
-        return Response(status=HTTPStatus.INTERNAL_SERVER_ERROR)
+        return super().handler(e, HTTPStatus.INTERNAL_SERVER_ERROR)

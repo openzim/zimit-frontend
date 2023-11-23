@@ -1,0 +1,4 @@
+{
+  "ZIMFARM_WEBAPI": "http://localhost:8004/v1",
+  "ZIMIT_API_URL": "http://localhost:8002/api/v1"
+}

@@ -1,23 +1,29 @@
-name: CI
+name: QA
 
-on: [push]
+on:
+  pull_request:
+  push:
+    branches:
+      - main
 
 jobs:
-  code-formating:
+  check-qa:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
-      with:
-        fetch-depth: 1
+    - name: Retrieve source code
+      uses: actions/checkout@v3
+
     - name: Set up Python 3.8
       uses: actions/setup-python@v1
       with:
         python-version: 3.8
+
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r api/requirements.txt
+
     - name: black code formatting check
       run: |
         pip install -U "black==22.3.0"

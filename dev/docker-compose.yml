@@ -1,0 +1,63 @@
+services:
+  zimfarm_db:
+    image: postgres:15.2-bullseye
+    ports:
+      - 127.0.0.1:5432:5432
+    volumes:
+      - zimfarm_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=zimfarm
+      - POSTGRES_USER=zimfarm
+      - POSTGRES_PASSWORD=zimpass
+  zimfarm_api:
+    image: ghcr.io/openzim/zimfarm-dispatcher:latest
+    ports:
+      - 127.0.0.1:8004:80
+    environment:
+      BINDING_HOST: 0.0.0.0
+      JWT_SECRET: DH8kSxcflUVfNRdkEiJJCn2dOOKI3qfw
+      POSTGRES_URI: postgresql+psycopg://zimfarm:zimpass@zimfarm_db:5432/zimfarm
+      ALEMBIC_UPGRADE_HEAD_ON_START: "1"
+      ZIMIT_USE_RELAXED_SCHEMA: "y"
+    depends_on:
+      - zimfarm_db
+  zimfarm-ui:
+    image: ghcr.io/openzim/zimfarm-ui:latest
+    ports:
+      - 127.0.0.1:8003:80
+    environment:
+      ZIMFARM_WEBAPI: http://localhost:8002/v1
+    depends_on:
+      - zimfarm_api
+  zimit_api:
+    build: ..
+    volumes:
+      - ../api/src:/app
+    command: python main.py
+    ports:
+      - 127.0.0.1:8002:8000
+    environment:
+      BINDING_HOST: 0.0.0.0
+      INTERNAL_ZIMFARM_WEBAPI: http://zimfarm_api:80/v1
+      _ZIMFARM_USERNAME: admin
+      _ZIMFARM_PASSWORD: admin
+      TASK_WORKER: worker
+    depends_on:
+      - zimfarm_api
+  zimit_ui:
+    build:
+      dockerfile: ../dev/zimit_ui_dev/Dockerfile
+      context: ../ui
+    volumes:
+      - ../ui/src:/app/src
+      - ../ui/public:/app/public
+      - ../dev/zimit_ui_dev/environ.json:/app/public/environ.json
+    ports:
+      - 127.0.0.1:8001:80
+    environment:
+      ZIMIT_API_URL: http://localhost:8002
+    depends_on:
+      - zimit_api
+
+volumes:
+  zimfarm_data:

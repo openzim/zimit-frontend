@@ -1,0 +1,34 @@
+name: Publish
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    name: Build and deploy
+
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Retrieve source code
+        uses: actions/checkout@v3
+
+      - name: Build and publish Docker Image
+        uses: openzim/docker-publish-action@v10
+        with:
+          image-name: openzim/zimit-ui
+          on-master: latest
+          restrict-to: openzim/zimit-frontend
+          registries: ghcr.io
+          credentials:
+            GHCRIO_USERNAME=${{ secrets.GHCR_USERNAME }}
+            GHCRIO_TOKEN=${{ secrets.GHCR_TOKEN }}
+
+      - name: Deploy Zimit frontend changes to youzim.it
+        uses: actions-hub/kubectl@master
+        env:
+          KUBE_CONFIG: ${{ secrets.ZIMIT_KUBE_CONFIG }}
+        with:
+          args: rollout restart deployments ui-deployment -n zimit
