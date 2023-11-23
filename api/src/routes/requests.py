@@ -129,7 +129,14 @@ class RequestsRoute(BaseRoute):
         success, status, resp = query_api("POST", "/schedules/", payload=payload)
         if not success:
             logger.error(f"Unable to create schedule via HTTP {status}: {resp}")
-            raise InternalError(f"Unable to create schedule via HTTP {status}: {resp}")
+            message = f"Unable to create schedule via HTTP {status}: {resp}"
+            if status == http.HTTPStatus.BAD_REQUEST:
+                # if Zimfarm replied this is a bad request, then this is most probably
+                # a bad request due to user input so we can track it like a bad request
+                raise BadRequest(message)
+            else:
+                # otherwise, this is most probably an internal problem in our systems
+                raise InternalError(message)
 
         # request a task for that newly created schedule
         success, status, resp = query_api(
@@ -138,23 +145,24 @@ class RequestsRoute(BaseRoute):
             payload={"schedule_names": [schedule_name], "worker": TASK_WORKER},
         )
         if not success:
-            logger.error(f"Unable to request {schedule_name} via HTTP {status}")
-            logger.debug(resp)
-            raise InternalError(f"Unable to request schedule via HTTP {status}: {resp}")
+            logger.error(f"Unable to request {schedule_name} via HTTP {status}: {resp}")
+            raise InternalError(
+                f"Unable to request schedule via HTTP {status}): {resp}"
+            )
 
         try:
             task_id = resp.get("requested").pop()
             if not task_id:
-                raise ValueError("task_id is False")
+                raise InternalError("task_id is False")
         except Exception as exc:
             raise InternalError(f"Couldn't retrieve requested task id: {exc}")
 
         # remove newly created schedule (not needed anymore)
         success, status, resp = query_api("DELETE", f"/schedules/{schedule_name}")
         if not success:
-            logger.error(f"Unable to remove schedule {schedule_name} via HTTP {status}")
-            logger.debug(resp)
-
+            logger.error(
+                f"Unable to remove schedule {schedule_name} via HTTP {status}: {resp}"
+            )
         return make_response(jsonify({"id": str(task_id)}), http.HTTPStatus.CREATED)
 
 

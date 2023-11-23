@@ -98,19 +98,16 @@ export default {
       599: "Network Connect Timeout Error",
     };
 
-    if (response === undefined) { // no response
-                                  //usually due to browser blocking failed OPTION preflight request
-      return "Cross-Origin Request Blocked: preflight request failed."
+    if (response === undefined) {
+      // no response is usually due to browser blocking due to CORS issue
+      return "Unknown response; probably CORS issue."
     }
+    // If error is provided, display it (do not display error code since this is too technical)
+    if (response.data && response.data.error) {
+      return response.data.error;
+    }
+    // Last resort, display only available information
     let status_text = response.statusText ? response.statusText : statuses[response.status];
-    if (response.status == 400) {
-      if (response.data && response.data.error)
-        status_text += "<br />" + JSON.stringify(response.data.error);
-      if (response.data && response.data.error_description)
-        status_text += "<br />" + JSON.stringify(response.data.error_description);
-      if (response.data && response.data.message)
-        status_text += "<br />" + JSON.stringify(response.data.message);
-    }
     return response.status + ": " + status_text + ".";
   },
 };

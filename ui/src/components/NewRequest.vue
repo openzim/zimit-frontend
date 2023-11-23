@@ -233,7 +233,7 @@
                   throw "Didn't receive task_id";
               })
               .catch(function (error) {
-                parent.alertError("Unable to create schedule:\n" + Constants.standardHTTPError(error.response));
+                parent.alertError("Unable to request ZIM creation:<br />" + Constants.standardHTTPError(error.response));
               })
               .then(function () {
                 parent.toggleLoader(false);
