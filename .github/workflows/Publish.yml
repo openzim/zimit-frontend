@@ -22,7 +22,8 @@ jobs:
           on-master: latest
           restrict-to: openzim/zimit-frontend
           registries: ghcr.io
-          credentials: GHCRIO_USERNAME=${{ secrets.GHCR_USERNAME }}
+          credentials:
+            GHCRIO_USERNAME=${{ secrets.GHCR_USERNAME }}
             GHCRIO_TOKEN=${{ secrets.GHCR_TOKEN }}
 
       - name: Deploy Zimit frontend changes to youzim.it
