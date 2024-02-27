@@ -221,6 +221,7 @@
             console.log("requestZim");
 
             let parent = this;
+            this.payload.flags = Object.filter(this.payload.flags, item => item!==""); 
             parent.busy = true;
             let task_id = null;
             parent.toggleLoader("Creating schedule…");
