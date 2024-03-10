@@ -1,0 +1,55 @@
+{
+    "alertFeedback": {
+        "info": "Information",
+        "success": "Success",
+        "warning": "Warning",
+        "danger": "Danger"
+    },
+    "faq": {
+        "whatIsZim": "What is a Zim file?",
+        "whatIsZimDesc": "The Zim file format stores website content for offline usage. It assembles the normal constituent of a website into a single archive, and compresses it so as to make it easier to save, share, and store.",
+        "howToRead": "How do I read my Zim files?",
+        "howToReadDesc": "You will need a Zim file reader. This usually means Kiwix, which is available on desktop computers, mobile devices, and more. Currently only Kiwix-serve and Kiwix-Android can read all Zimit-generated files. If using Kiwix-Desktop for Microsoft Windows and GNU/Linux, then you will need to configure it as a Kiwix-serve instance in the settings. We expect most platforms to be upgraded by the end of 2021.",
+        "missingContent": "The Zim file is incomplete or smaller than the original website",
+        "missingContentDesc": "Because of the very nature of this tool, we can’t leave it open for unlimited requests towards any website. That could be harmful both for our infrastructure, but also for the target websites. We currently enforce two limits: file size and time.",
+        "gotError": "I got an error message (no zim) or could not read a zim file",
+        "gotErrorDesc": "Triple-check the URL you entered, and if it is still not working then open a bug ticket on github. Indicate the target website, the request number (it’s in the email you received), and the device you tried to open your zim file on."
+    },
+    "loading": {
+        "loading": "Loading…"
+    },
+    "navbar": {
+        "logoAlt": "Youzim.it logo"
+    },
+    "newRequest": {
+        "heading": "Want an offline version of a website? Just",
+        "boldZim": "Zim it",
+        "urlPlaceholder": "Full URL of the website to convert",
+        "emailPlaceholder": "Your e-mail to receive a download link. Address not kept",
+        "submit": "Let's Zim it!",
+        "advancedOptions": "advanced options"
+    },
+    "notFound": {
+        "heading": "Not Found",
+        "description": "Sorry, this content was not found. Maybe you'd like to go back."
+    },
+    "request": {
+        "requestingSlot": "Requesting slot",
+        "zimingOf": "Ziming of ",
+        "requestRecorded": "Your request has been recorded and is awaiting a slot on our infrastructure to run.",
+        "requestFailed": "You request has failed! We are sorry about that.",
+        "failureReasons": "A number of reasons can lead to a ziming failure. Most of the time, it's an inadequate URL… Please triple check it and create a new request. If that doesn't work, open a ticket in github.",
+        "success": "Success!",
+        "linkExpires": "The link below will expire and the file will be deleted after a week.",
+        "download": "Download",
+        "limitHit": "You have reached the maximum file size or duration allowed for free crawling. Contact us to help us purchase additional server space for you.",
+        "beingProcessed": "Your request is being processed",
+        "serverConverting": "One of our servers is currently converting that URL into a nice ZIM file. Depending on the number of pages and resources available, it can be a matter of minutes, hours or even days! Please be patient.",
+        "emailNotification": "You can close this window. You will get an email notification when the task is completed."
+    },
+    "switchButton": {
+        "enabled": "Enabled",
+        "disabled": "Disabled"
+    }
+}
+  
