@@ -19,7 +19,7 @@
         return this.$store.getters.loadingStatus.should_display;
       },
       loading_text() {
-        return this.$store.getters.loadingStatus.text;
+        return this.$store.getters.loadingStatus.text || this.$t('loading.loading');
       }
     }
   }
