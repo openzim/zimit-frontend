@@ -1,13 +1,13 @@
 <template>
   <div class="container">
-    <h1>Want an offline version of a website? Just <strong>Zim it</strong>!</h1>
+    <h1>{{$t('newRequest.heading')}} <strong>{{$t('newRequest.boldZim')}}</strong>!</h1>
 
     <b-form @submit.prevent="requestZim" v-if="editorReady">
         <b-form-group>
             <b-form-input
                 type="url"
                 id="new_url"
-                placeholder="Full URL of the website to convert"
+                :placeholder="$t('newRequest.urlPlaceholder')"
                 required="required"
                 v-model="form.url" />
         </b-form-group>
@@ -16,7 +16,7 @@
             <b-form-input
                 type="email"
                 id="new_email"
-                placeholder="Your e-mail to receive a download link. Address not kept"
+                :placeholder="$t('newRequest.emailPlaceholder')"
                 v-model="form.email" />
         </b-form-group>
 
@@ -26,13 +26,12 @@
             pill
             type="submit"
             :disabled="!editorReady || !payload.url || busy"
-            variant="grey">
-            Let's Zim it!</b-button>
+            variant="grey">{{$t('newRequest.submit')}}</b-button>
           <b-button
             pill
             size="sm"
             :pressed.sync="showAdvanced"
-            variant="link-grey">advanced options</b-button>
+            variant="link-grey">{{$t('newRequest.advancedOptions')}}</b-button>
         </b-form-group>
 
         <div v-if="showAdvanced">
@@ -80,7 +79,7 @@
                 type="submit"
                 :disabled="!editorReady || !payload.url || busy"
                 variant="grey">
-                Let's Zim it!</b-button>
+                {{$t('newRequest.submit')}}</b-button>
             </b-form-group>
 
         </div>
