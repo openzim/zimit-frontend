@@ -2,7 +2,7 @@
   <div class="container">
 
     <div v-if="!error && task">
-        <h1 v-if="task && task.config">Ziming of <a :href="task.config.flags.url" target="_blank">{{ task.config.flags.url }}</a></h1>
+        <h1 v-if="task && task.config">{{ $t('request.zimingOf') }}<a :href="task.config.flags.url" target="_blank">{{ task.config.flags.url }}</a></h1>
         <b-progress>
             <b-progress-bar
             :value="progression"
@@ -16,33 +16,32 @@
 
         <div v-if="is_requested">
             <b-alert fade show variant="warning">
-                <h2>Requesting slot</h2>
-                <p>Your request has been recorded and is awaiting a slot on our infrastructure to run.</p>
+                <h2>{{$t('request.requestingSlot')}}</h2>
+                <p>{{$t('request.requestRecorded')}}</p>
             </b-alert>
         </div>
 
         <div v-if="failed">
             <b-alert fade show variant="danger">
-                <h2>You request has failed! We are sorry about that.</h2>
-                <p>A number of reasons can lead to a ziming failure. Most of the time, it's an inadequate URL… Please triple check it and create a new request. If that doesn't work, <a href="https://github.com/openzim/zimit/issues/new">open a ticket in github</a>.</p>
+                <h2>{{$t('request.requestFailed')}}</h2>
+                <p>{{$t('request.failureReasons')}} <a href="https://github.com/openzim/zimit/issues/new">{{$t('request.openTicket')}}</a>.</p>
             </b-alert>
         </div>
 
         <div v-if="succeeded">
             <b-alert fade show variant="success">
-                <h2>Success!</h2>
-                <p>The link below will expire and the file will be deleted after a week.</p>
-                <p><a :href="zim_download_url + task.config.warehouse_path + '/' + file.name"><b-button pill variant="grey">Download</b-button></a></p>
-                <p v-if="limit_hit">You have reached the maximum file size ({{ zimit_size_limit }}) or duration ({{ (zimit_time_limit) }}) allowed for free crawling. <a href="https://www.kiwix.org/en/contact/">Contact us</a> to help us purchase additional server space for you.</p>
+                <h2>{{$t('request.success')}}</h2>
+                <p>{{$t('request.linkExpires')}}</p>
+                <p><a :href="zim_download_url + task.config.warehouse_path + '/' + file.name"><b-button pill variant="grey">{{$t('request.download')}}</b-button></a></p>
+                <p v-if="limit_hit">{{$t('request.limitHit')}}</p>
             </b-alert>
         </div>
 
         <div v-if="ongoing && !is_requested">
             <b-alert fade show variant="info">
-                <h2>Your request is being processed</h2>
-                <p>One of our servers is currently converting that URL into a nice ZIM file. Depending on the number of pages and resources available, it can be a matter of minutes, hours or even days! Please be patient.</p>
-                <p v-if="task.has_email"
-                  >You can close this window. You will get an email notification when the task is completed.</p>
+                <h2>{{$t('request.beingProcessed')}}</h2>
+                <p>{{$t('request.serverConverting')}}</p>
+                <p v-if="task.has_email">{{$t('request.emailNotification')}}</p>
             </b-alert>
         </div>
         <div v-if="!Object.isEmpty(flags)">
