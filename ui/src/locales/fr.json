@@ -27,6 +27,11 @@
         "heading": "Non trouvé",
         "description": "Désolé, ce contenu n'a pas été trouvé. Peut-être souhaitez-vous revenir en arrière."
     },
+    "app": {
+        "poweredByKiwix": "Propulsé par Kiwix",
+        "poweredByWebrecorder": "Webrecorder",
+        "thanksToMozilla": "grâce à un Prix de soutien Open Source de Mozilla"          
+    },
     "request": {
         "requestingSlot": "Demande d'emplacement",
         "requestRecorded": "Votre demande a été enregistrée et est en attente d'un emplacement sur notre infrastructure pour être exécutée.",
