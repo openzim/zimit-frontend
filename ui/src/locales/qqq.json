@@ -1,0 +1,49 @@
+{
+    "faq": {
+        "whatIsZim": "This is the question asking about the Zim file format.",
+        "whatIsZimDesc": "This provides a brief description of what a Zim file is.",
+        "howToRead": "This is the question asking how to read Zim files.",
+        "howToReadDesc": "This provides instructions on how to read Zim files using Kiwix.",
+        "missingContent": "This is the question about incomplete or missing content in Zim files.",
+        "missingContentDesc": "This provides an explanation for why some content may be missing or incomplete in Zim files.",
+        "gotError": "This is the question about encountering error messages when using Zim files.",
+        "gotErrorDesc": "This provides instructions on what to do if errors are encountered when using Zim files."
+    },
+    "app": {
+        "poweredByKiwix": "This indicates that the application is powered by Kiwix.",
+        "poweredByWebrecorder": "This indicates that the application is powered by Webrecorder.",
+        "thanksToMozilla": "This acknowledges support from Mozilla through an Open-Source Support Award."
+    },
+    "loading": {
+        "loading": "This is the loading message displayed during data loading."
+    },
+    "navbar": {
+        "logoAlt": "This is the alternative text for the logo image."
+    },
+    "newRequest": {
+        "heading": "This is the heading for initiating a new request.",
+        "boldZim": "This highlights the action of creating a Zim file.",
+        "urlPlaceholder": "This is the placeholder text for entering a website URL.",
+        "emailPlaceholder": "This is the placeholder text for entering an email address.",
+        "submit": "This is the label for the submit button.",
+        "advancedOptions": "This indicates a link to advanced options."
+    },
+    "notFound": {
+        "heading": "This is the heading displayed when content is not found.",
+        "description": "This is the description explaining the 404 error."
+    },
+    "request": {
+        "requestingSlot": "This indicates the process of requesting a slot on the server.",
+        "zimingOf": "This indicates the process of converting a website into a ZIM file.",
+        "requestRecorded": "This confirms that a user's request has been recorded.",
+        "requestFailed": "This indicates that a request has failed.",
+        "failureReasons": "This provides reasons for why a request might fail.",
+        "success": "This indicates a successful operation.",
+        "linkExpires": "This explains that the download link will expire after a week.",
+        "download": "This is the label for the download button.",
+        "limitHit": "This indicates that a user has reached a limit.",
+        "beingProcessed": "This indicates that a request is currently being processed.",
+        "serverConverting": "This indicates that a server is converting a URL into a ZIM file.",
+        "emailNotification": "This informs the user about receiving an email notification."
+    }
+}
