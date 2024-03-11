@@ -4,7 +4,9 @@
     <AlertFeedback />
     <router-view />
     <footer>
-      Powered by <a target="_blank" href="https://kiwix.org">Kiwix</a> and <a target="_blank" href="https://webrecorder.net">Webrecorder</a>, thanks to a <a target="_blank" href="https://www.mozilla.org/moss/">Mozilla Open-Source Support</a> Award <b-icon icon="heart-fill" style="color: rgb(234, 74, 170);" />
+      {{ $t('app.poweredByKiwix') }} <a target="_blank" href="https://kiwix.org">Kiwix</a> 
+      {{ $t('app.poweredByWebrecorder') }} <a target="_blank" href="https://webrecorder.net">Webrecorder</a>, 
+      {{ $t('app.thanksToMozilla') }} <a target="_blank" href="https://www.mozilla.org/moss/">Mozilla Open-Source Support Award</a> 
     </footer>
   </div>
 </template>
