@@ -1,6 +1,6 @@
 <template>
   <header>
-    <router-link :to="{ name: 'home' }"><img alt="Youzim.it logo" src="../assets/ZIMIT_LOGO_RGB.svg"></router-link>
+    <router-link :to="{ name: 'home' }"><img alt="$t('navbar.logoAlt')" src="../assets/ZIMIT_LOGO_RGB.svg"></router-link>
     <Loading/>
 
     <!-- Language Dropdown -->
