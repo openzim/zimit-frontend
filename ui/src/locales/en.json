@@ -1,10 +1,4 @@
 {
-    "alertFeedback": {
-        "info": "Information",
-        "success": "Success",
-        "warning": "Warning",
-        "danger": "Danger"
-    },
     "faq": {
         "whatIsZim": "What is a Zim file?",
         "whatIsZimDesc": "The Zim file format stores website content for offline usage. It assembles the normal constituent of a website into a single archive, and compresses it so as to make it easier to save, share, and store.",
@@ -46,10 +40,6 @@
         "beingProcessed": "Your request is being processed",
         "serverConverting": "One of our servers is currently converting that URL into a nice ZIM file. Depending on the number of pages and resources available, it can be a matter of minutes, hours or even days! Please be patient.",
         "emailNotification": "You can close this window. You will get an email notification when the task is completed."
-    },
-    "switchButton": {
-        "enabled": "Enabled",
-        "disabled": "Disabled"
     }
 }
   
