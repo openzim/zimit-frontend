@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" dir="ltr">
     <NavBar />
     <AlertFeedback />
     <router-view />
