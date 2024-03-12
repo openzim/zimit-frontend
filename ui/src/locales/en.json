@@ -1,4 +1,10 @@
 {
+    "alertFeedback": {
+        "info": "Information",
+        "success": "Success",
+        "warning": "Warning",
+        "danger": "Danger"
+    },
     "faq": {
         "whatIsZim": "What is a Zim file?",
         "whatIsZimDesc": "The Zim file format stores website content for offline usage. It assembles the normal constituent of a website into a single archive, and compresses it so as to make it easier to save, share, and store.",
@@ -8,6 +14,15 @@
         "missingContentDesc": "Because of the very nature of this tool, we can’t leave it open for unlimited requests towards any website. That could be harmful both for our infrastructure, but also for the target websites. We currently enforce two limits: file size and time.",
         "gotError": "I got an error message (no zim) or could not read a zim file",
         "gotErrorDesc": "Triple-check the URL you entered, and if it is still not working then open a bug ticket on github. Indicate the target website, the request number (it’s in the email you received), and the device you tried to open your zim file on."
+    },
+    "app": {
+        "poweredByKiwix": "Powered by",
+        "kiwix": "Kiwix",
+        "kiwixLink": "https://kiwix.org",
+        "and": "and",
+        "webrecorder": "Webrecorder",
+        "webrecorderLink": "https://webrecorder.net",
+        "thanksToMozilla": "thanks to a Mozilla Open-Source Support Award"
     },
     "loading": {
         "loading": "Loading…"
@@ -27,11 +42,6 @@
         "heading": "Not Found",
         "description": "Sorry, this content was not found. Maybe you'd like to go back."
     },
-    "app": {
-        "poweredByKiwix": "Powered by Kiwix",
-        "poweredByWebrecorder": "Webrecorder",
-        "thanksToMozilla": "thanks to a Mozilla Open-Source Support Award"
-    },
     "request": {
         "requestingSlot": "Requesting slot",
         "zimingOf": "Ziming of ",
@@ -45,6 +55,10 @@
         "beingProcessed": "Your request is being processed",
         "serverConverting": "One of our servers is currently converting that URL into a nice ZIM file. Depending on the number of pages and resources available, it can be a matter of minutes, hours or even days! Please be patient.",
         "emailNotification": "You can close this window. You will get an email notification when the task is completed."
+    },
+    "switchButton": {
+        "enabled": "Enabled",
+        "disabled": "Disabled"
     }
 }
   

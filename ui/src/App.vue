@@ -1,13 +1,17 @@
 <template>
-  <div id="app">
+  <div id="app" >
     <NavBar />
     <AlertFeedback />
     <router-view />
     <footer>
-      {{ $t('app.poweredByKiwix') }} <a target="_blank" href="https://kiwix.org">Kiwix</a> 
-      {{ $t('app.poweredByWebrecorder') }} <a target="_blank" href="https://webrecorder.net">Webrecorder</a>, 
-      {{ $t('app.thanksToMozilla') }} <a target="_blank" href="https://www.mozilla.org/moss/">Mozilla Open-Source Support Award</a> 
-    </footer>
+    {{ $t('app.poweredByKiwix') }} <a target="_blank" :href="$t('app.kiwixLink')">{{ $t('app.kiwix') }}</a>
+    {{ $t('app.and') }} 
+    <a target="_blank" :href="$t('app.webrecorderLink')">{{ $t('app.webrecorder') }}</a>, 
+    {{ $t('app.thanksToMozilla') }} <a target="_blank" href="https://www.mozilla.org/moss/">Mozilla Open-Source Support Award</a> 
+    <b-icon icon="heart-fill" style="color: rgb(234, 74, 170);" />
+  </footer>
+
+
   </div>
 </template>
 
@@ -33,5 +37,16 @@ footer {
   text-align: center;
   padding-top: 1em;
   padding-bottom: 1em;
+}
+
+/* RTL styles */
+[dir="rtl"] #app {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] footer {
+  direction: rtl;
+  text-align: center; /* Keep footer text centered or change as needed */
 }
 </style>
