@@ -1,10 +1,4 @@
 {
-    "alertFeedback": {
-        "info": "Information",
-        "success": "Succès",
-        "warning": "Avertissement",
-        "danger": "Danger"
-    },
     "faq": {
         "whatIsZim": "Qu'est-ce qu'un fichier Zim ?",
         "whatIsZimDesc": "Le format de fichier Zim stocke le contenu d'un site web pour une utilisation hors ligne. Il assemble les constituants normaux d'un site web dans une seule archive, et le compresse afin de faciliter son enregistrement, partage, et stockage.",
@@ -54,10 +48,6 @@
         "beingProcessed": "Votre demande est en cours de traitement",
         "serverConverting": "L'un de nos serveurs convertit actuellement cette URL en un joli fichier ZIM. Selon le nombre de pages et de ressources disponibles, cela peut prendre quelques minutes, heures ou même jours ! Veuillez être patient.",
         "emailNotification": "Vous pouvez fermer cette fenêtre. Vous recevrez une notification par e-mail lorsque la tâche sera terminée."
-    },
-    "switchButton": {
-        "enabled": "Activé",
-        "disabled": "Désactivé"
     }
 }
   
