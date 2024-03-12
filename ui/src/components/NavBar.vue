@@ -7,7 +7,7 @@
     <select @change="changeLanguage($event)" class="language-selector">
       <option value="en">English</option>
       <option value="fr">Français</option>
-      <option value="far">فارسی</option>
+      <option value="fa">فارسی</option>
       <!-- Add more languages here -->
     </select>
   </header>
