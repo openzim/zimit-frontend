@@ -5,9 +5,13 @@
         "howToRead": "Comment lire mes fichiers Zim ?",
         "howToReadDesc": "Vous aurez besoin d'un lecteur de fichiers Zim. Cela signifie généralement Kiwix, qui est disponible sur les ordinateurs de bureau, les appareils mobiles, et plus encore. Actuellement, seul Kiwix-serve et Kiwix-Android peuvent lire tous les fichiers générés par Zimit. Si vous utilisez Kiwix-Desktop pour Microsoft Windows et GNU/Linux, alors vous devrez le configurer comme une instance Kiwix-serve dans les paramètres. Nous nous attendons à ce que la plupart des plateformes soient mises à niveau d'ici la fin de 2021.",
         "missingContent": "Le fichier Zim est incomplet ou plus petit que le site web original",
-        "missingContentDesc": "En raison de la nature même de cet outil, nous ne pouvons pas le laisser ouvert aux demandes illimitées vers n'importe quel site web. Cela pourrait être préjudiciable à la fois pour notre infrastructure, mais aussi pour les sites web ciblés. Nous imposons actuellement deux limites : taille de fichier et temps.",
+        "missingContentDesc": "En raison de la nature même de cet outil, nous ne pouvons pas le laisser ouvert à des demandes illimitées envers n'importe quel site web. Cela pourrait être nuisible à la fois pour notre infrastructure, mais aussi pour les sites web ciblés. Nous appliquons actuellement deux limites : {human_size_limit} de taille de fichier et {human_time_limit}.",
         "gotError": "J'ai reçu un message d'erreur (pas de zim) ou je ne peux pas lire un fichier zim",
         "gotErrorDesc": "Vérifiez trois fois l'URL que vous avez entrée, et si cela ne fonctionne toujours pas, ouvrez un ticket sur github. Indiquez le site web cible, le numéro de la demande (il est dans l'email que vous avez reçu), et l'appareil sur lequel vous avez essayé d'ouvrir votre fichier zim."
+    },
+    "units": {
+        "sizeLimit": "{value} Gio",
+        "timeLimit": "{value} heures"
     },
     "loading": {
         "loading": "Chargement en cours…"
@@ -50,4 +54,3 @@
         "emailNotification": "Vous pouvez fermer cette fenêtre. Vous recevrez une notification par e-mail lorsque la tâche sera terminée."
     }
 }
-  

@@ -2,26 +2,34 @@
   <div class="faq" role="tablist">
     <FaqEntry
       id="what-is-zim"
-      :title="$t('faq.whatIsZim')"
-      :content="$t('faq.whatIsZimDesc')">
+      :title="$t('faq.whatIsZim')">
+      <template v-slot:default>
+        {{ $t('faq.whatIsZimDesc') }}
+      </template>
     </FaqEntry>
 
     <FaqEntry
       id="how-to-read"
-      :title="$t('faq.howToRead')"
-      :content="$t('faq.howToReadDesc')">
+      :title="$t('faq.howToRead')">
+      <template v-slot:default>
+        {{ $t('faq.howToReadDesc') }}
+      </template>
     </FaqEntry>
 
     <FaqEntry
       id="missing-content"
-      :title="$t('faq.missingContent')"
-      :content="$t('faq.missingContentDesc', { human_size_limit: human_size_limit, human_time_limit: human_time_limit })">
+      :title="$t('faq.missingContent')">
+      <template v-slot:default>
+        {{ $t('faq.missingContentDesc', { human_size_limit: human_size_limit, human_time_limit: human_time_limit }) }}
+      </template>
     </FaqEntry>
 
     <FaqEntry
       id="got-error"
-      :title="$t('faq.gotError')"
-      :content="$t('faq.gotErrorDesc')">
+      :title="$t('faq.gotError')">
+      <template v-slot:default>
+        {{ $t('faq.gotErrorDesc') }}
+      </template>
     </FaqEntry>
   </div>
 </template>
@@ -35,10 +43,12 @@ export default {
   components: { FaqEntry },
   computed: {
     human_size_limit() {
-      return `${parseInt(Constants.zimit_size_limit / 1073741824)} GiB`;
+      const sizeInGiB = parseInt(Constants.zimit_size_limit / 1073741824);
+      return this.$t('units.sizeLimit', { value: sizeInGiB });
     },
     human_time_limit() {
-      return `${parseInt(Constants.zimit_time_limit / 3600)} hours`;
+      const timeInHours = parseInt(Constants.zimit_time_limit / 3600);
+      return this.$t('units.timeLimit', { value: timeInHours });
     },
   }
 }
