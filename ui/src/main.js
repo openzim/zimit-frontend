@@ -76,4 +76,18 @@ new Vue({
   store,
   i18n,
   render: h => h(App),
+  created() {
+    this.setPageDirection(this.$i18n.locale);
+  },
+  methods: {
+    setPageDirection(locale) {
+      const dir = locale === 'fa' ? 'rtl' : 'ltr';
+      document.documentElement.setAttribute('dir', dir);
+    },
+  },
+  watch: {
+    '$i18n.locale'(newLocale) {
+      this.setPageDirection(newLocale);
+    },
+  },
 }).$mount('#app');
