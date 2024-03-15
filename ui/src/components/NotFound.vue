@@ -2,8 +2,8 @@
 
 <template>
   <div class="container">
-    <h1>Not Found</h1>
-    <p>Sorry, this content was not found. Maybe you'd like to go back.</p>
+    <h1>{{ $t('notFound.heading') }}</h1>
+    <p>{{ $t('notFound.description') }}</p>
   </div>
 </template>
 
