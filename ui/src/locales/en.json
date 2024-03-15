@@ -34,17 +34,37 @@
         "urlPlaceholder": "Full URL of the website to convert",
         "emailPlaceholder": "Your e-mail to receive a download link. Address not kept",
         "submit": "Let's Zim it!",
-        "advancedOptions": "advanced options"
+        "advancedOptions": "advanced options",
+        "true": "True",
+        "notSet": "Not set",
+        "fetchingDefinition": "Fetching definition…",
+        "creatingSchedule": "Creating schedule…",
+        "standardHTTPError": "An error occurred: {error}",
+        "noTaskIdReceived": "Didn't receive task ID.",
+        "unableToRequestZIM": "Unable to request ZIM creation:<br />{error}"
     },
     "notFound": {
         "heading": "Not Found",
         "description": "Sorry, this content was not found. Maybe you'd like to go back."
     },
     "request": {
+        "pending": "Pending",
+        "succeeded": "Succeeded",
+        "canceled": "Canceled",
+        "cancel_requested": "Cancel Requested",
+        "failed": "Failed",
+        "scraper_killed": "Scraper Killed",
+        "inProgress": "In Progress",
+        "loadingTask": "Retrieving task…",
+        "noDataReceived": "No task data received.",
+        "taskNotFound": "No task found with this ID. It probably has expired.",
+        "taskRetrieveError": "Unable to retrieve task:\n{error}",
+        "humanSizeLimit": "{size} GiB",
+        "humanTimeLimit": "{hours} hours",
         "requestingSlot": "Requesting slot",
         "zimingOf": "Ziming of ",
         "requestRecorded": "Your request has been recorded and is awaiting a slot on our infrastructure to run.",
-        "requestFailed": "You request has failed! We are sorry about that.",
+        "requestFailed": "Your request has failed! We are sorry about that.",
         "failureReasons": "A number of reasons can lead to a ziming failure. Most of the time, it's an inadequate URL… Please triple check it and create a new request. If that doesn't work, open a ticket in github.",
         "success": "Success!",
         "linkExpires": "The link below will expire and the file will be deleted after a week.",
@@ -52,7 +72,8 @@
         "limitHit": "You have reached the maximum file size or duration allowed for free crawling. Contact us to help us purchase additional server space for you.",
         "beingProcessed": "Your request is being processed",
         "serverConverting": "One of our servers is currently converting that URL into a nice ZIM file. Depending on the number of pages and resources available, it can be a matter of minutes, hours or even days! Please be patient.",
-        "emailNotification": "You can close this window. You will get an email notification when the task is completed."
+        "emailNotification": "You can close this window. You will get an email notification when the task is completed.",
+        "title": "Settings"
     }
 }
   
