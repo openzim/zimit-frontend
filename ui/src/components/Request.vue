@@ -45,7 +45,7 @@
             </b-alert>
         </div>
         <div v-if="!Object.isEmpty(flags)">
-          <h2>{{$t('request.emailNotification')}}</h2>
+          <h2>{{$t('request.title')}}</h2>
           <FlagsList :flags="flags" :shrink="false" />
         </div>
     </div>
