@@ -18,10 +18,14 @@
     {
         "unableToRequestZIMCreation": "Unable to request ZIM creation:"
     },
-   "units": 
-   {
-        "sizeLimit": "{value} GiB",
-        "timeLimit": "{value} hours"
+    "units": 
+    {
+        "sizeLimit": "GiB",
+        "timeLimit": 
+        {
+          "singular": "hour",
+          "plural": "hours"
+        }
     },
     "app": 
     {

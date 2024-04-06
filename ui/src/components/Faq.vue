@@ -18,11 +18,12 @@
       </template>
     </FaqEntry>
 
-    <FaqEntry
-      id="missing-content"
-      :title="$t('faq.missingContent')">
+    <FaqEntry id="missing-content" :title="$t('faq.missingContent')">
       <template v-slot:default>
-        {{ $t('faq.missingContentDesc', { human_size_limit: human_size_limit, human_time_limit: human_time_limit }) }}
+        {{ $t('faq.missingContentDesc', { 
+          human_size_limit: human_size_limit,
+          human_time_limit: human_time_limit + ' ' + (human_time_limit === 1 ? $t('units.timeLimit.singular') : $t('units.timeLimit.plural'))
+        }) }}
       </template>
     </FaqEntry>
 
@@ -46,11 +47,11 @@ export default {
   computed: {
     human_size_limit() {
       const sizeInGiB = parseInt(Constants.zimit_size_limit / 1073741824);
-      return this.$t('units.sizeLimit', { value: sizeInGiB });
+      return `${sizeInGiB} GiB`;
     },
     human_time_limit() {
       const timeInHours = parseInt(Constants.zimit_time_limit / 3600);
-      return this.$t('units.timeLimit', { value: timeInHours });
+      return timeInHours;
     },
   }
 }

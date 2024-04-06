@@ -20,8 +20,12 @@
     },
     "units": 
     {
-        "sizeLimit": "{value} گیبی‌بایت",
-        "timeLimit": "{value} ساعت"
+        "sizeLimit": "گیگابایت",
+        "timeLimit": 
+        {
+          "singular": "ساعت",
+          "plural": "ساعت"
+        }
     },
     "app": 
     {

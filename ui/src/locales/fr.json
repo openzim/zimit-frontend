@@ -20,8 +20,12 @@
     },      
     "units": 
     {
-        "sizeLimit": "{value} Gio",
-        "timeLimit": "{value} heures"
+        "sizeLimit": "GiB",
+        "timeLimit": 
+        {
+          "singular": "heure",
+          "plural": "heures"
+        }
     },
     "loading": 
     {
