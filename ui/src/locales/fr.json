@@ -20,7 +20,6 @@
     },      
     "units": 
     {
-        "sizeLimit": "GiB",
         "timeLimit": 
         {
           "singular": "heure",

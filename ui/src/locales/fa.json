@@ -20,7 +20,6 @@
     },
     "units": 
     {
-        "sizeLimit": "گیگابایت",
         "timeLimit": 
         {
           "singular": "ساعت",
