@@ -41,14 +41,7 @@
         "urlPlaceholder": "Full URL of the website to convert",
         "emailPlaceholder": "Your e-mail to receive a download link. Address not kept",
         "submit": "Let's Zim it!",
-        "advancedOptions": "advanced options",
-        "true": "True",
-        "notSet": "Not set",
-        "fetchingDefinition": "Fetching definition…",
-        "creatingSchedule": "Creating schedule…",
-        "standardHTTPError": "An error occurred: {error}",
-        "noTaskIdReceived": "Didn't receive task ID.",
-        "unableToRequestZIM": "Unable to request ZIM creation:<br />{error}"
+        "advancedOptions": "advanced options"
     },
     "notFound": {
         "heading": "Not Found",
