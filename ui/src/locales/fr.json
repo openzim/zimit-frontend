@@ -1,32 +1,38 @@
 {
-    "faq": {
+    "faq": 
+    {
         "whatIsZim": "Qu'est-ce qu'un fichier Zim ?",
-        "whatIsZimDesc1": "Le format de fichier Zim stocke le contenu d'un site Web pour une utilisation ",
-        "whatIsZimDesc2": "hors ligne. Il assemble les composants normaux d'un site Web dans une seule archive et le compresse afin de faciliter son enregistrement, son partage et son stockage.",
+        "whatIsZimDesc1": "Le format de fichier Zim stocke le contenu d'un site Web pour ",
+        "whatIsZimDesc2": "l'utilisation. Il assemble les constituants normaux d'un site Web dans une seule archive et le compresse pour faciliter l'enregistrement, le partage et le stockage.",
         "howToRead": "Comment puis-je lire mes fichiers Zim ?",
         "howToReadDesc1": "Vous aurez besoin d'un lecteur de fichiers Zim. Cela signifie généralement ",
         "howToReadDesc2": ", qui est disponible sur ",
-        "howToReadDesc3": "les ordinateurs de bureau, les appareils mobiles et plus encore. Actuellement, seuls Kiwix-serve et Kiwix-Android peuvent lire tous les fichiers générés par Zimit. Si vous utilisez Kiwix-Desktop pour Microsoft Windows et GNU/Linux, alors vous devrez le configurer comme une instance Kiwix-serve dans les paramètres. Nous nous attendons à ce que la plupart des plateformes soient mises à niveau d'ici la fin de 2021.",
+        "howToReadDesc3": "Actuellement, seuls Kiwix-serve et Kiwix-Android peuvent lire tous les fichiers générés par Zimit. Si vous utilisez Kiwix-Desktop pour Microsoft Windows et GNU/Linux, alors vous aurez besoin de le configurer comme une instance Kiwix-serve dans les paramètres. Nous nous attendons à ce que la plupart des plateformes soient mises à jour d'ici la fin de 2021.",
         "missingContent": "Le fichier Zim est incomplet ou plus petit que le site Web original",
-        "missingContentDesc": "En raison de la nature même de cet outil, nous ne pouvons pas le laisser ouvert aux demandes illimitées envers n'importe quel site Web. Cela pourrait être nuisible à la fois pour notre infrastructure, mais aussi pour les sites Web ciblés. Nous appliquons actuellement deux limites : {human_size_limit} taille de fichier et {human_time_limit}.",
+        "missingContentDesc": "En raison de la nature même de cet outil, nous ne pouvons pas le laisser ouvert aux demandes illimitées vers n'importe quel site Web. Cela pourrait être nuisible à la fois pour notre infrastructure et pour les sites Web ciblés. Nous appliquons actuellement deux limites : {human_size_limit} pour la taille de fichier et {human_time_limit}.",
         "gotError": "J'ai reçu un message d'erreur (pas de zim) ou je n'ai pas pu lire un fichier zim",
         "gotErrorDesc1": "Vérifiez trois fois l'URL que vous avez saisie, et si cela ne fonctionne toujours pas, ouvrez un ticket de bug sur ",
-        "gotErrorDesc2": ". Indiquez le site Web cible, le numéro de la demande (il est dans l'e-mail que vous avez reçu) et l'appareil sur lequel vous avez essayé d'ouvrir votre fichier zim."
+        "gotErrorDesc2": "Indiquez le site Web cible, le numéro de la demande (il est dans l'e-mail que vous avez reçu), et l'appareil sur lequel vous avez essayé d'ouvrir votre fichier zim."
     },
-    "errorMessages": {
+    "errorMessages": 
+    {
         "unableToRequestZIMCreation": "Impossible de demander la création de ZIM :"
     },      
-    "units": {
+    "units": 
+    {
         "sizeLimit": "{value} Gio",
         "timeLimit": "{value} heures"
     },
-    "loading": {
+    "loading": 
+    {
         "loading": "Chargement en cours…"
     },
-    "navbar": {
+    "navbar": 
+    {
         "logoAlt": "Logo de Youzim.it"
     },
-    "app": {
+    "app": 
+    {
         "poweredBy": "Propulsé par",
         "kiwix": "Kiwix",
         "kiwixLink": "https://kiwix.org",
@@ -35,7 +41,8 @@
         "webrecorderLink": "https://webrecorder.net",
         "thanksToMozilla": "grâce à un <a target='_blank' href='https://www.mozilla.org/moss/'>Prix du soutien à l'open-source de Mozilla </a>"
     },    
-    "newRequest": {
+    "newRequest": 
+    {
         "heading": "Vous voulez une version hors ligne d'un site web ? Juste",
         "boldZim": "Zimmez-le",
         "urlPlaceholder": "URL complète du site web à convertir",
@@ -43,11 +50,13 @@
         "submit": "Zimmons-le !",
         "advancedOptions": "options avancées"
     },
-    "notFound": {
+    "notFound": 
+    {
         "heading": "Non trouvé",
         "description": "Désolé, ce contenu n'a pas été trouvé. Peut-être souhaitez-vous revenir en arrière."
     },
-    "request": {
+    "request": 
+    {
         "requestingSlot": "Demande d'emplacement",
         "requestRecorded": "Votre demande a été enregistrée et est en attente d'un emplacement sur notre infrastructure pour être exécutée.",
         "requestFailed": "Votre demande a échoué ! Nous en sommes désolés.",
