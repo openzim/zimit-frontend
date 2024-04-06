@@ -1,18 +1,20 @@
 <template>
   <div class="faq" role="tablist">
-    <FaqEntry
-      id="what-is-zim"
-      :title="$t('faq.whatIsZim')">
+    <FaqEntry id="what-is-zim" :title="$t('faq.whatIsZim')">
       <template v-slot:default>
-        {{ $t('faq.whatIsZimDesc') }}
+        {{ $t('faq.whatIsZimDesc1') }}
+        <a target="_blank" href="https://en.wikipedia.org/wiki/Offline">offline</a>
+        {{ $t('faq.whatIsZimDesc2') }}
       </template>
     </FaqEntry>
 
-    <FaqEntry
-      id="how-to-read"
-      :title="$t('faq.howToRead')">
+    <FaqEntry id="how-to-read" :title="$t('faq.howToRead')">
       <template v-slot:default>
-        {{ $t('faq.howToReadDesc') }}
+        {{ $t('faq.howToReadDesc1') }}
+        <a target="_blank" href="https://kiwix.org/">Kiwix</a>
+        {{ $t('faq.howToReadDesc2') }}
+        <a target="_blank" href="https://www.kiwix.org/en/download/">desktop computers, mobile devices, and more</a>
+        {{ $t('faq.howToReadDesc3') }}
       </template>
     </FaqEntry>
 
@@ -24,11 +26,11 @@
       </template>
     </FaqEntry>
 
-    <FaqEntry
-      id="got-error"
-      :title="$t('faq.gotError')">
+    <FaqEntry id="got-error" :title="$t('faq.gotError')">
       <template v-slot:default>
-        {{ $t('faq.gotErrorDesc') }}
+        {{ $t('faq.gotErrorDesc1') }}
+        <a target="_blank" href="https://github.com/openzim/zimit/issues">github</a>
+        {{ $t('faq.gotErrorDesc2') }}
       </template>
     </FaqEntry>
   </div>
@@ -53,3 +55,4 @@ export default {
   }
 }
 </script>
+
