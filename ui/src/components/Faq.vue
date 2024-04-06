@@ -3,7 +3,7 @@
     <FaqEntry id="what-is-zim" :title="$t('faq.whatIsZim')">
       <template v-slot:default>
         {{ $t('faq.whatIsZimDesc1') }}
-        <a target="_blank" href="https://en.wikipedia.org/wiki/Offline">offline</a>
+        <a target="_blank" href="https://en.wikipedia.org/wiki/Offline">{{ $t('faq.offline') }}</a>
         {{ $t('faq.whatIsZimDesc2') }}
       </template>
     </FaqEntry>
@@ -13,7 +13,7 @@
         {{ $t('faq.howToReadDesc1') }}
         <a target="_blank" href="https://kiwix.org/">Kiwix</a>,
         {{ $t('faq.howToReadDesc2') }}
-        <a target="_blank" href="https://www.kiwix.org/en/download/">desktop computers, mobile devices, and more</a>.
+        <a target="_blank" href="https://www.kiwix.org/en/download/">{{ $t('faq.desktopMobileAndMore') }}</a>.
         {{ $t('faq.howToReadDesc3') }}
       </template>
     </FaqEntry>

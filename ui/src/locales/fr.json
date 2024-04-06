@@ -12,7 +12,9 @@
         "missingContentDesc": "En raison de la nature même de cet outil, nous ne pouvons pas le laisser ouvert aux demandes illimitées vers n'importe quel site Web. Cela pourrait être nuisible à la fois pour notre infrastructure et pour les sites Web ciblés. Nous appliquons actuellement deux limites : {human_size_limit} pour la taille de fichier et {human_time_limit}.",
         "gotError": "J'ai reçu un message d'erreur (pas de zim) ou je n'ai pas pu lire un fichier zim",
         "gotErrorDesc1": "Vérifiez trois fois l'URL que vous avez saisie, et si cela ne fonctionne toujours pas, ouvrez un ticket de bug sur ",
-        "gotErrorDesc2": "Indiquez le site Web cible, le numéro de la demande (il est dans l'e-mail que vous avez reçu), et l'appareil sur lequel vous avez essayé d'ouvrir votre fichier zim."
+        "gotErrorDesc2": "Indiquez le site Web cible, le numéro de la demande (il est dans l'e-mail que vous avez reçu), et l'appareil sur lequel vous avez essayé d'ouvrir votre fichier zim.",
+        "desktopMobileAndMore": "ordinateurs de bureau, appareils mobiles et plus encore",
+        "offline": "hors ligne"
     },
     "errorMessages": 
     {
