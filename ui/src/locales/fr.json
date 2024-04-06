@@ -1,14 +1,17 @@
 {
     "faq": {
-        "whatIsZim": "Qu'est-ce qu'un fichier Zim ?",
+        "whatIsZim": "Qu'est-ce qu'un fichier Zim?",
         "whatIsZimDesc": "Le format de fichier Zim stocke le contenu d'un site web pour une utilisation hors ligne. Il assemble les constituants normaux d'un site web dans une seule archive, et le compresse afin de faciliter son enregistrement, partage, et stockage.",
-        "howToRead": "Comment lire mes fichiers Zim ?",
+        "howToRead": "Comment lire mes fichiers Zim?",
         "howToReadDesc": "Vous aurez besoin d'un lecteur de fichiers Zim. Cela signifie généralement Kiwix, qui est disponible sur les ordinateurs de bureau, les appareils mobiles, et plus encore. Actuellement, seul Kiwix-serve et Kiwix-Android peuvent lire tous les fichiers générés par Zimit. Si vous utilisez Kiwix-Desktop pour Microsoft Windows et GNU/Linux, alors vous devrez le configurer comme une instance Kiwix-serve dans les paramètres. Nous nous attendons à ce que la plupart des plateformes soient mises à niveau d'ici la fin de 2021.",
         "missingContent": "Le fichier Zim est incomplet ou plus petit que le site web original",
         "missingContentDesc": "En raison de la nature même de cet outil, nous ne pouvons pas le laisser ouvert à des demandes illimitées envers n'importe quel site web. Cela pourrait être nuisible à la fois pour notre infrastructure, mais aussi pour les sites web ciblés. Nous appliquons actuellement deux limites : {human_size_limit} de taille de fichier et {human_time_limit}.",
         "gotError": "J'ai reçu un message d'erreur (pas de zim) ou je ne peux pas lire un fichier zim",
         "gotErrorDesc": "Vérifiez trois fois l'URL que vous avez entrée, et si cela ne fonctionne toujours pas, ouvrez un ticket sur github. Indiquez le site web cible, le numéro de la demande (il est dans l'email que vous avez reçu), et l'appareil sur lequel vous avez essayé d'ouvrir votre fichier zim."
     },
+    "errorMessages": {
+        "unableToRequestZIMCreation": "Impossible de demander la création de ZIM :"
+    },      
     "units": {
         "sizeLimit": "{value} Gio",
         "timeLimit": "{value} heures"
@@ -20,13 +23,13 @@
         "logoAlt": "Logo de Youzim.it"
     },
     "app": {
-        "poweredByKiwix": "Propulsé par",
+        "poweredBy": "Propulsé par",
         "kiwix": "Kiwix",
         "kiwixLink": "https://kiwix.org",
         "and": "et",
         "webrecorder": "Webrecorder",
         "webrecorderLink": "https://webrecorder.net",
-        "thanksToMozilla": "grâce à une subvention de soutien open-source de Mozilla"
+        "thanksToMozilla": "grâce à un <a target='_blank' href='https://www.mozilla.org/moss/'>Prix du soutien à l'open-source de Mozilla </a>"
     },    
     "newRequest": {
         "heading": "Vous voulez une version hors ligne d'un site web ? Juste",
@@ -34,46 +37,24 @@
         "urlPlaceholder": "URL complète du site web à convertir",
         "emailPlaceholder": "Votre e-mail pour recevoir un lien de téléchargement. Adresse non conservée",
         "submit": "Zimmons-le !",
-        "advancedOptions": "options avancées",
-        "true": "Vrai",
-        "notSet": "Non défini",
-        "fetchingDefinition": "Récupération de la définition…",
-        "creatingSchedule": "Création de l'ordonnancement…",
-        "standardHTTPError": "Une erreur est survenue : {error}",
-        "noTaskIdReceived": "ID de tâche non reçu.",
-        "unableToRequestZIM": "Impossible de demander la création de ZIM :<br />{error}"
+        "advancedOptions": "options avancées"
     },
     "notFound": {
         "heading": "Non trouvé",
         "description": "Désolé, ce contenu n'a pas été trouvé. Peut-être souhaitez-vous revenir en arrière."
     },
-    
     "request": {
-        "pending": "En attente",
-        "succeeded": "Réussi",
-        "canceled": "Annulé",
-        "cancel_requested": "Annulation demandée",
-        "failed": "Échoué",
-        "scraper_killed": "Scraper arrêté",
-        "inProgress": "En cours",
-        "loadingTask": "Récupération de la tâche…",
-        "noDataReceived": "Aucune donnée de tâche reçue.",
-        "taskNotFound": "Aucune tâche trouvée avec cet ID. Elle a probablement expiré.",
-        "taskRetrieveError": "Impossible de récupérer la tâche :\n{error}",
-        "humanSizeLimit": "{size} GiB",
-        "humanTimeLimit": "{hours} heures",
-        "requestingSlot": "Demande de créneau",
-        "zimingOf": "Ziming de ",
-        "requestRecorded": "Votre demande a été enregistrée et attend un créneau sur notre infrastructure pour être exécutée.",
+        "requestingSlot": "Demande d'emplacement",
+        "requestRecorded": "Votre demande a été enregistrée et est en attente d'un emplacement sur notre infrastructure pour être exécutée.",
         "requestFailed": "Votre demande a échoué ! Nous en sommes désolés.",
-        "failureReasons": "Plusieurs raisons peuvent conduire à un échec de ziming. La plupart du temps, il s'agit d'une URL inadéquate… Veuillez la vérifier minutieusement et créer une nouvelle demande. Si cela ne fonctionne pas, ouvrez un ticket sur GitHub.",
+        "failureReasons": "Un certain nombre de raisons peuvent conduire à un échec de la zimification. La plupart du temps, c'est une URL inadéquate… Veuillez la vérifier trois fois et créer une nouvelle demande. Si cela ne fonctionne pas, ouvrez un ticket sur github.",
         "success": "Succès !",
         "linkExpires": "Le lien ci-dessous expirera et le fichier sera supprimé après une semaine.",
         "download": "Télécharger",
-        "limitHit": "Vous avez atteint la taille de fichier maximale ou la durée autorisée pour le crawling gratuit. Contactez-nous pour nous aider à acheter de l'espace serveur supplémentaire pour vous.",
+        "limitHit": "Vous avez atteint la taille maximale de fichier ({{ zimit_size_limit }}) ou la durée ({{ (zimit_time_limit) }}) autorisée pour le crawling gratuit. Contactez-nous pour nous aider à acheter un espace serveur supplémentaire pour vous.",
         "beingProcessed": "Votre demande est en cours de traitement",
-        "serverConverting": "L'un de nos serveurs convertit actuellement cette URL en un joli fichier ZIM. Selon le nombre de pages et les ressources disponibles, cela peut prendre quelques minutes, heures ou même jours ! Veuillez patienter.",
-        "emailNotification": "Vous pouvez fermer cette fenêtre. Vous recevrez une notification par email lorsque la tâche sera terminée.",
-        "title": "Paramètres"
-    }  
+        "serverConverting": "L'un de nos serveurs convertit actuellement cette URL en un joli fichier ZIM. Selon le nombre de pages et de ressources disponibles, cela peut prendre quelques minutes, heures ou même jours ! Veuillez être patient.",
+        "emailNotification": "Vous pouvez fermer cette fenêtre. Vous recevrez une notification par e-mail lorsque la tâche sera terminée."
+    }
 }
+  
