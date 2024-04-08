@@ -112,11 +112,11 @@
       },
       computed: {
         editorReady() {
-            return this.form && this.offliner_def !== null; },
+            return this.form && this.offliner_flags !== null; },
         form_fields() {
             let fields = [];
-            for (var i=0;i<this.offliner_def.length;i++) {
-              let field = this.offliner_def[i];
+            for (var i=0;i<this.offliner_flags.length;i++) {
+              let field = this.offliner_flags[i];
               let component = "b-form-input";
               let options = null;
               let component_type = null;
@@ -195,7 +195,7 @@
       },
       methods: {
         loadRecipeDefinition(force_reload, on_success, on_error) {
-            if (!force_reload && this.$store.getters.offliner_def.length){
+            if (!force_reload && this.$store.getters.offliner_flags.length){
                 if (on_success) { on_success(); }
                 return;
             }
@@ -205,8 +205,7 @@
             parent.toggleLoader("fetching definition…");
             parent.queryAPI('get', Constants.zimfarm_webapi + '/offliners/zimit')
               .then(function (response) {
-                  let definition = response.data.filter(field => Constants.zimit_fields.indexOf(field.key) > -1);
-                  parent.$store.dispatch('setOfflinerDef', definition);
+                  parent.$store.dispatch('setOfflinerDef', response.data);
 
                   if (on_success) { on_success(); }
               })

@@ -1,6 +1,7 @@
 
 import Vue from 'vue'
 import Vuex from 'vuex'
+import Constants from './constants.js'
 
 Vue.use(Vuex);
 
@@ -9,7 +10,7 @@ const store = new Vuex.Store({
     loading: false,
     loading_text: "",
 
-    offliner_def: [],
+    offliner_def: null,
   },
   mutations: {
     setLoading (state, payload) { // toggle GUI loader
@@ -31,6 +32,12 @@ const store = new Vuex.Store({
   getters: {
     loadingStatus(state) { return {should_display: state.loading, text: state.loading_text};},
     offliner_def(state) { return state.offliner_def; },
+    offliner_flags(state) { 
+      if (!state.offliner_def) {
+        return []
+      }
+      return state.offliner_def.flags.filter(field => Constants.zimit_fields.indexOf(field.key) > -1);
+    },
   }
 })
 

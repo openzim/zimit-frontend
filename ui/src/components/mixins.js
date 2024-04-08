@@ -8,7 +8,7 @@ export default {
   },
   computed: {
     publicPath() { return process.env.BASE_URL; },  // for static files linking
-    offliner_def() { return this.$store.getters.offliner_def; }, // offliner def for requests
+    offliner_flags() { return this.$store.getters.offliner_flags; }, // offliner flags for requests
   },
   methods: {
     toggleLoader(text) { // shortcut to store's loader status changer
