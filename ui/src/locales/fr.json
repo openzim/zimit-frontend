@@ -1,6 +1,5 @@
 {
-    "faq": 
-    {
+    "faq":{
         "whatIsZim": "Qu'est-ce qu'un fichier Zim ?",
         "whatIsZimDesc1": "Le format de fichier Zim stocke le contenu d'un site Web pour ",
         "whatIsZimDesc2": "l'utilisation. Il assemble les constituants normaux d'un site Web dans une seule archive et le compresse pour faciliter l'enregistrement, le partage et le stockage.",
@@ -16,28 +15,22 @@
         "desktopMobileAndMore": "ordinateurs de bureau, appareils mobiles et plus encore",
         "offline": "hors ligne"
     },
-    "errorMessages": 
-    {
+    "errorMessages":{
         "unableToRequestZIMCreation": "Impossible de demander la création de ZIM :"
     },      
-    "units": 
-    {
-        "timeLimit": 
-        {
+    "units":{
+        "timeLimit":{
           "singular": "heure",
           "plural": "heures"
         }
     },
-    "loading": 
-    {
+    "loading":{
         "loading": "Chargement en cours…"
     },
-    "navbar": 
-    {
+    "navbar":{
         "logoAlt": "Logo de Youzim.it"
     },
-    "app": 
-    {
+    "app":{
         "poweredBy": "Propulsé par",
         "kiwix": "Kiwix",
         "kiwixLink": "https://kiwix.org",
@@ -46,8 +39,7 @@
         "webrecorderLink": "https://webrecorder.net",
         "thanksToMozilla": "grâce à un <a target='_blank' href='https://www.mozilla.org/moss/'>Prix du soutien à l'open-source de Mozilla </a>"
     },    
-    "newRequest": 
-    {
+    "newRequest":{
         "heading": "Vous voulez une version hors ligne d'un site web ? Juste",
         "boldZim": "Zimmez-le",
         "urlPlaceholder": "URL complète du site web à convertir",
@@ -55,13 +47,11 @@
         "submit": "Zimmons-le !",
         "advancedOptions": "options avancées"
     },
-    "notFound": 
-    {
+    "notFound":{
         "heading": "Non trouvé",
         "description": "Désolé, ce contenu n'a pas été trouvé. Peut-être souhaitez-vous revenir en arrière."
     },
-    "request": 
-    {
+    "request":{
         "requestingSlot": "Demande d'emplacement",
         "requestRecorded": "Votre demande a été enregistrée et est en attente d'un emplacement sur notre infrastructure pour être exécutée.",
         "requestFailed": "Votre demande a échoué ! Nous en sommes désolés.",

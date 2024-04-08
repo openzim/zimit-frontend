@@ -1,6 +1,5 @@
 {
-    "faq": 
-    {
+    "faq":{
         "whatIsZim": "فایل زیم چیست؟",
         "whatIsZimDesc1": "فرمت فایل زیم محتوای وب‌سایت را برای ",
         "whatIsZimDesc2": "استفاده ذخیره می‌کند. این فرمت اجزای اصلی یک وب‌سایت را در یک آرشیو واحد جمع‌آوری و فشرده‌سازی می‌کند تا ذخیره‌سازی، به اشتراک‌گذاری، و نگهداری آن آسان‌تر شود.",
@@ -16,20 +15,16 @@
         "desktopMobileAndMore": "رایانه‌های دسکتاپ، دستگاه‌های موبایل و بیشتر",
         "offline": "آفلاین"
     },
-    "errorMessages": 
-    {
+    "errorMessages":{
         "unableToRequestZIMCreation": "درخواست ایجاد ZIM ممکن نیست:"
     },
-    "units": 
-    {
-        "timeLimit": 
-        {
+    "units":{
+        "timeLimit":{
           "singular": "ساعت",
           "plural": "ساعت"
         }
     },
-    "app": 
-    {
+    "app":{
         "poweredBy": "به قدرت از",
         "kiwix": "کیویکس",
         "kiwixLink": "https://kiwix.org",
@@ -38,16 +33,13 @@
         "webrecorderLink": "https://webrecorder.net",
         "thanksToMozilla": "با تشکر از <a target='_blank' href='https://www.mozilla.org/moss/'>جایزه پشتیبانی منبع‌باز موزیلا</a> "
     },
-    "loading": 
-    {
+    "loading":{
         "loading": "در حال بارگذاری..."
     },
-    "navbar": 
-    {
+    "navbar":{
         "logoAlt": "لوگوی Youzim.it"
     },
-    "newRequest": 
-    {
+    "newRequest":{
         "heading": "می‌خواهید یک نسخه آفلاین از یک وب‌سایت داشته باشید؟ فقط",
         "boldZim": "زیم کنید",
         "urlPlaceholder": "آدرس URL کامل وب‌سایت برای تبدیل",
@@ -55,13 +47,11 @@
         "submit": "بیایید آن را زیم کنیم!",
         "advancedOptions": "گزینه‌های پیشرفته"
     },
-    "notFound": 
-    {
+    "notFound":{
         "heading": "یافت نشد",
         "description": "متاسفیم، این محتوا پیدا نشد. شاید دوست داشته باشید به عقب بروید."
     },
-    "request": 
-    {
+    "request":{
         "requestingSlot": "درخواست اسلات",
         "zimingOf": "تبدیل شدن به فایل زیم از ",
         "requestRecorded": "درخواست شما ثبت شده است و منتظر یک اسلات در زیرساخت ما برای اجرا می‌باشد.",

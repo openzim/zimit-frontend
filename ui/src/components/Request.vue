@@ -115,11 +115,17 @@ export default {
                   !(key === "time_limit" && val >= Constants.zimit_time_limit))
           .reduce((obj, [key, val]) => ({ ...obj, [key]: val }), {});
       },
-      human_size_limit() { 
-          return this.$t('request.humanSizeLimit', { size: `${parseInt(Constants.zimit_size_limit / 1073741824)}` }); 
+      human_size_limit() {
+          const sizeInGiB = parseInt(Constants.zimit_size_limit / 1073741824);
+          return this.$t('request.humanSizeLimit', { size: sizeInGiB });
       },
-      human_time_limit() { 
-          return this.$t('request.humanTimeLimit', { hours: `${parseInt(Constants.zimit_time_limit / 3600)}` }); 
+      human_time_limit() {
+          const timeInHours = parseInt(Constants.zimit_time_limit / 3600);
+          const unitKey = `units.timeLimit.${timeInHours === 1 ? 'hour' : 'hours'}`;
+          return this.$t('request.humanTimeLimit', {
+            hours: timeInHours, 
+            unit: this.$t(unitKey)
+        });
       },
       limit_hit() { 
           return this.task.container && this.task.container.progress && this.task.container.progress.limit && this.task.container.progress.limit.hit;

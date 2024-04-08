@@ -1,18 +1,25 @@
 {
     "faq": {
         "whatIsZim": "This is the question asking about the Zim file format.",
-        "whatIsZimDesc": "This provides a brief description of what a Zim file is.",
+        "whatIsZimDesc": "This provides the description of what a Zim file is.",
         "howToRead": "This is the question asking how to read Zim files.",
-        "howToReadDesc": "This provides instructions on how to read Zim files using Kiwix.",
+        "howToReadDesc": "This provides the instructions on how to read Zim files.",
         "missingContent": "This is the question about incomplete or missing content in Zim files.",
         "missingContentDesc": "This provides an explanation for why some content may be missing or incomplete in Zim files.",
         "gotError": "This is the question about encountering error messages when using Zim files.",
-        "gotErrorDesc": "This provides instructions on what to do if errors are encountered when using Zim files."
+        "gotErrorDesc": "This provides the instructions on what to do if errors are encountered when using Zim files."
     },
-    "app": {
-        "poweredByKiwix": "This indicates that the application is powered by Kiwix.",
-        "poweredByWebrecorder": "This indicates that the application is powered by Webrecorder.",
-        "thanksToMozilla": "This acknowledges support from Mozilla through an Open-Source Support Award."
+    "errorMessages": {
+        "unableToRequestZIMCreation": "This indicates an error message when unable to request ZIM creation."
+    },
+    "units": {
+        "timeLimit": {
+            "singular": "This indicates the singular form of the time unit.",
+            "plural": "This indicates the plural form of the time unit."
+        }
+    },
+    "footer": {
+        "str": "This indicates the footer message."
     },
     "loading": {
         "loading": "This is the loading message displayed during data loading."
@@ -26,24 +33,39 @@
         "urlPlaceholder": "This is the placeholder text for entering a website URL.",
         "emailPlaceholder": "This is the placeholder text for entering an email address.",
         "submit": "This is the label for the submit button.",
-        "advancedOptions": "This indicates a link to advanced options."
+        "advancedOptions": "This indicates a link to advanced options.",
+        "notSet": "This indicates that a value is not set.",
+        "fetchingDefinition": "This indicates the message while fetching the definition.",
+        "standardHTTPError": "This indicates an error message for standard HTTP errors.",
+        "creatingSchedule": "This indicates the message while creating a schedule.",
+        "noTaskIdReceived": "This indicates that the task ID was not received.",
+        "unableToRequestZIM": "This indicates an error message when unable to request ZIM creation."
     },
     "notFound": {
         "heading": "This is the heading displayed when content is not found.",
         "description": "This is the description explaining the 404 error."
     },
     "request": {
-        "requestingSlot": "This indicates the process of requesting a slot on the server.",
         "zimingOf": "This indicates the process of converting a website into a ZIM file.",
+        "requestingSlot": "This indicates the process of requesting a slot on the server.",
         "requestRecorded": "This confirms that a user's request has been recorded.",
         "requestFailed": "This indicates that a request has failed.",
         "failureReasons": "This provides reasons for why a request might fail.",
+        "openTicket": "This indicates to open a ticket in GitHub.",
         "success": "This indicates a successful operation.",
         "linkExpires": "This explains that the download link will expire after a week.",
         "download": "This is the label for the download button.",
         "limitHit": "This indicates that a user has reached a limit.",
         "beingProcessed": "This indicates that a request is currently being processed.",
         "serverConverting": "This indicates that a server is converting a URL into a ZIM file.",
-        "emailNotification": "This informs the user about receiving an email notification."
+        "emailNotification": "This informs the user about receiving an email notification.",
+        "pending": "This indicates that a task is pending.",
+        "inProgress": "This indicates that a task is in progress.",
+        "humanSizeLimit": "This indicates the maximum file size limit in human-readable form.",
+        "humanTimeLimit": "This indicates the maximum time limit in human-readable form.",
+        "loadingTask": "This indicates the message while retrieving a task.",
+        "noDataReceived": "This indicates that no data was received for the task.",
+        "taskNotFound": "This indicates that the task was not found.",
+        "taskRetrieveError": "This indicates an error while retrieving the task."
     }
 }

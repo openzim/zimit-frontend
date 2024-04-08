@@ -3,14 +3,7 @@
     <NavBar />
     <AlertFeedback />
     <router-view />
-    <footer>
-      {{ $t('app.poweredBy') }} 
-      <a target="_blank" :href="$t('app.kiwixLink')">{{ $t('app.kiwix') }}</a>
-      {{ $t('app.and') }} 
-      <a target="_blank" :href="$t('app.webrecorderLink')">{{ $t('app.webrecorder') }}</a>, 
-      <span v-html="$t('app.thanksToMozilla')"></span>
-      <b-icon icon="heart-fill" style="color: rgb(234, 74, 170);" />
-    </footer>
+    <footer v-html="$t('footer.str')"></footer>
   </div>
 </template>
 

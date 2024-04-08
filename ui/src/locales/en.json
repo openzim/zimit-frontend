@@ -1,79 +1,73 @@
 {
-    "faq": 
-    {
+    "faq": {
         "whatIsZim": "What is a Zim file?",
-        "whatIsZimDesc1": "The Zim file format stores website content for ",
-        "whatIsZimDesc2": " usage. It assembles the normal constituent of a website into a single archive, and compresses it so as to make it easier to save, share, and store.",
+        "whatIsZimDesc": "The Zim file format stores website content for <a target='_blank' href='https://en.wikipedia.org/wiki/Offline'>offline</a> usage. It assembles the normal constituent of a website into a single archive, and compresses it so as to make it easier to save, share, and store.",
         "howToRead": "How do I read my Zim files?",
-        "howToReadDesc1": "You will need a Zim file reader. This usually means ",
-        "howToReadDesc2": ", which is available on ",
-        "howToReadDesc3": "Currently only Kiwix-serve and Kiwix-Android can read all Zimit-generated files. If using Kiwix-Desktop for Microsoft Windows and GNU/Linux, then you will need to configure it as a Kiwix-serve instance in the settings. We expect most platforms to be upgraded by the end of 2021.",
+        "howToReadDesc": "You will need a Zim file reader. This usually means <a target='_blank' href='https://kiwix.org'>Kiwix</a>, which is available on <a target='_blank' href='https://www.kiwix.org/en/download/'>desktop computers, mobile devices, and more</a>. Currently only Kiwix-serve and Kiwix-Android can read all Zimit-generated files. If using Kiwix-Desktop for Microsoft Windows and GNU/Linux, then you will need to configure it as a Kiwix-serve instance in the settings. We expect most platforms to be upgraded by the end of 2021.",
         "missingContent": "The Zim file is incomplete or smaller than the original website",
         "missingContentDesc": "Because of the very nature of this tool, we can’t leave it open for unlimited requests towards any website. That could be harmful both for our infrastructure, but also for the target websites. We currently enforce two limits: {human_size_limit} file size and {human_time_limit}.",
         "gotError": "I got an error message (no zim) or could not read a zim file",
-        "gotErrorDesc1": "Triple-check the URL you entered, and if it is still not working then open a bug ticket on",
-        "gotErrorDesc2": ". Indicate the target website, the request number (it’s in the email you received), and the device you tried to open your zim file on.",
-        "desktopMobileAndMore": "desktop computers, mobile devices, and more",
-        "offline": "offline"
-    },   
-    "errorMessages": 
-    {
+        "gotErrorDesc": "Triple-check the URL you entered, and if it is still not working then open a bug ticket on <a target='_blank' href='https://github.com/openzim/zimit/issues'>github</a>. Indicate the target website, the request number (it’s in the email you received), and the device you tried to open your zim file on."
+    },    
+    "errorMessages": {
         "unableToRequestZIMCreation": "Unable to request ZIM creation:"
     },
-    "units": 
-    {
-        "timeLimit": 
-        {
+    "units": {
+        "timeLimit":{
           "singular": "hour",
           "plural": "hours"
         }
     },
-    "app": 
-    {
-        "poweredBy": "Powered by",
-        "kiwix": "Kiwix",
-        "kiwixLink": "https://kiwix.org",
-        "and": "and",
-        "webrecorder": "Webrecorder",
-        "webrecorderLink": "https://webrecorder.net",
-        "thanksToMozilla": "thanks to a <a target='_blank' href='https://www.mozilla.org/moss/'>Mozilla Open-Source Support Award </a>"
+    "footer": {
+        "str": "Powered by <a target='_blank' href='https://kiwix.org'>Kiwix</a> and <a target='_blank' href='https://webrecorder.net'>Webrecorder</a>, thanks to a <a target='_blank' href='https://www.mozilla.org/moss/'>Mozilla Open-Source Support</a> Award ❤️"
     }, 
-    "loading": 
-    {
+    "loading": { 
         "loading": "Loading…"
     },
-    "navbar": 
-    {
+    "navbar": {
         "logoAlt": "Youzim.it logo"
     },
-    "newRequest": 
-    {
+    "newRequest": {
         "heading": "Want an offline version of a website? Just",
         "boldZim": "Zim it",
         "urlPlaceholder": "Full URL of the website to convert",
         "emailPlaceholder": "Your e-mail to receive a download link. Address not kept",
         "submit": "Let's Zim it!",
-        "advancedOptions": "advanced options"
+        "advancedOptions": "advanced options",
+        "notSet": "Not set",
+        "fetchingDefinition": "fetching definition…",
+        "standardHTTPError": "Unable to request ZIM creation:<br />%{error}",
+        "creatingSchedule": "Creating schedule…",
+        "noTaskIdReceived": "Didn't receive task_id",
+        "unableToRequestZIM": "Unable to request ZIM creation:<br />%{error}"
     },
-    "notFound": 
-    {
+    "notFound": {
         "heading": "Not Found",
         "description": "Sorry, this content was not found. Maybe you'd like to go back."
     },
-    "request": 
-    {
-        "requestingSlot": "Requesting slot",
+    "request": {
         "zimingOf": "Ziming of ",
+        "requestingSlot": "Requesting slot",
         "requestRecorded": "Your request has been recorded and is awaiting a slot on our infrastructure to run.",
         "requestFailed": "Your request has failed! We are sorry about that.",
         "failureReasons": "A number of reasons can lead to a ziming failure. Most of the time, it's an inadequate URL… Please triple check it and create a new request. If that doesn't work, open a ticket in github.",
+        "openTicket": "open a ticket in github",
         "success": "Success!",
         "linkExpires": "The link below will expire and the file will be deleted after a week.",
         "download": "Download",
         "limitHit": "You have reached the maximum file size or duration allowed for free crawling. Contact us to help us purchase additional server space for you.",
         "beingProcessed": "Your request is being processed",
-        "serverConverting": "One of our servers is currently converting that URL into a nice ZIM file. Depending on the number of pages and resources available, it can be a matter of minutes, hours or even days! Please be patient.",
-        "emailNotification": "You can close this window. You will get an email notification when the task is completed."
+        "serverConverting": "One of our servers is currently converting that URL into a nice ZIM file. Depending on the number of pages and resources available, it can be a matter of minutes, hours, or even days! Please be patient.",
+        "emailNotification": "You can close this window. You will get an email notification when the task is completed.",
+        "pending": "pending",
+        "inProgress": "in progress",
+        "humanSizeLimit": "You have reached the maximum file size of {size} GiB.",
+        "humanTimeLimit": "You have reached the maximum duration of {hours} {unit}.",
+        "loadingTask": "Retrieving task…",
+        "noDataReceived": "Didn't receive task data.",
+        "taskNotFound": "No task found with this ID. It probably has expired.",
+        "taskRetrieveError": "Unable to retrieve task: {error}",
+        "title": "Settings"
     }
 }
   
