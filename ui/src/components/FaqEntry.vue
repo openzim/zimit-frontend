@@ -23,7 +23,7 @@ export default {
 }
 </script>
 
-<style type="text/css" scoped>
+  <style type="text/css" scoped>
   .card-header .btn {
     text-align: start;
   }
@@ -33,16 +33,14 @@ export default {
     top: .5em;
   }
 
-  /* LTR specific styles */
-  :root[dir="ltr"] .card-header .plus,
-  :root[dir="ltr"] .card-header .minus {
+  .card-header .plus, .card-header .minus {
     right: .3rem;
   }
 
-  /* RTL specific styles */
   :root[dir="rtl"] .card-header .plus,
   :root[dir="rtl"] .card-header .minus {
-    left: .3rem;
+    right: auto; /* Reset for RTL */
+    left: .3rem; /* Apply for RTL */
   }
 
   .card-header .collapsed .minus {

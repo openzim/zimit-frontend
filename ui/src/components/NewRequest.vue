@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>{{$t('newRequest.heading')}} <strong>{{$t('newRequest.boldZim')}}</strong>!</h1>
+    <h1 v-html="$t('newRequest.heading')"></h1>
 
     <b-form @submit.prevent="requestZim" v-if="editorReady">
         <b-form-group>

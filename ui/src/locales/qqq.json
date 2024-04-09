@@ -28,8 +28,7 @@
         "logoAlt": "This is the alternative text for the logo image."
     },
     "newRequest": {
-        "heading": "This is the heading for initiating a new request.",
-        "boldZim": "This highlights the action of creating a Zim file.",
+        "heading": "This is the heading.",
         "urlPlaceholder": "This is the placeholder text for entering a website URL.",
         "emailPlaceholder": "This is the placeholder text for entering an email address.",
         "submit": "This is the label for the submit button.",

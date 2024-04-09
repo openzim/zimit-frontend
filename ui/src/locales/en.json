@@ -28,8 +28,7 @@
         "logoAlt": "Youzim.it logo"
     },
     "newRequest": {
-        "heading": "Want an offline version of a website? Just",
-        "boldZim": "Zim it",
+        "heading": "Want an offline version of a website? Just <strong>Zim it</strong>!",
         "urlPlaceholder": "Full URL of the website to convert",
         "emailPlaceholder": "Your e-mail to receive a download link. Address not kept",
         "submit": "Let's Zim it!",

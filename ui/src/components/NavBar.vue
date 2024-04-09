@@ -28,27 +28,26 @@ export default {
 </script>
 
 <style type="text/css" scoped="">
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-}
+  header {
+    text-align: center;
+    padding-top: 2em;
+    padding-bottom: 2em;
+  }
 
-header img {
-  max-width: 80%;
-  width: 400px;
-}
+  header img {
+    max-width: 80%;
+    width: 400px;
+  }
 
-.language-selector {
-  padding: .5rem 1rem;
-  border-radius: .25rem;
-  border: 1px solid #ced4da;
-  appearance: none; /* Remove default styling */
-  background-color: #fff;
-  background-image: url('data:image/svg+xml;charset=UTF8,<svg ...></svg>'); /* Add a custom dropdown arrow */
-  background-repeat: no-repeat;
-  background-position: right .75rem center;
-  background-size: 16px 12px;
-}
+  .language-selector {
+    padding: .5rem 1rem;
+    border-radius: .25rem;
+    border: 1px solid #ced4da;
+    appearance: none; /* Remove default styling */
+    background-color: #fff;
+    background-image: url('data:image/svg+xml;charset=UTF8,<svg ...></svg>'); /* Add a custom dropdown arrow */
+    background-repeat: no-repeat;
+    background-position: right .75rem center;
+    background-size: 16px 12px;
+  }
 </style>
