@@ -26,7 +26,7 @@ services:
     ports:
       - 127.0.0.1:8003:80
     environment:
-      ZIMFARM_WEBAPI: http://localhost:8002/v1
+      ZIMFARM_WEBAPI: http://localhost:8004/v1
     depends_on:
       - zimfarm_api
   zimit_api:
