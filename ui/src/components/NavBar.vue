@@ -1,10 +1,10 @@
 <template>
-  <div class="nav-container">
-    <header class="header">
+  <div>
+    <header>
       <router-link :to="{ name: 'home' }" class="logo">
         <img alt="$t('navbar.logoAlt')" src="../assets/ZIMIT_LOGO_RGB.svg">
       </router-link>
-      <Loading class="loading"/>
+      <Loading/>
     </header>
 
     <div class="language-selector-container">
