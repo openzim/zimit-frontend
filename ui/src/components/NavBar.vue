@@ -1,8 +1,10 @@
 <template>
-  <header>
-    <router-link :to="{ name: 'home' }"><img alt="$t('navbar.logoAlt')" src="../assets/ZIMIT_LOGO_RGB.svg"></router-link>
-    <Loading/>
-
+  <header class="header">
+    <router-link :to="{ name: 'home' }" class="logo">
+      <img alt="$t('navbar.logoAlt')" src="../assets/ZIMIT_LOGO_RGB.svg">
+    </router-link>
+    <Loading class="loading"/>
+    
     <!-- Language Dropdown -->
     <select @change="changeLanguage($event)" class="language-selector">
       <option value="en">English</option>
@@ -28,13 +30,20 @@ export default {
 </script>
 
 <style type="text/css" scoped="">
-  header {
-    text-align: center;
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding-top: 2em;
     padding-bottom: 2em;
+    text-align: center;
   }
 
-  header img {
+  .header .logo {
+    margin: 0 auto;
+  }
+
+  .header img {
     max-width: 80%;
     width: 400px;
   }
@@ -43,11 +52,19 @@ export default {
     padding: .5rem 1rem;
     border-radius: .25rem;
     border: 1px solid #ced4da;
-    appearance: none; /* Remove default styling */
+    appearance: none;
     background-color: #fff;
-    background-image: url('data:image/svg+xml;charset=UTF8,<svg ...></svg>'); /* Add a custom dropdown arrow */
+    margin-right: 1em; 
+    background-image: url('data:image/svg+xml;charset=UTF8,<svg ...></svg>');
     background-repeat: no-repeat;
     background-position: right .75rem center;
     background-size: 16px 12px;
+  }
+  
+  /* Add RTL support */
+  [dir="rtl"] .language-selector {
+    margin-right: 0;
+    margin-left: 1em;
+    background-position: left .75rem center;
   }
 </style>
