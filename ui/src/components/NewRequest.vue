@@ -20,7 +20,6 @@
                 v-model="form.email" />
         </b-form-group>
 
-
         <b-form-group>
           <b-button
             pill
@@ -94,7 +93,7 @@
 <script>
     import Constants from '../constants.js'
     import Mixins from '../components/mixins.js'
-    import SwitchButton from '../components/SwitchButton.vue'
+    import SwitchButton from '../components/SwitchButt'
     import Faq from '../components/Faq.vue'
 
     export default {
@@ -155,14 +154,14 @@
 
               if (field.type == "boolean") {
                 component = "switchbutton";
-                options = [{text: "True", value: true}, {text: "Not set", value: undefined}];
+                options = [{text: this.$t('newRequest.true'), value: true}, {text: this.$t('newRequest.notSet'), value: undefined}];
               }
 
               if (field.type == "string-enum") {
                 component = "b-form-select";
-                options = field.choices.map(function (option) { return {text: option, value: option}; });
-                if (field.required != true) {
-                  options.push({text: "Not set", value: undefined});
+                options = field.choices.map(option => ({text: option, value: option}));
+                if (!field.required) {
+                  options.push({text: this.$t('newRequest.notSet'), value: undefined});
                 }
               }
 
@@ -176,7 +175,7 @@
                 data_key: field.data_key,
                 required: field.required,
                 description: field.description,
-                placeholder: "Not set",  //field.placeholder,
+                placeholder: this.$t('newRequest.notSet'),  //field.placeholder,
 
                 component: component,
                 component_type: component_type,
@@ -189,7 +188,7 @@
             return fields;
           },
           payload() {
-            return {url: this.form.url, email:this.form.email, flags: this.flags};
+            return {url: this.form.url, email: this.form.email, flags: this.flags};
           }
       },
       methods: {
@@ -201,7 +200,7 @@
 
             let parent = this;
             console.debug("fetching definition…");
-            parent.toggleLoader("fetching definition…");
+            parent.toggleLoader(this.$t('newRequest.fetchingDefinition'));
             parent.queryAPI('get', Constants.zimfarm_webapi + '/offliners/zimit')
               .then(function (response) {
                   let definition = response.data.filter(field => Constants.zimit_fields.indexOf(field.key) > -1);
@@ -210,7 +209,7 @@
                   if (on_success) { on_success(); }
               })
               .catch(function (error) {
-                if (on_error) { on_error(Constants.standardHTTPError(error.response)); }
+                if (on_error) { on_error(parent.$t('newRequest.standardHTTPError', { error: Constants.standardHTTPError(error.response) })); }
               })
               .then(function () {
                   parent.toggleLoader(false);
@@ -220,20 +219,20 @@
             console.log("requestZim");
 
             let parent = this;
-            this.payload.flags = Object.filter(this.payload.flags, item => item!==""); 
+            this.payload.flags = Object.filter(this.payload.flags, item => item !== ""); 
             parent.busy = true;
             let task_id = null;
-            parent.toggleLoader("Creating schedule…");
+            parent.toggleLoader(this.$t('newRequest.creatingSchedule'));
             parent.queryAPI('post', Constants.zimitui_api + '/requests/', this.payload)
               .then(function (response) {
                 if (response.data && response.data.id) {
                   task_id = response.data.id;
                   parent.redirectTo('request', {task_id: task_id});
                 } else
-                  throw "Didn't receive task_id";
+                  throw new Error(parent.$t('newRequest.noTaskIdReceived'));
               })
               .catch(function (error) {
-                parent.alertError("Unable to request ZIM creation:<br />" + Constants.standardHTTPError(error.response));
+                parent.alertError(parent.$t('newRequest.unableToRequestZIM', { error: Constants.standardHTTPError(error.response) }));
               })
               .then(function () {
                 parent.toggleLoader(false);
@@ -243,7 +242,7 @@
       },
       mounted() {
         this.loadRecipeDefinition(false);
-      },
+    },
     }
 </script>
 
