@@ -103,8 +103,8 @@
               return this.task.status;
             return this.$t('request.inProgress');
           },
-          sorted_files() { return Object.values(this.task.files).sort((a, b) => a.created_timestamp - b.created_timestamp); },
-          file() { return this.sorted_files[0] || {}; },
+          sorted_files() { return Object.values(this.task.files).sortBy('created_timestamp'); },
+          file() { return Object.values(this.sorted_files)[0] || {}; },
           zim_download_url() { return Constants.zim_download_url; },
           flags() {
             if (!this.task || !this.task.config || !this.task.config.flags)

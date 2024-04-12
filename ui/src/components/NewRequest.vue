@@ -93,7 +93,7 @@
 <script>
     import Constants from '../constants.js'
     import Mixins from '../components/mixins.js'
-    import SwitchButton from '../components/SwitchButt'
+    import SwitchButton from '../components//SwitchButton.vue'
     import Faq from '../components/Faq.vue'
 
     export default {
@@ -160,7 +160,7 @@
               if (field.type == "string-enum") {
                 component = "b-form-select";
                 options = field.choices.map(option => ({text: option, value: option}));
-                if (!field.required) {
+                if (field.required != true) {
                   options.push({text: this.$t('newRequest.notSet'), value: undefined});
                 }
               }
@@ -188,7 +188,7 @@
             return fields;
           },
           payload() {
-            return {url: this.form.url, email: this.form.email, flags: this.flags};
+            return {url: this.form.url, email:this.form.email, flags: this.flags};
           }
       },
       methods: {
@@ -219,7 +219,7 @@
             console.log("requestZim");
 
             let parent = this;
-            this.payload.flags = Object.filter(this.payload.flags, item => item !== ""); 
+            this.payload.flags = Object.filter(this.payload.flags, item => item!==""); 
             parent.busy = true;
             let task_id = null;
             parent.toggleLoader(this.$t('newRequest.creatingSchedule'));
