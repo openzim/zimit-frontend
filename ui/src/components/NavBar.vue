@@ -1,9 +1,7 @@
 <template>
   <div>
     <header>
-      <router-link :to="{ name: 'home' }" class="logo">
-        <img alt="$t('navbar.logoAlt')" src="../assets/ZIMIT_LOGO_RGB.svg">
-      </router-link>
+      <router-link :to="{ name: 'home' }"><img alt="Youzim.it logo" src="../assets/ZIMIT_LOGO_RGB.svg"></router-link>
       <Loading/>
     </header>
 
@@ -19,17 +17,17 @@
 </template>
 
 <script>
-import Loading from './Loading.vue'
+  import Loading from './Loading.vue'
 
-export default {
-  name: 'NavBar',
-  components: {Loading},
-  methods: {
-    changeLanguage(event) {
-      this.$i18n.locale = event.target.value;
+  export default {
+    name: 'NavBar',
+    components: {Loading},
+    methods: {
+      changeLanguage(event) {
+        this.$i18n.locale = event.target.value;
+      }
     }
   }
-}
 </script>
 
 <style type="text/css" scoped="">
@@ -60,9 +58,6 @@ export default {
     border: 1px solid #ced4da;
     appearance: none; 
     background-color: #fff;
-    background-image: url('data:image/svg+xml;charset=UTF8,<svg ...></svg>'); /* Add a custom dropdown arrow */
-    background-repeat: no-repeat;
-    background-position: right .75rem center;
     background-size: 16px 12px;
   }
 

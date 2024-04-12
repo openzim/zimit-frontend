@@ -25,16 +25,16 @@ Vue.use(VueI18n);
 
 // Assuming you have a locales directory with en.json and fr.json for example
 function loadLocaleMessages() {
-  const locales = require.context('./locales', true, /[A-Za-z0-9-_,\s]+\.json$/i)
-  const messages = {}
-  locales.keys().forEach(key => {
-    const matched = key.match(/([A-Za-z0-9-_]+)\./i)
-    if (matched && matched.length > 1) { 
-      const locale = matched[1]
-      messages[locale] = locales(key)
-    }
-  })
-  return messages
+    const locales = require.context('./locales', true, /[A-Za-z0-9-_,\s]+\.json$/i)
+    const messages = {}
+    locales.keys().forEach(key => {
+        const matched = key.match(/([A-Za-z0-9-_]+)\./i)
+        if (matched && matched.length > 1) { 
+            const locale = matched[1]
+            messages[locale] = locales(key)
+        }
+    })
+    return messages
 }
 
 // Detect browser language
@@ -47,9 +47,9 @@ const supportedLanguages = ['en', 'fr']; // Add more supported languages here
 const defaultLanguage = supportedLanguages.includes(simplifiedBrowserLanguage) ? simplifiedBrowserLanguage : 'en';
 
 const i18n = new VueI18n({
-  locale: defaultLanguage, // set locale
-  fallbackLocale: 'en', // set fallback locale
-  messages: loadLocaleMessages(), // set locale messages
+    locale: defaultLanguage, // set locale
+    fallbackLocale: 'en', // set fallback locale
+    messages: loadLocaleMessages(), // set locale messages
 });
 
 // Own modules
@@ -65,29 +65,29 @@ Vue.filter('yes_no', Constants.yes_no);
 // matomo (stats.kiwix.org)
 import VueMatomo from 'vue-matomo'
 Vue.use(VueMatomo, {
-  host: 'https://stats.kiwix.org',
-  siteId: 11,
-  trackerFileName: 'matomo',
-  router: router,
+    host: 'https://stats.kiwix.org',
+    siteId: 11,
+    trackerFileName: 'matomo',
+    router: router,
 });
 
 new Vue({
-  router,
-  store,
-  i18n,
-  render: h => h(App),
-  created() {
-    this.setPageDirection(this.$i18n.locale);
-  },
-  methods: {
-    setPageDirection(locale) {
-      const dir = locale === 'fa' ? 'rtl' : 'ltr';
-      document.documentElement.setAttribute('dir', dir);
+    router,
+    store,
+    i18n,
+    render: h => h(App),
+    created() {
+        this.setPageDirection(this.$i18n.locale);
     },
-  },
-  watch: {
-    '$i18n.locale'(newLocale) {
-      this.setPageDirection(newLocale);
+    methods: {
+        setPageDirection(locale) {
+            const dir = locale === 'fa' ? 'rtl' : 'ltr';
+            document.documentElement.setAttribute('dir', dir);
+        },
     },
-  },
+    watch: {
+        '$i18n.locale'(newLocale) {
+            this.setPageDirection(newLocale);
+        },
+    },
 }).$mount('#app');

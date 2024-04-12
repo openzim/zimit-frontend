@@ -30,21 +30,21 @@
 </template>
 
 <script type="text/javascript">
-import FaqEntry from './FaqEntry.vue'
-import Constants from '../constants.js'
+  import FaqEntry from './FaqEntry.vue'
+  import Constants from '../constants.js'
 
-export default {
-  name: 'Faq',
-  components: { FaqEntry },
-  computed: {
-    human_size_limit() {
-      const sizeInGiB = parseInt(Constants.zimit_size_limit / 1073741824);
-      return `${sizeInGiB} GiB`;
-    },
-    human_time_limit() {
-      const timeInHours = parseInt(Constants.zimit_time_limit / 3600);
-      return timeInHours;
-    },
+  export default {
+    name: 'Faq',
+    components: { FaqEntry },
+    computed: {
+      human_size_limit() {
+        const sizeInGiB = parseInt(Constants.zimit_size_limit / 1073741824);
+        return `${sizeInGiB} GiB`;
+      },
+      human_time_limit() {
+        const timeInHours = parseInt(Constants.zimit_time_limit / 3600);
+        return timeInHours;
+      },
+    }
   }
-}
 </script>

@@ -20,6 +20,7 @@
                 v-model="form.email" />
         </b-form-group>
 
+
         <b-form-group>
           <b-button
             pill
@@ -91,159 +92,159 @@
 </template>
 
 <script>
-import Constants from '../constants.js'
-import Mixins from '../components/mixins.js'
-import SwitchButton from '../components/SwitchButton.vue'
-import Faq from '../components/Faq.vue'
+    import Constants from '../constants.js'
+    import Mixins from '../components/mixins.js'
+    import SwitchButton from '../components/SwitchButton.vue'
+    import Faq from '../components/Faq.vue'
 
-export default {
-  name: 'NewRequest',
-  mixins: [Mixins],
-  components: {SwitchButton, Faq},
-  data() {
-    return {
-        form: {},
-        flags: {},
-        showAdvanced: false,
-        busy: false, // whether a request is currently being sent
-    };
-  },
-  computed: {
-    editorReady() {
-        return this.form && this.offliner_def !== null; },
-    form_fields() {
-        let fields = [];
-        for (var i=0;i<this.offliner_def.length;i++) {
-          let field = this.offliner_def[i];
-          let component = "b-form-input";
-          let options = null;
-          let component_type = null;
-          let bind_color = null;
-          let step = null;
-
-          if (field.type == "hex-color") {
-            bind_color = true;
-          }
-
-          if (field.type == "url") {
-            component = "b-form-input";
-            component_type = "url";
-          }
-
-          if (field.type == "email") {
-            component = "b-form-input";
-            component_type = "email";
-          }
-
-          if (field.type == "integer") {
-            component = "b-form-input";
-            component_type = "number";
-            step = 1;
-          }
-
-          if (field.type == "float") {
-            component = "b-form-input";
-            component_type = "number";
-            step = 0.1
-          }
-
-          if (field.type == "list-of-string-enum") {
-            component = "multiselect";
-            options = field.choices;
-          }
-
-          if (field.type == "boolean") {
-            component = "switchbutton";
-            options = [{text: this.$t('newRequest.true'), value: true}, {text: this.$t('newRequest.notSet'), value: undefined}];
-          }
-
-          if (field.type == "string-enum") {
-            component = "b-form-select";
-            options = field.choices.map(option => ({text: option, value: option}));
-            if (!field.required) {
-              options.push({text: this.$t('newRequest.notSet'), value: undefined});
-            }
-          }
-
-          if (field.type == "text") {
-            component = "b-form-input";
-            component_type = "text";
-          }
-
-          fields.push({
-            label: field.label || field.data_key,
-            data_key: field.data_key,
-            required: field.required,
-            description: field.description,
-            placeholder: this.$t('newRequest.notSet'),  //field.placeholder,
-
-            component: component,
-            component_type: component_type,
-            options: options,
-            bind_color: bind_color,
-            step: step,
-          });
-
-        }
-        return fields;
+    export default {
+      name: 'NewRequest',
+      mixins: [Mixins],
+      components: {SwitchButton, Faq},
+      data() {
+        return {
+            form: {},
+            flags: {},
+            showAdvanced: false,
+            busy: false, // whether a request is currently being sent
+        };
       },
-      payload() {
-        return {url: this.form.url, email: this.form.email, flags: this.flags};
-      }
-  },
-  methods: {
-    loadRecipeDefinition(force_reload, on_success, on_error) {
-        if (!force_reload && this.$store.getters.offliner_def.length){
-            if (on_success) { on_success(); }
-            return;
-        }
+      computed: {
+        editorReady() {
+            return this.form && this.offliner_def !== null; },
+        form_fields() {
+            let fields = [];
+            for (var i=0;i<this.offliner_def.length;i++) {
+              let field = this.offliner_def[i];
+              let component = "b-form-input";
+              let options = null;
+              let component_type = null;
+              let bind_color = null;
+              let step = null;
 
-        let parent = this;
-        console.debug("fetching definition…");
-        parent.toggleLoader(this.$t('newRequest.fetchingDefinition'));
-        parent.queryAPI('get', Constants.zimfarm_webapi + '/offliners/zimit')
-          .then(function (response) {
-              let definition = response.data.filter(field => Constants.zimit_fields.indexOf(field.key) > -1);
-              parent.$store.dispatch('setOfflinerDef', definition);
+              if (field.type == "hex-color") {
+                bind_color = true;
+              }
 
-              if (on_success) { on_success(); }
-          })
-          .catch(function (error) {
-            if (on_error) { on_error(parent.$t('newRequest.standardHTTPError', { error: Constants.standardHTTPError(error.response) })); }
-          })
-          .then(function () {
-              parent.toggleLoader(false);
-          });
-    },
-    requestZim() {
-        console.log("requestZim");
+              if (field.type == "url") {
+                component = "b-form-input";
+                component_type = "url";
+              }
 
-        let parent = this;
-        this.payload.flags = Object.filter(this.payload.flags, item => item !== ""); 
-        parent.busy = true;
-        let task_id = null;
-        parent.toggleLoader(this.$t('newRequest.creatingSchedule'));
-        parent.queryAPI('post', Constants.zimitui_api + '/requests/', this.payload)
-          .then(function (response) {
-            if (response.data && response.data.id) {
-              task_id = response.data.id;
-              parent.redirectTo('request', {task_id: task_id});
-            } else
-              throw new Error(parent.$t('newRequest.noTaskIdReceived'));
-          })
-          .catch(function (error) {
-            parent.alertError(parent.$t('newRequest.unableToRequestZIM', { error: Constants.standardHTTPError(error.response) }));
-          })
-          .then(function () {
-            parent.toggleLoader(false);
-            parent.busy = false;
-          });
-    },
-  },
-  mounted() {
-    this.loadRecipeDefinition(false);
-},
-}
+              if (field.type == "email") {
+                component = "b-form-input";
+                component_type = "email";
+              }
+
+              if (field.type == "integer") {
+                component = "b-form-input";
+                component_type = "number";
+                step = 1;
+              }
+
+              if (field.type == "float") {
+                component = "b-form-input";
+                component_type = "number";
+                step = 0.1
+              }
+
+              if (field.type == "list-of-string-enum") {
+                component = "multiselect";
+                options = field.choices;
+              }
+
+              if (field.type == "boolean") {
+                component = "switchbutton";
+                options = [{text: "True", value: true}, {text: "Not set", value: undefined}];
+              }
+
+              if (field.type == "string-enum") {
+                component = "b-form-select";
+                options = field.choices.map(function (option) { return {text: option, value: option}; });
+                if (field.required != true) {
+                  options.push({text: "Not set", value: undefined});
+                }
+              }
+
+              if (field.type == "text") {
+                component = "b-form-input";
+                component_type = "text";
+              }
+
+              fields.push({
+                label: field.label || field.data_key,
+                data_key: field.data_key,
+                required: field.required,
+                description: field.description,
+                placeholder: "Not set",  //field.placeholder,
+
+                component: component,
+                component_type: component_type,
+                options: options,
+                bind_color: bind_color,
+                step: step,
+              });
+
+            }
+            return fields;
+          },
+          payload() {
+            return {url: this.form.url, email:this.form.email, flags: this.flags};
+          }
+      },
+      methods: {
+        loadRecipeDefinition(force_reload, on_success, on_error) {
+            if (!force_reload && this.$store.getters.offliner_def.length){
+                if (on_success) { on_success(); }
+                return;
+            }
+
+            let parent = this;
+            console.debug("fetching definition…");
+            parent.toggleLoader("fetching definition…");
+            parent.queryAPI('get', Constants.zimfarm_webapi + '/offliners/zimit')
+              .then(function (response) {
+                  let definition = response.data.filter(field => Constants.zimit_fields.indexOf(field.key) > -1);
+                  parent.$store.dispatch('setOfflinerDef', definition);
+
+                  if (on_success) { on_success(); }
+              })
+              .catch(function (error) {
+                if (on_error) { on_error(Constants.standardHTTPError(error.response)); }
+              })
+              .then(function () {
+                  parent.toggleLoader(false);
+              });
+        },
+        requestZim() {
+            console.log("requestZim");
+
+            let parent = this;
+            this.payload.flags = Object.filter(this.payload.flags, item => item!==""); 
+            parent.busy = true;
+            let task_id = null;
+            parent.toggleLoader("Creating schedule…");
+            parent.queryAPI('post', Constants.zimitui_api + '/requests/', this.payload)
+              .then(function (response) {
+                if (response.data && response.data.id) {
+                  task_id = response.data.id;
+                  parent.redirectTo('request', {task_id: task_id});
+                } else
+                  throw "Didn't receive task_id";
+              })
+              .catch(function (error) {
+                parent.alertError("Unable to request ZIM creation:<br />" + Constants.standardHTTPError(error.response));
+              })
+              .then(function () {
+                parent.toggleLoader(false);
+                parent.busy = false;
+              });
+        },
+      },
+      mounted() {
+        this.loadRecipeDefinition(false);
+      },
+    }
 </script>
 
 <style type="text/css" scoped>
