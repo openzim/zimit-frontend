@@ -71,9 +71,9 @@ Vue.use(VueMatomo, {
 });
 
 new Vue({
-  router,
-  store,
-  i18n,
+  router: router,
+  store: store,
+  i18n: i18n,
   render: h => h(App),
   created() {
     this.setPageDirection(this.$i18n.locale);

@@ -93,7 +93,7 @@
 <script>
     import Constants from '../constants.js'
     import Mixins from '../components/mixins.js'
-    import SwitchButton from '../components//SwitchButton.vue'
+    import SwitchButton from '../components/SwitchButton.vue'
     import Faq from '../components/Faq.vue'
 
     export default {
