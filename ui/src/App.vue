@@ -3,6 +3,7 @@
     <NavBar />
     <AlertFeedback />
     <router-view />
+    <!-- eslint-disable-next-line vue/no-v-html -->
     <footer v-html="$t('footer.str')"></footer>
   </div>
 </template>
