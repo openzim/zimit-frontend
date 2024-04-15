@@ -30,11 +30,8 @@ repos:
   hooks:
   - id: prettier
     files: ui\/.*$ # files in javascript folder
-    args:
-      - --config
-      - ui/.prettierrc.json
 - repo: https://github.com/pre-commit/mirrors-eslint
-  rev: v8.51.0
+  rev: v9.0.0
   hooks:
   - id: eslint
     types: [file]
