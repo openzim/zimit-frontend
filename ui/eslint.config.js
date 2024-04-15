@@ -1,7 +1,7 @@
-const pluginVue = require("eslint-plugin-vue");
-const eslintConfigPrettier = require("eslint-config-prettier");
+import pluginVue from "eslint-plugin-vue";
+import eslintConfigPrettier from "eslint-config-prettier";
 
-module.exports = [
+export default [
   ...pluginVue.configs["flat/recommended"],
   eslintConfigPrettier,
   {
