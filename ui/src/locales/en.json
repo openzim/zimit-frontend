@@ -37,7 +37,7 @@
     "fetchingDefinition": "fetching definition…",
     "standardHTTPError": "Unable to request ZIM creation:<br />%{error}",
     "creatingSchedule": "Creating schedule…",
-    "noTaskIdReceived": "Didn't receive task_id",
+    "noTaskIdReceived": "Didn't receive task ID",
     "unableToRequestZIM": "Unable to request ZIM creation:<br />%{error}"
   },
   "notFound": {

@@ -189,7 +189,7 @@ export default {
   methods: {
     loadTask() {
       this.toggleLoader(this.$t("request.loadingTask"));
-      this.queryAPI("get", `${Constants.zimitui_api}/requests/${this.task_id}`)
+      this.queryAPI("get", `${Constants.zimitui_api}/requests/${this.taskId}`)
         .then((response) => {
           if (response.data) {
             this.task = response.data;

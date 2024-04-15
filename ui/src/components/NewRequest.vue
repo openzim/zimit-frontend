@@ -1,3 +1,5 @@
+<!-- eslint-disable vue/no-deprecated-v-bind-sync (not found how to apply it only to :pressed.sync )-->
+
 <template>
   <div class="container">
     <!-- eslint-disable-next-line vue/no-v-html -->
@@ -32,9 +34,9 @@
           >{{ $t("newRequest.submit") }}</b-button
         >
         <b-button
-          v-model:pressed="showAdvanced"
           pill
           size="sm"
+          :pressed.sync="showAdvanced"
           variant="link-grey"
           >{{ $t("newRequest.advancedOptions") }}</b-button
         >
@@ -133,7 +135,7 @@ import FaqList from "../components/FaqList.vue";
 
 export default {
   name: "NewRequest",
-  components: { SwitchButton, Faq },
+  components: { SwitchButton, FaqList },
   mixins: [Mixins],
   data() {
     return {
@@ -289,14 +291,12 @@ export default {
         (item) => item !== "",
       );
       parent.busy = true;
-      let task_id = null;
       parent.toggleLoader(this.$t("newRequest.creatingSchedule"));
       parent
         .queryAPI("post", Constants.zimitui_api + "/requests/", this.payload)
         .then(function (response) {
           if (response.data && response.data.id) {
-            task_id = response.data.id;
-            parent.redirectTo("request", { task_id: task_id });
+            parent.redirectTo("request", { taskId: response.data.id });
           } else throw new Error(parent.$t("newRequest.noTaskIdReceived"));
         })
         .catch(function (error) {
