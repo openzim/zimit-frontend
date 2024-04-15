@@ -69,9 +69,9 @@ def authenticate(force=False):
             username=ZIMFARM_USERNAME, password=ZIMFARM_PASSWORD
         )
     except Exception:
-        TokenData.ACCESS_TOKEN = (
-            TokenData.REFRESH_TOKEN
-        ) = TokenData.ACCESS_TOKEN_EXPIRY = None
+        TokenData.ACCESS_TOKEN = TokenData.REFRESH_TOKEN = (
+            TokenData.ACCESS_TOKEN_EXPIRY
+        ) = None
     else:
         TokenData.ACCESS_TOKEN, TokenData.REFRESH_TOKEN = access_token, refresh_token
         TokenData.ACCESS_TOKEN_EXPIRY = datetime.datetime.now() + datetime.timedelta(
