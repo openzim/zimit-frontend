@@ -5,23 +5,34 @@ import HelloWorld from './components/HelloWorld.vue';
 <template>
   <div>
     <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
+      <img src="./assets/ZIMIT_LOGO_RGB.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
   <HelloWorld msg="Are you Vite + Vue" />
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+#app {
+  margin-bottom: 6em;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+footer {
+  background-color: white;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+/* RTL styles */
+[dir='rtl'] #app {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir='rtl'] footer {
+  direction: rtl;
+  text-align: center; /* Keep footer text centered or change as needed */
 }
 </style>

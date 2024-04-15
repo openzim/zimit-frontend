@@ -37,6 +37,5 @@ repos:
     types: [file]
     files: ui\/.*(?:\.[jt]sx?|\.vue)$ # *.js, *.jsx, *.ts, *.tsx, *.vue in ui/src folder
     args:
-    - --debug
     - --config
     - ui/eslint.config.js
