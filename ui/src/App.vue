@@ -22,6 +22,15 @@ import HelloWorld from './components/HelloWorld.vue';
     </v-expansion-panels>
     ¨
   </div>
+
+  <p><strong>Current route path:</strong> {{ $route.fullPath }}</p>
+  <nav>
+    <RouterLink to="/">Go to Home</RouterLink>
+    <RouterLink to="/about">Go to About</RouterLink>
+  </nav>
+  <main>
+    <RouterView />
+  </main>
 </template>
 
 <style scoped>

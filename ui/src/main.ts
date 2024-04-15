@@ -32,7 +32,13 @@ const vuetify = createVuetify({
   },
 });
 
-app.use(vuetify).mount('#app');
+app.use(vuetify);
+
+import router from './routes';
+
+app.use(router);
+
+app.mount('#app');
 
 //console.log(import.meta.env.VITE_APP_TITLE)
 // console.log(import.meta.env)
