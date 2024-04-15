@@ -39,3 +39,4 @@ repos:
     args:
     - --config
     - ui/eslint.config.js
+    - --no-ignore

@@ -34,10 +34,16 @@ const vuetify = createVuetify({
 
 app.use(vuetify);
 
+// Vue Router
 import router from './routes';
-
 app.use(router);
 
+// Pinia
+import { createPinia } from 'pinia';
+const pinia = createPinia();
+app.use(pinia);
+
+// Final mount
 app.mount('#app');
 
 //console.log(import.meta.env.VITE_APP_TITLE)
