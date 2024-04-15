@@ -35,4 +35,8 @@ repos:
   hooks:
   - id: eslint
     types: [file]
-    files: ui\/src\/.*(?:\.[jt]sx?|\.vue)$ # *.js, *.jsx, *.ts, *.tsx, *.vue in ui/src folder
+    files: ui\/.*(?:\.[jt]sx?|\.vue)$ # *.js, *.jsx, *.ts, *.tsx, *.vue in ui/src folder
+    args:
+    - --debug
+    - --config
+    - ui/eslint.config.js
