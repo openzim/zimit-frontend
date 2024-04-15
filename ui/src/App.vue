@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue';
+import { useI18n } from 'vue-i18n';
+const { t } = useI18n();
 </script>
 
 <template>
@@ -8,8 +10,10 @@ import HelloWorld from './components/HelloWorld.vue';
       <img src="./assets/ZIMIT_LOGO_RGB.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
-  <HelloWorld msg="Are you Vite + Vue" />
   <div>
+    <HelloWorld msg="Are you Vite + Vue" />
+
+    {{ t('faq.whatIsZim') }}
     <div class="text-subtitle-2 mt-4 mb-2">Accordion</div>
 
     <v-expansion-panels variant="accordion">
