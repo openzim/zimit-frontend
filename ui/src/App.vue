@@ -1,45 +1,27 @@
-<template>
-  <div id="app">
-    <NavBar />
-    <AlertFeedback />
-    <router-view />
-    <!-- eslint-disable-next-line vue/no-v-html -->
-    <footer v-html="$t('footer.str')"></footer>
-  </div>
-</template>
-
-<script>
-import NavBar from "./components/NavBar.vue";
-import AlertFeedback from "./components/AlertFeedback.vue";
-
-export default {
-  name: "App",
-  components: { NavBar, AlertFeedback },
-};
+<script setup lang="ts">
+import HelloWorld from "./components/HelloWorld.vue";
 </script>
 
-<style type="text/css" scoped>
-#app {
-  margin-bottom: 6em;
-}
-footer {
-  background-color: white;
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  text-align: center;
-  padding-top: 1em;
-  padding-bottom: 1em;
-}
+<template>
+  <div>
+    <a href="https://vuejs.org/" target="_blank">
+      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
+    </a>
+  </div>
+  <HelloWorld msg="Vite + Vue" />
+</template>
 
-/* RTL styles */
-[dir="rtl"] #app {
-  direction: rtl;
-  text-align: right;
+<style scoped>
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
 }
-
-[dir="rtl"] footer {
-  direction: rtl;
-  text-align: center; /* Keep footer text centered or change as needed */
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.vue:hover {
+  filter: drop-shadow(0 0 2em #42b883aa);
 }
 </style>
