@@ -1,5 +1,5 @@
 body {
-    background-color: #fafafa;
+  background-color: #fafafa;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -16,16 +16,16 @@ body {
 */
 
 .btn-grey {
-    color: white;
-    background-color: #231F20;
+  color: white;
+  background-color: #231f20;
 }
 .btn-grey:hover {
-    color: white;
-    background-color: #303030;
+  color: white;
+  background-color: #303030;
 }
 
 .btn-link-grey {
-    color: #231F20;
+  color: #231f20;
 }
 
 a {
@@ -36,12 +36,11 @@ a:hover {
   color: #54821c;
 }
 
-
 .btn-green {
-    color: white;
-    background-color: #82ca2a;
+  color: white;
+  background-color: #82ca2a;
 }
 .btn-green:hover {
-    color: white;
-    background-color: #54821c;
+  color: white;
+  background-color: #54821c;
 }

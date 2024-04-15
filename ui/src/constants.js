@@ -3,27 +3,49 @@ export default {
   zimitui_api: window.environ.ZIMIT_API_URL || "/api/v1",
   zimit_size_limit: parseInt(window.environ.ZIMIT_SIZE_LIMIT) || 2147483648,
   zimit_time_limit: parseInt(window.environ.ZIMIT_TIME_LIMIT) || 5400,
-  zim_download_url: window.environ.ZIM_DOWNLOAD_URL || "https://s3.us-west-1.wasabisys.com/org-kiwix-zimit/zim",
+  zim_download_url:
+    window.environ.ZIM_DOWNLOAD_URL ||
+    "https://s3.us-west-1.wasabisys.com/org-kiwix-zimit/zim",
   ALERT_DEFAULT_DURATION: 5,
   ALERT_LONG_DURATION: 10,
   ALERT_PERMANENT_DURATION: true,
   zimit_refresh_after: parseInt(window.environ.ZIMIT_REFRESH_AFTER || "60"),
-  zimit_fields: ["lang", "title", "description", "favicon", "zim_file",
-                 "tags", "creator", "source", "new_context", "wait_until", "depth",
-                 "extra_hops", "scope_type", "include", "exclude", "allow_hash_urls",
-                 "mobile_device", "user_agent", "use_sitemap", "behaviors",
-                 "behavior_timeout", "size_limit", "time_limit"],
-  hidden_flags: ["adminEmail", "name", "output", "statsFilename", "url",
-                 "zim-file", "user_agent_suffix"],
-  yes_no(value, value_yes, value_no) {
-    if (!value_yes)
-      value_yes = "yes";
-    if (!value_no)
-      value_no = "no";
-    return value ? value_yes : value_no;
-  },
+  zimit_fields: [
+    "lang",
+    "title",
+    "description",
+    "favicon",
+    "zim_file",
+    "tags",
+    "creator",
+    "source",
+    "new_context",
+    "wait_until",
+    "depth",
+    "extra_hops",
+    "scope_type",
+    "include",
+    "exclude",
+    "allow_hash_urls",
+    "mobile_device",
+    "user_agent",
+    "use_sitemap",
+    "behaviors",
+    "behavior_timeout",
+    "size_limit",
+    "time_limit",
+  ],
+  hidden_flags: [
+    "adminEmail",
+    "name",
+    "output",
+    "statsFilename",
+    "url",
+    "zim-file",
+    "user_agent_suffix",
+  ],
   standardHTTPError(response) {
-    let statuses = {
+    const statuses = {
       // 1××: Informational
       100: "Continue",
       101: "Switching Protocols",
@@ -100,14 +122,16 @@ export default {
 
     if (response === undefined) {
       // no response is usually due to browser blocking due to CORS issue
-      return "Unknown response; probably CORS issue."
+      return "Unknown response; probably CORS issue.";
     }
     // If error is provided, display it (do not display error code since this is too technical)
     if (response.data && response.data.error) {
       return response.data.error;
     }
     // Last resort, display only available information
-    let status_text = response.statusText ? response.statusText : statuses[response.status];
+    const status_text = response.statusText
+      ? response.statusText
+      : statuses[response.status];
     return response.status + ": " + status_text + ".";
   },
 };

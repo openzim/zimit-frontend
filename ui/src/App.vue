@@ -9,13 +9,13 @@
 </template>
 
 <script>
-    import NavBar from './components/NavBar.vue'
-    import AlertFeedback from './components/AlertFeedback.vue'
+import NavBar from "./components/NavBar.vue";
+import AlertFeedback from "./components/AlertFeedback.vue";
 
-    export default {
-      name: 'app',
-      components: {NavBar, AlertFeedback},
-    };
+export default {
+  name: "App",
+  components: { NavBar, AlertFeedback },
+};
 </script>
 
 <style type="text/css" scoped>
