@@ -14,6 +14,7 @@ const i18n = createI18n({
   legacy: false,
   locale: defaultLanguage, // set locale
   fallbackLocale: 'en', // set fallback locale for untranslated messages
+  warnHtmlMessage: false, // we prefer to translate whole HTML blocks to ease translators work
 });
 
 // List of locales whose messages have been loaded

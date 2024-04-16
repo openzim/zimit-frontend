@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue';
+import FaqEntry from './components/FaqEntry.vue';
+import FaqList from './components/FaqList.vue';
+
 import { useI18n } from 'vue-i18n';
 const { t } = useI18n();
 </script>
@@ -11,6 +14,22 @@ const { t } = useI18n();
     </a>
   </div>
   <div>
+    <FaqList />
+
+    <v-expansion-panels variant="accordion">
+      <FaqEntry id="how-to-read" :title="t('faq.howToRead')">
+        <template #default>
+          <!-- eslint-disable-next-line vue/no-v-html -->
+          <div v-html="t('faq.howToReadDesc')"></div>
+        </template>
+      </FaqEntry>
+      <FaqEntry id="how-to-read" :title="t('faq.howToRead')">
+        <template #default>
+          <!-- eslint-disable-next-line vue/no-v-html -->
+          <div v-html="t('faq.howToReadDesc')"></div>
+        </template>
+      </FaqEntry>
+    </v-expansion-panels>
     <HelloWorld msg="Are you Vite + Vue" />
 
     {{ t('faq.whatIsZim') }}
