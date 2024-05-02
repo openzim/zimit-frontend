@@ -1,4 +1,4 @@
 {
-  "ZIMFARM_WEBAPI": "https://api.farm.youzim.it/v1",
+  "ZIMFARM_WEBAPI": "https://api.farm.zimit.kiwix.org/v1",
   "ZIMIT_API_URL": "/api/v1"
 }

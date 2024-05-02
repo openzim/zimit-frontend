@@ -15,7 +15,9 @@ DEFAULT_MEMORY = "1GiB"
 DEFAULT_DISK = "1GiB"
 DEFAULT_MAX_SIZE_LIMIT = 2**30 * 4
 DEFAULT_MAX_TIME_LIMIT = 3600 * 2
-ZIMFARM_API_URL = os.getenv("INTERNAL_ZIMFARM_WEBAPI", "https://api.farm.youzim.it/v1")
+ZIMFARM_API_URL = os.getenv(
+    "INTERNAL_ZIMFARM_WEBAPI", "https://api.farm.zimit.kiwix.org/v1"
+)
 ZIMFARM_USERNAME = os.getenv("_ZIMFARM_USERNAME", "-")
 ZIMFARM_PASSWORD = os.getenv("_ZIMFARM_PASSWORD", "-")
 ZIMIT_IMAGE = os.getenv("ZIMIT_IMAGE", "openzim/zimit:1.2.0")
@@ -64,14 +66,14 @@ except Exception as exc:
 TASK_WORKER = os.getenv("TASK_WORKER")
 
 # mailgun
-MAILGUN_FROM = os.getenv("MAILGUN_FROM", "Youzim.it <info@youzim.it>")
+MAILGUN_FROM = os.getenv("MAILGUN_FROM", "Zimit <info@zimit.kiwix.org>")
 MAILGUN_API_KEY = os.getenv("MAILGUN_API_KEY", "")
 MAILGUN_API_URL = os.getenv(
-    "MAILGUN_API_URL", "https://api.mailgun.net/v3/mg.youzim.it"
+    "MAILGUN_API_URL", "https://api.mailgun.net/v3/mg.zimit.kiwix.org"
 )
 # notifications callback
-PUBLIC_URL = os.getenv("PUBLIC_URL", "https://youzim.it")
-PUBLIC_API_URL = os.getenv("PUBLIC_API_URL", "https://youzim.it/api/v1")
+PUBLIC_URL = os.getenv("PUBLIC_URL", "https://zimit.kiwix.org")
+PUBLIC_API_URL = os.getenv("PUBLIC_API_URL", "https://zimit.kiwix.org/api/v1")
 ZIM_DOWNLOAD_URL = os.getenv(
     "ZIM_DOWNLOAD_URL", "https://s3.us-west-1.wasabisys.com/org-kiwix-zimit/zim"
 )

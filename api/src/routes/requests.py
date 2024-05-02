@@ -62,7 +62,7 @@ class RequestsRoute(BaseRoute):
             document["flags"].get("zim-file", url.hostname) + f"_{ident}.zim"
         )
 
-        document["flags"]["userAgentSuffix"] = "Youzim.it+"
+        document["flags"]["userAgentSuffix"] = "zimit.kiwix.org+"
 
         # remove flags we don't want to overwrite
         for flag in ("adminEmail", "output", "statsFilename"):

@@ -29,7 +29,7 @@ WORKDIR /app/
 ENV MONGODB_URI mongodb://localhost
 ENV MAIN_PREFIX /api
 ENV ZIMIT_API_URL /api/v1
-ENV ZIMFARM_WEBAPI https://api.farm.youzim.it/v1
+ENV ZIMFARM_WEBAPI https://api.zimit.kiwix.org/v1
 ENV INTERNAL_ZIMFARM_WEBAPI http://dispatcher.backend.zimit.kiwixoffline.node.intern/v1
 ENV _ZIMFARM_USERNAME -
 ENV _ZIMFARM_PASSWORD -
@@ -39,11 +39,11 @@ ENV _ZIMFARM_PASSWORD -
 # ENV ZIMIT_TIME_LIMIT 7200
 
 # notifications
-ENV MAILGUN_API_URL https://api.mailgun.net/v3/mg.youzim.it
-ENV MAILGUN_FROM Youzim.it <info@youzim.it>
+ENV MAILGUN_API_URL https://api.mailgun.net/v3/mg.zimit.kiwix.org
+ENV MAILGUN_FROM Zimit <info@zimit.kiwix.org>
 # ENV MAILGUN_API_KEY -
-ENV PUBLIC_URL https://youzim.it
-ENV PUBLIC_API_URL https://youzim.it/api/v1
+ENV PUBLIC_URL https://zimit.kiwix.org
+ENV PUBLIC_API_URL https://zimit.kiwix.org/api/v1
 # ENV HOOK_TOKEN somestring
 
 # prestart script (former entrypoint - database init)

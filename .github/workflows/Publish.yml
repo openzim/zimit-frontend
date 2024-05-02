@@ -26,7 +26,7 @@ jobs:
             GHCRIO_USERNAME=${{ secrets.GHCR_USERNAME }}
             GHCRIO_TOKEN=${{ secrets.GHCR_TOKEN }}
 
-      - name: Deploy Zimit frontend changes to youzim.it
+      - name: Deploy Zimit frontend changes to zimit.kiwix.org
         uses: actions-hub/kubectl@master
         env:
           KUBE_CONFIG: ${{ secrets.ZIMIT_KUBE_CONFIG }}

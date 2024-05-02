@@ -3,7 +3,7 @@
 {% if task.status == "requested" %}
 <h2>Zim requested!</h2>
 <p>Your Zim request of <a href="{{ task.config.flags.url }}">{{ task.config.flags.url }}</a> has been recorded.</p>
-<p>You can follow the status of this request at <a href="{{ base_url }}/{{ task._id }}">youzim.it/{{ task._id }}</a>.</p>
+<p>You can follow the status of this request at <a href="{{ base_url }}/{{ task._id }}">zimit.kiwix.org/{{ task._id }}</a>.</p>
 <p>We'll send you another email once your Zim file is ready to download.</p>
 {% endif %}
 
@@ -20,6 +20,6 @@
 
 {% if task.status in ("failed", "canceled") %}<h2>Your zim request has failed!</h2>
 <p>We are really sorry. </p>
-<p>This might be due to an error with the URL you entered (<a href="{{ task.config.flags.url }}">{{ task.config.flags.url }}</a>). Please double check and <a href="https://youzim.it">try again</a>.</p>{% endif %}
+<p>This might be due to an error with the URL you entered (<a href="{{ task.config.flags.url }}">{{ task.config.flags.url }}</a>). Please double check and <a href="https://zimit.kiwix.org">try again</a>.</p>{% endif %}
 </body>
 </html>
