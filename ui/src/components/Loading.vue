@@ -19,18 +19,18 @@
         return this.$store.getters.loadingStatus.should_display;
       },
       loading_text() {
-        return this.$store.getters.loadingStatus.text;
+        return this.$store.getters.loadingStatus.text || this.$t('loading.loading');
       }
     }
   }
 </script>
 
 <style type="text/css" scoped>
-#main_loader {
-  color: white;
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 0.4rem;
-}
+  #main_loader {
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0.4rem;
+  }
 </style>

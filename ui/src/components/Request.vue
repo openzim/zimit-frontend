@@ -2,7 +2,7 @@
   <div class="container">
 
     <div v-if="!error && task">
-        <h1 v-if="task && task.config">Ziming of <a :href="task.config.flags.url" target="_blank">{{ task.config.flags.url }}</a></h1>
+        <h1 v-if="task && task.config">{{ $t('request.zimingOf') }}<a :href="task.config.flags.url" target="_blank">{{ task.config.flags.url }}</a></h1>
         <b-progress>
             <b-progress-bar
             :value="progression"
@@ -16,37 +16,36 @@
 
         <div v-if="is_requested">
             <b-alert fade show variant="warning">
-                <h2>Requesting slot</h2>
-                <p>Your request has been recorded and is awaiting a slot on our infrastructure to run.</p>
+                <h2>{{$t('request.requestingSlot')}}</h2>
+                <p>{{$t('request.requestRecorded')}}</p>
             </b-alert>
         </div>
 
         <div v-if="failed">
             <b-alert fade show variant="danger">
-                <h2>You request has failed! We are sorry about that.</h2>
-                <p>A number of reasons can lead to a ziming failure. Most of the time, it's an inadequate URL… Please triple check it and create a new request. If that doesn't work, <a href="https://github.com/openzim/zimit/issues/new">open a ticket in github</a>.</p>
+                <h2>{{$t('request.requestFailed')}}</h2>
+                <p>{{$t('request.failureReasons')}} <a href="https://github.com/openzim/zimit/issues/new">{{$t('request.openTicket')}}</a>.</p>
             </b-alert>
         </div>
 
         <div v-if="succeeded">
             <b-alert fade show variant="success">
-                <h2>Success!</h2>
-                <p>The link below will expire and the file will be deleted after a week.</p>
-                <p><a :href="zim_download_url + task.config.warehouse_path + '/' + file.name"><b-button pill variant="grey">Download</b-button></a></p>
-                <p v-if="limit_hit">You have reached the maximum file size ({{ zimit_size_limit }}) or duration ({{ (zimit_time_limit) }}) allowed for free crawling. <a href="https://www.kiwix.org/en/contact/">Contact us</a> to help us purchase additional server space for you.</p>
+                <h2>{{$t('request.success')}}</h2>
+                <p>{{$t('request.linkExpires')}}</p>
+                <p><a :href="zim_download_url + task.config.warehouse_path + '/' + file.name"><b-button pill variant="grey">{{$t('request.download')}}</b-button></a></p>
+                <p v-if="limit_hit">{{$t('request.limitHit')}}</p>
             </b-alert>
         </div>
 
         <div v-if="ongoing && !is_requested">
             <b-alert fade show variant="info">
-                <h2>Your request is being processed</h2>
-                <p>One of our servers is currently converting that URL into a nice ZIM file. Depending on the number of pages and resources available, it can be a matter of minutes, hours or even days! Please be patient.</p>
-                <p v-if="task.has_email"
-                  >You can close this window. You will get an email notification when the task is completed.</p>
+                <h2>{{$t('request.beingProcessed')}}</h2>
+                <p>{{$t('request.serverConverting')}}</p>
+                <p v-if="task.has_email">{{$t('request.emailNotification')}}</p>
             </b-alert>
         </div>
         <div v-if="!Object.isEmpty(flags)">
-          <h2>Settings</h2>
+          <h2>{{$t('request.title')}}</h2>
           <FlagsList :flags="flags" :shrink="false" />
         </div>
     </div>
@@ -83,7 +82,8 @@
           progression() {
             if (this.ended)
               return 100;
-            return (this.task.container && this.task.container.progress && this.task.container.progress.overall) ? this.task.container.progress.overall : 0; },
+            return (this.task.container && this.task.container.progress && this.task.container.progress.overall) ? this.task.container.progress.overall : 0; 
+          },
           visibility_fix() {
             if (this.progression < 15)
               return "visible-text";
@@ -98,10 +98,10 @@
           },
           simple_status() {
             if (this.is_requested)
-              return "pending";
+              return this.$t('request.pending');
             if (this.ended)
               return this.task.status;
-            return "in-progress";
+            return this.$t('request.inProgress');
           },
           sorted_files() { return Object.values(this.task.files).sortBy('created_timestamp'); },
           file() { return Object.values(this.sorted_files)[0] || {}; },
@@ -109,50 +109,54 @@
           flags() {
             if (!this.task || !this.task.config || !this.task.config.flags)
               return {};
-            var parent = this;
-            return Object.filter(parent.task.config.flags, function(val, key) {
-              if (Constants.hidden_flags.indexOf(key) != -1)
-                return false;
-              if (key == "size_limit" && Object.has(parent.task.config.flags, 'size_limit') && parent.task.config.flags.size_limit >= parent.zimit_size_limit)
-                return false;
-              if (key == "time_limit" && Object.has(parent.task.config.flags, 'time_limit') && parent.task.config.flags.time_limit >= parent.zimit_time_limit)
-                return false;
-              return true;
+            return Object.entries(this.task.config.flags)
+              .filter(([key, val]) => !Constants.hidden_flags.includes(key) && 
+                      !(key === "size_limit" && val >= Constants.zimit_size_limit) && 
+                      !(key === "time_limit" && val >= Constants.zimit_time_limit))
+              .reduce((obj, [key, val]) => ({ ...obj, [key]: val }), {});
+          },
+          human_size_limit() {
+              const sizeInGiB = parseInt(Constants.zimit_size_limit / 1073741824);
+              return this.$t('request.humanSizeLimit', { size: sizeInGiB });
+          },
+          human_time_limit() {
+              const timeInHours = parseInt(Constants.zimit_time_limit / 3600);
+              const unitKey = `units.timeLimit.${timeInHours === 1 ? 'hour' : 'hours'}`;
+              return this.$t('request.humanTimeLimit', {
+                hours: timeInHours, 
+                unit: this.$t(unitKey)
             });
           },
-          human_size_limit() { return `${parseInt(Constants.zimit_size_limit / 1073741824).format()} GiB`; },
-          human_time_limit() { return `${parseInt(Constants.zimit_time_limit / 3600)} hours`; },
-          limit_hit() { return this.task.container && this.task.container.progress && this.task.container.progress.limit && this.task.container && this.task.container.progress && this.task.container.progress.limit.hit;
+          limit_hit() { 
+              return this.task.container && this.task.container.progress && this.task.container.progress.limit && this.task.container.progress.limit.hit;
           },
         },
         methods: {
             loadTask() {
-                let parent = this;
-                parent.toggleLoader("Retrieving task…");
-                parent.queryAPI('get', Constants.zimitui_api + '/requests/' + this.task_id)
-                  .then(function (response) {
+                this.toggleLoader(this.$t('request.loadingTask'));
+                this.queryAPI('get', `${Constants.zimitui_api}/requests/${this.task_id}`)
+                  .then(response => {
                     if (response.data) {
-                      parent.task = response.data;
-                      if (parent.ended && parent.interval)
-                        clearInterval(parent.interval);
-                    } else
-                      throw "Didn't receive task";
-                  })
-                  .catch(function (error) {
-                    console.error(error);
-                    if (error.response && error.response.status && error.response.status == 404) {
-                      parent.alertError("No task found with this ID. It probably has expired.");
+                      this.task = response.data;
+                      if (this.ended && this.interval) clearInterval(this.interval);
+                    } else {
+                      throw new Error(this.$t('request.noDataReceived'));
                     }
-                    else
-                      parent.alertError("Unable to retrieve task:\n" + Constants.standardHTTPError(error.response));
                   })
-                  .then(function () {
-                    parent.toggleLoader(false);
+                  .catch(error => {
+                    console.error(error);
+                    if (error.response && error.response.status === 404) {
+                      this.alertError(this.$t('request.taskNotFound'));
+                    } else {
+                      this.alertError(this.$t('request.taskRetrieveError', { error: Constants.standardHTTPError(error.response) }));
+                    }
+                  })
+                  .then(() => {
+                    this.toggleLoader(false);
                   });
             },
         },
         mounted() {
-          // refresh this periodically
           this.loadTask(false);
           this.interval = setInterval(this.loadTask, Constants.zimit_refresh_after * 1000, false);
         },

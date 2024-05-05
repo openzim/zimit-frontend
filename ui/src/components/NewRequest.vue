@@ -1,13 +1,13 @@
 <template>
   <div class="container">
-    <h1>Want an offline version of a website? Just <strong>Zim it</strong>!</h1>
+    <h1 v-html="$t('newRequest.heading')"></h1>
 
     <b-form @submit.prevent="requestZim" v-if="editorReady">
         <b-form-group>
             <b-form-input
                 type="url"
                 id="new_url"
-                placeholder="Full URL of the website to convert"
+                :placeholder="$t('newRequest.urlPlaceholder')"
                 required="required"
                 v-model="form.url" />
         </b-form-group>
@@ -16,23 +16,21 @@
             <b-form-input
                 type="email"
                 id="new_email"
-                placeholder="Your e-mail to receive a download link. Address not kept"
+                :placeholder="$t('newRequest.emailPlaceholder')"
                 v-model="form.email" />
         </b-form-group>
-
 
         <b-form-group>
           <b-button
             pill
             type="submit"
             :disabled="!editorReady || !payload.url || busy"
-            variant="grey">
-            Let's Zim it!</b-button>
+            variant="grey">{{$t('newRequest.submit')}}</b-button>
           <b-button
             pill
             size="sm"
             :pressed.sync="showAdvanced"
-            variant="link-grey">advanced options</b-button>
+            variant="link-grey">{{$t('newRequest.advancedOptions')}}</b-button>
         </b-form-group>
 
         <div v-if="showAdvanced">
@@ -80,7 +78,7 @@
                 type="submit"
                 :disabled="!editorReady || !payload.url || busy"
                 variant="grey">
-                Let's Zim it!</b-button>
+                {{$t('newRequest.submit')}}</b-button>
             </b-form-group>
 
         </div>
@@ -156,14 +154,14 @@
 
               if (field.type == "boolean") {
                 component = "switchbutton";
-                options = [{text: "True", value: true}, {text: "Not set", value: undefined}];
+                options = [{text: this.$t('newRequest.true'), value: true}, {text: this.$t('newRequest.notSet'), value: undefined}];
               }
 
               if (field.type == "string-enum") {
                 component = "b-form-select";
-                options = field.choices.map(function (option) { return {text: option, value: option}; });
+                options = field.choices.map(option => ({text: option, value: option}));
                 if (field.required != true) {
-                  options.push({text: "Not set", value: undefined});
+                  options.push({text: this.$t('newRequest.notSet'), value: undefined});
                 }
               }
 
@@ -177,7 +175,7 @@
                 data_key: field.data_key,
                 required: field.required,
                 description: field.description,
-                placeholder: "Not set",  //field.placeholder,
+                placeholder: this.$t('newRequest.notSet'),  //field.placeholder,
 
                 component: component,
                 component_type: component_type,
@@ -202,7 +200,7 @@
 
             let parent = this;
             console.debug("fetching definition…");
-            parent.toggleLoader("fetching definition…");
+            parent.toggleLoader(this.$t('newRequest.fetchingDefinition'));
             parent.queryAPI('get', Constants.zimfarm_webapi + '/offliners/zimit')
               .then(function (response) {
                   parent.$store.dispatch('setOfflinerDef', response.data);
@@ -210,7 +208,7 @@
                   if (on_success) { on_success(); }
               })
               .catch(function (error) {
-                if (on_error) { on_error(Constants.standardHTTPError(error.response)); }
+                if (on_error) { on_error(parent.$t('newRequest.standardHTTPError', { error: Constants.standardHTTPError(error.response) })); }
               })
               .then(function () {
                   parent.toggleLoader(false);
@@ -223,17 +221,17 @@
             this.payload.flags = Object.filter(this.payload.flags, item => item!==""); 
             parent.busy = true;
             let task_id = null;
-            parent.toggleLoader("Creating schedule…");
+            parent.toggleLoader(this.$t('newRequest.creatingSchedule'));
             parent.queryAPI('post', Constants.zimitui_api + '/requests/', this.payload)
               .then(function (response) {
                 if (response.data && response.data.id) {
                   task_id = response.data.id;
                   parent.redirectTo('request', {task_id: task_id});
                 } else
-                  throw "Didn't receive task_id";
+                  throw new Error(parent.$t('newRequest.noTaskIdReceived'));
               })
               .catch(function (error) {
-                parent.alertError("Unable to request ZIM creation:<br />" + Constants.standardHTTPError(error.response));
+                parent.alertError(parent.$t('newRequest.unableToRequestZIM', { error: Constants.standardHTTPError(error.response) }));
               })
               .then(function () {
                 parent.toggleLoader(false);

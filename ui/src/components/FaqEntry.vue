@@ -33,9 +33,18 @@
     top: .5em;
     right: .3rem;
   }
+
+  /* Adjust for RTL by resetting 'right' and setting 'left' */
+  :root[dir="rtl"] .card-header .plus,
+  :root[dir="rtl"] .card-header .minus {
+    right: auto;
+    left: .3rem;
+  }
+
   .card-header .collapsed .minus {
     display: none;
   }
+
   .card-header .not-collapsed .plus {
     display: none;
   }
@@ -47,9 +56,11 @@
     margin-bottom: 0 !important;
     border-radius: 0;
   }
+
   .faq .card:not(:first-child) {
     border-top: 0;
   }
+
   .card-header {
     background-color: transparent;
     border: 0;

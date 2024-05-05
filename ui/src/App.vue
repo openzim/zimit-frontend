@@ -3,9 +3,7 @@
     <NavBar />
     <AlertFeedback />
     <router-view />
-    <footer>
-      Powered by <a target="_blank" href="https://kiwix.org">Kiwix</a> and <a target="_blank" href="https://webrecorder.net">Webrecorder</a>, thanks to a <a target="_blank" href="https://www.mozilla.org/moss/">Mozilla Open-Source Support</a> Award <b-icon icon="heart-fill" style="color: rgb(234, 74, 170);" />
-    </footer>
+    <footer v-html="$t('footer.str')"></footer>
   </div>
 </template>
 
@@ -31,5 +29,16 @@ footer {
   text-align: center;
   padding-top: 1em;
   padding-bottom: 1em;
+}
+
+/* RTL styles */
+[dir="rtl"] #app {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] footer {
+  direction: rtl;
+  text-align: center; /* Keep footer text centered or change as needed */
 }
 </style>
