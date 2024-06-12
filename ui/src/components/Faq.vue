@@ -9,7 +9,7 @@
     <FaqEntry
       id="how-to-read"
       title="How do I read my ZIM files?">
-      You will need a ZIM file reader. This usually means <a target="_blank" href="https://kiwix.org/">Kiwix</a>, which is available on <a target="_blank" href="https://www.kiwix.org/en/download/">desktop computers, mobile devices, and more</a>.
+      You will need a ZIM file reader. This usually means <a target="_blank" href="https://kiwix.org/">Kiwix</a>, which is available on <a target="_blank" href="https://kiwix.org/en/applications/">desktop computers, mobile devices, and more</a>.
     </FaqEntry>
 
     <FaqEntry
