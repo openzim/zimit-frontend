@@ -11,7 +11,7 @@ export default {
   zimit_fields: ["lang", "title", "description", "favicon", "zim_file",
                  "tags", "creator", "source", "new_context", "wait_until", "depth",
                  "extra_hops", "scope_type", "include", "exclude", "allow_hash_urls",
-                 "mobile_device", "user_agent", "use_sitemap", "behaviors",
+                 "mobile_device", "no_mobile_device", "user_agent", "use_sitemap", "behaviors",
                  "behavior_timeout", "size_limit", "time_limit"],
   hidden_flags: ["adminEmail", "name", "output", "statsFilename", "url",
                  "zim-file", "user_agent_suffix"],
