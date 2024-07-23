@@ -123,6 +123,11 @@ def query_api(method, path, payload=None, params=None):
 
     # Unauthorised error: attempt to re-auth as scheduler might have restarted?
     if req.status_code == 401:
+        logger.debug(f"Request {method} {path} failed with 401: {resp}")
+        logger.debug(f"Forcing reauth")
+        logger.debug(f"Old token was {len(TokenData.ACCESS_TOKEN)} chars long")
+        logger.debug(f"Old token was expiring at {TokenData.ACCESS_TOKEN_EXPIRY}")
+        logger.debug(f"Now time is {datetime.datetime.now()}")
         authenticate(True)
 
     reason = resp["error"] if "error" in resp else str(resp)
