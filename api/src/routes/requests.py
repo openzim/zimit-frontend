@@ -70,16 +70,23 @@ class RequestsRoute(BaseRoute):
                 del document["flags"][flag]
 
         # make sure we cap requests to ZIMIT_LIMIT at most
+        def _cap_limit(user_limit: int, zimit_limit: int) -> int:
+            if user_limit <= 0:  # case where someone is trying to trick the limit
+                return zimit_limit
+            if user_limit < zimit_limit:
+                return user_limit
+            return zimit_limit  # case where someone is trying to trick as well
+
         try:
             size_limit = int(document["flags"].get("sizeLimit", ZIMIT_SIZE_LIMIT))
         except Exception:
             size_limit = ZIMIT_SIZE_LIMIT
-        document["flags"]["sizeLimit"] = str(min([size_limit, ZIMIT_SIZE_LIMIT]))
+        document["flags"]["sizeLimit"] = str(_cap_limit(size_limit, ZIMIT_SIZE_LIMIT))
         try:
             time_limit = int(document["flags"].get("timeLimit", ZIMIT_TIME_LIMIT))
         except Exception:
             time_limit = ZIMIT_TIME_LIMIT
-        document["flags"]["timeLimit"] = min([time_limit, ZIMIT_TIME_LIMIT])
+        document["flags"]["timeLimit"] = _cap_limit(time_limit, ZIMIT_TIME_LIMIT)
 
         config = {
             "task_name": "zimit",
