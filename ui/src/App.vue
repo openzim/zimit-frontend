@@ -1,71 +1,45 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue';
-import FaqEntry from './components/FaqEntry.vue';
-import FaqList from './components/FaqList.vue';
+// import HelloWorld from './components/HelloWorld.vue';
+// import FaqEntry from './components/FaqEntry.vue';
+// import FaqList from './components/FaqList.vue';
 
+import constants from './constants';
 import { useI18n } from 'vue-i18n';
 const { t } = useI18n();
 </script>
 
 <template>
-  <div>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/ZIMIT_LOGO_RGB.svg" class="logo vue" alt="Vue logo" />
+  <div class="text-center logo-div">
+    <a :href="constants.home_page" target="_blank">
+      <img
+        src="./assets/ZIMIT_LOGO_RGB.svg"
+        class="logo-img vue"
+        alt="Vue logo"
+      />
     </a>
   </div>
-  <div>
-    <FaqList />
-
-    <v-expansion-panels variant="accordion">
-      <FaqEntry id="how-to-read" :title="t('faq.howToRead')">
-        <template #default>
-          <!-- eslint-disable-next-line vue/no-v-html -->
-          <div v-html="t('faq.howToReadDesc')"></div>
-        </template>
-      </FaqEntry>
-      <FaqEntry id="how-to-read" :title="t('faq.howToRead')">
-        <template #default>
-          <!-- eslint-disable-next-line vue/no-v-html -->
-          <div v-html="t('faq.howToReadDesc')"></div>
-        </template>
-      </FaqEntry>
-    </v-expansion-panels>
-    <HelloWorld msg="Are you Vite + Vue" />
-
-    {{ t('faq.whatIsZim') }}
-    <div class="text-subtitle-2 mt-4 mb-2">Accordion</div>
-
-    <v-expansion-panels variant="accordion">
-      <v-expansion-panel
-        v-for="i in 3"
-        :key="i"
-        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-        title="Item"
-      ></v-expansion-panel>
-    </v-expansion-panels>
-    ¨
-  </div>
-
-  <p><strong>Current route path:</strong> {{ $route.fullPath }}</p>
-  <nav>
-    <RouterLink to="/">Go to Home</RouterLink>
-    <RouterLink to="/about">Go to About</RouterLink>
-  </nav>
-  <main>
-    <RouterView />
-  </main>
+  <!--<NavBar />-->
+  <!--<AlertFeedback />-->
+  <RouterView />
+  <i18n-t keypath="footer.paragraph" tag="footer" class="text-center">
+    <a target="_blank" href="https://kiwix.org">{{ t('footer.link0') }}</a>
+    <a target="_blank" href="https://webrecorder.net">{{
+      t('footer.link1')
+    }}</a>
+    <a target="_blank" href="https://www.mozilla.org/moss/">{{
+      t('footer.link2')
+    }}</a>
+  </i18n-t>
 </template>
 
 <style scoped>
-#app {
-  margin-bottom: 6em;
-}
 footer {
-  background-color: white;
+  background-color: #fff;
+  z-index: 1;
   width: 100%;
   position: fixed;
   bottom: 0;
-  text-align: center;
+  left: 0;
   padding-top: 1em;
   padding-bottom: 1em;
 }
@@ -78,10 +52,14 @@ footer {
 
 [dir='rtl'] footer {
   direction: rtl;
-  text-align: center; /* Keep footer text centered or change as needed */
 }
 
-.logo {
+.logo-img {
   width: 400px;
+}
+
+.logo-div {
+  padding-top: 2em;
+  padding-bottom: 2em;
 }
 </style>

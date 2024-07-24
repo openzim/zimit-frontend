@@ -1,4 +1,5 @@
 import { createApp } from 'vue';
+import constants from './constants';
 import './style.css';
 import App from './App.vue';
 
@@ -32,23 +33,30 @@ const vuetify = createVuetify({
   },
 });
 
-app.use(vuetify);
-
-// Vue Router
-import router from './routes';
-app.use(router);
-
 // Pinia
 import { createPinia } from 'pinia';
 const pinia = createPinia();
-app.use(pinia);
+
+// Vue Router
+import router from './routes';
 
 // i18n
-import i18n from './i18n';
-app.use(i18n);
+import loadI18n from './i18n';
 
-// Final mount
-app.mount('#app');
+// load translation asynchronously and only then mount the app
+loadI18n().then((loadI18n) => {
+  app.use(vuetify);
+  app.use(router);
+  app.use(pinia);
+  app.use(loadI18n.i18n);
+
+  // provide setCurrentLocale function app-wide, so that we can
+  // alter the locale in any app view/component
+  app.provide(constants.setCurrentLocale, loadI18n.setCurrentLocale);
+
+  // Final mount
+  app.mount('#app');
+});
 
 //console.log(import.meta.env.VITE_APP_TITLE)
 // console.log(import.meta.env)

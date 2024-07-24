@@ -1,5 +1,6 @@
+import type { InjectionKey } from 'vue';
+
 export default {
-  zimfarm_webapi: 'https://api.farm.openzim.org/v1',
   zimitui_api: import.meta.env.ZIMIT_API_URL || '/api/v1',
   zimit_size_limit: parseInt(import.meta.env.ZIMIT_SIZE_LIMIT) || 2147483648,
   zimit_time_limit: parseInt(import.meta.env.ZIMIT_TIME_LIMIT) || 5400,
@@ -10,7 +11,7 @@ export default {
   ALERT_LONG_DURATION: 10,
   ALERT_PERMANENT_DURATION: true,
   zimit_refresh_after: parseInt(import.meta.env.ZIMIT_REFRESH_AFTER || '60'),
-  zimit_fields: [
+  new_request_advanced_flags: [
     'lang',
     'title',
     'description',
@@ -36,6 +37,7 @@ export default {
     'time_limit',
   ],
   hidden_flags: [
+    // request_details_flags
     'adminEmail',
     'name',
     'output',
@@ -44,6 +46,8 @@ export default {
     'zim-file',
     'user_agent_suffix',
   ],
+  not_set_magic_value: 'Not set',
+
   /*
     standardHTTPError(response) {
       let statuses = {
@@ -134,4 +138,11 @@ export default {
       return response.status + ": " + status_text + ".";
     },
 */
+  setCurrentLocale: Symbol() as InjectionKey<(locale: string) => any>,
+  wikipedia_offline_article: 'https://en.wikipedia.org/wiki/Offline',
+  kiwix_home_page: 'https://kiwix.org',
+  kiwix_download_page: 'https://www.kiwix.org/en/download/',
+  zimfarm_webapi: 'https://api.farm.openzim.org/v1', // wrong API, just for dev
+  report_issues_page: 'https://github.com/openzim/zimit/issues',
+  home_page: 'https://zimit.kiwix.org/',
 };

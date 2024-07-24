@@ -1,33 +1,42 @@
 <script setup lang="ts">
 import FaqEntry from './FaqEntry.vue';
-import Constants from '../constants.js';
+import constants from '../constants.js';
 import { useI18n } from 'vue-i18n';
 import { computed } from 'vue';
 
 const { t } = useI18n();
 
 const human_size_limit = computed(() => {
-  return `${Constants.zimit_size_limit / 1073741824} GiB`;
+  return `${constants.zimit_size_limit / 1073741824} GiB`;
 });
 
 const human_time_limit = computed(() => {
-  return Constants.zimit_time_limit / 3600;
+  return constants.zimit_time_limit / 3600;
 });
 </script>
 
 <template>
-  <v-expansion-panels variant="accordion">
+  <v-expansion-panels flat variant="accordion">
     <FaqEntry id="what-is-zim" :title="t('faq.whatIsZim')">
       <template #default>
-        <!-- eslint-disable-next-line vue/no-v-html -->
-        <div v-html="t('faq.whatIsZimDesc')"></div>
+        <i18n-t keypath="faq.whatIsZimDescParagraph" tag="div">
+          <a target="_blank" :href="constants.wikipedia_offline_article">{{
+            t('faq.whatIsZimDescLinkContent0')
+          }}</a>
+        </i18n-t>
       </template>
     </FaqEntry>
 
     <FaqEntry id="how-to-read" :title="t('faq.howToRead')">
       <template #default>
-        <!-- eslint-disable-next-line vue/no-v-html -->
-        <div v-html="t('faq.howToReadDesc')"></div>
+        <i18n-t keypath="faq.howToReadDescParagraph" tag="div">
+          <a target="_blank" :href="constants.kiwix_home_page">{{
+            t('faq.howToReadDescLinkContent0')
+          }}</a>
+          <a target="_blank" :href="constants.kiwix_download_page">{{
+            t('faq.howToReadDescLinkContent1')
+          }}</a>
+        </i18n-t>
       </template>
     </FaqEntry>
 
@@ -49,8 +58,11 @@ const human_time_limit = computed(() => {
 
     <FaqEntry id="got-error" :title="t('faq.gotError')">
       <template #default>
-        <!-- eslint-disable-next-line vue/no-v-html -->
-        <div v-html="t('faq.gotErrorDesc')"></div>
+        <i18n-t keypath="faq.gotErrorDescParagraph" tag="div">
+          <a target="_blank" :href="constants.report_issues_page">{{
+            t('faq.gotErrorDescLinkContent0')
+          }}</a>
+        </i18n-t>
       </template>
     </FaqEntry>
   </v-expansion-panels>

@@ -1,23 +1,28 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import FaqList from '../components/FaqList.vue';
+import NewRequestForm from '../components/NewRequestForm.vue';
 import { useI18n } from 'vue-i18n';
 import { useMainStore } from '../stores/main';
+import { onMounted } from 'vue';
 
 const { t } = useI18n();
 const mainStore = useMainStore();
 
-const editorReady = computed(
-  () => mainStore.offlinersDefinitions !== undefined,
-);
+onMounted(() => {
+  mainStore.loadOfflinerDefinition(t);
+});
 </script>
 
 <template>
-  <div class="container">
-    <!-- eslint-disable-next-line vue/no-v-html -->
-    <h1 v-html="t('newRequest.heading')"></h1>
+  <!--<div class="container">-->
 
-    <v-form v-if="editorReady"> </v-form>
+  <v-container id="newrequest" class="pt-0">
+    <i18n-t keypath="newRequest.headingParagraph" tag="h1">
+      <strong>{{ t('newRequest.headingBold') }}</strong>
+    </i18n-t>
+
+    <NewRequestForm />
 
     <!--
     <b-form v-if="editorReady" @submit.prevent="requestZim">
@@ -137,7 +142,37 @@ const editorReady = computed(
         </b-form-group>
       </div>
 
-      <FaqList />
     </b-form>-->
-  </div>
+    <FaqList class="faq" />
+    <!--</div>-->
+  </v-container>
 </template>
+
+<style type="text/css" scoped>
+#newrequest {
+  max-width: 700px;
+}
+
+h1 {
+  text-align: center;
+  line-height: 1.2;
+}
+
+form {
+  max-width: 700px;
+  margin: auto;
+}
+
+.form-group,
+h1 {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5em;
+}
+
+.faq {
+  margin-top: 5rem;
+  margin-bottom: 7rem;
+}
+</style>

@@ -6,8 +6,15 @@ export default [
   eslintConfigPrettier,
   {
     rules: {
+      indent: ['error', 2],
       semi: 'error',
       'prefer-const': 'error',
+    },
+    parser: 'vue-eslint-parser',
+    parserOptions: {
+      parser: '@typescript-eslint/parser',
+      ecmaVersion: 2020,
+      sourceType: 'module',
     },
   },
 ];

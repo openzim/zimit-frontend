@@ -1,9 +1,12 @@
-FROM node:14-alpine as builder
+FROM node:20-alpine as builder
 
 RUN apk --no-cache add yarn
 WORKDIR /src/ui
 COPY ui/package.json ui/yarn.lock /src/ui/
 RUN yarn install
+COPY ui/index.html /src/ui/
+COPY ui/*.json /src/ui/
+COPY ui/*.ts /src/ui/
 COPY ui/*.js /src/ui/
 COPY ui/public /src/ui/public
 COPY ui/src /src/ui/src
