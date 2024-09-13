@@ -7,24 +7,64 @@ on:
       - main
 
 jobs:
-  check-qa:
-    runs-on: ubuntu-latest
+  check-api-qa:
+    runs-on: ubuntu-24.04
 
     steps:
-    - name: Retrieve source code
-      uses: actions/checkout@v3
+      - name: Retrieve source code
+        uses: actions/checkout@v4
 
-    - name: Set up Python 3.8
-      uses: actions/setup-python@v1
-      with:
-        python-version: 3.8
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: api/pyproject.toml
+          architecture: x64
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r api/requirements.txt
+      - name: Install dependencies
+        working-directory: api
+        run: |
+          pip install -U pip
+          pip install -e .[lint,check,scripts,test]
 
-    - name: black code formatting check
-      run: |
-        pip install -U "black==22.3.0"
-        black --check .
+      - name: Check black formatting
+        working-directory: api
+        run: inv lint-black
+
+      - name: Check ruff
+        working-directory: api
+        run: inv lint-ruff
+
+      - name: Check pyright
+        working-directory: api
+        run: inv check-pyright
+
+  check-ui-qa:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: ui/.node-version
+
+      - name: Install JS dependencies
+        working-directory: ui
+        run: |
+          yarn install
+
+      - name: Check prettier
+        working-directory: ui
+        run: |
+          yarn format
+
+      - name: Check eslint
+        working-directory: ui
+        run: |
+          yarn lint
+
+      - name: Check Typescript typing
+        working-directory: ui
+        run: |
+          yarn type-check

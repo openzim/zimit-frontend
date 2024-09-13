@@ -1,0 +1,22 @@
+FROM node:20-alpine as ui_builder
+
+RUN apk --no-cache add yarn
+WORKDIR /src/ui
+COPY ui/package.json ui/yarn.lock /src/ui/
+RUN yarn install
+COPY ui/index.html /src/ui/
+COPY ui/*.json /src/ui/
+COPY ui/*.ts /src/ui/
+COPY ui/*.js /src/ui/
+COPY ui/public /src/ui/public
+COPY ui/src /src/ui/src
+COPY locales /src/locales
+RUN NODE_ENV=production yarn build
+
+
+FROM caddy:2.8-alpine
+LABEL org.opencontainers.image.source https://github.com/openzim/zimit-frontend
+
+COPY --from=ui_builder /src/ui/dist /usr/share/caddy
+
+COPY locales /locales

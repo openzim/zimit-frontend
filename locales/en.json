@@ -1,0 +1,94 @@
+{
+  "faq": {
+    "whatIsZim": "What is a ZIM file?",
+    "whatIsZimDescParagraph": "The ZIM file format stores website content for {0} usage. It assembles the normal constituent of a website into a single archive, and compresses it so as to make it easier to save, share, and store.",
+    "whatIsZimDescLinkContent0": "offline",
+    "howToRead": "How do I read my ZIM files?",
+    "howToReadDescParagraph": "You will need a ZIM file reader. This usually means {0}, which is available on {1}.",
+    "howToReadDescLinkContent0": "Kiwix",
+    "howToReadDescLinkContent1": "desktop computers, mobile devices, and more",
+    "missingContent": "The ZIM file is incomplete or smaller than the original website",
+    "missingContentDesc": "Because of the very nature of this tool, we can’t leave it open for unlimited requests towards any website. That could be harmful both for our infrastructure, but also for the target websites. We currently enforce two limits: {human_size_limit} GiB file size and {human_time_limit}.",
+    "gotError": "I got an error message (no ZIM) or could not read a ZIM file",
+    "gotErrorDescParagraph": "Triple-check the URL you entered, and if it is still not working then open a bug ticket on {0}. Indicate the target website, the request number (it’s in the email you received), and the device you tried to open your ZIM file on.",
+    "gotErrorDescLinkContent0": "github"
+  },
+  "units": {
+    "timeLimit": {
+      "singular": "hour",
+      "plural": "hours"
+    }
+  },
+  "footer": {
+    "poweredByThankTo": "Powered by {0} and {1}, thanks to a {2} Award ❤️",
+    "link0": "Kiwix",
+    "link1": "Webrecorder",
+    "link2": "Mozilla Open-Source Support"
+  },
+  "newRequest": {
+    "headingParagraph": "Want an offline version of a website? Just {0}!",
+    "headingBold": "ZIM it",
+    "urlLabel": "Full URL of the website to convert",
+    "emailLabel": "Your e-mail to receive a download link. Address not kept",
+    "submit": "Let's ZIM it!",
+    "advancedOptions": "advanced options",
+    "fetchingDefinition": "Loading offliner definition…",
+    "errorFetchingDefinition": "Error fetching offliner definition",
+    "creatingRequest": "Creating request…",
+    "errorCreatingRequest": "Error creating request",
+    "offlinerNotFound": "Zimit offliner not found, we probably experience a serious issue on our infrastructure."
+  },
+  "notFound": {
+    "heading": "Not Found",
+    "description": "There is nothing here, your URL is probably wrong. Maybe you'd like to go back."
+  },
+  "requestStatus": {
+    "progressMessage": "{task_progression_percent}% ({task_progression_status_code})",
+    "refreshing": "Refreshing task status…",
+    "errorRefreshing": "Error refreshing task status",
+    "refreshAuto": "This page will refresh automatically every {refresh_interval} seconds, no need to refresh it manually.",
+    "zimingOf": "Ziming of ",
+    "requestingSlot": "Requesting slot",
+    "requestRecorded": "Your request has been recorded and is awaiting a slot on our infrastructure to run. While we aim to complete all requests with 24 hours, our infrastructure on this free service is limited and we sometimes experience surge of interest from many users, delaying the start of requests to multiple days. Please be patient!",
+    "requestFailed": "Your request has failed! We are sorry about that.",
+    "failureReasons": "A number of reasons can lead to a ziming failure. Most of the time, it's an inadequate URL… Please triple check it and create a new request. If that doesn't work, {0}.",
+    "failureReasonsLinkContent0": "open a ticket in github",
+    "successMessage": "Success!",
+    "successMessageExplanation": "The link below will expire and the file will be deleted after a week.",
+    "successMessageButton": "Download",
+    "limitHit": "Attention, note that your archieve is incomplete, you have reached the maximum file size ({human_size_limit} GiB) or duration ({human_time_limit}) allowed for free crawling. {contact_us_link} to purchase additional server space for your tasks.",
+    "limitHitContactUsLink": "Contact us",
+    "beingProcessedMessage": "Your request is being processed",
+    "beingProcessedExplanation": "Our system is currently converting provided URL into a nice ZIM file. Depending on the number of pages on this website, it can be a matter of minutes or hours.",
+    "bookmarkUrl": "You can bookmark current browser page URL to come back later see this task.",
+    "emailNotification": "You have received an email with current URL, and you will also get an email notification when the task is completed, so you can safely close this window.",
+    "noEmailNotification": "Do not close this window without this bookmark or you won't be able to download your ZIM since you did not provided an email.",
+    "settingsHeading": "Settings",
+    "taskNotFound": "Task not found. Either your URL is incorrect or our service is experiencing an issue."
+  },
+  "email": {
+    "requested": {
+      "subject": "Youzim.it task %{taskId} requested",
+      "title": "ZIM requested!",
+      "zimRequestRecorded": "Your ZIM request of %{link} has been recorded.",
+      "howToFollowProgress": "You can follow the status of this request at %{link}.",
+      "emailWillBeSent": "We'll send you another email once your ZIM file is ready to download."
+    },
+    "succeeded": {
+      "subject": "Youzim.it task %{taskId} succeeded",
+      "title": "ZIM is ready!",
+      "zimRequestCompleted": "Your ZIM request of %{link} has completed.",
+      "hereItIs": "Here it is:",
+      "incomplete": "ZIM is unfortunately incomplete because you have reached the limits (%{sizeLimit} or %{timeLimit}) allowed for free crawling. %{contactUsLink} to help us purchase additional server space for you.",
+      "contactUsLinkContent": "Contact us"
+    },
+    "failed": {
+      "subject": "Youzim.it task %{taskId} failed",
+      "title": "Your ZIM request has failed!",
+      "weAreSorry": "We are really sorry.",
+      "checkAndRetry": "This might be due to an error with the URL you entered (%{configUrlLink}) or additional settings missing / failing. Please double check and %{retryLink}.",
+      "retryLinkContent": "try again",
+      "howToCheckSettings": "You can check the settings you used at %{taskLink}."
+    }
+  }
+}

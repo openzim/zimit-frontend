@@ -1,52 +1,51 @@
 {
-  "name": "zimit-ui",
-  "version": "0.1.0",
+  "name": "ui",
   "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "dev": "vite",
+    "build": "run-p type-check \"build-only {@}\" --",
+    "preview": "vite preview",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --build --force",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "format": "prettier --write src/"
   },
   "dependencies": {
-    "@popperjs/core": "^2.5.4",
-    "axios": "^0.21.0",
-    "bootstrap": "^4.5.3",
-    "bootstrap-vue": "^2.19.0",
-    "core-js": "^3.6.5",
-    "humanize-duration": "^3.24.0",
-    "moment": "^2.29.1",
-    "sugar": "^2.0.6",
-    "vue": "^2.6.12",
-    "vue-matomo": "^3.14.0-0",
-    "vue-router": "^3.4.9",
-    "vuex": "^3.5.1"
+    "axios": "^1.7.7",
+    "pinia": "^2.2.2",
+    "vue": "^3.5.6",
+    "vue-i18n": "10.0.1",
+    "vue-router": "^4.4.5",
+    "vuetify": "^3.7.1"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^6.2.2",
-    "vue-template-compiler": "^2.6.11"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
-    "rules": {}
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ]
+    "@fortawesome/fontawesome-svg-core": "^6.5.2",
+    "@fortawesome/free-regular-svg-icons": "^6.5.2",
+    "@fortawesome/free-solid-svg-icons": "^6.5.2",
+    "@fortawesome/vue-fontawesome": "^3.0.6",
+    "@intlify/eslint-plugin-vue-i18n": "^3.0.0",
+    "@rushstack/eslint-patch": "^1.8.0",
+    "@tsconfig/node20": "^20.1.4",
+    "@types/jsdom": "^21.1.7",
+    "@types/node": "^22.5.5",
+    "@vitejs/plugin-vue": "^5.0.5",
+    "@vue/eslint-config-prettier": "^9.0.0",
+    "@vue/eslint-config-typescript": "^13.0.0",
+    "@vue/test-utils": "^2.4.6",
+    "@vue/tsconfig": "^0.5.1",
+    "eslint": "^8.57.0",
+    "eslint-plugin-cypress": "^3.3.0",
+    "eslint-plugin-vue": "^9.23.0",
+    "jsdom": "^25.0.0",
+    "npm-run-all2": "^6.2.3",
+    "prettier": "^3.2.5",
+    "resize-observer-polyfill": "^1.5.1",
+    "start-server-and-test": "^2.0.8",
+    "typescript": "~5.6.2",
+    "vite": "^5.4.6",
+    "vite-bundle-visualizer": "^1.2.1",
+    "vue-tsc": "^2.0.21"
+  }
 }

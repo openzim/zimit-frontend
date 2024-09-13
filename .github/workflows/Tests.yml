@@ -1,0 +1,63 @@
+name: Tests
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  test-api:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: api/pyproject.toml
+          architecture: x64
+
+      - name: Install dependencies (and project)
+        working-directory: api
+        run: |
+          pip install -U pip
+          pip install -e .[test,scripts]
+
+      - name: Run the tests
+        working-directory: api
+        run: inv coverage --args "-vvv"
+
+      - name: Upload coverage report to codecov
+        uses: codecov/codecov-action@v4
+        with:
+          fail_ci_if_error: true
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+  build_docker:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Ensure we can build the Docker image for UI
+        run: |
+          docker build -t zimitfrontend-ui . -f Dockerfile-ui
+
+      - name: Ensure we can start the Docker image for UI
+        run: |
+          docker run -d --rm --name test_container zimitfrontend-ui
+          sleep 5
+          docker ps | grep test_container
+          docker stop test_container
+
+      - name: Ensure we can build the Docker image for API
+        run: |
+          docker build -t zimitfrontend-api . -f Dockerfile-api
+
+      - name: Ensure we can start the Docker image for API
+        run: |
+          docker run -d --rm --name test_container zimitfrontend-api
+          sleep 5
+          docker ps | grep test_container
+          docker stop test_container

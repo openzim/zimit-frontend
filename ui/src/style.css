@@ -1,0 +1,65 @@
+:root {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #fafafa;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+.btn-grey {
+  color: white;
+  background-color: #231f20;
+}
+.btn-grey:hover {
+  color: white;
+  background-color: #303030;
+}
+
+.btn-link-grey {
+  color: #231f20;
+}
+
+a {
+  color: #82ca2a;
+  text-decoration-line: none;
+}
+
+a:hover {
+  color: #54821c;
+  text-decoration-line: underline;
+}
+
+.btn-green {
+  color: white;
+  background-color: #82ca2a;
+}
+.btn-green:hover {
+  color: white;
+  background-color: #54821c;
+}
+
+#app {
+  color: rgb(102, 102, 102);
+}
+
+h1 {
+  font-weight: 500;
+  font-size: 2.5rem;
+}
+
+.red {
+  color: red;
+}

@@ -1,0 +1,88 @@
+from typing import Any
+
+from humps import camelize
+from pydantic import BaseModel, ConfigDict, Field
+
+
+class CamelModel(BaseModel):
+    """Model which transforms Python snake_case into JSON camelCase (two-way)"""
+
+    model_config = ConfigDict(alias_generator=camelize, populate_by_name=True)
+
+
+class TaskInfoFlag(BaseModel):
+    name: str
+    value: Any
+
+
+class TaskInfo(CamelModel):
+    id: str
+    download_link: str | None
+    has_email: bool
+    limit_hit: bool
+    status: str
+    flags: list[TaskInfoFlag]
+    progress: int | None
+
+
+class TaskCreateRequest(CamelModel):
+    url: str
+    lang: str
+    email: str | None = None
+    flags: dict[str, Any]
+
+
+class TaskCreateResponse(CamelModel):
+    id: str
+
+
+class ZimfarmTaskConfig(BaseModel):
+    warehouse_path: str
+    flags: dict[str, Any]
+
+
+class ZimfarmTaskFile(BaseModel):
+    created_timestamp: str
+    size: int
+    name: str
+
+
+class ZimfarmTaskNotificationConfig(BaseModel):
+    webhook: list[str] | None = None
+
+
+class ZimfarmTaskNotification(BaseModel):
+    ended: ZimfarmTaskNotificationConfig | None = None
+
+
+class ZimfarmTaskContainerProgressLimit(BaseModel):
+    hit: bool | None = None
+
+
+class ZimfarmTaskContainerProgress(BaseModel):
+    limit: ZimfarmTaskContainerProgressLimit | None = None
+    overall: int | None = None
+
+
+class ZimfarmTaskContainer(BaseModel):
+    progress: ZimfarmTaskContainerProgress | None = None
+
+
+class ZimfarmTask(BaseModel):
+    id: str = Field(alias="_id")
+    status: str
+    config: ZimfarmTaskConfig
+    files: dict[str, ZimfarmTaskFile] | None = None
+    notification: ZimfarmTaskNotification | None = None
+    container: ZimfarmTaskContainer | None = None
+
+
+class HookStatus(BaseModel):
+    status: str
+
+
+class MailToSend(BaseModel):
+    status: HookStatus
+    target: str | None = None
+    subject: str | None = None
+    body: str | None = None
