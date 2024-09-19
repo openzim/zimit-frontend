@@ -1,0 +1,94 @@
+{
+  "faq": {
+    "whatIsZim": "This is the question asking about the ZIM file format.",
+    "whatIsZimDescParagraph": "This is the answer about the ZIM file format",
+    "whatIsZimDescLinkContent0": "This is the word(s) inside the link of whatIsZimDescParagraph",
+    "howToRead": "This is the question asking how to read ZIM files.",
+    "howToReadDescParagraph": "This is the answer about how to read ZIM files.",
+    "howToReadDescLinkContent0": "This is the word(s) inside the first link of howToReadDescParagraph",
+    "howToReadDescLinkContent1": "This is the word(s) inside the second link of howToReadDescParagraph",
+    "missingContent": "This is the question about incomplete or missing content in ZIM files.",
+    "missingContentDesc": "This is the answer about incomplete or missing content in ZIM files.",
+    "gotError": "This is the question about encountering error messages when using ZIM files.",
+    "gotErrorDescParagraph": "This is the answer about encountering error messages when using ZIM files.",
+    "gotErrorDescLinkContent0": "This is the word(s) inside the first link of gotErrorDescParagraph"
+  },
+  "units": {
+    "timeLimit": {
+      "singular": "This is the singular form of the time unit.",
+      "plural": "This is the plural form of the time unit."
+    }
+  },
+  "footer": {
+    "poweredByThankTo": "This is the main page footer message, with placeholders for links.",
+    "link0": "This is the word(s) inside the first link of footer paragraph",
+    "link1": "This is the word(s) inside the second link of footer paragraph",
+    "link2": "This is the word(s) inside the third link of footer paragraph"
+  },
+  "newRequest": {
+    "headingParagraph": "This is the heading on home page allowing to create a new task.",
+    "headingBold": "This is the call to action displayed in bold.",
+    "urlLabel": "This is the label for the text box where users will be entering a URL.",
+    "emailLabel": "This is the label for the text box where users will be entering an optional email.",
+    "submit": "This is the text displayed on a button to start the request.",
+    "advancedOptions": "This is the text displayed on a button to display advanced options.",
+    "fetchingDefinition": "This is the message while fetching the task definition.",
+    "errorFetchingDefinition": "This is the message when fetching the task definition failed.",
+    "creatingRequest": "This is the message while creating a Zimfarm request.",
+    "errorCreatingRequest": "This is the message when creating a Zimfarm request failed.",
+    "offlinerNotFound": "This is the message when we failed to load offliner definition through API call."
+  },
+  "notFound": {
+    "heading": "This is the heading displayed when URL is not found/handled.",
+    "description": "This is the description explaining the 404 error."
+  },
+  "requestStatus": {
+    "progressMessage": "This is the text displayed inside the progress bar, using placeholders for percentage and status values",
+    "refreshing": "This is the message when fetching task status is ongoing",
+    "errorRefreshing": "This is the message when fetching task status failed",
+    "refreshAuto": "This is the message indicating that page refresh is automated, with a placeholder for refresh interval.",
+    "zimingOf": "This are the words before the website url ('Ziming' is an invented world, based on the fact that we create files with .zim extension, named ZIM files)",
+    "requestingSlot": "This is the message indicating that system is requesting a slot to process the task",
+    "requestRecorded": "These are explanations when the system is requesting a slot to process the task",
+    "requestFailed": "This is the message indicating that the task has failed",
+    "failureReasons": "These are explanations about what to do when a task has failed, including a placeholder for a link",
+    "failureReasonsLinkContent0": "This is the content of the link on task failure explanation",
+    "successMessage": "This is the message indicating that the task has succeeded",
+    "successMessageExplanation": "This is the explanations about what to do when task has succeeded.",
+    "successMessageButton": "This is the text of the button allowing to download the ZIM file",
+    "limitHit": "This is the warning text about a limit encountered during the processing, including a placeholder for a link",
+    "limitHitContactUsLink": "This is the content of the link",
+    "beingProcessedMessage": "This is the message indicating that the task is ongoing",
+    "beingProcessedExplanation": "This is the explanation about the ongoing task",
+    "bookmarkUrl": "This is a secondary explanation about the ongoing task",
+    "emailNotification": "This is an explanation about what to do while task is processing when email has been provided",
+    "noEmailNotification": "This is an explanation about what to do while task is processing when email has NOT been provided",
+    "settingsHeading": "This is the title of the section detailing task settings",
+    "taskNotFound": "This is the message displayed when the task is not found."
+  },
+  "email": {
+    "requested": {
+      "subject": "This is the email subject when task has been requested",
+      "title": "This is the email title (in body) when task has been requested",
+      "zimRequestRecorded": "This explains that task has been requested",
+      "howToFollowProgress": "This explains how to follow task progress",
+      "emailWillBeSent": "This explains that an email will be sent when task is done"
+    },
+    "succeeded": {
+      "subject": "This is the email subject when task has succeeded",
+      "title": "This is the email title (in body) when task has succeeded",
+      "zimRequestCompleted": "This explains that request has completed",
+      "hereItIs": "This is the text before the download link(s)",
+      "incomplete": "This is an optional email paragraph when task has succeeded but is incomplete",
+      "contactUsLinkContent": "This is the content of a link to contact us, used in 'incomplete' paragraph when task is incomplete"
+    },
+    "failed": {
+      "subject": "This is the email subject when task has failed",
+      "title": "This is the email title (in body) when task has failed",
+      "weAreSorry": "This says that we are sorry for the failed task",
+      "checkAndRetry": "This explains that settings should be checked and retried",
+      "retryLinkContent": "This is the content of a link to try request again",
+      "howToCheckSettings": "This explains how to double-check the settings"
+    }
+  }
+}

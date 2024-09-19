@@ -30,32 +30,50 @@ services:
     depends_on:
       - zimfarm_api
   zimit_api:
-    build: ..
+    build:
+      dockerfile: Dockerfile-api
+      context: ..
     volumes:
-      - ../api/src:/app
-    command: python main.py
+      - ../api/src/zimitfrontend:/usr/local/lib/python3.12/site-packages/zimitfrontend
+      - ../locales:/locales
+    command:
+      - uvicorn
+      - zimitfrontend.entrypoint:app
+      - --host
+      - "0.0.0.0"
+      - --port
+      - "80"
+      - --reload
+      - --reload-dir
+      - /usr/local/lib/python3.12/site-packages/zimitfrontend
     ports:
-      - 127.0.0.1:8002:8000
+      - 127.0.0.1:8002:80
     environment:
-      BINDING_HOST: 0.0.0.0
       INTERNAL_ZIMFARM_WEBAPI: http://zimfarm_api:80/v1
       _ZIMFARM_USERNAME: admin
       _ZIMFARM_PASSWORD: admin
       TASK_WORKER: worker
+      HOOK_TOKEN: a_very_secret_token
     depends_on:
       - zimfarm_api
-  zimit_ui:
+  zimit_ui_dev:
     build:
-      dockerfile: ../dev/zimit_ui_dev/Dockerfile
-      context: ../ui
+      dockerfile: dev/zimit_ui_dev/Dockerfile
+      context: ..
     volumes:
       - ../ui/src:/app/src
-      - ../ui/public:/app/public
-      - ../dev/zimit_ui_dev/environ.json:/app/public/environ.json
+      - ../locales:/locales
+      - ../dev/zimit_ui_dev/config.json:/app/public/config.json
     ports:
       - 127.0.0.1:8001:80
-    environment:
-      ZIMIT_API_URL: http://localhost:8002
+    depends_on:
+      - zimit_api
+  zimit_ui_prod:
+    build:
+      dockerfile: Dockerfile-ui
+      context: ..
+    ports:
+      - 127.0.0.1:8000:80
     depends_on:
       - zimit_api
 

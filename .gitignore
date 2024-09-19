@@ -129,3 +129,6 @@ dmypy.json
 .pyre/
 
 .DS_Store
+
+# ignore all vscode, this is not standard configuration in this place
+.vscode

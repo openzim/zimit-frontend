@@ -1,0 +1,7 @@
+{% if task.status == "requested" %}
+{{ translate('email.requested.subject', taskId=task.id|short_id, taskStatus=task.status)}}
+{% elif task.status == "succeeded" %}
+{{ translate('email.succeeded.subject', taskId=task.id|short_id, taskStatus=task.status)}}
+{% else %}
+{{ translate('email.failed.subject', taskId=task.id|short_id, taskStatus=task.status)}}
+{% endif %}
