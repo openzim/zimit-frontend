@@ -8,7 +8,7 @@ from zimitfrontend.routes.utils import SUCCESS, convert_hook_to_mail
 from zimitfrontend.utils import send_email_via_mailgun
 
 router = APIRouter(
-    prefix="/hook",
+    prefix="/requests/hook",
     tags=["all"],
 )
 
