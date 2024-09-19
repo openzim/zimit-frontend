@@ -173,7 +173,7 @@ export const useMainStore = defineStore('main', {
       })
       try {
         const response = (
-          await axios.post<PostRequestResponse>(this.config.zimit_ui_api + '/requests/', payload)
+          await axios.post<PostRequestResponse>(this.config.zimit_ui_api + '/requests', payload)
         ).data
         this.taskId = response.id
       } catch (error) {
