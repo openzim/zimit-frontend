@@ -75,7 +75,7 @@ class ApiConfiguration:
         "INTERNAL_ZIMFARM_WEBAPI", "https://api.farm.zimit.kiwix.org/v1"
     )
     zimfarm_requests_timeout = _get_time_setting("ZIMFARM_REQUESTS_TIMEOUT", "10s")
-    mailgun_requests_timeout = int(os.getenv("MAILGUN_REQUESTS_TIMEOUT", "10"))
+    mailgun_requests_timeout = _get_time_setting("MAILGUN_REQUESTS_TIMEOUT", "10s")
     zimfarm_username = os.getenv("_ZIMFARM_USERNAME", "-")
     zimfarm_password = os.getenv("_ZIMFARM_PASSWORD", "-")
     zimit_image = os.getenv("ZIMIT_IMAGE", "openzim/zimit:1.2.0")
