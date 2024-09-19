@@ -17,9 +17,6 @@ export type Config = {
   task_status_hidden_flags: Array<string>
   zimit_size_limit: number
   zimit_time_limit: number
-  alert_default_duration: number
-  alert_long_duration: number
-  alert_permanent_duratio: boolean
   zimit_refresh_after: number
 }
 

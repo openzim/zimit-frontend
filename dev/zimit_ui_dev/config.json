@@ -47,8 +47,5 @@
   ],
   "zimit_size_limit": 2147483648,
   "zimit_time_limit": 5400,
-  "alert_default_duration": 5,
-  "alert_long_duration": 10,
-  "alert_permanent_duration": true,
   "zimit_refresh_after": 60
 }
