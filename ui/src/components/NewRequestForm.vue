@@ -34,7 +34,6 @@ const hasDefinitions = computed(() => mainStore.offlinerDefinition !== undefined
       <div class="pt-4 pb-4">
         <v-btn
           class="black"
-          type="submit"
           rounded="xl"
           :disabled="!isFormValid"
           @click="mainStore.submitRequest()"
@@ -71,7 +70,6 @@ const hasDefinitions = computed(() => mainStore.offlinerDefinition !== undefined
       <v-container class="small-width">
         <v-btn
           class="black"
-          type="submit"
           rounded="xl"
           :disabled="!isFormValid"
           @click="mainStore.submitRequest()"
