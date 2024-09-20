@@ -176,16 +176,16 @@ export const useMainStore = defineStore('main', {
           await axios.post<PostRequestResponse>(this.config.zimit_ui_api + '/requests', payload)
         ).data
         this.taskId = response.id
+        this.router.push({ name: 'request', params: { taskId: this.taskId } })
       } catch (error) {
         this.handleError(this.t('newRequest.errorCreatingRequest'), error)
       } finally {
         this.setLoading({ loading: false })
       }
-      this.router.push({ name: 'request', params: { taskId: this.taskId } })
     },
     handleError(message: string, error: unknown) {
-      if (error instanceof AxiosError) {
-        console.error(message, ':', error.response?.status, error.response?.statusText)
+      if (error instanceof AxiosError && error.response) {
+        console.error(message, ':', error.response.status, error.response.statusText)
       } else {
         console.error(message, ':', error)
       }
