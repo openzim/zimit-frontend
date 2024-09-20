@@ -18,7 +18,8 @@ const localesFiles = import.meta.glob('../../locales/*.json')
 
 // Add more supported languages here
 export const supportedLanguages: Language[] = [
-  { code: 'en', display: 'English', rtl: false } // Keep default first in array
+  { code: 'en', display: 'English', rtl: false }, // Keep default first in array
+  { code: 'fa', display: 'Persian', rtl: true }
 ]
 
 // Check if browser language is supported, otherwise fallback to English
