@@ -18,6 +18,10 @@ export type Config = {
   zimit_size_limit: number
   zimit_time_limit: number
   zimit_refresh_after: number
+  matomo_enabled: boolean
+  matomo_host: string
+  matomo_site_id: number
+  matomo_tracker_file_name: string
 }
 
 async function loadConfig() {
