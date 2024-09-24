@@ -47,12 +47,25 @@ import loadI18n, { i18nPlugin } from './i18n'
 // config
 import loadConfig, { configPlugin } from './config'
 
+// Matomo stats
+import VueMatomo from 'vue-matomo'
+
 // load translation asynchronously and only then mount the app
 Promise.all([loadI18n(), loadConfig()]).then(([i18n, config]) => {
   app.use(vuetify)
   app.use(router)
   app.use(pinia)
   app.use(i18n)
+
+  // activate matomo stats
+  if (config.matomo_enabled) {
+    app.use(VueMatomo, {
+      host: config.matomo_host,
+      siteId: config.matomo_site_id,
+      trackerFileName: config.matomo_tracker_file_name,
+      router: router
+    })
+  }
 
   // provide config app-wide
   app.provide(constants.config, config)

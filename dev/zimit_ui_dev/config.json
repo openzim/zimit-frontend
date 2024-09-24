@@ -47,5 +47,9 @@
   ],
   "zimit_size_limit": 2147483648,
   "zimit_time_limit": 5400,
-  "zimit_refresh_after": 60
+  "zimit_refresh_after": 60,
+  "matomo_enabled": false,
+  "matomo_host": "",
+  "matomo_site_id": 0,
+  "matomo_tracker_file_name": "matomo"
 }
