@@ -186,6 +186,9 @@ export const useMainStore = defineStore('main', {
     handleError(message: string, error: unknown) {
       if (error instanceof AxiosError && error.response) {
         console.error(message, ':', error.response.status, error.response.statusText)
+        if (error.response.data.detail) {
+          message = message + ': ' + error.response.data.detail
+        }
       } else {
         console.error(message, ':', error)
       }
