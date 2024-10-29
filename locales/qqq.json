@@ -25,6 +25,9 @@
     "link1": "This is the word(s) inside the second link of footer paragraph",
     "link2": "This is the word(s) inside the third link of footer paragraph"
   },
+  "header": {
+    "donate": "This is the text of a button to call for donations"
+  },
   "newRequest": {
     "headingParagraph": "This is the heading on home page allowing to create a new task.",
     "headingBold": "This is the call to action displayed in bold.",

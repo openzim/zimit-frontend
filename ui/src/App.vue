@@ -6,9 +6,12 @@ import constants from './constants'
 import { supportedLanguages, getCurrentLocale, setCurrentLocale } from './i18n'
 const { t } = useI18n()
 const config = inject<Config>(constants.config)
+import { useDisplay } from 'vuetify'
 
 import { useMainStore } from './stores/main'
 const mainStore = useMainStore()
+
+const { smAndDown } = useDisplay()
 
 // compute items for language combobox
 const languageItems = computed(() => {
@@ -41,19 +44,31 @@ watch(
 <template>
   <!-- Force LTR/RTL on whole app, we do not use vuetify locales at all -->
   <v-locale-provider :rtl="selectedLanguage.rtl">
-    <div class="text-center logo-div">
+    <div class="text-center" :class="smAndDown ? 'logo-div-sm' : 'logo-div'">
       <a :href="config?.home_page" target="_blank">
         <img src="./assets/ZIMIT_LOGO_RGB.svg" class="logo-img vue" alt="Vue logo" />
       </a>
     </div>
-    <v-select
-      v-model="selectedLanguageItem"
-      class="language-select"
-      :items="languageItems"
-      density="compact"
-      return-object
-    >
-    </v-select>
+    <div class="top-corner">
+      <v-btn
+        class="donate-btn btn-green-rev"
+        append-icon="fa-gift"
+        variant="outlined"
+        size="large"
+        href="https://kiwix.org/en/get-involved/#donate"
+        target="_blank"
+      >
+        {{ t('header.donate') }}
+      </v-btn>
+      <v-select
+        v-model="selectedLanguageItem"
+        class="language-select pt-2"
+        :items="languageItems"
+        density="compact"
+        return-object
+      >
+      </v-select>
+    </div>
     <RouterView />
     <i18n-t keypath="footer.poweredByThankTo" tag="footer" class="text-center">
       <a target="_blank" href="https://kiwix.org">{{ t('footer.link0') }}</a>
@@ -87,11 +102,26 @@ footer {
   padding-bottom: 2em;
 }
 
-.language-select {
-  position: fixed;
+.logo-div-sm {
+  padding-top: 8em;
+  padding-bottom: 2em;
+}
+
+.top-corner {
+  position: absolute;
   top: 10px;
   inset-inline-end: 10px;
   z-index: 999;
   min-width: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.donate-btn {
+  text-transform: none;
+  border-color: black;
+  border-width: 2px;
+  color: #82ca2a;
 }
 </style>

@@ -25,6 +25,9 @@
     "link1": "Webrecorder",
     "link2": "Mozilla Open-Source Support"
   },
+  "header": {
+    "donate": "Keep this free. Donate"
+  },
   "newRequest": {
     "headingParagraph": "Want an offline version of a website? Just {0}!",
     "headingBold": "ZIM it",
