@@ -1,0 +1,74 @@
+{
+	"@metadata": {
+		"authors": [
+			"Volvox"
+		]
+	},
+	"faq": {
+		"whatIsZim": "Wat ass e ZIM-Fichier?",
+		"whatIsZimDescLinkContent0": "offline",
+		"howToRead": "Wéi liesen ech ZIM-Fichieren?",
+		"howToReadDescLinkContent0": "Kiwix",
+		"howToReadDescLinkContent1": "Desktopcomputeren, mobil Apparater asw.",
+		"missingContent": "De ZIM-Fichier ass onvollstänneg oder méi kleng wéi d'Originalwebsäit",
+		"gotError": "Ech krut eng Feelermeldung (kee ZIM) oder konnt de ZIM-Fichier net liesen",
+		"gotErrorDescLinkContent0": "GitHub"
+	},
+	"units": {
+		"timeLimit": {
+			"singular": "Stonn",
+			"plural": "Stonnen"
+		}
+	},
+	"footer": {
+		"link0": "Kiwix"
+	},
+	"newRequest": {
+		"urlLabel": "Vollstänneg URL vun der Websäit fir ze konvertéieren",
+		"advancedOptions": "erweidert Optiounen"
+	},
+	"notFound": {
+		"heading": "Net fonnt",
+		"description": "Hei gëtt et näischt, warscheinlech ass Är URL falsch. Villäicht wëllt Dir zréckgoen."
+	},
+	"requestStatus": {
+		"progressMessage": "{task_progression_percent}&nbsp;% ({task_progression_status_code})",
+		"refreshing": "Aufgabestatus nei lueden…",
+		"errorRefreshing": "Feeler beim Neiluede vum Aufgabestatus",
+		"refreshAuto": "Dës Säit gëtt automatesch all {refresh_interval} Sekonnen nei gelueden, et ass net néideg se manuell nei ze lueden.",
+		"zimingOf": "Zime vun",
+		"requestingSlot": "Slot ufroen",
+		"requestFailed": "Är Ufro huet net geklappt! Dat deet eis leed.",
+		"failureReasonsLinkContent0": "en Ticket op GitHub opmaachen",
+		"successMessage": "Succès!",
+		"successMessageExplanation": "De Link ënne wäert oflafen an de Fichier gëtt no enger Woch geläscht.",
+		"successMessageButton": "Eroflueden",
+		"limitHitContactUsLink": "Kontaktéiert eis",
+		"beingProcessedMessage": "Är Ufro gëtt traitéiert",
+		"settingsHeading": "Astellungen",
+		"taskNotFound": "Aufgab net fonnt. Entweder ass Är URL falsch oder eise Service huet grad Problemer."
+	},
+	"email": {
+		"requested": {
+			"subject": "Youzim.it-Aufgab %{taskId} ugefrot",
+			"title": "ZIM ugefrot!",
+			"zimRequestRecorded": "Är ZIM-Ufro vun %{link} gouf opgeholl.",
+			"howToFollowProgress": "Dir kënnt de Status vun dëser Ufro op %{link} verfollegen.",
+			"emailWillBeSent": "Mir schécken Iech nach eng E-Mail, soubal Äre ZIM-Fichier prett ass fir erofgelueden ze ginn."
+		},
+		"succeeded": {
+			"subject": "Youzim.it-Aufgab %{taskId} geklappt",
+			"title": "De ZIM ass prett!",
+			"zimRequestCompleted": "Är ZIM-Ufro vun %{link} ass ofgeschloss.",
+			"hereItIs": "Hei ass se:",
+			"contactUsLinkContent": "Kontaktéiert eis"
+		},
+		"failed": {
+			"subject": "Youzim.it-Aufgab %{taskId} net geklappt",
+			"title": "Är ZIM-Ufro huet net geklappt!",
+			"weAreSorry": "Et deet eis wierklech leed.",
+			"retryLinkContent": "probéiert nach eng Kéier",
+			"howToCheckSettings": "Dir kënnt d'Astellungen, déi Dir benotzt hutt, ënner %{taskLink} iwwerpréiwen."
+		}
+	}
+}

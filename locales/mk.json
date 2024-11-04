@@ -1,0 +1,70 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bjankuloski06"
+		]
+	},
+	"faq": {
+		"whatIsZim": "Што е тоа ZIM-податотека?",
+		"whatIsZimDescLinkContent0": "вонмрежно",
+		"howToRead": "Како да ги читам ZIM-податотеките?",
+		"howToReadDescParagraph": "Ќе ви треба читач на ZIM-податотеки. Ова обично значи {0}, кој е достапен на {1}.",
+		"howToReadDescLinkContent0": "Кивикс",
+		"howToReadDescLinkContent1": "столни сметачи, мобилни уреди и повеќе",
+		"gotErrorDescLinkContent0": "github"
+	},
+	"units": {
+		"timeLimit": {
+			"singular": "час",
+			"plural": "часа"
+		}
+	},
+	"footer": {
+		"poweredByThankTo": "Овозможено од {0} и {1}, благодарение на {2} Награда ❤️",
+		"link0": "Кивикс",
+		"link1": "Webrecorder",
+		"link2": "Поддршка со отворен код на Mozilla"
+	},
+	"header": {
+		"donate": "Да остане бесплатно. Дарувајте."
+	},
+	"newRequest": {
+		"headingParagraph": "Сакате вонмрежна верзија мрежно место? Просто {0}!",
+		"headingBold": "ZIM-увајте го",
+		"urlLabel": "Полна URL-адреса на мрежното место што треба да се претвори",
+		"emailLabel": "Ваша е-пошта за да добиете врска за преземање. Не ги чуваме адресите",
+		"submit": "Да го ZIM-уваме!",
+		"advancedOptions": "напредни нагодувања",
+		"fetchingDefinition": "Вчитувам определба за вонмрежникот…",
+		"errorFetchingDefinition": "Грешка при добивањето на определба за вонмрежникот",
+		"creatingRequest": "Создавам барање…",
+		"errorCreatingRequest": "Грешка при создавањето на барањето"
+	},
+	"notFound": {
+		"heading": "Не е најдено"
+	},
+	"requestStatus": {
+		"zimingOf": "Зимување на",
+		"requestingSlot": "Барање на термин",
+		"successMessage": "Успешно!",
+		"successMessageButton": "Преземи",
+		"limitHitContactUsLink": "Контактирајте нè",
+		"beingProcessedMessage": "Вашето барање се обработува",
+		"settingsHeading": "Нагодувања"
+	},
+	"email": {
+		"succeeded": {
+			"title": "ZIM-от е готов!",
+			"zimRequestCompleted": "Вашето барање за ZIM од %{link} е извршено.",
+			"hereItIs": "Еве го:",
+			"contactUsLinkContent": "Контактирајте нè"
+		},
+		"failed": {
+			"subject": "Задачата на Youzim.it %{taskId} не успеа",
+			"title": "Вашето барање за ZIM не успеа!",
+			"weAreSorry": "Навистина ни е жал.",
+			"retryLinkContent": "обиди се пак",
+			"howToCheckSettings": "Можете да ги проверите нагодувањата што сте ги задале на %{taskLink}"
+		}
+	}
+}
