@@ -15,9 +15,11 @@ const { smAndDown } = useDisplay()
 
 // compute items for language combobox
 const languageItems = computed(() => {
-  return supportedLanguages.map((lang) => {
-    return { title: lang.display, langCode: lang.code }
-  })
+  return supportedLanguages
+    .map((lang) => {
+      return { title: lang.display, langCode: lang.code }
+    })
+    .sort((a, b) => a.title.toLowerCase().localeCompare(b.title.toLowerCase()))
 })
 
 // and select appropriate one as default value for combobox initialization

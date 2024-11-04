@@ -17,9 +17,17 @@ export type Language = {
 const localesFiles = import.meta.glob('../../locales/*.json')
 
 // Add more supported languages here
+// Do not mind about ordering, it is done in UI
+// If language is RTL, do not forget to also update `rtl_language_codes` constant in `api/src/zimitfrontend/constants.py`
+// Some languages below are commented out because they have started but not yet completed (we target close to 100% translated before using the translation)
+// You can check this at https://translatewiki.net/w/i.php?title=Special:MessageGroupStats/kiwix-zimit-frontend&suppresscomplete=0#sortable:3=desc
 export const supportedLanguages: Language[] = [
   { code: 'en', display: 'English', rtl: false }, // Keep default first in array
-  { code: 'fa', display: 'Persian', rtl: true }
+  { code: 'fa', display: 'Persian', rtl: true },
+  { code: 'fr', display: 'French', rtl: false }
+  //  { code: 'ko', display: 'Korean', rtl: false },
+  //  { code: 'lb', display: 'Luxembourgish', rtl: false },
+  //  { code: 'mk', display: 'Macedonian', rtl: false }
 ]
 
 // Check if browser language is supported, otherwise fallback to English
