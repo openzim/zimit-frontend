@@ -1,0 +1,103 @@
+{
+	"@metadata": {
+		"authors": [
+			"Benoit74",
+			"Mahabarata"
+		]
+	},
+	"faq": {
+		"whatIsZim": "Qu'est-ce qu'un fichier ZIM ?",
+		"whatIsZimDescParagraph": "Le format de fichier ZIM stocke le contenu d'un site Web pour une utilisation {0}. Il rassemble les éléments normaux d'un site Web dans une seule archive et la compresse afin de faciliter son enregistrement, son partage et son stockage.",
+		"whatIsZimDescLinkContent0": "hors ligne",
+		"howToRead": "Comment lire mes fichiers ZIM ?",
+		"howToReadDescParagraph": "Vous aurez besoin d'un lecteur de fichiers ZIM. Il s'agit généralement de {0}, qui est disponible sur {1}.",
+		"howToReadDescLinkContent0": "Kiwix",
+		"howToReadDescLinkContent1": "ordinateurs de bureau, appareils mobiles et plus encore",
+		"missingContent": "Le fichier ZIM est incomplet ou plus petit que le site Web d'origine",
+		"missingContentDesc": "En raison de la nature même de cet outil, nous ne pouvons pas le laisser ouvert à des requêtes illimitées vers n'importe quel site Web. Cela pourrait être préjudiciable à la fois pour notre infrastructure, mais aussi pour les sites Web ciblés. Nous appliquons actuellement deux limites : {human_size_limit} Gio de taille de fichier et {human_time_limit}.",
+		"gotError": "J'ai reçu un message d'erreur (pas de ZIM) ou je n'ai pas pu lire un fichier ZIM",
+		"gotErrorDescParagraph": "Vérifiez bien l'URL que vous avez saisie et, si elle ne fonctionne toujours pas, ouvrez un ticket de bogue sur {0}. Indiquez le site Web cible, le numéro de requête (il figure dans l'e-mail que vous avez reçu) et l'appareil sur lequel vous avez essayé d'ouvrir votre fichier ZIM.",
+		"gotErrorDescLinkContent0": "github"
+	},
+	"units": {
+		"timeLimit": {
+			"singular": "heure",
+			"plural": "heures"
+		}
+	},
+	"footer": {
+		"poweredByThankTo": "Propulsé par {0} et {1}, grâce à une dotation {2} ❤️",
+		"link0": "Kiwix",
+		"link1": "Webrecorder",
+		"link2": "Mozilla Open-Source Support"
+	},
+	"header": {
+		"donate": "Gardez cela gratuit. Faites un don"
+	},
+	"newRequest": {
+		"headingParagraph": "Vous souhaitez une version hors ligne d'un site Web ? Il vous suffit de {0} !",
+		"headingBold": "le ZIMer",
+		"urlLabel": "URL complète du site Web à convertir",
+		"emailLabel": "Votre e-mail pour recevoir un lien de téléchargement. Adresse non conservée",
+		"submit": "On le ZIM !",
+		"advancedOptions": "options avancées",
+		"fetchingDefinition": "Chargement définition de l'offlineur...",
+		"errorFetchingDefinition": "Erreur lors de la récupération de la définition de l'offlineur",
+		"creatingRequest": "Création d'une requête…",
+		"errorCreatingRequest": "Erreur lors de la création de la requête",
+		"offlinerNotFound": "Offlineur Zimit offliner non trouvé, nous avons probablement un problème sérieux sur notre infrastructure."
+	},
+	"notFound": {
+		"heading": "Non trouvé",
+		"description": "Il n'y a rien ici, votre URL est probablement erronée. Peut-être voudriez-vous revenir en arrière."
+	},
+	"requestStatus": {
+		"progressMessage": "{task_progression_percent}% ({task_progression_status_code})",
+		"refreshing": "Actualisation du statut de la tâche…",
+		"errorRefreshing": "Erreur lors de l'actualisation du statut de la tâche",
+		"refreshAuto": "Cette page s'actualisera automatiquement toutes les {refresh_interval} secondes, pas besoin de la rafraîchir manuellement.",
+		"zimingOf": "Ziming de",
+		"requestingSlot": "Demande d'un emplacement",
+		"requestRecorded": "Votre demande a été enregistrée et attend un emplacement sur notre infrastructure pour être exécutée. Bien que nous nous efforcions de répondre à toutes les requêtes dans un délai de 24 heures, notre infrastructure sur ce service gratuit est limitée et nous constatons parfois une augmentation de l'intérêt de nombreux utilisateurs, ce qui retarde le début des requêtes de plusieurs jours. Soyez patient !",
+		"requestFailed": "Votre requête a échoué ! Nous sommes désolés.",
+		"failureReasons": "Plusieurs raisons peuvent conduire à un échec de création du ZIM. La plupart du temps, il s'agit d'une URL inadéquate… Veuillez la vérifier trois fois et créer une nouvelle requête. Si cela ne fonctionne pas, {0}.",
+		"failureReasonsLinkContent0": "ouvrir un ticket sur github",
+		"successMessage": "Succès !",
+		"successMessageExplanation": "Le lien ci-dessous expirera et le fichier sera supprimé après une semaine.",
+		"successMessageButton": "Télécharger",
+		"limitHit": "Attention, notez que votre archive est incomplète, vous avez atteint la taille de fichier maximale ({human_size_limit} GiB) ou la durée ({human_time_limit}) autorisée pour l'utilisation gratuite. {contact_us_link} pour acheter de l'espace serveur supplémentaire pour vos tâches.",
+		"limitHitContactUsLink": "Nous contacter",
+		"beingProcessedMessage": "Votre requête est en cours de traitement",
+		"beingProcessedExplanation": "Notre système convertit actuellement l'URL fournie en un joli fichier ZIM. Selon le nombre de pages de ce site Web, cela peut prendre quelques minutes ou quelques heures.",
+		"bookmarkUrl": "Vous pouvez ajouter l'URL de la page actuelle du navigateur à vos favoris pour revenir plus tard voir cette tâche.",
+		"emailNotification": "Vous avez reçu un e-mail avec l'URL actuelle et vous recevrez également une notification par e-mail lorsque la tâche sera terminée, vous pouvez donc fermer cette fenêtre en toute sécurité.",
+		"noEmailNotification": "Ne fermez pas cette fenêtre sans ce favori ou vous ne pourrez pas télécharger votre ZIM puisque vous n'avez pas fourni d'e-mail.",
+		"settingsHeading": "Paramètres",
+		"taskNotFound": "Tâche non trouvée. Soit votre URL est incorrecte, soit notre service rencontre un problème."
+	},
+	"email": {
+		"requested": {
+			"subject": "Tâche Youzim.it %{taskId} demandée",
+			"title": "ZIM demandé !",
+			"zimRequestRecorded": "Votre demande ZIM de %{link} a été enregistrée.",
+			"howToFollowProgress": "Vous pouvez suivre l'état de cette demande sur %{link}.",
+			"emailWillBeSent": "Nous vous enverrons un autre e-mail une fois que votre fichier ZIM sera prêt à être téléchargé."
+		},
+		"succeeded": {
+			"subject": "Tâche Youzim.it %{taskId} terminée avec succès",
+			"title": "Votre ZIM est prêt !",
+			"zimRequestCompleted": "Votre demande ZIM de %{link} a été terminée.",
+			"hereItIs": "C'est ici:",
+			"incomplete": "Votre ZIM est malheureusement incomplet car vous avez atteint les limites (%{sizeLimit} ou %{timeLimit}) autorisées pour l'utilisation gratuite. %{contactUsLink} pour nous acheter de l'espace serveur supplémentaire pour vous.",
+			"contactUsLinkContent": "Nous contacter"
+		},
+		"failed": {
+			"subject": "Tâche Youzim.it %{taskId} a échoué",
+			"title": "Votre demande de ZIM a échoué !",
+			"weAreSorry": "Nous sommes vraiment désolés.",
+			"checkAndRetry": "Cela peut être dû à une erreur dans l'URL que vous avez saisie (%{configUrlLink}) ou à des paramètres supplémentaires manquants/erronés. Veuillez vérifier et %{retryLink}.",
+			"retryLinkContent": "essayer à nouveau",
+			"howToCheckSettings": "Vous pouvez vérifier les paramètres que vous avez utilisés sur %{taskLink}."
+		}
+	}
+}

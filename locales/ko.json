@@ -1,0 +1,81 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ykhwong"
+		]
+	},
+	"faq": {
+		"whatIsZim": "ZIM 파일은 무엇입니까?",
+		"whatIsZimDescLinkContent0": "오프라인",
+		"howToRead": "ZIM 파일을 어떻게 읽습니까?",
+		"howToReadDescLinkContent0": "키윅스",
+		"howToReadDescLinkContent1": "데스크톱 컴퓨터, 모바일 기기 등",
+		"missingContent": "ZIM 파일이 불완전하거나 원본 웹사이트보다 작습니다",
+		"gotError": "오류 메시지(ZIM 없음)를 받았거나 ZIM 파일을 읽지 못했습니다",
+		"gotErrorDescLinkContent0": "깃허브"
+	},
+	"units": {
+		"timeLimit": {
+			"singular": "시간",
+			"plural": "시간"
+		}
+	},
+	"footer": {
+		"link0": "키윅스",
+		"link1": "웹레코더",
+		"link2": "모질라 오픈 소스 지원"
+	},
+	"newRequest": {
+		"headingParagraph": "웹사이트의 오프라인 버전을 원하십니까? {0}!",
+		"headingBold": "ZIM 수행",
+		"urlLabel": "변환할 웹사이트의 전체 URL",
+		"emailLabel": "다운로드 링크를 받기 위한 이메일입니다. 주소는 보관되지 않습니다",
+		"submit": "ZIM을 해봅시다!",
+		"advancedOptions": "고급 옵션",
+		"fetchingDefinition": "오프라이너 정의를 불러오는 중...",
+		"errorFetchingDefinition": "오프라이너 정의를 가져오는 중 오류가 발생했습니다",
+		"creatingRequest": "요청 생성 중…",
+		"errorCreatingRequest": "요청 생성 중 오류가 발생했습니다"
+	},
+	"notFound": {
+		"heading": "찾을 수 없음",
+		"description": "여기에는 아무것도 없습니다. URL이 잘못되었을 수 있습니다. 뒤로 돌아갈 수 있습니다."
+	},
+	"requestStatus": {
+		"refreshing": "작업 상태를 갱신하는 중…",
+		"errorRefreshing": "작업 상태를 갱신하는 중 오류가 발생했습니다",
+		"requestingSlot": "슬롯 요청",
+		"requestFailed": "요청을 실패했습니다! 죄송합니다.",
+		"failureReasonsLinkContent0": "깃허브에 티켓 개시",
+		"successMessage": "성공했습니다!",
+		"successMessageExplanation": "아래 링크는 만료되며 파일은 일주일 후에 삭제됩니다.",
+		"successMessageButton": "다운로드",
+		"limitHitContactUsLink": "문의하기",
+		"beingProcessedMessage": "요청을 처리 중입니다",
+		"settingsHeading": "설정",
+		"taskNotFound": "작업을 찾을 수 없습니다. URL이 잘못되었거나 서비스에 문제가 발생하고 있습니다."
+	},
+	"email": {
+		"requested": {
+			"subject": "Youzim.it의 %{taskId} 작업을 요청했습니다",
+			"title": "ZIM 요청 완료!",
+			"zimRequestRecorded": "%{link}의 ZIM 요청이 기록되었습니다.",
+			"howToFollowProgress": "%{link}에서 이 요청의 상태를 확인할 수 있습니다.",
+			"emailWillBeSent": "ZIM 파일을 다운로드할 준비가 되면 다시 이메일을 보내드리겠습니다."
+		},
+		"succeeded": {
+			"subject": "Youzim.it의 %{taskId} 작업이 성공했습니다",
+			"title": "ZIM이 준비되었습니다!",
+			"zimRequestCompleted": "%{link}의 ZIM 요청이 완료되었습니다.",
+			"hereItIs": "다음과 같습니다.",
+			"contactUsLinkContent": "문의하기"
+		},
+		"failed": {
+			"subject": "Youzim.it의 %{taskId} 작업이 실패했습니다",
+			"title": "ZIP 요청을 실패했습니다!",
+			"weAreSorry": "정말 죄송합니다.",
+			"retryLinkContent": "다시 시도",
+			"howToCheckSettings": "%{taskLink}에서 사용한 설정을 확인할 수 있습니다."
+		}
+	}
+}
