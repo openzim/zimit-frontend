@@ -12,6 +12,7 @@
     "lang",
     "title",
     "description",
+    "long_description",
     "favicon",
     "zim_file",
     "tags",
