@@ -44,6 +44,10 @@
 		"heading": "Не е најдено"
 	},
 	"requestStatus": {
+		"progressMessage": "{task_progression_percent} % ({task_progression_status_code})",
+		"refreshing": "Го превчитувам статусот на задачата…",
+		"errorRefreshing": "Грешка при превчитувањето на статусот на здачата",
+		"refreshAuto": "Страницата автоматски ќе се превчитува на секои {refresh_interval} секунди. Нема потреба да ја превчитувате рачно.",
 		"zimingOf": "Зимување на",
 		"requestingSlot": "Барање на термин",
 		"successMessage": "Успешно!",
@@ -53,7 +57,12 @@
 		"settingsHeading": "Нагодувања"
 	},
 	"email": {
+		"requested": {
+			"howToFollowProgress": "Можете да го следите статусот на ова барање на %{link}.",
+			"emailWillBeSent": "Ќе ви испратиме уште една е-пошта штом ZIM-податотеката ќе биде спремна за преземање."
+		},
 		"succeeded": {
+			"subject": "Задачата на Youzim.it %{taskId} успеа",
 			"title": "ZIM-от е готов!",
 			"zimRequestCompleted": "Вашето барање за ZIM од %{link} е извршено.",
 			"hereItIs": "Еве го:",
