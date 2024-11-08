@@ -109,6 +109,10 @@ def convert_hook_to_mail(
     if task.status not in ("requested", "succeeded", "failed", "canceled"):
         return MailToSend(status=SUCCESS)
 
+    # force fail status, see https://github.com/openzim/zimit-frontend/issues/90
+    if task.files is None or len(task.files) == 0:
+        task.status = "failed"
+
     context = {
         "base_url": ApiConfiguration.public_url,
         "download_url": ApiConfiguration.zim_download_url,
