@@ -6,11 +6,13 @@
 	},
 	"faq": {
 		"whatIsZim": "Што е тоа ZIM-податотека?",
+		"whatIsZimDescParagraph": "Форматот на ZIM-податотеката ја складира содржината на мрежното место за употреба на {0}. Ја собира нормалната составница на мрежното место во еден архив, и ја збива за да биде полесна за зачувување, споделување и складирање.",
 		"whatIsZimDescLinkContent0": "вонмрежно",
 		"howToRead": "Како да ги читам ZIM-податотеките?",
 		"howToReadDescParagraph": "Ќе ви треба читач на ZIM-податотеки. Ова обично значи {0}, кој е достапен на {1}.",
 		"howToReadDescLinkContent0": "Кивикс",
 		"howToReadDescLinkContent1": "столни сметачи, мобилни уреди и повеќе",
+		"gotErrorDescParagraph": "Трипати проверете ја URL-адресата што јавнесовте, и ако сè уште не работи, тогаш пријавете грешка на {0}. Укажете го целното мрежно место, бројот на барањето (ќе го најдете во е-поштата што ја добивте), и уредот на кој пробавте да ја отворите ZIM-податотеката.",
 		"gotErrorDescLinkContent0": "github"
 	},
 	"units": {
@@ -51,6 +53,7 @@
 		"zimingOf": "Зимување на",
 		"requestingSlot": "Барање на термин",
 		"successMessage": "Успешно!",
+		"successMessageExplanation": "Врската подолу ќе истече и податотеката ќе биде избришана по една недела.",
 		"successMessageButton": "Преземи",
 		"limitHitContactUsLink": "Контактирајте нè",
 		"beingProcessedMessage": "Вашето барање се обработува",
@@ -66,12 +69,14 @@
 			"title": "ZIM-от е готов!",
 			"zimRequestCompleted": "Вашето барање за ZIM од %{link} е извршено.",
 			"hereItIs": "Еве го:",
+			"incomplete": "ZIM-от за жал е нецелосен бидејќи ги достигнавте границите (%{sizeLimit} од %{timeLimit}) на бесплатно позлење. %{contactUsLink} за да ни помогнете да набавиме дополнителен опслужувачки простор.",
 			"contactUsLinkContent": "Контактирајте нè"
 		},
 		"failed": {
 			"subject": "Задачата на Youzim.it %{taskId} не успеа",
 			"title": "Вашето барање за ZIM не успеа!",
 			"weAreSorry": "Навистина ни е жал.",
+			"checkAndRetry": "Ова може да се должи на грешка во URL-адресата што ја внесовте (%{configUrlLink}) или пак дополнителните недостасуваат / се погрешни. Please double check and %{retryLink}.",
 			"retryLinkContent": "обиди се пак",
 			"howToCheckSettings": "Можете да ги проверите нагодувањата што сте ги задале на %{taskLink}"
 		}

@@ -1,0 +1,93 @@
+{
+	"@metadata": {
+		"authors": [
+			"Besnik b"
+		]
+	},
+	"faq": {
+		"whatIsZim": "Ç’është një kartelë ZIM?",
+		"whatIsZimDescParagraph": "Formati ZIM i kartelave depoziton lëndën e sajtit për përdorim {0}. Grumbullon në një arkiv të vetëm pjesët përbërëse të një sajti dhe e ngjesh atë, për ta bërë më të kollajtë të ruhet, ndahet me të tjerët dhe depozitohet.",
+		"howToRead": "Si t’i lexoj kartelat e mia ZIM?",
+		"howToReadDescParagraph": "Do t’ju duhet një lexues kartelash ZIM. Zakonisht kjo do të thotë {0}, që mund të merret te {1}.",
+		"howToReadDescLinkContent0": "Kiwix",
+		"howToReadDescLinkContent1": "kompjutera desktop, pajisje celulare, etj",
+		"missingContent": "Kartela ZIM është e paplotë, ose më e vogël se sajti origjinal",
+		"missingContentDesc": "Për shkak të vetë natyrës së këtij mjeti, s’mund ta lëmë hapur për kërkesa të pakufizuara ndaj cilitdo sajt. Kjo do të ishte e dëmshme si për infrastrukturën tonë, ashtu edhe për sajtet e synuar. Aktualisht zbatojmë me detyrim dy kufij: {human_size_limit} GiB madhësi kartelash dhe {human_time_limit}.",
+		"gotError": "Mora një mesazh gabimi (s’ka ZIM), ose s’u lexua dot një kartelë ZIM",
+		"gotErrorDescParagraph": "Rikontrolloni dhe kontrollojeni edhe një herë URL-në që dhatë dhe, nëse prapë s’funksionon, atëherë hapni një çështje të mete te {0}. Tregoni sajtin e synuar, numrin e kërkesës (gjendet te email-i që morët) dhe pajisjen ku provuat të hapnit kartelën tuaj ZIM.",
+		"gotErrorDescLinkContent0": "github"
+	},
+	"units": {
+		"timeLimit": {
+			"singular": "orë",
+			"plural": "orë"
+		}
+	},
+	"footer": {
+		"poweredByThankTo": "Bazuar në {0} dhe {1}, falënderime për një {2} Award ❤️",
+		"link0": "Kiwix"
+	},
+	"header": {
+		"donate": "Mbajeni të lirë këtë.  Dhuroni"
+	},
+	"newRequest": {
+		"headingParagraph": "Doni një version jashtë interneti të një sajti? Thjesh {0}!",
+		"urlLabel": "URL e plotë e sajtit për shndërrim",
+		"emailLabel": "Email-in tuaj që të merrni një lidhje shkarkimi. Adresa s’ruhet",
+		"advancedOptions": "mundësi të mëtejshme",
+		"creatingRequest": "Po krijohet kërkesa…",
+		"errorCreatingRequest": "Gabim në krijimin e kërkesës"
+	},
+	"notFound": {
+		"heading": "S’u Gjet",
+		"description": "S’ka gjë këtu, mundet që URL-ja juaj të jetë gabim. Ndoshta doni të ktheheni mbrapsht."
+	},
+	"requestStatus": {
+		"progressMessage": "{task_progression_percent}% ({task_progression_status_code})",
+		"refreshing": "Po rifreskohet gjendje pune…",
+		"errorRefreshing": "Gabim në rifreskim gjendjeje pune",
+		"refreshAuto": "Kjo faqe do të rifreskohet automatikisht çdo {refresh_interval} sekonda, s’ka nevojë të rifreskohet dorazi.",
+		"requestingSlot": "Po kërkohet pistë",
+		"requestRecorded": "kërkesa juaj është regjistruar dhe po pret për një pistë në infrastrukturën tonë që të xhirohet. Teksa synojmë të plotësojmë krejt kërkesat brenda 24 orësh, infrastruktura jonë në këtë shërbim falas është e kufizuar dhe ndonjëherë mbërrihet në kulmim interesi nga mjaft lexues, duke e shtyrë fillimin e kërkesave për disa ditë. Ju lutemi, bëni durim!",
+		"requestFailed": "Kërkesa juaj dështoi! Na vjen keq për këtë.",
+		"failureReasons": "Në dështimin e përgatitjes së lëndës për ZIM mund të shpien një numër arsyesh. Shumicën e kohës, është një URL e papërshtatshme… Ju lutemi, rikontrolloni dhe kontrolloni edhe një herë atë dhe krijoni një kërkesë të re. Nëse kjo s’funksionon, {0}.",
+		"failureReasonsLinkContent0": "hapni një çështje në Github",
+		"successMessage": "Sukses!",
+		"successMessageExplanation": "Lidhja më poshtë do të skadojë dhe kartela do të fshihet pas një jave.",
+		"successMessageButton": "Shkarkim",
+		"limitHit": "Kujdes, kini parasysh se arkivi juaj s’është i plotë, ju keni mbërritur kufirin për madhësi maksimum kartelash ({human_size_limit} GiB) ose të kohëzgjatjes ({human_time_limit}) së lejuar për indeksim falas. {contact_us_link}, që të blini hapësirë shtesë shërbyesi për punët tuaja.",
+		"limitHitContactUsLink": "Lidhuni me ne",
+		"beingProcessedMessage": "Kërkesa juaj po përpunohet",
+		"beingProcessedExplanation": "Tani sistemi ynë po e shndërron URL-në e dhënë në një kartelë të hijshme ZIM. Në varësi të numrit të faqeve të këtij sajti, kjo mund të zgjasë ca minuta, ose ca orë.",
+		"bookmarkUrl": "Mundeni të faqeruani URl-në e faqes së tanishme të shfletuesit, që të riktheheni më vonë për të parë këtë punë.",
+		"emailNotification": "Keni marrë një email me URL-në e tanishme dhe do të merrni edhe një njoftim me email, kur puna të jetë plotësuar, që të mund ta mbyllni pa rrezik këtë dritare.",
+		"noEmailNotification": "Mos e mbyllni këtë dritare pa e faqeruajtur, përndryshe s’do të jeni në gjendje të shkarkoni arkivin tuaj ZIM, ngaqë s’dhatë ndonjë email.",
+		"settingsHeading": "Rregullime",
+		"taskNotFound": "S’u gjet punë. Ose URL-ja juaj është e pasaktë, ose shërbimi ynë po has një problem."
+	},
+	"email": {
+		"requested": {
+			"subject": "U kërkua punë Youzim.it %{taskId}",
+			"title": "U kërkua arkiv ZIM!",
+			"zimRequestRecorded": "Kërkesa juaj ZIM për %{link} u regjistrua.",
+			"howToFollowProgress": "Gjendjen e kësaj kërkese mund ta ndiqni te %{link}.",
+			"emailWillBeSent": "Do t’ju dërgojmë një tjetër email, sapo të jetë gati për shkarkim kartela juaj ZIM."
+		},
+		"succeeded": {
+			"subject": "Puna Youzim.it %{taskId} doli me sukses",
+			"title": "ZIM-i është gati!",
+			"zimRequestCompleted": "Kërkesa juaj ZIM e %{link} u plotësua.",
+			"hereItIs": "Ja ku është:",
+			"incomplete": "Mjerisht arkivi ZIM është i paplotë, ngaqë keni mbërritur në kufijtë %{sizeLimit} ose %{timeLimit}) të lejuar për indeksim falas. %{contactUsLink} që t’ju ndihmojmë të blini hapësirë shtesë shërbyesi për ju.",
+			"contactUsLinkContent": "Lidhuni me ne"
+		},
+		"failed": {
+			"subject": "Puna Youzim.it %{taskId} dështoi",
+			"title": "Kërkesa juaj ZIM dështoi!",
+			"weAreSorry": "Na vjen vërtet keq.",
+			"checkAndRetry": "Kjo mund të vijë nga një gabim me URL-në që dhatë (%{configUrlLink}), ose mungesë/dështim rregullimesh të tjera. Ju lutemi, rikontrollojini dhe %{retryLink}.",
+			"retryLinkContent": "riprovo",
+			"howToCheckSettings": "Rregullimet që përdorët mund t’i shihni te %{taskLink}."
+		}
+	}
+}
