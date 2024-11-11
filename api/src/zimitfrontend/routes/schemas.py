@@ -81,8 +81,8 @@ class HookStatus(BaseModel):
     status: str
 
 
-class MailToSend(BaseModel):
-    status: HookStatus
-    target: str | None = None
-    subject: str | None = None
-    body: str | None = None
+class HookProcessingResult(BaseModel):
+    hook_response_status: HookStatus
+    mail_target: str | None = None
+    mail_subject: str | None = None
+    mail_body: str | None = None
