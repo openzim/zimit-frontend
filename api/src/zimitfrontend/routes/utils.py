@@ -3,8 +3,8 @@ from typing import Any
 from zimitfrontend.constants import ApiConfiguration, logger
 from zimitfrontend.i18n import change_locale
 from zimitfrontend.routes.schemas import (
+    HookProcessingResult,
     HookStatus,
-    MailToSend,
     TaskInfo,
     TaskInfoFlag,
     ZimfarmTask,
@@ -81,9 +81,9 @@ def get_task_info(task: Any) -> TaskInfo:
     )
 
 
-def convert_hook_to_mail(
+def process_zimfarm_hook_call(
     token: str | None, target: str | None, lang: str, task: ZimfarmTask | None
-) -> MailToSend:
+) -> HookProcessingResult:
     """Transforms message received from Zimfarm via hook to mail info
 
     Returned object is ready to be sent (or contains information that failure occured)
@@ -94,22 +94,23 @@ def convert_hook_to_mail(
     # otherwises exposes us to spam abuse
     if token != ApiConfiguration.hook_token:
         logger.error(f"Incorrect token value received in POST /hook: {token}")
-        return MailToSend(status=FAILED)
+        return HookProcessingResult(hook_response_status=FAILED)
 
     # without a `target` arg, we have nowhere to send the notification to
     if not target:
         logger.error(f"Incorrect target received in POST /hook: {target}")
-        return MailToSend(status=FAILED)
+        return HookProcessingResult(hook_response_status=FAILED)
 
     if not task:
         logger.error("No task received in POST /hook body")
-        return MailToSend(status=FAILED)
+        return HookProcessingResult(hook_response_status=FAILED)
 
     # discard hooks registered for events we don't plan on sending email for
+    # hook_response_status is still SUCCESS because hook call is valid
     if task.status not in ("requested", "succeeded", "failed", "canceled"):
-        return MailToSend(status=SUCCESS)
+        return HookProcessingResult(hook_response_status=SUCCESS)
 
-    # force fail status, see https://github.com/openzim/zimit-frontend/issues/90
+    # force task fail status, see https://github.com/openzim/zimit-frontend/issues/90
     if task.files is None or len(task.files) == 0:
         task.status = "failed"
 
@@ -130,4 +131,9 @@ def convert_hook_to_mail(
         jinja_env.get_template("email_subject.txt").render(**context).replace("\n", "")
     )
     body = jinja_env.get_template("email_body.html").render(**context)
-    return MailToSend(status=SUCCESS, target=target, subject=subject, body=body)
+    return HookProcessingResult(
+        hook_response_status=SUCCESS,
+        mail_target=target,
+        mail_subject=subject,
+        mail_body=body,
+    )

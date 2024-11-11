@@ -3,12 +3,17 @@ from typing import Any
 import pytest
 
 from zimitfrontend.constants import ApiConfiguration
-from zimitfrontend.routes.schemas import MailToSend, TaskInfo, TaskInfoFlag, ZimfarmTask
+from zimitfrontend.routes.schemas import (
+    HookProcessingResult,
+    TaskInfo,
+    TaskInfoFlag,
+    ZimfarmTask,
+)
 from zimitfrontend.routes.utils import (
     FAILED,
     SUCCESS,
-    convert_hook_to_mail,
     get_task_info,
+    process_zimfarm_hook_call,
 )
 
 
@@ -135,11 +140,11 @@ DEFAULT_HOOK_TASK = ZimfarmTask.model_validate(
             "en",
             DEFAULT_HOOK_TASK,
             "requested",
-            MailToSend(
-                status=SUCCESS,
-                target="bob@acme.com",
-                subject="Youzim.it task 6341c requested",
-                body=r"""<html  lang="en">
+            HookProcessingResult(
+                hook_response_status=SUCCESS,
+                mail_target="bob@acme.com",
+                mail_subject="Youzim.it task 6341c requested",
+                mail_body=r"""<html  lang="en">
 <body>
 
 <h2>ZIM requested!</h2>
@@ -165,11 +170,11 @@ DEFAULT_HOOK_TASK = ZimfarmTask.model_validate(
             "en",
             DEFAULT_HOOK_TASK,
             "succeeded",
-            MailToSend(
-                status=SUCCESS,
-                target="bob@acme.com",
-                subject="Youzim.it task 6341c succeeded",
-                body=r"""<html  lang="en">
+            HookProcessingResult(
+                hook_response_status=SUCCESS,
+                mail_target="bob@acme.com",
+                mail_subject="Youzim.it task 6341c succeeded",
+                mail_body=r"""<html  lang="en">
 <body>
 
 
@@ -203,11 +208,11 @@ DEFAULT_HOOK_TASK = ZimfarmTask.model_validate(
             "en",
             DEFAULT_HOOK_TASK,
             "failed",
-            MailToSend(
-                status=SUCCESS,
-                target="bob@acme.com",
-                subject="Youzim.it task 6341c failed",
-                body=r"""<html  lang="en">
+            HookProcessingResult(
+                hook_response_status=SUCCESS,
+                mail_target="bob@acme.com",
+                mail_subject="Youzim.it task 6341c failed",
+                mail_body=r"""<html  lang="en">
 <body>
 
 
@@ -235,11 +240,11 @@ DEFAULT_HOOK_TASK = ZimfarmTask.model_validate(
             "en",
             DEFAULT_HOOK_TASK,
             "bad_status",
-            MailToSend(
-                status=SUCCESS,
-                target=None,
-                subject=None,
-                body=None,
+            HookProcessingResult(
+                hook_response_status=SUCCESS,
+                mail_target=None,
+                mail_subject=None,
+                mail_body=None,
             ),
             id="bad_status",
         ),
@@ -249,11 +254,11 @@ DEFAULT_HOOK_TASK = ZimfarmTask.model_validate(
             "en",
             DEFAULT_HOOK_TASK,
             "succeeded",
-            MailToSend(
-                status=FAILED,
-                target=None,
-                subject=None,
-                body=None,
+            HookProcessingResult(
+                hook_response_status=FAILED,
+                mail_target=None,
+                mail_subject=None,
+                mail_body=None,
             ),
             id="bad_target1",
         ),
@@ -263,11 +268,11 @@ DEFAULT_HOOK_TASK = ZimfarmTask.model_validate(
             "en",
             DEFAULT_HOOK_TASK,
             "succeeded",
-            MailToSend(
-                status=FAILED,
-                target=None,
-                subject=None,
-                body=None,
+            HookProcessingResult(
+                hook_response_status=FAILED,
+                mail_target=None,
+                mail_subject=None,
+                mail_body=None,
             ),
             id="bad_target2",
         ),
@@ -277,11 +282,11 @@ DEFAULT_HOOK_TASK = ZimfarmTask.model_validate(
             "en",
             DEFAULT_HOOK_TASK,
             "succeeded",
-            MailToSend(
-                status=FAILED,
-                target=None,
-                subject=None,
-                body=None,
+            HookProcessingResult(
+                hook_response_status=FAILED,
+                mail_target=None,
+                mail_subject=None,
+                mail_body=None,
             ),
             id="bad_token",
         ),
@@ -291,11 +296,11 @@ DEFAULT_HOOK_TASK = ZimfarmTask.model_validate(
             "en",
             None,
             "succeeded",
-            MailToSend(
-                status=FAILED,
-                target=None,
-                subject=None,
-                body=None,
+            HookProcessingResult(
+                hook_response_status=FAILED,
+                mail_target=None,
+                mail_subject=None,
+                mail_body=None,
             ),
             id="bad_task",
         ),
@@ -307,17 +312,17 @@ def test_convert_hook_to_mail(
     lang: str,
     task: ZimfarmTask | None,
     task_status: str,
-    expected: MailToSend,
+    expected: HookProcessingResult,
 ):
     if task:
         task.status = task_status
-    result = convert_hook_to_mail(
+    result = process_zimfarm_hook_call(
         token=token,
         target=target,
         lang=lang,
         task=task,
     )
-    assert result.status == expected.status
-    assert result.target == expected.target
-    assert result.subject == expected.subject
-    assert result.body == expected.body
+    assert result.hook_response_status == expected.hook_response_status
+    assert result.mail_target == expected.mail_target
+    assert result.mail_subject == expected.mail_subject
+    assert result.mail_body == expected.mail_body
