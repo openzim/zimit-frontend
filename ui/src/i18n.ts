@@ -21,10 +21,13 @@ const localesFiles = import.meta.glob('../../locales/*.json')
 // If language is RTL, do not forget to also update `rtl_language_codes` constant in `api/src/zimitfrontend/constants.py`
 // Some languages below are commented out because they have started but not yet completed (we target close to 100% translated before using the translation)
 // You can check this at https://translatewiki.net/w/i.php?title=Special:MessageGroupStats/kiwix-zimit-frontend&suppresscomplete=0#sortable:3=desc
+// Display name must be in native language. Source proper values from https://w.wiki/BsTU for iso639-1 codes or https://w.wiki/BsTa for iso639-3 codes
+// Display name must start with an upper-character.
 export const supportedLanguages: Language[] = [
   { code: 'en', display: 'English', rtl: false }, // Keep default first in array
-  { code: 'fa', display: 'Persian', rtl: true },
-  { code: 'fr', display: 'French', rtl: false }
+  { code: 'fa', display: 'فارسی', rtl: true },
+  { code: 'fr', display: 'Français', rtl: false },
+  { code: 'es', display: 'Español', rtl: false }
   //  { code: 'ko', display: 'Korean', rtl: false },
   //  { code: 'lb', display: 'Luxembourgish', rtl: false },
   //  { code: 'mk', display: 'Macedonian', rtl: false }
