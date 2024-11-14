@@ -25,6 +25,9 @@
 		"link1": "웹레코더",
 		"link2": "모질라 오픈 소스 지원"
 	},
+	"header": {
+		"donate": "무료 사용 유지를 위해 기부하세요"
+	},
 	"newRequest": {
 		"headingParagraph": "웹사이트의 오프라인 버전을 원하십니까? {0}!",
 		"headingBold": "ZIM 수행",
