@@ -1,15 +1,17 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Amire80"
+		]
 	},
 	"faq": {
 		"whatIsZim": "This is the question asking about the ZIM file format.",
-		"whatIsZimDescParagraph": "This is the answer about the ZIM file format",
-		"whatIsZimDescLinkContent0": "This is the word(s) inside the link of whatIsZimDescParagraph",
+		"whatIsZimDescParagraph": "This is the answer about the ZIM file format. {0} is {{msg-kiwix|Zimit-ui-faq.whatIsZimDescLinkContent0}}.",
+		"whatIsZimDescLinkContent0": "This is the word(s) inside the link of {{msg-kiwix|Zimit-ui-faq.whatIsZimDescParagraph}}.",
 		"howToRead": "This is the question asking how to read ZIM files.",
-		"howToReadDescParagraph": "This is the answer about how to read ZIM files.",
-		"howToReadDescLinkContent0": "This is the word(s) inside the first link of howToReadDescParagraph",
-		"howToReadDescLinkContent1": "This is the word(s) inside the second link of howToReadDescParagraph",
+		"howToReadDescParagraph": "This is the answer about how to read ZIM files.\n* {0} is {{msg-kiwix|Zimit-ui-faq.howToReadDescLinkContent0}}\n* {1} is {{msg-kiwix|Zimit-ui-faq.howToReadDescLinkContent1}}",
+		"howToReadDescLinkContent0": "This is the word(s) inside the first link of {{msg-kiwix|Zimit-ui-faq.howToReadDescParagraph}}.",
+		"howToReadDescLinkContent1": "This is the word(s) inside the second link of {{msg-kiwix|Zimit-ui-faq.howToReadDescParagraph}}.",
 		"missingContent": "This is the question about incomplete or missing content in ZIM files.",
 		"missingContentDesc": "This is the answer about incomplete or missing content in ZIM files.",
 		"gotError": "This is the question about encountering error messages when using ZIM files.",
