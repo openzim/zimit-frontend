@@ -1,4 +1,5 @@
 {
+  "language": "English",
   "faq": {
     "whatIsZim": "What is a ZIM file?",
     "whatIsZimDescParagraph": "The ZIM file format stores website content for {0} usage. It assembles the normal constituent of a website into a single archive, and compresses it so as to make it easier to save, share, and store.",

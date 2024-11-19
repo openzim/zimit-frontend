@@ -1,0 +1,102 @@
+{
+	"@metadata": {
+		"authors": [
+			"TFX202X"
+		]
+	},
+	"faq": {
+		"whatIsZim": "什么是.ZIM文件？",
+		"whatIsZimDescParagraph": "ZIM文件格式存储网站内容以供{0}使用。它将网站的正常组成部分组合成一个档案，并对其进行压缩，以便于保存、共享和存储。",
+		"whatIsZimDescLinkContent0": "离线",
+		"howToRead": "如何读取我的ZIM文件？",
+		"howToReadDescParagraph": "您将需要一个ZIM文件阅读器。这通常意味着{0}，可在{1}上使用。",
+		"howToReadDescLinkContent0": "Kiwix",
+		"howToReadDescLinkContent1": "台式电脑、移动设备等",
+		"missingContent": "ZIM文件不完整或比原始网站小",
+		"missingContentDesc": "由于此工具的本质，我们不能让它向任何网站发出无限制的请求。这不仅会对我们的基础设施造成损害，还会对目标网站造成损害。我们目前实施两项限制：{human_size_limit}GiB文件大小和{human_time_limit}。",
+		"gotError": "我收到错误消息（无ZIM）或无法读取ZIM文件",
+		"gotErrorDescParagraph": "仔细检查您输入的URL，如果仍然无法正常工作，请在{0}上打开错误单。请指明目标网站、请求编号（位于您收到的电子邮件中）以及您尝试打开ZIM文件的设备。",
+		"gotErrorDescLinkContent0": "github"
+	},
+	"units": {
+		"timeLimit": {
+			"singular": "小时",
+			"plural": "小时"
+		}
+	},
+	"footer": {
+		"poweredByThankTo": "由{0}和{1}提供支持，感谢{2}的奖励❤️",
+		"link0": "Kiwix",
+		"link1": "网络记录仪",
+		"link2": "Mozilla开源支持"
+	},
+	"header": {
+		"donate": "保持免费。请捐赠"
+	},
+	"newRequest": {
+		"headingParagraph": "想要网站的离线版本？只需{0}！",
+		"headingBold": "ZIM它",
+		"urlLabel": "要转换的网站的完整URL",
+		"emailLabel": "您的电子邮件用于接收下载链接。地址未保存",
+		"submit": "让我们ZIM它吧！",
+		"advancedOptions": "高级选项",
+		"fetchingDefinition": "正在加载离线程序定义...",
+		"errorFetchingDefinition": "获取离线程序定义时出错",
+		"creatingRequest": "正在创建请求…",
+		"errorCreatingRequest": "创建请求时出错",
+		"offlinerNotFound": "未找到Zimit离线程序，我们的基础设施可能遇到了严重问题。"
+	},
+	"notFound": {
+		"heading": "找不到页面",
+		"description": "这里什么都没有，您的URL可能错误。也许您想返回。"
+	},
+	"requestStatus": {
+		"progressMessage": "{task_progression_percent}% ({task_progression_status_code})",
+		"refreshing": "正在刷新任务状态...",
+		"errorRefreshing": "刷新任务状态时出错",
+		"refreshAuto": "本页面将每{refresh_interval}秒自动刷新一次，无需手动刷新。",
+		"zimingOf": "Zim化",
+		"requestingSlot": "请求时段",
+		"requestRecorded": "您的请求已记录，正在等待我们的基础设施运行。虽然我们的目标是在24小时内完成所有请求，但这项免费服务的基础设施有限，有时会遇到大量用户的兴趣激增，导致请求的开始时间延迟数天。请耐心等待！",
+		"requestFailed": "您的请求失败！我们对此深感抱歉。",
+		"failureReasons": "有多种原因会导致zim化失败。大多数情况下，这是由于URL不合适...请仔细检查并创建新请求。如果此方法无效，请{0}。",
+		"failureReasonsLinkContent0": "在github上打开一张票据",
+		"successMessage": "成功！",
+		"successMessageExplanation": "一周后，下面的链接将会过期并且文件会被删除。",
+		"successMessageButton": "下载",
+		"limitHit": "注意，已查询到您的档案不完整，您已达到免费抓取允许的最大文件大小（{human_size_limit} GiB）或持续时间（{human_time_limit}）。{contact_us_link}为您的任务购买额外的服务器空间。",
+		"limitHitContactUsLink": "联系我们",
+		"beingProcessedMessage": "您的请求正在处理中",
+		"beingProcessedExplanation": "我们的系统目前正在将提供的URL转换为合适的ZIM文件。根据此网站的页面数量，可能需要几分钟或几小时。",
+		"bookmarkUrl": "您可以将当前浏览器页面URL添加到书签，以便稍后回来查看此任务。",
+		"emailNotification": "您已收到一封包含当前URL的电子邮件，并且任务完成时您还将收到一封电子邮件通知，因此您可以安全地关闭此窗口。",
+		"noEmailNotification": "如果没有此书签，请不要关闭此窗口，否则您将无法下载ZIM，因为您没有提供电子邮件。",
+		"settingsHeading": "设置",
+		"taskNotFound": "未找到任务。您的URL不正确或我们的服务遇到问题。"
+	},
+	"email": {
+		"requested": {
+			"subject": "Youzim.it任务 %{taskId}已请求",
+			"title": "ZIM已请求！",
+			"zimRequestRecorded": "您对%{link}的ZIM请求已被记录。",
+			"howToFollowProgress": "您可以在%{link}关注此请求的状态。",
+			"emailWillBeSent": "一旦您的ZIM文件可以下载，我们将向您发送另一封电子邮件。"
+		},
+		"succeeded": {
+			"subject": "Youzim.it任务%{taskId}成功",
+			"title": "ZIM已做好准备！",
+			"zimRequestCompleted": "您对%{link}的ZIM请求已完成。",
+			"hereItIs": "这里是：",
+			"incomplete": "遗憾的是，ZIM不完整，因为您已达到免费抓取的限制 (%{sizeLimit} 或 %{timeLimit})。%{contactUsLink}帮助我们为您购买额外的服务器空间。",
+			"contactUsLinkContent": "联系我们"
+		},
+		"failed": {
+			"subject": "Youzim.it任务%{taskId}失败",
+			"title": "您的ZIM请求失败！",
+			"weAreSorry": "我们真的很抱歉。",
+			"checkAndRetry": "这可能是由于您输入的URL有误（%{configUrlLink}）或其他设置缺失/失败。请仔细检查并 %{retryLink}。",
+			"retryLinkContent": "再试一次",
+			"howToCheckSettings": "您可以在%{taskLink}检查您使用的设置。"
+		}
+	}
+}

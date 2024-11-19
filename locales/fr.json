@@ -5,6 +5,7 @@
 			"Mahabarata"
 		]
 	},
+	"language": "Français",
 	"faq": {
 		"whatIsZim": "Qu'est-ce qu'un fichier ZIM ?",
 		"whatIsZimDescParagraph": "Le format de fichier ZIM stocke le contenu d'un site Web pour une utilisation {0}. Il rassemble les éléments normaux d'un site Web dans une seule archive et la compresse afin de faciliter son enregistrement, son partage et son stockage.",
