@@ -4,6 +4,7 @@
 			"Amire80"
 		]
 	},
+	"language": "This is the label used in the languages dropdown. Must be the native name of current language, starting with an upper char. Do not translate 'English' but write the native label for your language, e.g. Français in French, ...",
 	"faq": {
 		"whatIsZim": "This is the question asking about the ZIM file format.",
 		"whatIsZimDescParagraph": "This is the answer about the ZIM file format. {0} is {{msg-kiwix|Zimit-ui-faq.whatIsZimDescLinkContent0}}.",
