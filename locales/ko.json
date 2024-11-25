@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Benoit74",
 			"Ykhwong"
 		]
 	},
+	"language": "한국어",
 	"faq": {
 		"whatIsZim": "ZIM 파일은 무엇입니까?",
 		"whatIsZimDescLinkContent0": "오프라인",

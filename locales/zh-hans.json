@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Benoit74",
 			"TFX202X"
 		]
 	},
+	"language": "中文（简体）",
 	"faq": {
 		"whatIsZim": "什么是.ZIM文件？",
 		"whatIsZimDescParagraph": "ZIM文件格式存储网站内容以供{0}使用。它将网站的正常组成部分组合成一个档案，并对其进行压缩，以便于保存、共享和存储。",

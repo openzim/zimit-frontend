@@ -1,0 +1,103 @@
+{
+	"@metadata": {
+		"authors": [
+			"Akmaie Ajam"
+		]
+	},
+	"language": "Bahasa Inggris",
+	"faq": {
+		"whatIsZim": "Apa itu berkas ZIM?",
+		"whatIsZimDescParagraph": "Format berkas ZIM menyimpan konten situs web untuk penggunaan {0}. Format ini menyusun unsur-unsur normal situs web menjadi satu arsip, dan mengompresnya agar lebih mudah disimpan, dibagi, dan disimpan.",
+		"whatIsZimDescLinkContent0": "offline",
+		"howToRead": "Bagaimana cara membaca berkas ZIM saya?",
+		"howToReadDescParagraph": "Anda akan memerlukan pembaca berkas ZIM. Ini biasanya berarti {0}, yang tersedia pada {1}.",
+		"howToReadDescLinkContent0": "Kiwix",
+		"howToReadDescLinkContent1": "komputer desktop, perangkat seluler, dan banyak lagi",
+		"missingContent": "File ZIM tidak lengkap atau lebih kecil dari situs web asli",
+		"missingContentDesc": "Karena sifat alat ini, kami tidak dapat membiarkannya terbuka kepada permintaan tak terbatas ke situs web mana pun. Itu dapat membahayakan infrastruktur kami, dan juga situs web target. Saat ini kami memberlakukan dua batasan: ukuran berkas {human_size_limit} GiB dan {human_time_limit}.",
+		"gotError": "Saya mendapat pesan kesalahan (tidak ada ZIM) atau tidak dapat membaca berkas ZIM",
+		"gotErrorDescParagraph": "Periksa ulang URL yang Anda masukkan, dan jika masih tidak berfungsi, buatlah tiket kutu di {0}. Tunjukkan situs web target, nomor permintaan (tertera di email yang Anda terima), dan perangkat yang Anda gunakan untuk mencoba membuka berkas ZIM.",
+		"gotErrorDescLinkContent0": "github"
+	},
+	"units": {
+		"timeLimit": {
+			"singular": "jam",
+			"plural": "jam"
+		}
+	},
+	"footer": {
+		"poweredByThankTo": "Didukung oleh {0} dan {1}, terima kasih atas Penghargaan {2} ❤️",
+		"link0": "Kiwix",
+		"link1": "Perekam web",
+		"link2": "Dukungan Mozilla Open-Source"
+	},
+	"header": {
+		"donate": "Biarkan ini gratis. Sumbangkan"
+	},
+	"newRequest": {
+		"headingParagraph": "Ingin versi offline situs web? Cukup {0}!",
+		"headingBold": "ZIM-kan",
+		"urlLabel": "URL lengkap situs web yang akan dikonversi",
+		"emailLabel": "Email Anda untuk menerima tautan unduhan. Alamat tidak disimpan",
+		"submit": "Ayo ZIM-kan!",
+		"advancedOptions": "opsi lanjutan",
+		"fetchingDefinition": "Memuat definisi offliner…",
+		"errorFetchingDefinition": "Terjadi kesalahan saat mengambil definisi offliner",
+		"creatingRequest": "Membuat permintaan…",
+		"errorCreatingRequest": "Ada kesalahan saat membuat permintaan",
+		"offlinerNotFound": "Zimit offliner tidak ditemukan, kami mungkin mengalami masalah serius pada infrastruktur kami."
+	},
+	"notFound": {
+		"heading": "Tidak Ditemukan",
+		"description": "Tidak ada apa pun di sini, URL Anda mungkin salah. Mungkin Anda ingin kembali."
+	},
+	"requestStatus": {
+		"progressMessage": "{task_progression_percent}% ({task_progression_status_code})",
+		"refreshing": "Menyegarkan status tugas…",
+		"errorRefreshing": "Ada kesalahan saat menyegarkan status tugas",
+		"refreshAuto": "Halaman ini akan disegar secara otomatis setiap {refresh_interval} detik, tidak perlu menyegarkannya secara manual.",
+		"zimingOf": "Pen-Zim-an dari",
+		"requestingSlot": "Meminta slot",
+		"requestRecorded": "Permintaan Anda telah dicatat dan sedang menunggu slot pada infrastruktur kami untuk dijalankan. Walaupun kami bertujuan menyelesaikan semua permintaan dalam 24 jam, infrastruktur kami pada layanan gratis ini terbatas dan terkadang kami mengalami lonjakan minat dari banyak pengguna, sehingga menunda dimulainya pemrosesan permintaan hingga beberapa hari. Harap bersabar!",
+		"requestFailed": "Permintaan Anda gagal! Kami mohon maaf atas hal itu.",
+		"failureReasons": "Sejumlah alasan dapat menyebabkan kegagalan pen-zim-an. Sering kali, URL-nya tidak memadai… Harap periksa ulang dan buat permintaan baru. Jika tidak berhasil, {0}.",
+		"failureReasonsLinkContent0": "buka tiket di github",
+		"successMessage": "Berhasil!",
+		"successMessageExplanation": "Tautan di bawah ini akan kedaluwarsa dan berkas akan dihapus setelah seminggu.",
+		"successMessageButton": "Unduh",
+		"limitHit": "Perhatian, perhatikan bahwa arsip Anda tidak lengkap, Anda telah mencapai ukuran berkas maksimum ({human_size_limit} GiB) atau durasi ({human_time_limit}) yang diizinkan untuk perayapan gratis. {contact_us_link} untuk membeli ruang server tambahan untuk tugas Anda.",
+		"limitHitContactUsLink": "Hubungi kami",
+		"beingProcessedMessage": "Permintaan Anda sedang diproses",
+		"beingProcessedExplanation": "Sistem kami saat ini sedang mengonversi URL yang diberikan menjadi berkas ZIM yang bagus. Tergantung pada jumlah halaman di situs web ini, prosesnya bisa memakan waktu beberapa menit atau jam.",
+		"bookmarkUrl": "Anda dapat menandai URL halaman peramban saat ini untuk kembali lagi nanti melihat tugas ini.",
+		"emailNotification": "Anda telah menerima email dengan URL saat ini, dan Anda juga akan mendapatkan pemberitahuan email saat tugas selesai, sehingga Anda dapat menutup jendela ini dengan aman.",
+		"noEmailNotification": "Jangan tutup jendela ini tanpa penanda ini atau Anda tidak akan dapat mengunduh ZIM Anda karena Anda tidak memberikan email.",
+		"settingsHeading": "Pengaturan",
+		"taskNotFound": "Tugas tidak ditemukan. URL Anda salah atau layanan kami sedang mengalami masalah."
+	},
+	"email": {
+		"requested": {
+			"subject": "Tugas Youzim.it %{taskId} diminta",
+			"title": "ZIM diminta!",
+			"zimRequestRecorded": "Permintaan ZIM Anda sebesar %{link} telah direkam.",
+			"howToFollowProgress": "Anda dapat mengikuti status permintaan ini di %{link}.",
+			"emailWillBeSent": "Kami akan mengirimkan email lagi setelah berkas ZIM Anda siap diunduh."
+		},
+		"succeeded": {
+			"subject": "Tugas Youzim.it %{taskId} berhasil",
+			"title": "ZIM sudah siap!",
+			"zimRequestCompleted": "Permintaan ZIM Anda sebesar %{link} telah direkam.",
+			"hereItIs": "Ini dia:",
+			"incomplete": "Sayangnya ZIM-nya tidak lengkap karena Anda telah mencapai batas (%{sizeLimit} atau %{timeLimit}) yang diizinkan untuk perayapan gratis. %{contactUsLink} untuk membantu kami membeli ruang server tambahan untuk Anda.",
+			"contactUsLinkContent": "Hubungi kami"
+		},
+		"failed": {
+			"subject": "Tugas Youzim.it %{taskId} gagal",
+			"title": "Permintaan ZIM Anda gagal!",
+			"weAreSorry": "Kami benar-benar minta maaf.",
+			"checkAndRetry": "Ini mungkin disebabkan oleh kesalahan pada URL yang Anda masukkan (%{configUrlLink}) atau pengaturan tambahan yang hilang / gagal. Harap periksa kembali dan %{retryLink}.",
+			"retryLinkContent": "coba lagi",
+			"howToCheckSettings": "Anda dapat memeriksa pengaturan yang Anda gunakan di %{taskLink}."
+		}
+	}
+}
