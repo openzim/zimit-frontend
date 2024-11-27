@@ -24,19 +24,23 @@ const localesFiles = import.meta.glob('../../locales/*.json')
 // Display name must be in native language. Display name must start with an upper-character.
 // It should be provided by the translator under `language` key. If not, you might source proper values from https://w.wiki/C7AQ since Translate Wiki uses IETF codes
 export const supportedLanguages: Language[] = [
-  { code: 'en', display: 'English', rtl: false }, // Keep default first in array
+  { code: 'en', display: 'English', rtl: false },
+  { code: 'es', display: 'Español', rtl: false },
   { code: 'fa', display: 'فارسی', rtl: true },
   { code: 'fr', display: 'Français', rtl: false },
-  { code: 'es', display: 'Español', rtl: false },
+  { code: 'id', display: 'Bahasa Indonesia', rtl: false },
+  //  { code: 'ko', display: '한국어', rtl: false },
+  //  { code: 'lb', display: 'Lëtzebuergesch', rtl: false },
+  //  { code: 'mk', display: 'македонски', rtl: false }
+  //  { code: 'sq', display: 'shqip', rtl: false },
   { code: 'zh-hans', display: '简体中文', rtl: false }
-  //  { code: 'ko', display: 'Korean', rtl: false },
-  //  { code: 'lb', display: 'Luxembourgish', rtl: false },
-  //  { code: 'mk', display: 'Macedonian', rtl: false }
 ]
 
 // Check if browser language is supported, otherwise fallback to English
 const defaultLanguage: Language =
-  supportedLanguages.find((lang) => lang.code == simplifiedBrowserLanguage) || supportedLanguages[0]
+  supportedLanguages.find((lang) => lang.code == simplifiedBrowserLanguage) ||
+  supportedLanguages.find((lang) => lang.code == 'en') ||
+  supportedLanguages[0]
 
 // Create the i18n system
 const i18n = createI18n({

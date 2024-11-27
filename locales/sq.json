@@ -4,6 +4,7 @@
 			"Besnik b"
 		]
 	},
+	"language": "shqip",
 	"faq": {
 		"whatIsZim": "Ç’është një kartelë ZIM?",
 		"whatIsZimDescParagraph": "Formati ZIM i kartelave depoziton lëndën e sajtit për përdorim {0}. Grumbullon në një arkiv të vetëm pjesët përbërëse të një sajti dhe e ngjesh atë, për ta bërë më të kollajtë të ruhet, ndahet me të tjerët dhe depozitohet.",

@@ -4,6 +4,7 @@
 			"Sinopsistrans"
 		]
 	},
+	"language": "Español",
 	"faq": {
 		"whatIsZim": "¿Qué es un archivo ZIM?",
 		"whatIsZimDescParagraph": "El formato de archivo ZIM almacena el contenido de un sitio web para su uso {0}. Reúne el contenido normal de un sitio web en un único archivo y lo comprime para que sea más fácil guardarlo, compartirlo y almacenarlo.",
