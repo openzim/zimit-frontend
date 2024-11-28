@@ -130,7 +130,7 @@ watch(
           <template #text>
             <p>{{ $t('requestStatus.beingProcessedExplanation') }}</p>
             <p>{{ $t('requestStatus.bookmarkUrl') }}</p>
-            <p v-if="!mainStore.taskData.hasEmail">{{ $t('requestStatus.emailNotification') }}</p>
+            <p v-if="mainStore.taskData.hasEmail">{{ $t('requestStatus.emailNotification') }}</p>
             <p v-else>{{ $t('requestStatus.noEmailNotification') }}</p>
           </template>
         </v-alert>
