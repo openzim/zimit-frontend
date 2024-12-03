@@ -60,13 +60,13 @@
     "successMessage": "Success!",
     "successMessageExplanation": "The link below will expire and the file will be deleted after a week.",
     "successMessageButton": "Download",
-    "limitHit": "Your zim file only contains part of the target website as you have reached the maximum file size ({human_size_limit} GiB) or duration ({human_time_limit}) allowed for free crawling. {contact_us_link} to purchase additional server space for your task.",
+    "limitHit": "Your ZIM file only contains part of the target website as you have reached the maximum file size ({human_size_limit} GiB) or duration ({human_time_limit}) allowed for free crawling. {contact_us_link} to purchase additional server space for your task.",
     "limitHitContactUsLink": "Contact us",
     "beingProcessedMessage": "Your request is being processed",
-    "beingProcessedExplanation": "Our system is currently converting the URL you provided into a nice .zim file. Depending on the target size it can be a matter of minutes, or hours.",
+    "beingProcessedExplanation": "Our system is currently converting the URL you provided into a nice ZIM file. Depending on the target size it can be a matter of minutes, or hours.",
     "bookmarkUrl": "You can bookmark current browser page URL to come back later see this task.",
     "emailNotification": "You should have received an email with the current URL. Once the task is completed you will get a second email with a download link (you may thus close this window).",
-    "noEmailNotification": "You did not provide us with an email: please bookmark this page before closing the window or you will not be able to retrieve your .zim file.",
+    "noEmailNotification": "You did not provide us with an email: please bookmark this page before closing the window or you will not be able to retrieve your ZIM file.",
     "settingsHeading": "Settings",
     "taskNotFound": "Task not found. Either your URL is incorrect, or our service is experiencing an issue."
   },
@@ -76,7 +76,7 @@
       "title": "ZIM requested!",
       "zimRequestRecorded": "Your ZIM request of %{link} has been recorded.",
       "howToFollowProgress": "You can follow the status of this request at %{link}.",
-      "emailWillBeSent": "We will send you another email when your .zim file is ready to download."
+      "emailWillBeSent": "We will send you another email when your ZIM file is ready to download."
     },
     "succeeded": {
       "subject": "Youzim.it task %{taskId} succeeded",
