@@ -153,7 +153,7 @@ DEFAULT_HOOK_TASK = ZimfarmTask.model_validate(
 <p>You can follow the status of this request at <a href="""
                 r""""https://zimit.kiwix.org/#/request/6341c25f-aac9-41aa-b9bb-3ddee058a0bf">"""
                 r"""https://zimit.kiwix.org/#/request/6341c25f-aac9-41aa-b9bb-3ddee058a0bf</a>.</p>
-<p>We&#39;ll send you another email once your ZIM file is ready to download.</p>
+<p>We will send you another email when your ZIM file is ready to download.</p>
 
 
 
@@ -190,10 +190,9 @@ DEFAULT_HOOK_TASK = ZimfarmTask.model_validate(
                 r"""/zim/other/file1.zim">file1.zim</a> (6.39 KiB)</li>
 </ul>
 
-<p>ZIM is unfortunately incomplete because you have reached the limits (4 GiB or """
+<p>ZIM is unfortunately incomplete because you have reached the limit (4 GiB or """
                 r"""2 hours) allowed for free crawling. <a href="https://www.kiwix.org/en/contact/">"""
-                r"""Contact us</a> to help us purchase additional server space for """
-                r"""you.</p>
+                r"""Contact us</a> to purchase additional server space.</p>
 
 
 
