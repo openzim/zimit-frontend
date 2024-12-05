@@ -35,8 +35,8 @@
 		"donate": "Biarkan ini gratis. Sumbangkan"
 	},
 	"newRequest": {
-		"headingParagraph": "Ingin versi offline situs web? Cukup {0}!",
-		"headingBold": "diZIMkan",
+		"headingParagraph": "Ingin versi offline situs web? {0} aja!",
+		"headingBold": "DiZIMkan",
 		"urlLabel": "URL lengkap situs web yang akan dikonversi",
 		"emailLabel": "Email Anda untuk menerima tautan unduhan. Alamat tidak disimpan",
 		"submit": "Ayo diZIMkan!",
