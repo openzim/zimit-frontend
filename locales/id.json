@@ -32,7 +32,7 @@
 		"link2": "Dukungan Mozilla Open-Source"
 	},
 	"header": {
-		"donate": "Biarkan ini gratis. Sumbangkan"
+		"donate": "Biarkan ini gratis. Donasikan"
 	},
 	"newRequest": {
 		"headingParagraph": "Ingin versi offline situs web? {0} aja!",
@@ -55,25 +55,25 @@
 		"progressMessage": "{task_progression_percent}% ({task_progression_status_code})",
 		"refreshing": "Menyegarkan status tugas…",
 		"errorRefreshing": "Ada kesalahan saat menyegarkan status tugas",
-		"refreshAuto": "Halaman ini akan disegar secara otomatis setiap {refresh_interval} detik, tidak perlu menyegarkannya secara manual.",
+		"refreshAuto": "Halaman ini akan disegar secara otomatis setiap {refresh_interval} detik, Anda tidak perlu muat ulang.",
 		"zimingOf": "Penziman dari",
 		"requestingSlot": "Meminta slot",
-		"requestRecorded": "Permintaan Anda telah dicatat dan sedang menunggu slot pada infrastruktur kami untuk dijalankan. Walaupun kami bertujuan menyelesaikan semua permintaan dalam 24 jam, infrastruktur kami pada layanan gratis ini terbatas dan terkadang kami mengalami lonjakan minat dari banyak pengguna, sehingga menunda dimulainya pemrosesan permintaan hingga beberapa hari. Harap bersabar!",
-		"requestFailed": "Permintaan Anda gagal! Kami mohon maaf atas hal itu.",
-		"failureReasons": "Sejumlah alasan dapat menyebabkan kegagalan penziman. Sering kali, URL-nya tidak memadai… Harap periksa ulang dan buat permintaan baru. Jika tidak berhasil, {0}.",
+		"requestRecorded": "Permintaan Anda telah dicatat dan sedang menunggu slot pada infrastruktur kami untuk dijalankan. Walaupun kami bertujuan menyelesaikan semua permintaan dalam 24 jam, infrastruktur kami untuk layanan gratis ini terbatas dan terkadang kami mengalami lonjakan permintaan, dalam hal ini penumpukan permintaan dapat memakan waktu beberapa hari untuk diproses. Harap bersabar!",
+		"requestFailed": "Permintaan Anda gagal! Maaf atas hal itu.",
+		"failureReasons": "Sejumlah alasan dapat menyebabkan kegagalan penziman. Sering kali ini diakibatkan URL yang tidak memadai… Harap periksa ulang dan buat permintaan baru. Jika tidak berhasil, {0}.",
 		"failureReasonsLinkContent0": "buka tiket di github",
 		"successMessage": "Berhasil!",
 		"successMessageExplanation": "Tautan di bawah ini akan kedaluwarsa dan berkas akan dihapus setelah seminggu.",
 		"successMessageButton": "Unduh",
-		"limitHit": "Perhatian, perhatikan bahwa arsip Anda tidak lengkap, Anda telah mencapai ukuran berkas maksimum ({human_size_limit} GiB) atau durasi ({human_time_limit}) yang diizinkan untuk perayapan gratis. {contact_us_link} untuk membeli ruang server tambahan untuk tugas Anda.",
+		"limitHit": "Berkas ZIM Anda hanya mengandung sebagian situs target karena Anda telah mencapai ukuran berkas maksimum ({human_size_limit} GiB) atau durasi ({human_time_limit}) yang diizinkan untuk perayapan gratis. {contact_us_link} untuk membeli ruang server tambahan untuk tugas Anda.",
 		"limitHitContactUsLink": "Hubungi kami",
 		"beingProcessedMessage": "Permintaan Anda sedang diproses",
-		"beingProcessedExplanation": "Sistem kami saat ini sedang mengonversi URL yang diberikan menjadi berkas ZIM yang bagus. Tergantung pada jumlah halaman di situs web ini, prosesnya bisa memakan waktu beberapa menit atau jam.",
+		"beingProcessedExplanation": "Sistem kami saat ini sedang mengonversi URL yang Anda diberikan menjadi berkas ZIM yang bagus. Tergantung pada ukuran target, prosesnya bisa memakan waktu beberapa menit, atau jam.",
 		"bookmarkUrl": "Anda dapat menandai URL halaman peramban saat ini untuk kembali lagi nanti melihat tugas ini.",
-		"emailNotification": "Anda telah menerima email dengan URL saat ini, dan Anda juga akan mendapatkan pemberitahuan email saat tugas selesai, sehingga Anda dapat menutup jendela ini dengan aman.",
-		"noEmailNotification": "Jangan tutup jendela ini tanpa penanda ini atau Anda tidak akan dapat mengunduh ZIM Anda karena Anda tidak memberikan email.",
+		"emailNotification": "Anda seharusnya telah menerima email dengan URL saat ini. Setelah tugasnya selesai, Anda akan mendapatkan email kedua dengan tautan unduhan (Anda dapat menutup jendela ini).",
+		"noEmailNotification": "Anda tidak memberikan email kepada kami: tolong tandai halaman ini sebelum menutup jendela ini atau Anda tidak akan dapat mengambil berkas ZIM Anda.",
 		"settingsHeading": "Pengaturan",
-		"taskNotFound": "Tugas tidak ditemukan. URL Anda salah atau layanan kami sedang mengalami masalah."
+		"taskNotFound": "Tugas tidak ditemukan. URL Anda salah, atau layanan kami sedang mengalami masalah."
 	},
 	"email": {
 		"requested": {
@@ -81,14 +81,14 @@
 			"title": "ZIM diminta!",
 			"zimRequestRecorded": "Permintaan ZIM Anda sebesar %{link} telah direkam.",
 			"howToFollowProgress": "Anda dapat mengikuti status permintaan ini di %{link}.",
-			"emailWillBeSent": "Kami akan mengirimkan email lagi setelah berkas ZIM Anda siap diunduh."
+			"emailWillBeSent": "Kami akan mengirimkan email lagi ketika berkas ZIM Anda siap diunduh."
 		},
 		"succeeded": {
 			"subject": "Tugas Youzim.it %{taskId} berhasil",
 			"title": "ZIM sudah siap!",
 			"zimRequestCompleted": "Permintaan ZIM Anda sebesar %{link} telah direkam.",
 			"hereItIs": "Ini dia:",
-			"incomplete": "Sayangnya ZIM-nya tidak lengkap karena Anda telah mencapai batas (%{sizeLimit} atau %{timeLimit}) yang diizinkan untuk perayapan gratis. %{contactUsLink} untuk membantu kami membeli ruang server tambahan untuk Anda.",
+			"incomplete": "Sayangnya ZIM-nya tidak lengkap karena Anda telah mencapai batas (%{sizeLimit} atau %{timeLimit}) yang diizinkan untuk perayapan gratis. %{contactUsLink} untuk membeli ruang server tambahan.",
 			"contactUsLinkContent": "Hubungi kami"
 		},
 		"failed": {
