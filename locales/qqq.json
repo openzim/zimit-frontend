@@ -52,7 +52,7 @@
 		"description": "This is the description explaining the 404 error."
 	},
 	"requestStatus": {
-		"progressMessage": "This is the text displayed inside the progress bar, using placeholders for percentage and status values",
+		"progressMessage": "{{optional}}\nThis is the text displayed inside the progress bar, using placeholders for percentage and status values",
 		"refreshing": "This is the message when fetching task status is ongoing",
 		"errorRefreshing": "This is the message when fetching task status failed",
 		"refreshAuto": "This is the message indicating that page refresh is automated, with a placeholder for refresh interval.",
