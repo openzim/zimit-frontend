@@ -28,6 +28,7 @@ export const supportedLanguages: Language[] = [
   { code: 'es', display: 'Español', rtl: false },
   { code: 'fa', display: 'فارسی', rtl: true },
   { code: 'fr', display: 'Français', rtl: false },
+  //  { code: 'he', display: 'עברית', rtl: true },
   { code: 'id', display: 'Bahasa Indonesia', rtl: false },
   //  { code: 'ko', display: '한국어', rtl: false },
   //  { code: 'lb', display: 'Lëtzebuergesch', rtl: false },

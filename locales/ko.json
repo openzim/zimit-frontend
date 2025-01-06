@@ -47,8 +47,10 @@
 		"description": "여기에는 아무것도 없습니다. URL이 잘못되었을 수 있습니다. 뒤로 돌아갈 수 있습니다."
 	},
 	"requestStatus": {
+		"progressMessage": "{task_progression_percent}% ({task_progression_status_code})",
 		"refreshing": "작업 상태를 갱신하는 중…",
 		"errorRefreshing": "작업 상태를 갱신하는 중 오류가 발생했습니다",
+		"refreshAuto": "이 페이지는 {refresh_interval}초마다 자동으로 갱신되므로 다시 불러올 필요가 없습니다.",
 		"requestingSlot": "슬롯 요청",
 		"requestFailed": "요청을 실패했습니다! 죄송합니다.",
 		"failureReasonsLinkContent0": "깃허브에 티켓 개시",
@@ -57,8 +59,12 @@
 		"successMessageButton": "다운로드",
 		"limitHitContactUsLink": "문의하기",
 		"beingProcessedMessage": "요청을 처리 중입니다",
+		"beingProcessedExplanation": "현재 저희 시스템은 귀하가 제공한 URL을 멋진 ZIM 파일로 변환하고 있습니다. 대상 크기에 따라 몇 분 또는 몇 시간이 걸릴 수 있습니다.",
+		"bookmarkUrl": "현재 브라우저 페이지 URL을 북마크하면 나중에 다시 돌아와서 이 작업을 볼 수 있습니다.",
+		"emailNotification": "현재 URL이 포함된 이메일을 받았을 것입니다. 작업이 완료되면 다운로드 링크가 포함된 두 번째 이메일을 받게 됩니다. (그러므로 이 창을 닫아도 됩니다)",
+		"noEmailNotification": "이메일을 제공하지 않으셨습니다. 창을 닫기 전에 이 문서를 북마크하세요. 그렇게 하지 않으면 ZIM 파일을 검색할 수 없습니다.",
 		"settingsHeading": "설정",
-		"taskNotFound": "작업을 찾을 수 없습니다. URL이 잘못되었거나 서비스에 문제가 발생하고 있습니다."
+		"taskNotFound": "작업을 찾을 수 없습니다. URL이 잘못되었거나, 서비스에 문제가 발생하고 있습니다."
 	},
 	"email": {
 		"requested": {
@@ -66,7 +72,7 @@
 			"title": "ZIM 요청 완료!",
 			"zimRequestRecorded": "%{link}의 ZIM 요청이 기록되었습니다.",
 			"howToFollowProgress": "%{link}에서 이 요청의 상태를 확인할 수 있습니다.",
-			"emailWillBeSent": "ZIM 파일을 다운로드할 준비가 되면 다시 이메일을 보내드리겠습니다."
+			"emailWillBeSent": "ZIM 파일을 다운로드할 준비가 될 때 다시 이메일을 보내드리겠습니다."
 		},
 		"succeeded": {
 			"subject": "Youzim.it의 %{taskId} 작업이 성공했습니다",
@@ -79,6 +85,7 @@
 			"subject": "Youzim.it의 %{taskId} 작업이 실패했습니다",
 			"title": "ZIP 요청을 실패했습니다!",
 			"weAreSorry": "정말 죄송합니다.",
+			"checkAndRetry": "입력한 URL(%{configUrlLink})에 오류가 있거나 추가 설정이 누락/실패했기 때문일 수 있습니다. 다시 한 번 확인하고 %{retryLink}하세요.",
 			"retryLinkContent": "다시 시도",
 			"howToCheckSettings": "%{taskLink}에서 사용한 설정을 확인할 수 있습니다."
 		}

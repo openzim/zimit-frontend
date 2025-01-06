@@ -112,4 +112,4 @@ class ApiConfiguration:
     locales_location = pathlib.Path(os.getenv("LOCALES_LOCATION", "../locales"))
 
     # list of rtl language codes
-    rtl_language_codes = ("fa",)
+    rtl_language_codes = ("fa", "he")
