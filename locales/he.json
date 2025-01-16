@@ -68,6 +68,35 @@
 		"limitHitContactUsLink": "נא ליצור איתנו קשר",
 		"beingProcessedMessage": "הבקשה שלך בעיבוד",
 		"beingProcessedExplanation": "המערכת שלנו ממירה כעת את כתובת ה־URL שסיפקת לקובץ ZIM נחמד. בהתאם לגודל היעד, זה יכול להיות עניין של דקות, או של שעות.",
-		"bookmarkUrl": "באפשרותך לסמן את כתובת ה־URL של דף הדפדפן הנוכחי כדי לחזור מאוחר יותר לראות את המשימה הזאת."
+		"bookmarkUrl": "באפשרותך לסמן את כתובת ה־URL של דף הדפדפן הנוכחי כדי לחזור מאוחר יותר לראות את המשימה הזאת.",
+		"emailNotification": "היה אמור להגיע אליך מכתב עם ה־URL הנוכחי. אחרי שהמשימה תושלם, יגיע אליך מכתב נוסף עם קישור הורדה (ואז אפשר לסגור את החלון הזה).",
+		"noEmailNotification": "לא סיפקת לנו כתובת דוא״ל: נא להוסיף את הדף הזה לסימניות לפני סגירת החלון הזה, אחרת לא תהיה לך אפשרות לאחזר את קובץ ה־ZIM שלך.",
+		"settingsHeading": "הגדרות",
+		"taskNotFound": "המשימה לא נמצאה. או שכתובת ה־URL שלך שגויה, או שהשירות שלנו נתקל בבעיה."
+	},
+	"email": {
+		"requested": {
+			"subject": "התבקשה משימת Youzim.it שמספרה %{taskId}",
+			"title": "נשלחה בקשת ZIM!",
+			"zimRequestRecorded": "בקשת ה־ZIM שלך %{link} נרשמה.",
+			"howToFollowProgress": "אפשר לעקוב אחרי המצב של הבקשה הזאת בקישור %{link}.",
+			"emailWillBeSent": "נשלח לך דוא״ל נוסף כשקובץ ה־ZIM שלך מוכן להורדה."
+		},
+		"succeeded": {
+			"subject": "משימת Youzim.it שמספרה %{taskId} הצליחה",
+			"title": "ה־ZIM מוכן!",
+			"zimRequestCompleted": "בקשת ה־ZIM שלך %{link} הושלמה.",
+			"hereItIs": "הינה:",
+			"incomplete": "למרבה הצער ה־ZIM אינו שלם כי הגעת למגבלה (%{sizeLimit} או %{timeLimit}) המותרת לסריקה בחינם. %{contactUsLink} לרכישת שטח שרת נוסף.",
+			"contactUsLinkContent": "נא ליצור איתנו קשר"
+		},
+		"failed": {
+			"subject": "משימת Youzim.it שמספרה %{taskId} נכשלה",
+			"title": "בקשת ה־ZIM שלך נכשלה!",
+			"weAreSorry": "אנחנו ממש מצטערים.",
+			"checkAndRetry": "ייתכן שהסיבה לכך היא שגיאה בכתובת ה־URL שהזנת (%{configUrlLink}) או הגדרות נוספות שחסרות שנכשלות. נא לבדוק שוב ו%{retryLink}.",
+			"retryLinkContent": "לנסות שוב",
+			"howToCheckSettings": "אפשר לבדוק את ההגדרות שהשתמשת בהן בכתובת %{taskLink}."
+		}
 	}
 }
