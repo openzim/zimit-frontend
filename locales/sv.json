@@ -1,0 +1,102 @@
+{
+	"@metadata": {
+		"authors": [
+			"Larsa"
+		]
+	},
+	"language": "Svenska",
+	"faq": {
+		"whatIsZim": "Vad är ZIM fil?",
+		"whatIsZimDescParagraph": "ZIM-filformatet lagrar webbplatsinnehåll för {0}-användning. Den samlar det normala innehållet av en webbplats till ett enda arkiv och komprimerar den för att göra det lättare att spara, dela och lagra.",
+		"whatIsZimDescLinkContent0": "ej uppkopplad",
+		"howToRead": "Hur läser jag mina ZIM-filer?",
+		"howToReadDescParagraph": "Du behöver en ZIM-filläsare. Detta betyder vanligtvis {0}, som är tillgängligt på {1}.",
+		"howToReadDescLinkContent0": "Kiwix",
+		"howToReadDescLinkContent1": "stationära datorer, mobila enheter och mer",
+		"missingContent": "ZIM-filen är ofullständig eller mindre än den ursprungliga webbplatsen",
+		"missingContentDesc": "På grund av det här verktygets natur kan vi inte lämna det öppet för obegränsade förfrågningar till någon webbplats. Det kan vara skadligt både för vår infrastruktur, men också för målwebbplatserna. Vi tillämpar för närvarande två gränser: {human_size_limit} GiB-filstorlek och {human_time_limit}.",
+		"gotError": "Jag fick ett felmeddelande (ingen ZIM) eller kunde inte läsa en ZIM-fil",
+		"gotErrorDescParagraph": "Trippelkontrollera webbadressen du angav, och om den fortfarande inte fungerar öppnar du ett felmeddelande på {0}. Ange målwebbplatsen, förfrågningsnumret (det finns i e-postmeddelandet du fick) och enheten du försökte öppna din ZIM-fil på.",
+		"gotErrorDescLinkContent0": "github"
+	},
+	"units": {
+		"timeLimit": {
+			"singular": "timme",
+			"plural": "timmar"
+		}
+	},
+	"footer": {
+		"poweredByThankTo": "Drivs av {0} och {1}, tack vare ett {2} Award ❤️",
+		"link0": "Kiwix",
+		"link1": "Webbinspelare",
+		"link2": "Mozilla stöd för öppen källkod"
+	},
+	"header": {
+		"donate": "Håll detta gratis. Donera"
+	},
+	"newRequest": {
+		"headingParagraph": "Vill du ha en offlineversion av en webbplats? Bara {0}!",
+		"headingBold": "ZIMa det",
+		"urlLabel": "Fullständig URL till webbplatsen som ska konverteras",
+		"emailLabel": "Din e-post för att få en nedladdningslänk. Adressen sparas inte",
+		"submit": "Låt oss ZIMa det!",
+		"advancedOptions": "avancerade alternativ",
+		"fetchingDefinition": "Laddar ej-uppkopplad-definition...",
+		"errorFetchingDefinition": "Det gick inte att hämta ej-uppkopplad-definitionen",
+		"creatingRequest": "Skapa förfrågan...",
+		"errorCreatingRequest": "Det gick inte att skapa förfrågan",
+		"offlinerNotFound": "Zimit ej-uppkopplare inte hittat, vi upplever förmodligen ett allvarligt problem med vår infrastruktur."
+	},
+	"notFound": {
+		"heading": "Hittades inte",
+		"description": "Det finns inget här, din URL är förmodligen fel. Du kanske vill gå tillbaka."
+	},
+	"requestStatus": {
+		"refreshing": "Uppdaterar uppgiftsstatus...",
+		"errorRefreshing": "Fel vid uppdatering av aktivitetsstatus",
+		"refreshAuto": "Den här sidan uppdateras automatiskt var {refresh_interval} sekund, du behöver inte ladda om.",
+		"zimingOf": "Ziming av",
+		"requestingSlot": "Efterfrågar plats",
+		"requestRecorded": "Din förfrågan har registrerats och väntar på att få en körningsplats i vår infrastruktur. Även om vi siktar på att slutföra alla förfrågningar inom 24 timmar, är vår infrastruktur för den här kostnadsfria tjänsten begränsad och vi upplever ibland efterfrågeökningar, då kan eftersläpningen ta flera dagar att behandla. Ha tålamod!",
+		"requestFailed": "Din begäran har misslyckats! Ber om ursäkt för det.",
+		"failureReasons": "Ett antal orsaker kan leda till ett zimingfel. Oftast kommer detta från en otillräcklig URL... Vänligen kontrollera tredubbelt och skapa en ny begäran. Om det inte fungerar, {0}.",
+		"failureReasonsLinkContent0": "öppna ett ärende i github",
+		"successMessage": "Lyckades!",
+		"successMessageExplanation": "Länken nedan upphör att gälla och filen raderas efter en vecka.",
+		"successMessageButton": "Ladda ned",
+		"limitHit": "Din ZIM-fil innehåller bara en del av målwebbplatsen eftersom du har nått den maximala filstorleken ({human_size_limit} GiB) eller tiden ({human_time_limit}) som tillåts för gratis genomsökning. {contact_us_link} för att köpa ytterligare serverutrymme för din uppgift.",
+		"limitHitContactUsLink": "Kontakta oss",
+		"beingProcessedMessage": "Din förfrågan behandlas",
+		"beingProcessedExplanation": "Vårt system konverterar för närvarande webbadressen du angav till en snygg ZIM-fil. Beroende på målstorleken kan det vara en fråga om minuter eller timmar.",
+		"bookmarkUrl": "Du kan bokmärka den aktuella webbadressen för att komma tillbaka senare och se den här uppgiften.",
+		"emailNotification": "Du borde ha fått ett e-postmeddelande med aktuell webbadress. När uppgiften är klar får du ett andra e-postmeddelande med en nedladdningslänk (du kan alltså stänga det här fönstret).",
+		"noEmailNotification": "Du har inte gett oss ett e-post adress: vänligen bokmärk den här sidan innan du stänger fönstret, annars kommer du inte att kunna hämta din ZIM-fil.",
+		"settingsHeading": "Inställningar",
+		"taskNotFound": "Uppgiften hittades inte. Antingen är din webbadress felaktig eller så har det uppstått ett problem med vår tjänst."
+	},
+	"email": {
+		"requested": {
+			"subject": "Youzim.it-uppgiften %{taskId} har efterfrågats",
+			"title": "ZIM efterfrågad!",
+			"zimRequestRecorded": "Din ZIM-förfrågan på %{link} har registrerats.",
+			"howToFollowProgress": "Du kan följa statusen för denna förfrågan på %{link}.",
+			"emailWillBeSent": "Vi skickar ett nytt e-postmeddelande när din ZIM-fil är redo att laddas ner."
+		},
+		"succeeded": {
+			"subject": "Youzim.it-uppgiften %{taskId} har lyckats",
+			"title": "ZIM är redo!",
+			"zimRequestCompleted": "Din ZIM-förfrågan på %{link} är nu klar.",
+			"hereItIs": "Här är den:",
+			"incomplete": "ZIM är tyvärr ofullständig eftersom du har nått gränsen (%{sizeLimit} eller %{timeLimit}) som tillåts för gratis genomsökning. %{contactUsLink} för att köpa ytterligare serverutrymme.",
+			"contactUsLinkContent": "Kontakta oss"
+		},
+		"failed": {
+			"subject": "Youzim.it-uppgiften %{taskId} har misslyckats",
+			"title": "Din ZIM-förfrågan har misslyckats!",
+			"weAreSorry": "Vi är verkligen ledsna.",
+			"checkAndRetry": "Detta kan bero på ett fel med den webbadress du angav (%{configUrlLink}) eller så saknas/misslyckas ytterligare inställningar. Dubbelkolla och %{retryLink}.",
+			"retryLinkContent": "försök igen",
+			"howToCheckSettings": "Du kan kontrollera inställningarna du använde på %{taskLink}."
+		}
+	}
+}
