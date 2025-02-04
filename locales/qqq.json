@@ -45,7 +45,12 @@
 		"errorFetchingDefinition": "This is the message when fetching the task definition failed.",
 		"creatingRequest": "This is the message while creating a Zimfarm request.",
 		"errorCreatingRequest": "This is the message when creating a Zimfarm request failed.",
-		"offlinerNotFound": "This is the message when we failed to load offliner definition through API call."
+		"unableToCreateSchedule": "This is the message when request creation failed at Zimfamrm schedule creation",
+		"unableToRequestSchedule": "This is the message when request creation failed at Zimfamrm new task request",
+		"missingTaskId": "This is the message when Zimfarm returned an empty task ID when requesting the task",
+		"failToGetTaskId": "This is the message when Zimfarm did not returned the task ID as expected when requesting the task",
+		"offlinerNotFound": "This is the message when we failed to load offliner definition through API call.",
+		"urlBlacklisted": "This is the snackbar message when URL passed is blacklisted from zimit.kiwix.org"
 	},
 	"notFound": {
 		"heading": "This is the heading displayed when URL is not found/handled.",
@@ -73,7 +78,8 @@
 		"emailNotification": "This is an explanation about what to do while task is processing when email has been provided",
 		"noEmailNotification": "This is an explanation about what to do while task is processing when email has NOT been provided",
 		"settingsHeading": "This is the title of the section detailing task settings",
-		"taskNotFound": "This is the message displayed when the task is not found."
+		"taskNotFound": "This is the message displayed when the task is not found.",
+		"taskNotFoundSnack": "This is the message displayed in the snackbar when the task is not found"
 	},
 	"email": {
 		"requested": {

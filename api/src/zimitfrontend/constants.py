@@ -76,6 +76,7 @@ class ApiConfiguration:
     )
     zimfarm_requests_timeout = _get_time_setting("ZIMFARM_REQUESTS_TIMEOUT", "10s")
     mailgun_requests_timeout = _get_time_setting("MAILGUN_REQUESTS_TIMEOUT", "10s")
+    other_requests_timeout = _get_time_setting("OTHER_REQUESTS_TIMEOUT", "10s")
     zimfarm_username = os.getenv("_ZIMFARM_USERNAME", "-")
     zimfarm_password = os.getenv("_ZIMFARM_PASSWORD", "-")
     zimit_image = os.getenv("ZIMIT_IMAGE", "openzim/zimit:1.2.0")
@@ -113,3 +114,8 @@ class ApiConfiguration:
 
     # list of rtl language codes
     rtl_language_codes = ("fa", "he")
+
+    blacklist_url = os.getenv(
+        "BLACKLIST_URL", "https://drive.zimit.kiwix.org/blacklist.csv"
+    )
+    blacklist_refresh_minutes = int(os.getenv("BLACKLIST_REFRESH_MINUTES", "10"))

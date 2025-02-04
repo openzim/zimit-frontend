@@ -187,7 +187,14 @@ export const useMainStore = defineStore('main', {
       if (error instanceof AxiosError && error.response) {
         console.error(message, ':', error.response.status, error.response.statusText)
         if (error.response.data.detail) {
-          message = message + ': ' + error.response.data.detail
+          if (error.response.data.detail.translationKey) {
+            message =
+              message +
+              ': ' +
+              this.t(error.response.data.detail.translationKey, error.response.data.detail)
+          } else {
+            message = message + ': ' + error.response.data.detail
+          }
         }
       } else {
         console.error(message, ':', error)

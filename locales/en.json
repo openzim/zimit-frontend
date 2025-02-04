@@ -40,7 +40,12 @@
     "errorFetchingDefinition": "Error fetching offliner definition",
     "creatingRequest": "Creating request…",
     "errorCreatingRequest": "Error creating request",
-    "offlinerNotFound": "Zimit offliner not found, we probably experience a serious issue on our infrastructure."
+    "unableToCreateSchedule": "Unable to create schedule via HTTP {status}: {zimfarmMessage}",
+    "unableToRequestSchedule": "Unable to request new task for schedule via HTTP {status}: {zimfarmMessage}",
+    "missingTaskId": "Zimfarm returned an empty task ID",
+    "failToGetTaskId": "Zimfarm did not returned the task ID as expected",
+    "offlinerNotFound": "Zimit offliner not found, we probably experience a serious issue on our infrastructure.",
+    "urlBlacklisted": "This website cannot be processed with zimit.kiwix.org"
   },
   "notFound": {
     "heading": "Not Found",
@@ -68,7 +73,8 @@
     "emailNotification": "You should have received an email with the current URL. Once the task is completed you will get a second email with a download link (you may thus close this window).",
     "noEmailNotification": "You did not provide us with an email: please bookmark this page before closing the window or you will not be able to retrieve your ZIM file.",
     "settingsHeading": "Settings",
-    "taskNotFound": "Task not found. Either your URL is incorrect, or our service is experiencing an issue."
+    "taskNotFound": "Task not found. Either your URL is incorrect, or our service is experiencing an issue.",
+    "taskNotFoundSnack": "Failed to find task on Zimfarm with HTTP {status}."
   },
   "email": {
     "requested": {

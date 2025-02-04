@@ -1,0 +1,2 @@
+^https?:\/\/\w*\.?wikipedia\.org(?:\/.*)?$,newRequest.urlBlacklisted
+^https?:\/\/\w*\.?wikihow\.com(?:\/.*)?$,newRequest.urlBlacklisted

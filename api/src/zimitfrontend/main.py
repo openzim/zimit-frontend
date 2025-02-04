@@ -4,9 +4,11 @@ from fastapi import FastAPI
 from fastapi.encoders import jsonable_encoder
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, RedirectResponse
+from schedule import every
 from starlette.requests import Request
 
 from zimitfrontend import __about__
+from zimitfrontend.blacklist import refresh_blacklist
 from zimitfrontend.constants import ApiConfiguration, logger
 from zimitfrontend.routes import hook, requests
 
@@ -75,5 +77,13 @@ class Main:
         api.include_router(router=hook.router)
 
         self.app.mount(f"/api/{__about__.__api_version__}", api)
+
+        if ApiConfiguration.blacklist_url:
+            refresh_blacklist()
+            every(
+                ApiConfiguration.blacklist_refresh_minutes
+            ).minutes.do(  # pyright: ignore[reportUnknownMemberType]
+                refresh_blacklist
+            )
 
         return self.app

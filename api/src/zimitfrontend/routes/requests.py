@@ -4,7 +4,9 @@ from http import HTTPStatus
 from typing import Annotated
 
 from fastapi import APIRouter, HTTPException, Path
+from schedule import run_pending
 
+from zimitfrontend.blacklist import blacklist_manager
 from zimitfrontend.constants import ApiConfiguration, logger
 from zimitfrontend.routes.schemas import TaskCreateRequest, TaskCreateResponse, TaskInfo
 from zimitfrontend.routes.utils import get_task_info
@@ -37,8 +39,9 @@ def task_info(
         raise HTTPException(
             status_code=HTTPStatus.BAD_REQUEST,
             detail={
-                "error": f"Failed to find task on Zimfarm with HTTP {status}",
-                "zimfarm_message": task,
+                "translationKey": "requestStatus.taskNotFoundSnack",
+                "status": status,
+                "zimfarmMessage": task,
             },
         )
     return get_task_info(task)
@@ -55,7 +58,16 @@ def task_info(
 )
 def create_task(request: TaskCreateRequest) -> TaskCreateResponse:
 
+    # trigger blacklist refresh (will only happen at configured interval)
+    run_pending()
+
     url = urllib.parse.urlparse(request.url)
+
+    if blacklist_reason := blacklist_manager.get_blacklist_reason(url.geturl()):
+        raise HTTPException(
+            status_code=HTTPStatus.BAD_REQUEST,
+            detail={"translationKey": blacklist_reason},
+        )
 
     # generate schedule name
     ident = str(uuid.uuid4())[:8]
@@ -147,16 +159,21 @@ def create_task(request: TaskCreateRequest) -> TaskCreateResponse:
     )
     if not success:
         logger.error(f"Unable to create schedule via HTTP {status}: {resp}")
-        message = f"Unable to create schedule via HTTP {status}: {resp}"
-        if status == HTTPStatus.BAD_REQUEST:
-            # if Zimfarm replied this is a bad request, then this is most probably
-            # a bad request due to user input so we can track it like a bad request
-            raise HTTPException(status_code=HTTPStatus.BAD_REQUEST, detail=message)
-        else:
-            # otherwise, this is most probably an internal problem in our systems
-            raise HTTPException(
-                status_code=HTTPStatus.INTERNAL_SERVER_ERROR, detail=message
-            )
+        # if Zimfarm replied this is a bad request, then this is most probably
+        # a bad request due to user input so we can track it like a bad request
+        # otherwise, this is most probably an internal problem in our systems
+        raise HTTPException(
+            status_code=(
+                HTTPStatus.BAD_REQUEST
+                if status == HTTPStatus.BAD_REQUEST
+                else HTTPStatus.INTERNAL_SERVER_ERROR
+            ),
+            detail={
+                "translationKey": "newRequest.unableToCreateSchedule",
+                "status": status,
+                "zimfarmMessage": resp,
+            },
+        )
 
     # request a task for that newly created schedule
     success, status, resp = query_api(
@@ -171,19 +188,30 @@ def create_task(request: TaskCreateRequest) -> TaskCreateResponse:
         logger.error(f"Unable to request {schedule_name} via HTTP {status}: {resp}")
         raise HTTPException(
             status_code=HTTPStatus.INTERNAL_SERVER_ERROR,
-            detail=f"Unable to request schedule via HTTP {status}): {resp}",
+            detail={
+                "translationKey": "newRequest.unableToRequestSchedule",
+                "status": status,
+                "zimfarmMessage": resp,
+            },
         )
 
     try:
         task_id = resp.get("requested").pop()
         if not task_id:
+            logger.error("Zimfarm returned an empty task ID")
             raise HTTPException(
-                status_code=HTTPStatus.INTERNAL_SERVER_ERROR, detail="task_id is False"
+                status_code=HTTPStatus.INTERNAL_SERVER_ERROR,
+                detail={
+                    "translationKey": "newRequest.missingTaskId",
+                },
             )
     except Exception as exc:
+        logger.error("Zimfarm did not returned the task ID as expected", exc_info=exc)
         raise HTTPException(
             status_code=HTTPStatus.INTERNAL_SERVER_ERROR,
-            detail=f"Couldn't retrieve requested task id: {exc}",
+            detail={
+                "translationKey": "newRequest.failToGetTaskId",
+            },
         ) from exc
 
     # remove newly created schedule (not needed anymore)
