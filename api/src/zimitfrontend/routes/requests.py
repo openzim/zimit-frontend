@@ -67,6 +67,7 @@ def create_task(request: TaskCreateRequest) -> TaskCreateResponse:
     flags["name"] = flags.get("name", schedule_name)
     flags["zim-file"] = flags.get("zim-file", url.hostname) + f"_{ident}.zim"
     flags["userAgentSuffix"] = "zimit.kiwix.org+"
+    flags["content-header-bytes-length"] = 2048
 
     # remove flags we don't want to overwrite
     for flag in ("adminEmail", "output", "statsFilename"):
