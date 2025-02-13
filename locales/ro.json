@@ -1,0 +1,102 @@
+{
+	"@metadata": {
+		"authors": [
+			"MSClaudiu"
+		]
+	},
+	"language": "Engleză",
+	"faq": {
+		"whatIsZim": "Ce este un fișier ZIM?",
+		"whatIsZimDescParagraph": "Formatul de fișier ZIM stochează conținutul site-ului web pentru utilizare {0}. Acesta reunește componentele normale ale unui site web într-o singură arhivă și o comprimă astfel încât să fie mai ușor de salvat, partajat și stocat.",
+		"whatIsZimDescLinkContent0": "deconectat",
+		"howToRead": "Cum citesc fișierele ZIM?",
+		"howToReadDescParagraph": "Veți avea nevoie de un cititor de fișiere ZIM. Aceasta înseamnă de obicei {0}, care este disponibil pe {1}.",
+		"howToReadDescLinkContent0": "Kiwix",
+		"howToReadDescLinkContent1": "computere desktop, dispozitive mobile și multe altele",
+		"missingContent": "Fișierul ZIM este incomplet sau mai mic decât site-ul original",
+		"missingContentDesc": "Datorită naturii acestui instrument, nu îl putem lăsa deschis pentru solicitări nelimitate către orice site web. Acest lucru ar putea fi dăunător atât pentru infrastructura noastră, dar și pentru site-urile țintă. În prezent, aplicăm două limite: dimensiunea fișierului de {human_size_limit} GiB și {human_time_limit}.",
+		"gotError": "Am primit un mesaj de eroare (fără ZIM) sau nu am putut citi un fișier ZIM",
+		"gotErrorDescParagraph": "Verificați de trei ori adresa URL pe care ați introdus-o și, dacă încă nu funcționează, deschideți un bilet de eroare pe {0}. Indicați site-ul web țintă, numărul solicitării (este în e-mailul primit) și dispozitivul pe care ați încercat să deschideți fișierul ZIM.",
+		"gotErrorDescLinkContent0": "github"
+	},
+	"units": {
+		"timeLimit": {
+			"singular": "ora",
+			"plural": "ore"
+		}
+	},
+	"footer": {
+		"poweredByThankTo": "Sprijinit de {0} și {1}, mulțumită unui Premiu {2} ❤️",
+		"link0": "Kiwix",
+		"link1": "Webrecorder",
+		"link2": "Asistență Mozilla Open-Source"
+	},
+	"header": {
+		"donate": "Păstrați acest lucru gratuit. Donează"
+	},
+	"newRequest": {
+		"headingParagraph": "Doriți o versiune offline a unui site web? Doar {0}!",
+		"headingBold": "ZIM-o",
+		"urlLabel": "Adresa URL completă a site-ului web de convertit",
+		"emailLabel": "E-mailul dvs. pentru a primi un link de descărcare. Adresa nu este păstrată",
+		"submit": "Să-l ZIM!",
+		"advancedOptions": "opțiuni avansate",
+		"fetchingDefinition": "Definiţia de încărcare offline...",
+		"errorFetchingDefinition": "Eroare la preluarea definiției offliner",
+		"creatingRequest": "Se creează cererea...",
+		"errorCreatingRequest": "Eroare la crearea cererii",
+		"offlinerNotFound": "Zimit offliner nu a fost găsit, probabil că avem o problemă gravă în infrastructura noastră."
+	},
+	"notFound": {
+		"heading": "Nu a fost găsit",
+		"description": "Nu există nimic aici, URL-ul dvs. este probabil greșit. Poate ai vrea să te întorci."
+	},
+	"requestStatus": {
+		"refreshing": "Se actualizează starea sarcinii...",
+		"errorRefreshing": "Eroare la reîmprospătarea stării sarcinii",
+		"refreshAuto": "Această pagină se va reîmprospăta automat la fiecare {refresh_interval} secunde, nu este nevoie să o reîncărcați.",
+		"zimingOf": "Ziming de",
+		"requestingSlot": "Se solicită slot",
+		"requestRecorded": "Solicitarea dvs. a fost înregistrată și așteaptă un slot pe infrastructura noastră pentru a rula. Deși ne propunem să finalizam toate solicitările în 24 de ore, infrastructura noastră pentru acest serviciu gratuit este limitată și uneori întâmpinăm creșteri ale cererii, caz în care procesarea restanțelor poate dura câteva zile. Vă rog să aveți răbdare!",
+		"requestFailed": "Cererea ta a eșuat! Îmi pare rău pentru asta.",
+		"failureReasons": "O serie de motive pot duce la un eșec de ziming. De cele mai multe ori, acest lucru provine de la o adresă URL inadecvată... Vă rugăm să verificați de trei ori și să creați o nouă solicitare. Dacă nu funcționează, {0}.",
+		"failureReasonsLinkContent0": "deschideți un tichet în github",
+		"successMessage": "Succes!",
+		"successMessageExplanation": "Linkul de mai jos va expira și fișierul va fi șters după o săptămână.",
+		"successMessageButton": "Descărcare",
+		"limitHit": "Fișierul dvs. ZIM conține doar o parte a site-ului web țintă, deoarece ați atins dimensiunea maximă a fișierului ({human_size_limit} GiB) sau durata ({human_time_limit}) permisă pentru accesarea cu crawlere gratuită. {contact_us_link} pentru a cumpăra spațiu suplimentar pe server pentru sarcina dvs.",
+		"limitHitContactUsLink": "Contact",
+		"beingProcessedMessage": "Cererea ta este procesată.",
+		"beingProcessedExplanation": "Sistemul nostru convertește în prezent adresa URL pe care ați furnizat-o într-un fișier ZIM frumos. În funcție de dimensiunea țintei, poate fi o chestiune de minute sau ore.",
+		"bookmarkUrl": "Puteți marca adresa URL a paginii curente a browserului pentru a reveni mai târziu la această sarcină.",
+		"emailNotification": "Ar fi trebuit să primiți un e-mail cu adresa URL curentă. Odată ce sarcina este finalizată, veți primi un al doilea e-mail cu un link de descărcare (deci puteți închide această fereastră).",
+		"noEmailNotification": "Nu ne-ați furnizat un e-mail: vă rugăm să marcați această pagină înainte de a închide fereastra sau nu veți putea recupera fișierul ZIM.",
+		"settingsHeading": "Setări",
+		"taskNotFound": "Sarcina nu a fost găsită. Fie adresa URL este incorectă, fie serviciul nostru se confruntă cu o problemă."
+	},
+	"email": {
+		"requested": {
+			"subject": "Sarcina Youzim.it %{taskId} a fost solicitată",
+			"title": "ZIM solicitat!",
+			"zimRequestRecorded": "Solicitarea dvs. ZIM a %{link} a fost înregistrată.",
+			"howToFollowProgress": "Puteți urmări starea acestei solicitări la %{link}.",
+			"emailWillBeSent": "Vă vom trimite un alt e-mail când fișierul ZIM este gata de descărcat."
+		},
+		"succeeded": {
+			"subject": "Sarcina Youzim.it %{taskId} a reușit",
+			"title": "ZIM este gata!",
+			"zimRequestCompleted": "Solicitarea dvs. ZIM a %{link} a fost finalizată.",
+			"hereItIs": "Iată-l:",
+			"incomplete": "ZIM este, din păcate, incomplet deoarece ați atins limita (%{sizeLimit} sau %{timeLimit}) permisă pentru accesarea cu crawlere gratuită. %{contactUsLink} pentru a cumpăra spațiu suplimentar pe server.",
+			"contactUsLinkContent": "Contact"
+		},
+		"failed": {
+			"subject": "Sarcina Youzim.it %{taskId} a eșuat",
+			"title": "Solicitarea dvs. ZIM a eșuat!",
+			"weAreSorry": "Ne pare foarte rău.",
+			"checkAndRetry": "Acest lucru se poate datora unei erori la adresa URL pe care ați introdus-o (%{configUrlLink}) sau a unor setări suplimentare lipsă/eșuate. Verificați din nou și %{retryLink}.",
+			"retryLinkContent": "încearcă din nou",
+			"howToCheckSettings": "Puteți verifica setările pe care le-ați folosit la %{taskLink}."
+		}
+	}
+}
