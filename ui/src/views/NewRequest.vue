@@ -24,7 +24,7 @@ onMounted(() => {
     <div v-if="mainStore.offlinerNotFound" class="red">
       {{ $t('newRequest.offlinerNotFound') }}
     </div>
-    <NewRequestForm />
+    <div>Website is currently under maintenance, we will be back in few days.</div>
     <FaqList class="faq" />
   </v-container>
 </template>
