@@ -110,7 +110,7 @@ DEFAULT_HOOK_TASK = ZimfarmTask.model_validate(
         "status": "requested",
         "config": {
             "warehouse_path": "/other",
-            "flags": {"url": "https://www.acme.com"},
+            "flags": {"seeds": "https://www.acme.com"},
         },
         "files": {
             "file2.zim": {

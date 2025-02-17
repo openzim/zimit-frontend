@@ -217,7 +217,7 @@ export const useMainStore = defineStore('main', {
       if (!state.taskData) {
         return undefined
       }
-      const urlFlags = state.taskData.flags.filter((flag) => flag.name == 'url')
+      const urlFlags = state.taskData.flags.filter((flag) => flag.name == 'seeds')
       if (urlFlags.length !== 1) {
         return undefined
       }
