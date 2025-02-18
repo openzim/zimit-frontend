@@ -40,7 +40,8 @@
     "errorFetchingDefinition": "Error fetching offliner definition",
     "creatingRequest": "Creating request…",
     "errorCreatingRequest": "Error creating request",
-    "offlinerNotFound": "Zimit offliner not found, we probably experience a serious issue on our infrastructure."
+    "offlinerNotFound": "Zimit offliner not found, we probably experience a serious issue on our infrastructure.",
+    "stopNewRequestsMessage": "Zimit temporarily does not accept new tasks for maintenance, will be back in few days."
   },
   "notFound": {
     "heading": "Not Found",

@@ -1,4 +1,5 @@
 {
+  "stop_new_requests_on": false,
   "zimit_ui_api": "/api/v1",
   "zimfarm_api": "https://api.farm.zimit.kiwix.org/v1",
   "wikipedia_offline_article": "https://en.wikipedia.org/wiki/Offline",
