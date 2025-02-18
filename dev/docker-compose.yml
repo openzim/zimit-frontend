@@ -54,6 +54,7 @@ services:
       _ZIMFARM_PASSWORD: admin
       TASK_WORKER: worker
       HOOK_TOKEN: a_very_secret_token
+      CALLBACK_BASE_URL: http://zimit_api:80/api/v1/requests/hook
     depends_on:
       - zimfarm_api
   zimit_ui_dev:

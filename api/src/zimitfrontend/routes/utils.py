@@ -111,7 +111,7 @@ def process_zimfarm_hook_call(
         return HookProcessingResult(hook_response_status=SUCCESS)
 
     # force task fail status, see https://github.com/openzim/zimit-frontend/issues/90
-    if task.files is None or len(task.files) == 0:
+    if task.status != "requested" and (task.files is None or len(task.files) == 0):
         task.status = "failed"
 
     context = {
