@@ -56,7 +56,7 @@
 		"successMessage": "Успешно!",
 		"successMessageExplanation": "Врската подолу ќе истече и податотеката ќе биде избришана по една недела.",
 		"successMessageButton": "Преземи",
-		"limitHitContactUsLink": "Контактирајте нè",
+		"partialZimContactUsLink": "Контактирајте нè",
 		"beingProcessedMessage": "Вашето барање се обработува",
 		"settingsHeading": "Нагодувања"
 	},

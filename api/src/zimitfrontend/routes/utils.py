@@ -53,11 +53,10 @@ def get_task_info(task: Any) -> TaskInfo:
             and zimfarm_task.notification.ended
             and zimfarm_task.notification.ended.webhook
         ),
-        limit_hit=bool(
+        partial_zim=bool(
             zimfarm_task.container
             and zimfarm_task.container.progress
-            and zimfarm_task.container.progress.limit
-            and zimfarm_task.container.progress.limit.hit
+            and zimfarm_task.container.progress.partial_zim
         ),
         status=zimfarm_task.status,
         flags=(

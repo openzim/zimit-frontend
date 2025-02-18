@@ -63,14 +63,16 @@ def create_task(request: TaskCreateRequest) -> TaskCreateResponse:
 
     # build zimit config
     flags = request.flags
-    flags["url"] = url.geturl()
+    flags["seeds"] = url.geturl()
     flags["name"] = flags.get("name", schedule_name)
     flags["zim-file"] = flags.get("zim-file", url.hostname) + f"_{ident}.zim"
     flags["userAgentSuffix"] = "zimit.kiwix.org+"
+    flags["failOnFailedSeed"] = True
+    flags["failOnInvalidStatus"] = True
     flags["content-header-bytes-length"] = 2048
 
     # remove flags we don't want to overwrite
-    for flag in ("adminEmail", "output", "statsFilename"):
+    for flag in ("adminEmail", "output", "zimit-progress-file"):
         if flag in flags:
             del flags[flag]
 
@@ -83,15 +85,17 @@ def create_task(request: TaskCreateRequest) -> TaskCreateResponse:
         return zimit_limit  # case where someone is trying to trick as well
 
     try:
-        size_limit = int(flags.get("sizeLimit", ApiConfiguration.zimit_size_limit))
+        size_limit = int(flags.get("sizeSoftLimit", ApiConfiguration.zimit_size_limit))
     except Exception:
         size_limit = ApiConfiguration.zimit_size_limit
-    flags["sizeLimit"] = str(_cap_limit(size_limit, ApiConfiguration.zimit_size_limit))
+    flags["sizeSoftLimit"] = str(
+        _cap_limit(size_limit, ApiConfiguration.zimit_size_limit)
+    )
     try:
-        time_limit = int(flags.get("timeLimit", ApiConfiguration.zimit_time_limit))
+        time_limit = int(flags.get("timeSoftLimit", ApiConfiguration.zimit_time_limit))
     except Exception:
         time_limit = ApiConfiguration.zimit_time_limit
-    flags["timeLimit"] = _cap_limit(time_limit, ApiConfiguration.zimit_time_limit)
+    flags["timeSoftLimit"] = _cap_limit(time_limit, ApiConfiguration.zimit_time_limit)
 
     config = {
         "task_name": "zimit",
