@@ -46,13 +46,13 @@ from zimitfrontend.routes.utils import (
                     },
                 },
                 "notification": {"ended": {"webhook": ["bla"]}},
-                "container": {"progress": {"limit": {"hit": "true"}}},
+                "container": {"progress": {"partialZim": True}},
             },
             TaskInfo(
                 id="6341c25f-aac9-41aa-b9bb-3ddee058a0bf",
                 download_link="https://s3.us-west-1.wasabisys.com/org-kiwix-zimit/zim/other"
                 "/file1.zim",
-                limit_hit=True,
+                partial_zim=True,
                 has_email=True,
                 status="requested",
                 flags=[
@@ -72,7 +72,7 @@ from zimitfrontend.routes.utils import (
             TaskInfo(
                 id="6341c25f-aac9-41aa-b9bb-3ddee058a0bf",
                 download_link=None,
-                limit_hit=False,
+                partial_zim=False,
                 has_email=False,
                 status="blu",
                 flags=[],
@@ -84,19 +84,37 @@ from zimitfrontend.routes.utils import (
             {
                 "_id": "6341c25f-aac9-41aa-b9bb-3ddee058a0bf",
                 "config": {"warehouse_path": "/other", "flags": {}},
-                "container": {"progress": {"limit": {"hit": "false"}}},
+                "container": {"progress": {"partialZim": False}},
                 "status": "bla",
             },
             TaskInfo(
                 id="6341c25f-aac9-41aa-b9bb-3ddee058a0bf",
                 download_link=None,
-                limit_hit=False,
+                partial_zim=False,
                 has_email=False,
                 status="bla",
                 flags=[],
                 progress=0,
             ),
             id="limit_not_hit",
+        ),
+        pytest.param(
+            {
+                "_id": "6341c25f-aac9-41aa-b9bb-3ddee058a0bf",
+                "config": {"warehouse_path": "/other", "flags": {}},
+                "container": {"progress": {"overall": 100}},
+                "status": "bla",
+            },
+            TaskInfo(
+                id="6341c25f-aac9-41aa-b9bb-3ddee058a0bf",
+                download_link=None,
+                partial_zim=False,
+                has_email=False,
+                status="bla",
+                flags=[],
+                progress=100,
+            ),
+            id="no_limit_info",
         ),
     ],
 )
@@ -125,7 +143,7 @@ DEFAULT_HOOK_TASK = ZimfarmTask.model_validate(
             },
         },
         "notification": {"ended": {"webhook": ["bla"]}},
-        "container": {"progress": {"limit": {"hit": "true"}}},
+        "container": {"progress": {"partialZim": True}},
         "flags": {"flag2": "value2", "flag1": "value1"},
     }
 )

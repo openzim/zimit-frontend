@@ -59,7 +59,7 @@ export type TaskData = {
   // files: any
   // filesParsed: TaskDataFile[]
   hasEmail: boolean
-  limitHit: boolean
+  partialZim: boolean
   downloadLink: string
   progress: number
 }
@@ -258,23 +258,23 @@ export const useMainStore = defineStore('main', {
       if (!state.taskData) {
         return undefined
       }
-      const limitFlags = state.taskData.flags.filter((flag) => flag.name == 'sizeLimit')
+      const limitFlags = state.taskData.flags.filter((flag) => flag.name == 'sizeSoftLimit')
       if (limitFlags.length !== 1) {
         return undefined
       }
       const limitValue = limitFlags[0].value
-      return Number(limitValue) / 1073741824
+      return Math.round((Number(limitValue) / 1073741824) * 10) / 10
     },
     taskHumanTimeLimit(state) {
       if (!state.taskData) {
         return undefined
       }
-      const limitFlags = state.taskData.flags.filter((flag) => flag.name == 'timeLimit')
+      const limitFlags = state.taskData.flags.filter((flag) => flag.name == 'timeSoftLimit')
       if (limitFlags.length !== 1) {
         return undefined
       }
       const limitValue = limitFlags[0].value
-      return Number(limitValue) / 3600
+      return Math.round((Number(limitValue) / 3600) * 10) / 10
     }
   }
 })

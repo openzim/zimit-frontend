@@ -15,7 +15,7 @@
 {% for file in task.files.values() %}<li><a href="{{ download_url }}{{ task.config.warehouse_path }}/{{ file.name }}">{{ file.name }}</a> ({{ file.size|format_size }})</li>{% endfor %}
 </ul>{% endif %}
 
-{% if task.container.progress and "limit" in task.container.progress.keys() and task.container.progress.limit.hit %}<p>{{ translate('email.succeeded.incomplete', sizeLimit=size_limit|format_size, timeLimit=time_limit|format_timespan, contactUsLink='<a href="' +  contact_us_url + '">' +  translate('email.succeeded.contactUsLinkContent') + '</a>') | safe}}</p>{% endif %}
+{% if task.container.progress and task.container.progress.partial_zim %}<p>{{ translate('email.succeeded.incomplete', sizeLimit=size_limit|format_size, timeLimit=time_limit|format_timespan, contactUsLink='<a href="' +  contact_us_url + '">' +  translate('email.succeeded.contactUsLinkContent') + '</a>') | safe}}</p>{% endif %}
 {% endif %}
 
 {% if task.status in ("failed", "canceled") %}
