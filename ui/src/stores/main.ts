@@ -62,6 +62,7 @@ export type TaskData = {
   partialZim: boolean
   downloadLink: string
   progress: number
+  rank: number
 }
 
 export const useMainStore = defineStore('main', {

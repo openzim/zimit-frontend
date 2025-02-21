@@ -47,6 +47,7 @@ from zimitfrontend.routes.utils import (
                 },
                 "notification": {"ended": {"webhook": ["bla"]}},
                 "container": {"progress": {"partialZim": True}},
+                "rank": 123,
             },
             TaskInfo(
                 id="6341c25f-aac9-41aa-b9bb-3ddee058a0bf",
@@ -60,6 +61,7 @@ from zimitfrontend.routes.utils import (
                     TaskInfoFlag(name="flag2", value="value2"),
                 ],
                 progress=0,
+                rank=123,
             ),
             id="full",
         ),
@@ -68,6 +70,7 @@ from zimitfrontend.routes.utils import (
                 "_id": "6341c25f-aac9-41aa-b9bb-3ddee058a0bf",
                 "config": {"warehouse_path": "/other", "flags": {}},
                 "status": "blu",
+                "rank": 456,
             },
             TaskInfo(
                 id="6341c25f-aac9-41aa-b9bb-3ddee058a0bf",
@@ -77,6 +80,7 @@ from zimitfrontend.routes.utils import (
                 status="blu",
                 flags=[],
                 progress=0,
+                rank=456,
             ),
             id="simple",
         ),
@@ -86,6 +90,7 @@ from zimitfrontend.routes.utils import (
                 "config": {"warehouse_path": "/other", "flags": {}},
                 "container": {"progress": {"partialZim": False}},
                 "status": "bla",
+                "rank": 456,
             },
             TaskInfo(
                 id="6341c25f-aac9-41aa-b9bb-3ddee058a0bf",
@@ -95,6 +100,7 @@ from zimitfrontend.routes.utils import (
                 status="bla",
                 flags=[],
                 progress=0,
+                rank=456,
             ),
             id="limit_not_hit",
         ),
@@ -104,6 +110,7 @@ from zimitfrontend.routes.utils import (
                 "config": {"warehouse_path": "/other", "flags": {}},
                 "container": {"progress": {"overall": 100}},
                 "status": "bla",
+                "rank": 456,
             },
             TaskInfo(
                 id="6341c25f-aac9-41aa-b9bb-3ddee058a0bf",
@@ -113,6 +120,7 @@ from zimitfrontend.routes.utils import (
                 status="bla",
                 flags=[],
                 progress=100,
+                rank=456,
             ),
             id="no_limit_info",
         ),
@@ -145,6 +153,7 @@ DEFAULT_HOOK_TASK = ZimfarmTask.model_validate(
         "notification": {"ended": {"webhook": ["bla"]}},
         "container": {"progress": {"partialZim": True}},
         "flags": {"flag2": "value2", "flag1": "value1"},
+        "rank": 123,
     }
 )
 
