@@ -59,6 +59,7 @@
 		"refreshAuto": "This is the message indicating that page refresh is automated, with a placeholder for refresh interval.",
 		"zimingOf": "This are the words before the website url ('Ziming' is an invented world, based on the fact that we create files with .zim extension, named ZIM files)",
 		"requestingSlot": "This is the message indicating that system is requesting a slot to process the task",
+		"rankMessage": "This is the message indicating position of the task in the processing queue",
 		"requestRecorded": "These are explanations when the system is requesting a slot to process the task",
 		"requestFailed": "This is the message indicating that the task has failed",
 		"failureReasons": "These are explanations about what to do when a task has failed, including a placeholder for a link",

@@ -23,6 +23,7 @@ class TaskInfo(CamelModel):
     status: str
     flags: list[TaskInfoFlag]
     progress: int | None
+    rank: int
 
 
 class TaskCreateRequest(CamelModel):
@@ -71,6 +72,7 @@ class ZimfarmTask(BaseModel):
     files: dict[str, ZimfarmTaskFile] | None = None
     notification: ZimfarmTaskNotification | None = None
     container: ZimfarmTaskContainer | None = None
+    rank: int
 
 
 class HookStatus(BaseModel):
