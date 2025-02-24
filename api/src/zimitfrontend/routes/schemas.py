@@ -23,7 +23,7 @@ class TaskInfo(CamelModel):
     status: str
     flags: list[TaskInfoFlag]
     progress: int | None
-    rank: int
+    rank: int | None
 
 
 class TaskCreateRequest(CamelModel):
@@ -72,7 +72,9 @@ class ZimfarmTask(BaseModel):
     files: dict[str, ZimfarmTaskFile] | None = None
     notification: ZimfarmTaskNotification | None = None
     container: ZimfarmTaskContainer | None = None
-    rank: int
+    # rank is populated only on GET /requested_tasks/{id}, and not on any of
+    # other endpoint and not on the webhook calls
+    rank: int | None = None
 
 
 class HookStatus(BaseModel):
