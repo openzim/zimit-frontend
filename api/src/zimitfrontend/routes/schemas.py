@@ -19,10 +19,11 @@ class TaskInfo(CamelModel):
     id: str
     download_link: str | None
     has_email: bool
-    limit_hit: bool
+    partial_zim: bool
     status: str
     flags: list[TaskInfoFlag]
     progress: int | None
+    rank: int
 
 
 class TaskCreateRequest(CamelModel):
@@ -55,12 +56,8 @@ class ZimfarmTaskNotification(BaseModel):
     ended: ZimfarmTaskNotificationConfig | None = None
 
 
-class ZimfarmTaskContainerProgressLimit(BaseModel):
-    hit: bool | None = None
-
-
-class ZimfarmTaskContainerProgress(BaseModel):
-    limit: ZimfarmTaskContainerProgressLimit | None = None
+class ZimfarmTaskContainerProgress(CamelModel):
+    partial_zim: bool | None = None
     overall: int | None = None
 
 
@@ -75,6 +72,7 @@ class ZimfarmTask(BaseModel):
     files: dict[str, ZimfarmTaskFile] | None = None
     notification: ZimfarmTaskNotification | None = None
     container: ZimfarmTaskContainer | None = None
+    rank: int
 
 
 class HookStatus(BaseModel):

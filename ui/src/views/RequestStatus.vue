@@ -76,7 +76,12 @@ watch(
         <v-alert :title="$t('requestStatus.requestingSlot')" color="warning" variant="tonal">
           <template #text>
             <p>{{ $t('requestStatus.requestRecorded') }}</p>
-            <p>{{ $t('requestStatus.bookmarkUrl') }}</p>
+            <i18n-t keypath="requestStatus.rankMessage" tag="strong">
+              <template #task_rank>
+                {{ mainStore.taskData.rank }}
+              </template>
+            </i18n-t>
+            <p v-if="mainStore.taskData.hasEmail">{{ $t('requestStatus.bookmarkUrl') }}</p>
             <p v-if="mainStore.taskData.hasEmail">{{ $t('requestStatus.emailNotification') }}</p>
             <p v-else>{{ $t('requestStatus.noEmailNotification') }}</p>
           </template>
@@ -103,7 +108,12 @@ watch(
               }}</v-btn>
             </p>
 
-            <i18n-t v-if="mainStore.taskData.limitHit" keypath="requestStatus.limitHit" tag="p">
+            <i18n-t
+              v-if="mainStore.taskData.partialZim"
+              keypath="requestStatus.partialZim"
+              tag="p"
+              class="pt-2"
+            >
               <template #human_size_limit>
                 {{ mainStore.taskHumanSizeLimit }}
               </template>
@@ -118,7 +128,7 @@ watch(
               </template>
               <template #contact_us_link>
                 <a target="_blank" :href="mainStore.config.kiwix_contact_us">{{
-                  $t('requestStatus.limitHitContactUsLink')
+                  $t('requestStatus.partialZimContactUsLink')
                 }}</a>
               </template>
             </i18n-t>

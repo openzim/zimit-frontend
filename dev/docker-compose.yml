@@ -1,5 +1,5 @@
 services:
-  zimfarm_db:
+  zimfarm-db:
     image: postgres:15.2-bullseye
     ports:
       - 127.0.0.1:5432:5432
@@ -9,18 +9,18 @@ services:
       - POSTGRES_DB=zimfarm
       - POSTGRES_USER=zimfarm
       - POSTGRES_PASSWORD=zimpass
-  zimfarm_api:
+  zimfarm-api:
     image: ghcr.io/openzim/zimfarm-dispatcher:latest
     ports:
       - 127.0.0.1:8004:80
     environment:
       BINDING_HOST: 0.0.0.0
       JWT_SECRET: DH8kSxcflUVfNRdkEiJJCn2dOOKI3qfw
-      POSTGRES_URI: postgresql+psycopg://zimfarm:zimpass@zimfarm_db:5432/zimfarm
+      POSTGRES_URI: postgresql+psycopg://zimfarm:zimpass@zimfarm-db:5432/zimfarm
       ALEMBIC_UPGRADE_HEAD_ON_START: "1"
       ZIMIT_USE_RELAXED_SCHEMA: "y"
     depends_on:
-      - zimfarm_db
+      - zimfarm-db
   zimfarm-ui:
     image: ghcr.io/openzim/zimfarm-ui:latest
     ports:
@@ -28,8 +28,8 @@ services:
     environment:
       ZIMFARM_WEBAPI: http://localhost:8004/v1
     depends_on:
-      - zimfarm_api
-  zimit_api:
+      - zimfarm-api
+  zimit-api:
     build:
       dockerfile: Dockerfile-api
       context: ..
@@ -49,15 +49,15 @@ services:
     ports:
       - 127.0.0.1:8002:80
     environment:
-      INTERNAL_ZIMFARM_WEBAPI: http://zimfarm_api:80/v1
+      INTERNAL_ZIMFARM_WEBAPI: http://zimfarm-api:80/v1
       _ZIMFARM_USERNAME: admin
       _ZIMFARM_PASSWORD: admin
       TASK_WORKER: worker
       HOOK_TOKEN: a_very_secret_token
-      CALLBACK_BASE_URL: http://zimit_api:80/api/v1/requests/hook
+      CALLBACK_BASE_URL: http://zimit-api:80/api/v1/requests/hook
     depends_on:
-      - zimfarm_api
-  zimit_ui_dev:
+      - zimfarm-api
+  zimit-ui-dev:
     build:
       dockerfile: dev/zimit_ui_dev/Dockerfile
       context: ..
@@ -68,15 +68,15 @@ services:
     ports:
       - 127.0.0.1:8001:80
     depends_on:
-      - zimit_api
-  zimit_ui_prod:
+      - zimit-api
+  zimit-ui-prod:
     build:
       dockerfile: Dockerfile-ui
       context: ..
     ports:
       - 127.0.0.1:8000:80
     depends_on:
-      - zimit_api
+      - zimit-api
 
 volumes:
   zimfarm_data:

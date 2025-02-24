@@ -46,13 +46,14 @@ from zimitfrontend.routes.utils import (
                     },
                 },
                 "notification": {"ended": {"webhook": ["bla"]}},
-                "container": {"progress": {"limit": {"hit": "true"}}},
+                "container": {"progress": {"partialZim": True}},
+                "rank": 123,
             },
             TaskInfo(
                 id="6341c25f-aac9-41aa-b9bb-3ddee058a0bf",
                 download_link="https://s3.us-west-1.wasabisys.com/org-kiwix-zimit/zim/other"
                 "/file1.zim",
-                limit_hit=True,
+                partial_zim=True,
                 has_email=True,
                 status="requested",
                 flags=[
@@ -60,6 +61,7 @@ from zimitfrontend.routes.utils import (
                     TaskInfoFlag(name="flag2", value="value2"),
                 ],
                 progress=0,
+                rank=123,
             ),
             id="full",
         ),
@@ -68,15 +70,17 @@ from zimitfrontend.routes.utils import (
                 "_id": "6341c25f-aac9-41aa-b9bb-3ddee058a0bf",
                 "config": {"warehouse_path": "/other", "flags": {}},
                 "status": "blu",
+                "rank": 456,
             },
             TaskInfo(
                 id="6341c25f-aac9-41aa-b9bb-3ddee058a0bf",
                 download_link=None,
-                limit_hit=False,
+                partial_zim=False,
                 has_email=False,
                 status="blu",
                 flags=[],
                 progress=0,
+                rank=456,
             ),
             id="simple",
         ),
@@ -84,19 +88,41 @@ from zimitfrontend.routes.utils import (
             {
                 "_id": "6341c25f-aac9-41aa-b9bb-3ddee058a0bf",
                 "config": {"warehouse_path": "/other", "flags": {}},
-                "container": {"progress": {"limit": {"hit": "false"}}},
+                "container": {"progress": {"partialZim": False}},
                 "status": "bla",
+                "rank": 456,
             },
             TaskInfo(
                 id="6341c25f-aac9-41aa-b9bb-3ddee058a0bf",
                 download_link=None,
-                limit_hit=False,
+                partial_zim=False,
                 has_email=False,
                 status="bla",
                 flags=[],
                 progress=0,
+                rank=456,
             ),
             id="limit_not_hit",
+        ),
+        pytest.param(
+            {
+                "_id": "6341c25f-aac9-41aa-b9bb-3ddee058a0bf",
+                "config": {"warehouse_path": "/other", "flags": {}},
+                "container": {"progress": {"overall": 100}},
+                "status": "bla",
+                "rank": 456,
+            },
+            TaskInfo(
+                id="6341c25f-aac9-41aa-b9bb-3ddee058a0bf",
+                download_link=None,
+                partial_zim=False,
+                has_email=False,
+                status="bla",
+                flags=[],
+                progress=100,
+                rank=456,
+            ),
+            id="no_limit_info",
         ),
     ],
 )
@@ -110,7 +136,7 @@ DEFAULT_HOOK_TASK = ZimfarmTask.model_validate(
         "status": "requested",
         "config": {
             "warehouse_path": "/other",
-            "flags": {"url": "https://www.acme.com"},
+            "flags": {"seeds": "https://www.acme.com"},
         },
         "files": {
             "file2.zim": {
@@ -125,8 +151,9 @@ DEFAULT_HOOK_TASK = ZimfarmTask.model_validate(
             },
         },
         "notification": {"ended": {"webhook": ["bla"]}},
-        "container": {"progress": {"limit": {"hit": "true"}}},
+        "container": {"progress": {"partialZim": True}},
         "flags": {"flag2": "value2", "flag1": "value1"},
+        "rank": 123,
     }
 )
 
