@@ -5,6 +5,7 @@ import uuid
 import humanfriendly
 
 from zimitfrontend.logging import get_logger
+from zimitfrontend.tracker import Tracker
 
 src_dir = pathlib.Path(__file__).parent.resolve()
 
@@ -15,6 +16,8 @@ logger = get_logger(
         "INFO",
     ),
 )
+
+tracker = Tracker()
 
 
 def _get_int_setting(environment_variable_name: str, default_value: int) -> int:

@@ -33,4 +33,4 @@ COPY locales /locales
 
 EXPOSE 80
 
-CMD ["uvicorn", "zimitfrontend.entrypoint:app", "--host", "0.0.0.0", "--port", "80"]
+CMD ["uvicorn", "zimitfrontend.entrypoint:app", "--host", "0.0.0.0", "--port", "80", "--proxy-headers", "--forwarded-allow-ips", "*"]
