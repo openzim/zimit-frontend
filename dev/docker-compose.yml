@@ -43,6 +43,9 @@ services:
       - "0.0.0.0"
       - --port
       - "80"
+      - --proxy-headers
+      - --forwarded-allow-ips
+      - "*"
       - --reload
       - --reload-dir
       - /usr/local/lib/python3.12/site-packages/zimitfrontend
@@ -55,6 +58,7 @@ services:
       TASK_WORKER: worker
       HOOK_TOKEN: a_very_secret_token
       CALLBACK_BASE_URL: http://zimit-api:80/api/v1/requests/hook
+      DIGEST_KEY: d1a2df7f0a229cc6
     depends_on:
       - zimfarm-api
   zimit-ui-dev:

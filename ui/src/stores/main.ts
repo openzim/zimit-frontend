@@ -16,6 +16,7 @@ export type RootState = {
   taskNotFound: boolean
   snackbarDisplayed: boolean
   snackbarContent: string
+  trackerStatus: TrackerStatusResponse | undefined
 }
 
 export type LoadingPayload = {
@@ -44,8 +45,14 @@ export type NameValue = {
   value: any
 }
 
+export type TrackerStatusResponse = {
+  status: string
+  ongoingTasks: string[] | undefined
+}
+
 export type PostRequestResponse = {
   id: string
+  newUniqueId: string | undefined
 }
 
 export type TaskData = {
@@ -133,10 +140,6 @@ export const useMainStore = defineStore('main', {
       }
     },
     async loadOfflinerDefinition() {
-      this.setLoading({
-        loading: true,
-        text: this.t('newRequest.fetchingDefinition')
-      })
       try {
         const offlinerDefinition = (
           await axios.get<OfflinerDefinition>(this.config.zimfarm_api + '/offliners/zimit')
@@ -149,12 +152,27 @@ export const useMainStore = defineStore('main', {
       } catch (error) {
         this.handleError(this.t('newRequest.errorFetchingDefinition'), error)
         this.offlinerNotFound = true
-      } finally {
-        this.setLoading({ loading: false })
+      }
+    },
+    async getTrackerStatus() {
+      const payload = {
+        uniqueId: localStorage.getItem('uniqueId')
+      }
+      try {
+        const response = (
+          await axios.post<TrackerStatusResponse>(
+            this.config.zimit_ui_api + '/tracker_status',
+            payload
+          )
+        ).data
+        this.trackerStatus = response
+      } catch (error) {
+        this.handleError(this.t('newRequest.errorFetchingStatus'), error)
       }
     },
     async submitRequest() {
       const payload = {
+        uniqueId: localStorage.getItem('uniqueId'),
         url: this.getFormValue('url'),
         lang: getCurrentLocale(),
         email: this.getFormValue('email'),
@@ -177,9 +195,32 @@ export const useMainStore = defineStore('main', {
           await axios.post<PostRequestResponse>(this.config.zimit_ui_api + '/requests', payload)
         ).data
         this.taskId = response.id
+        if (response.newUniqueId) {
+          localStorage.setItem('uniqueId', response.newUniqueId)
+        }
         this.router.push({ name: 'request', params: { taskId: this.taskId } })
       } catch (error) {
         this.handleError(this.t('newRequest.errorCreatingRequest'), error)
+      } finally {
+        this.setLoading({ loading: false })
+      }
+    },
+    async cancelRequest() {
+      const payload = {
+        uniqueId: localStorage.getItem('uniqueId')
+      }
+      this.setLoading({
+        loading: true,
+        text: this.t('requestStatus.cancellingRequest')
+      })
+      try {
+        await axios.post<PostRequestResponse>(
+          `${this.config.zimit_ui_api}/requests/${this.taskId}/cancel`,
+          payload
+        )
+        this.router.push({ name: 'home' })
+      } catch (error) {
+        this.handleError(this.t('requestStatus.errorCancellingRequest'), error)
       } finally {
         this.setLoading({ loading: false })
       }
@@ -230,19 +271,20 @@ export const useMainStore = defineStore('main', {
     taskSucceeded(state) {
       return state.taskData && state.taskData.status == 'succeeded'
     },
+    taskCanceled(state) {
+      return state.taskData && state.taskData.status == 'canceled'
+    },
+    taskCancelRequested(state) {
+      return state.taskData && state.taskData.status == 'cancel_requested'
+    },
     taskOngoing(): boolean {
-      return this.taskSucceeded !== true && this.taskFailed !== true
+      return this.taskSucceeded !== true && this.taskFailed !== true && this.taskCanceled !== true
     },
     taskEnded(): boolean {
       return !this.taskOngoing
     },
     taskFailed(state) {
-      return (
-        state.taskData &&
-        ['canceled', 'cancel_requested', 'failed', 'scraper_killed'].indexOf(
-          state.taskData.status
-        ) != -1
-      )
+      return state.taskData && ['failed', 'scraper_killed'].indexOf(state.taskData.status) != -1
     },
     taskProgression(): number {
       if (this.taskEnded) {

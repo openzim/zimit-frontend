@@ -41,7 +41,7 @@
 		"emailLabel": "Din e-post för att få en nedladdningslänk. Adressen sparas inte",
 		"submit": "Låt oss ZIMa det!",
 		"advancedOptions": "avancerade alternativ",
-		"fetchingDefinition": "Laddar ej-uppkopplad-definition...",
+		"fetchingDefinitionAndStatus": "Laddar ej-uppkopplad-definition...",
 		"errorFetchingDefinition": "Det gick inte att hämta ej-uppkopplad-definitionen",
 		"creatingRequest": "Skapa förfrågan...",
 		"errorCreatingRequest": "Det gick inte att skapa förfrågan",

@@ -14,7 +14,7 @@ const config = inject<Config>(constants.config)
 let refreshInterval: ReturnType<typeof setInterval> | undefined
 
 onMounted(() => {
-  mainStore.loadTaskId(route.params.taskId)
+  Promise.all([mainStore.getTrackerStatus(), mainStore.loadTaskId(route.params.taskId)])
 
   // Reload task periodically
   if (!config) {
@@ -55,6 +55,13 @@ watch(
         {{ $t('requestStatus.zimingOf')
         }}<a :href="mainStore.taskUrl" target="_blank">{{ mainStore.taskUrl }}</a>
       </h1>
+      <div
+        v-if="mainStore.trackerStatus?.ongoingTasks?.includes(mainStore.taskId)"
+        id="cancel"
+        @click="mainStore.cancelRequest()"
+      >
+        <v-btn color="red">{{ $t('requestStatus.cancelButton') }}</v-btn>
+      </div>
 
       <v-progress-linear
         v-model="mainStore.taskProgression"
@@ -84,6 +91,20 @@ watch(
             <p v-if="mainStore.taskData.hasEmail">{{ $t('requestStatus.bookmarkUrl') }}</p>
             <p v-if="mainStore.taskData.hasEmail">{{ $t('requestStatus.emailNotification') }}</p>
             <p v-else>{{ $t('requestStatus.noEmailNotification') }}</p>
+          </template>
+        </v-alert>
+      </div>
+      <div v-else-if="mainStore.taskCancelRequested" class="pt-4 pb-4">
+        <v-alert :title="$t('requestStatus.requestCancelRequested')" color="error">
+          <template #text>
+            <p class="pt-2">{{ $t('requestStatus.requestCancelRequestedExplanation') }}</p>
+          </template>
+        </v-alert>
+      </div>
+      <div v-else-if="mainStore.taskCanceled" class="pt-4 pb-4">
+        <v-alert :title="$t('requestStatus.requestCanceled')" color="error">
+          <template #text>
+            <p class="pt-2">{{ $t('requestStatus.requestCanceledExplanation') }}</p>
           </template>
         </v-alert>
       </div>
@@ -175,5 +196,9 @@ watch(
 
 th {
   width: 25%;
+}
+
+#cancel {
+  margin: 1rem 0;
 }
 </style>

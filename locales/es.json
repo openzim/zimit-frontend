@@ -41,7 +41,7 @@
 		"emailLabel": "Su dirección de correo electrónico para recibir un enlace de descarga. Dirección no conservada",
 		"submit": "\"¡Vamos a crear un ZIM!\"",
 		"advancedOptions": "Opciones avanzadas",
-		"fetchingDefinition": "Cargando definición de offliner...",
+		"fetchingDefinitionAndStatus": "Cargando definición de offliner...",
 		"errorFetchingDefinition": "Error en la búsqueda de la definición del offliner",
 		"creatingRequest": "Creando solicitud…",
 		"errorCreatingRequest": "Error al crear la solicitud",

@@ -41,7 +41,7 @@
 		"emailLabel": "הדוא״ל שלך לקבלת קישור להורדה. הכתובת לא נשמרת",
 		"submit": "בואו נשמור את זה ב־ZIM!",
 		"advancedOptions": "אפשרויות מתקדמות",
-		"fetchingDefinition": "טעינת הגדרת של השומר ללא חיבור לרשת…",
+		"fetchingDefinitionAndStatus": "טעינת הגדרת של השומר ללא חיבור לרשת…",
 		"errorFetchingDefinition": "שגיאה באחזור השומר ללא חיבור לרשת",
 		"creatingRequest": "יצירת בקשה…",
 		"errorCreatingRequest": "שגיאה ביצירת בקשה",

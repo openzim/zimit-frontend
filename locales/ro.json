@@ -41,7 +41,7 @@
 		"emailLabel": "E-mailul dvs. pentru a primi un link de descărcare. Adresa nu este păstrată",
 		"submit": "Să-l ZIM!",
 		"advancedOptions": "opțiuni avansate",
-		"fetchingDefinition": "Definiţia de încărcare offline...",
+		"fetchingDefinitionAndStatus": "Definiţia de încărcare offline...",
 		"errorFetchingDefinition": "Eroare la preluarea definiției offliner",
 		"creatingRequest": "Se creează cererea...",
 		"errorCreatingRequest": "Eroare la crearea cererii",

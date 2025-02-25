@@ -41,7 +41,7 @@
 		"emailLabel": "Email Anda untuk menerima tautan unduhan. Alamat tidak disimpan",
 		"submit": "Ayo diZIMkan!",
 		"advancedOptions": "opsi lanjutan",
-		"fetchingDefinition": "Memuat definisi offliner…",
+		"fetchingDefinitionAndStatus": "Memuat definisi offliner…",
 		"errorFetchingDefinition": "Terjadi kesalahan saat mengambil definisi offliner",
 		"creatingRequest": "Membuat permintaan…",
 		"errorCreatingRequest": "Ada kesalahan saat membuat permintaan",

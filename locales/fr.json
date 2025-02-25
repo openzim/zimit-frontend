@@ -42,7 +42,7 @@
 		"emailLabel": "Votre e-mail pour recevoir un lien de téléchargement. Adresse non conservée",
 		"submit": "On le ZIM !",
 		"advancedOptions": "options avancées",
-		"fetchingDefinition": "Chargement définition de l'offlineur...",
+		"fetchingDefinitionAndStatus": "Chargement définition de l'offlineur...",
 		"errorFetchingDefinition": "Erreur lors de la récupération de la définition de l'offlineur",
 		"creatingRequest": "Création d'une requête…",
 		"errorCreatingRequest": "Erreur lors de la création de la requête",

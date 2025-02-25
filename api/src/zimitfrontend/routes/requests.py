@@ -3,11 +3,17 @@ import uuid
 from http import HTTPStatus
 from typing import Annotated
 
-from fastapi import APIRouter, HTTPException, Path
+from fastapi import APIRouter, HTTPException, Path, Request
 
 from zimitfrontend.constants import ApiConfiguration, logger
-from zimitfrontend.routes.schemas import TaskCreateRequest, TaskCreateResponse, TaskInfo
+from zimitfrontend.routes.schemas import (
+    TaskCancelRequest,
+    TaskCreateRequest,
+    TaskCreateResponse,
+    TaskInfo,
+)
 from zimitfrontend.routes.utils import get_task_info
+from zimitfrontend.tracker import AddTaskStatus, tracker
 from zimitfrontend.zimfarm import query_api
 
 router = APIRouter(
@@ -53,7 +59,30 @@ def task_info(
         },
     },
 )
-def create_task(request: TaskCreateRequest) -> TaskCreateResponse:
+def create_task(
+    request: TaskCreateRequest, http_request: Request
+) -> TaskCreateResponse:
+
+    if not http_request.client:
+        raise HTTPException(
+            HTTPStatus.INTERNAL_SERVER_ERROR, detail="http_request.client is missing"
+        )
+
+    # check that client can start a task
+    add_task = tracker.add_task(
+        http_request.client.host,
+        request.unique_id,
+        None,
+    )
+    if add_task.status != AddTaskStatus.CAN_ADD_TASK:
+        raise HTTPException(
+            status_code=HTTPStatus.TOO_MANY_REQUESTS,
+            detail={
+                "message": "Too many requests already ongoing for your user",
+                "reason": add_task.status.value,
+                "ongoing_tasks": add_task.ongoing_tasks,
+            },
+        )
 
     url = urllib.parse.urlparse(request.url)
 
@@ -199,4 +228,104 @@ def create_task(request: TaskCreateRequest) -> TaskCreateResponse:
             f"Unable to remove schedule {schedule_name} via HTTP {status}: {resp}"
         )
 
-    return TaskCreateResponse(id=task_id)
+    add_task = tracker.add_task(
+        http_request.client.host,
+        request.unique_id,
+        task_id,
+    )
+    if add_task.status != AddTaskStatus.TASK_ADDED:
+        raise HTTPException(
+            status_code=HTTPStatus.INTERNAL_SERVER_ERROR,
+            detail=f"Failed to store task in tracker: {add_task.status }",
+        )
+
+    return TaskCreateResponse(id=task_id, new_unique_id=add_task.new_unique_id)
+
+
+@router.post(
+    "/{task_id}/cancel",
+    responses={
+        HTTPStatus.OK: {
+            "description": "Task cancelled succesfully",
+        },
+    },
+)
+def cancel_task(
+    task_id: Annotated[str, Path()],
+    task_cancel_request: TaskCancelRequest,
+    http_request: Request,
+) -> None:
+
+    if not http_request.client:
+        raise HTTPException(
+            HTTPStatus.INTERNAL_SERVER_ERROR, detail="http_request.client is missing"
+        )
+
+    status = tracker.add_task(
+        http_request.client.host,
+        task_cancel_request.unique_id,
+        None,
+    )
+    if not status.ongoing_tasks or task_id not in status.ongoing_tasks:
+        raise HTTPException(
+            status_code=HTTPStatus.UNAUTHORIZED,
+            detail=f"task_id {task_id} is not associated with you",
+        )
+
+    # search as requested task
+    _, status, task = query_api("GET", f"/requested-tasks/{task_id}?hide_secrets=")
+    if status == HTTPStatus.OK:
+        _, status, task = query_api("DELETE", f"/requested-tasks/{task_id}")
+        if status != HTTPStatus.OK:
+            raise HTTPException(
+                status_code=HTTPStatus.BAD_REQUEST,
+                detail={
+                    "error": "Failed to delete requested task on Zimfarm with HTTP "
+                    "{status}",
+                    "zimfarm_message": task,
+                },
+            )
+        return
+    elif status != HTTPStatus.NOT_FOUND:
+        raise HTTPException(
+            status_code=HTTPStatus.BAD_REQUEST,
+            detail={
+                "error": "Failed to search for requested task on Zimfarm with HTTP "
+                "{status}",
+                "zimfarm_message": task,
+            },
+        )
+
+    # search as running task
+    _, status, task = query_api("GET", f"/tasks/{task_id}?hide_secrets=")
+    if status == HTTPStatus.OK:
+        if task["status"] not in [
+            "reserved",
+            "scraper_running",
+            "scraper_started",
+            "started",
+        ]:
+            raise HTTPException(
+                status_code=HTTPStatus.BAD_REQUEST,
+                detail={
+                    "error": f"Cannot cancel task in '{task['status']}' status",
+                },
+            )
+        _, status, task = query_api("POST", f"/tasks/{task_id}/cancel")
+        if status != HTTPStatus.NO_CONTENT:
+            raise HTTPException(
+                status_code=HTTPStatus.BAD_REQUEST,
+                detail={
+                    "error": f"Failed to delete task on Zimfarm with HTTP {status}",
+                    "zimfarm_message": task,
+                },
+            )
+        return
+    else:
+        raise HTTPException(
+            status_code=HTTPStatus.BAD_REQUEST,
+            detail={
+                "error": f"Failed to search for task on Zimfarm with HTTP {status}",
+                "zimfarm_message": task,
+            },
+        )

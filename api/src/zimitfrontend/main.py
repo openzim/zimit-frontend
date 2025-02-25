@@ -8,7 +8,7 @@ from starlette.requests import Request
 
 from zimitfrontend import __about__
 from zimitfrontend.constants import ApiConfiguration, logger
-from zimitfrontend.routes import hook, requests
+from zimitfrontend.routes import hook, requests, tracker
 
 
 class Main:
@@ -73,6 +73,7 @@ class Main:
 
         api.include_router(router=requests.router)
         api.include_router(router=hook.router)
+        api.include_router(router=tracker.router)
 
         self.app.mount(f"/api/{__about__.__api_version__}", api)
 
