@@ -31,11 +31,22 @@ class TaskCreateRequest(CamelModel):
     lang: str
     email: str | None = None
     flags: dict[str, Any]
+    unique_id: str | None
 
 
 class TaskCreateResponse(CamelModel):
     id: str
+    new_unique_id: str | None
 
+class TaskCancelRequest(CamelModel):
+    unique_id: str | None
+
+class TrackerStatusRequest(CamelModel):
+    unique_id: str | None
+
+class TrackerStatusResponse(CamelModel):
+    status: str
+    ongoing_tasks: list[str] | None
 
 class ZimfarmTaskConfig(BaseModel):
     warehouse_path: str

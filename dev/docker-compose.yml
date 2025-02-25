@@ -58,6 +58,7 @@ services:
       TASK_WORKER: worker
       HOOK_TOKEN: a_very_secret_token
       CALLBACK_BASE_URL: http://zimit-api:80/api/v1/requests/hook
+      DIGEST_KEY: d1a2df7f0a229cc6
     depends_on:
       - zimfarm-api
   zimit-ui-dev:

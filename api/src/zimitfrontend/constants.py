@@ -5,7 +5,8 @@ import uuid
 import humanfriendly
 
 from zimitfrontend.logging import get_logger
-from zimitfrontend.tracker import Tracker
+
+import random
 
 src_dir = pathlib.Path(__file__).parent.resolve()
 
@@ -16,8 +17,6 @@ logger = get_logger(
         "INFO",
     ),
 )
-
-tracker = Tracker()
 
 
 def _get_int_setting(environment_variable_name: str, default_value: int) -> int:
@@ -110,7 +109,10 @@ class ApiConfiguration:
     callback_base_url = os.getenv(
         "CALLBACK_BASE_URL", "https://zimit.kiwix.org/api/v1/hook"
     )
-    hook_token = os.getenv("HOOK_TOKEN", uuid.uuid4().hex)
+    hook_token = os.getenv("HOOK_TOKEN", random.getrandbits(128).to_bytes(16).hex())
+
+    # tracking
+    digest_key = bytes.fromhex(os.getenv("DIGEST_KEY", random.getrandbits(64).to_bytes(8).hex()))
 
     locales_location = pathlib.Path(os.getenv("LOCALES_LOCATION", "../locales"))
 

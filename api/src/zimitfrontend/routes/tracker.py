@@ -1,26 +1,26 @@
 from fastapi import APIRouter, Request
 
-from zimitfrontend.constants import tracker
+from zimitfrontend.constants import ApiConfiguration
+from zimitfrontend.routes.schemas import TrackerStatusRequest, TrackerStatusResponse
+from zimitfrontend.tracker import AddTaskResponse, tracker
 
 router = APIRouter(
-    prefix="/tracking",
+    prefix="/tracker_status",
     tags=["all"],
 )
 
 
-@router.get(
+@router.post(
     "",
+    summary="Get information about ongoing tasks and/or possibility to request a new task",
     status_code=200,
     responses={
         200: {
-            "description": "Tracking data",
+            "description": "Tracking status",
         },
     },
 )
-def get_tracking(request: Request) -> str:
-    tracker.increment()
-    headers = [f"{key}: {value}" for (key, value) in request.headers.items()]
-    return (
-        f"{request.client.host if request.client else "??"}: {tracker.count}"
-        f" - {" ".join(headers)}"
-    )
+def post_tracker_status(status_request: TrackerStatusRequest, request: Request) -> TrackerStatusResponse:
+    tracker_status = tracker.add_task(request.client.host, status_request.unique_id, None)
+    return TrackerStatusResponse(status = tracker_status.status, ongoing_tasks=tracker_status.ongoing_tasks)
+    
