@@ -80,7 +80,6 @@
 		"requestCancelRequested": "This is the title when task cancellation has been requested",
 		"requestCancelRequestedExplanation": "This is the message when task cancellation has been requested",
 		"requestCanceled": "This is the title when task has been cancelled",
-		"requestCanceledExplanation": "This is the message when task has been cancelled",
 		"cancellingRequest": "This is the message when task cancellation is ongoing",
 		"errorCancellingRequest": "This is the popup message when task cancellation has failed"
 	},

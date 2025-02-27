@@ -102,11 +102,7 @@ watch(
         </v-alert>
       </div>
       <div v-else-if="mainStore.taskCanceled" class="pt-4 pb-4">
-        <v-alert :title="$t('requestStatus.requestCanceled')" color="error">
-          <template #text>
-            <p class="pt-2">{{ $t('requestStatus.requestCanceledExplanation') }}</p>
-          </template>
-        </v-alert>
+        <v-alert :title="$t('requestStatus.requestCanceled')" color="error"> </v-alert>
       </div>
       <div v-else-if="mainStore.taskFailed" class="pt-4 pb-4">
         <v-alert :title="$t('requestStatus.requestFailed')" color="error">

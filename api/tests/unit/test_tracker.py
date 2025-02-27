@@ -1,7 +1,13 @@
 import pytest
 
 from zimitfrontend.constants import ApiConfiguration
-from zimitfrontend.tracker import AddTaskStatus, ClientInfo, Tracker
+from zimitfrontend.tracker import (
+    AddTaskStatus,
+    ClientInfo,
+    Tracker,
+    generate_unique_id,
+    is_valid_unique_id,
+)
 
 CLIENT_1_IP = "172.16.1.1"
 CLIENT_1_ID = (
@@ -239,15 +245,13 @@ def test_custom_max_tasks(tracker: Tracker):
     assert result.new_unique_id is None
 
 
-def test_generate_validate_id(tracker: Tracker):
-    assert tracker._is_valid_unique_id(tracker._generate_unique_id())
+def test_generate_validate_id():
+    assert is_valid_unique_id(generate_unique_id())
 
 
 @pytest.mark.parametrize("prefix, suffix", [("", "a"), ("a", ""), ("a|", "")])
-def test_validate_bad_id(tracker: Tracker, prefix: str, suffix: str):
-    assert not tracker._is_valid_unique_id(
-        prefix + tracker._generate_unique_id() + suffix
-    )
+def test_validate_bad_id(prefix: str, suffix: str):
+    assert not is_valid_unique_id(prefix + generate_unique_id() + suffix)
 
 
 @pytest.mark.parametrize(
@@ -279,5 +283,5 @@ def test_validate_bad_id(tracker: Tracker, prefix: str, suffix: str):
         ),
     ],
 )
-def test_validate_known_ids(tracker: Tracker, identifier: str, *, is_valid: bool):
-    assert tracker._is_valid_unique_id(identifier) == is_valid
+def test_validate_known_ids(identifier: str, *, is_valid: bool):
+    assert is_valid_unique_id(identifier) == is_valid

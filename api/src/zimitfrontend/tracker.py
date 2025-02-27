@@ -36,6 +36,25 @@ class AddTaskResponse(BaseModel):
     new_unique_id: str | None = None
 
 
+def generate_unique_id() -> str:
+    identifier = uuid4().hex
+    digest = hmac.new(
+        ApiConfiguration.digest_key, identifier.encode(), "sha256"
+    ).hexdigest()
+    return f"{identifier}|{digest}"
+
+
+def is_valid_unique_id(unique_id: str) -> bool:
+    try:
+        identifier, digest = unique_id.split("|", 1)
+    except Exception:
+        return False
+    expected_digest = hmac.new(
+        ApiConfiguration.digest_key, identifier.encode(), "sha256"
+    ).hexdigest()
+    return hmac.compare_digest(digest, expected_digest)
+
+
 class Tracker:
     def __init__(self):
         self.known_clients: list[ClientInfo] = []
@@ -89,31 +108,11 @@ class Tracker:
             "started",
         ]
 
-    def _generate_unique_id(self) -> str:
-        identifier = uuid4().hex
-        digest = hmac.new(
-            ApiConfiguration.digest_key, identifier.encode(), "sha256"
-        ).hexdigest()
-        return f"{identifier}|{digest}"
-
-    def _is_valid_unique_id(self, unique_id: str) -> bool:
-        if "|" not in unique_id:
-            return False
-        splits = unique_id.split("|")
-        if len(splits) != 2:  # noqa: PLR2004
-            return False
-        identifier = splits[0]
-        digest = splits[1]
-        expected_digest = hmac.new(
-            ApiConfiguration.digest_key, identifier.encode(), "sha256"
-        ).hexdigest()
-        return hmac.compare_digest(digest, expected_digest)
-
     def add_task(
         self, ip_address: str, unique_id: str | None, task_id: str | None
     ) -> AddTaskResponse:
 
-        if unique_id and not self._is_valid_unique_id(unique_id):
+        if unique_id and not is_valid_unique_id(unique_id):
             return AddTaskResponse(
                 status=AddTaskStatus.INVALID_UNIQUE_ID,
             )
@@ -129,7 +128,7 @@ class Tracker:
                         f"Too many data for one single unique id: {unique_id}"
                     )
                 client_info = clients_info_by_unique_id[0]
-                if self.has_reached_maximum_tasks(client_info) > 0:
+                if self.has_reached_maximum_tasks(client_info):
                     return AddTaskResponse(
                         status=AddTaskStatus.TOO_MANY_TASKS_FOR_UNIQUE_ID,
                         ongoing_tasks=client_info.ongoing_tasks,
@@ -157,7 +156,7 @@ class Tracker:
             )
 
         if not unique_id:
-            new_unique_id = self._generate_unique_id()  # generate a new unique ID
+            new_unique_id = generate_unique_id()  # generate a new unique ID
             self.known_clients.append(
                 ClientInfo(
                     ip_address=ip_address,

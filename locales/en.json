@@ -73,12 +73,11 @@
     "settingsHeading": "Settings",
     "taskNotFound": "Task not found. Either your URL is incorrect, or our service is experiencing an issue.",
     "cancelButton": "Cancel request",
-    "requestCancelRequested": "Your request cancellation has been requested",
-    "requestCancelRequestedExplanation": "Your request is about to be cancelled, our systems are processing the cancellation, it might take few minutes.",
+    "requestCancelRequested": "Your request cancellation has been received",
+    "requestCancelRequestedExplanation": "Your request is being cancelled. This might take a few minutes.",
     "requestCanceled": "Your request has been cancelled",
-    "requestCanceledExplanation": "Your request has been cancelled before completion.",
     "cancellingRequest": "We are cancelling your request",
-    "errorCancellingRequest": "Cancelling your request failed"
+    "errorCancellingRequest": "Cancellation failed"
   },
   "email": {
     "requested": {
