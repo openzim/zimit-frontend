@@ -17,6 +17,7 @@ export type RootState = {
   snackbarDisplayed: boolean
   snackbarContent: string
   trackerStatus: TrackerStatusResponse | undefined
+  blacklistReason: BlacklistEntry | undefined
 }
 
 export type LoadingPayload = {
@@ -72,6 +73,15 @@ export type TaskData = {
   rank: number | undefined
 }
 
+export type BlacklistEntry = {
+  host: string
+  reason: string
+  libraryUrl: string | null
+  githubIssue: string | null
+  scraperUrl: string | null
+  wp1Hint: boolean | null
+}
+
 export const useMainStore = defineStore('main', {
   state: () =>
     ({
@@ -85,7 +95,8 @@ export const useMainStore = defineStore('main', {
       taskData: undefined,
       taskNotFound: false,
       snackbarDisplayed: false,
-      snackbarContent: ''
+      snackbarContent: '',
+      blacklistReason: undefined
     }) as RootState,
   actions: {
     setCurrentLocale(locale: Language) {
@@ -205,7 +216,11 @@ export const useMainStore = defineStore('main', {
         }
         this.router.push({ name: 'request', params: { taskId: this.taskId } })
       } catch (error) {
-        this.handleError(this.t('newRequest.errorCreatingRequest'), error)
+        if (error instanceof AxiosError && error.response && error.response.status == 400) {
+          this.blacklistReason = error.response.data['detail']['blacklist']
+        } else {
+          this.handleError(this.t('newRequest.errorCreatingRequest'), error)
+        }
       } finally {
         this.setLoading({ loading: false })
       }

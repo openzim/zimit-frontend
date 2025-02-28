@@ -1,0 +1,145 @@
+{
+    "blacklist": [
+      {
+        "host": "devdocs.io",
+        "reason": "already_zimed",
+        "libraryUrl": "https://library.kiwix.org/#tag=devdocs"
+      },
+      {
+        "host": "gutenberg.org",
+        "reason": "already_zimed",
+        "libraryUrl": "https://library.kiwix.org/#tag=gutenberg"
+      },
+      {
+        "host": "freecodecamp.org",
+        "reason": "already_zimed",
+        "libraryUrl": "https://library.kiwix.org/#tag=freecodecamp"
+      },
+      {
+        "host": "ifixit.com",
+        "reason": "already_zimed",
+        "libraryUrl": "https://library.kiwix.org/#tag=ifixit"
+      },
+      {
+        "host": "khanacademy.org",
+        "reason": "already_zimed",
+        "libraryUrl": "https://library.kiwix.org/#tag=khan-academy"
+      },
+      {
+        "host": "africanstorybook.org",
+        "reason": "already_zimed",
+        "libraryUrl": "https://library.kiwix.org/#tag=&q=african+storybooks"
+      },
+      {
+        "host": "libretexts.org",
+        "reason": "already_zimed",
+        "libraryUrl": "https://library.kiwix.org/#tag=&q=libretexts"
+      },
+      {
+        "host": "phet.colorado.edu",
+        "reason": "already_zimed",
+        "libraryUrl": "https://library.kiwix.org/#tag=&q=phet"
+      },
+      {
+        "host": "ted.com",
+        "reason": "already_zimed",
+        "libraryUrl": "https://library.kiwix.org/#tag=ted"
+      },
+      { "host": "wikihow.com", "reason": "forbid_or_copyrighted_by_website_owner" },
+      {
+        "host": "youtube.com",
+        "reason": "too_big_partially_already_zimed",
+        "libraryUrl": "https://library.kiwix.org/#tag=youtube",
+        "scraperUrl": "https://github.com/openzim/youtube"
+      },
+      {
+        "host": "youtu.be",
+        "reason": "too_big_partially_already_zimed",
+        "libraryUrl": "https://library.kiwix.org/#tag=youtube",
+        "scraperUrl": "https://github.com/openzim/youtube"
+      },
+      {
+        "host": "stackexchange.com",
+        "reason": "already_zimed",
+        "libraryUrl": "https://library.kiwix.org/#tag=stack_exchange"
+      },
+      {
+        "host": "stackoverflow.com",
+        "reason": "already_zimed",
+        "libraryUrl": "https://library.kiwix.org/#tag=stack_exchange"
+      },
+      {
+        "host": "wikibooks.org",
+        "reason": "already_zimed",
+        "libraryUrl": "https://library.kiwix.org/#tag=wikibooks",
+        "wp1Hint": true
+      },
+      {
+        "host": "wikinews.org",
+        "reason": "already_zimed",
+        "libraryUrl": "https://library.kiwix.org/#tag=wikinews",
+        "wp1Hint": true
+      },
+      {
+        "host": "wikipedia.org",
+        "reason": "already_zimed",
+        "libraryUrl": "https://library.kiwix.org/#tag=wikipedia",
+        "wp1Hint": true
+      },
+      {
+        "host": "wikiquote.org",
+        "reason": "already_zimed",
+        "libraryUrl": "https://library.kiwix.org/#tag=wikiquote",
+        "wp1Hint": true
+      },
+      {
+        "host": "vikidia.org",
+        "reason": "already_zimed",
+        "libraryUrl": "https://library.kiwix.org/#tag=vikidia"
+      },
+      {
+        "host": "wikisource.org",
+        "reason": "already_zimed",
+        "libraryUrl": "https://library.kiwix.org/#tag=wikisource",
+        "wp1Hint": true
+      },
+      {
+        "host": "wikiversity.org",
+        "reason": "already_zimed",
+        "libraryUrl": "https://library.kiwix.org/#tag=wikiversity",
+        "wp1Hint": true
+      },
+      {
+        "host": "wikivoyage.org",
+        "reason": "already_zimed",
+        "libraryUrl": "https://library.kiwix.org/#tag=wikivoyage",
+        "wp1Hint": true
+      },
+      {
+        "host": "wiktionary.org",
+        "reason": "already_zimed",
+        "libraryUrl": "https://library.kiwix.org/#tag=wiktionary",
+        "wp1Hint": true
+      },
+      {
+        "host": "reddit.com",
+        "reason": "scraper_needed",
+        "githubIssue": "https://github.com/openzim/zim-requests/issues/242"
+      },
+      {
+        "host": "archive.org",
+        "reason": "scraper_needed",
+        "githubIssue": "https://github.com/openzim/zim-requests/issues/360"
+      },
+      { "host": "quora.com", "reason": "forbid_or_copyrighted_by_website_owner" },
+      { "host": "download.kiwix.org", "reason": "not_possible_with_zimit" },
+      { "host": "google.com", "reason": "not_possible_with_zimit" },
+      { "host": "library.kiwix.org", "reason": "not_possible_with_zimit" },
+      { "host": "wikileaks.org", "reason": "not_possible_with_zimit" },
+      { "host": "minecraft.net", "reason": "not_possible_with_zimit" },
+      { "host": "github.com", "reason": "not_possible_with_zimit" },
+      { "host": "zimit.kiwix.org", "reason": "not_possible_with_zimit" },
+      { "host": "coursera.org", "reason": "not_possible_with_zimit" },
+      { "host": "facebook.com", "reason": "not_possible_with_zimit" }
+    ]
+  }

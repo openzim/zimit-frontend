@@ -118,5 +118,32 @@
 		"goToTask": "This is the message inviting to open ongoing task",
 		"excessiveUsage": "This is a more generic message about quota being reached",
 		"abnormalUsage": "This is a generic error message when we fail to find quota information"
+	},
+	"blacklist": {
+	  "missingReason": "This is the error message when the blacklist reason is missconfigured (bug)",
+	  "missingLibraryUrl": "This is the error message when the library URL is missing in blacklist reason (bug)",
+	  "missingGithubIssueUrl": "This is the error message when the Github issue URL is missing in blacklist reason (bug)",
+	  "goBack": "This is the text on the go-back button",
+	  "contactUs": "This is the message inviting users to contact us",
+	  "alreadyZimed": {
+		"alreadyMadeZim": "This is the message indicating that ZIM has already been built",
+		"downloadFromLibrary": "This is the message indicating that ZIM can be downloaded",
+		"downloadFromLibraryLinkContent": "This is the textual content of the download link",
+		"wp1Hint": "This is a message inviting users to test our WP1 tool",
+		"wp1LinkContent": "This is the textual content of the link to WP1"
+		},
+	  "tooBig": {
+		"tooBigDetails": "This is the message indicating that website is too big",
+		"alreadyMadeZim": "This is the message indicating that few ZIMs have already been built",
+		"downloadOrRequest": "This is the message inviting user to download ZIM or open a request",
+		"libraryLinkContent": "This is the textual content of the download link",
+		"githubRequestLinkContent": "This is the textual content of the Github request link",
+		"useScraper": "This is the message inviting user to use our scraper",
+		"scraperRepoLinkContent": "This is the textual content of the link to the scraper"
+	  },
+	  "copyrighted": "This is the message indicating that there is a copyright issue",
+	  "notPossible": "This is the message indicating that it is not possible to ZIM this website",
+	  "scraperNeeded": "This is the message indicating that we intend to build a dedicated scraper",
+	  "scraperNeededLinkContent": "This is the textual content of the link to the dedicated Github issue"
 	}
 }
