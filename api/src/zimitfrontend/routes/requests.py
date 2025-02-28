@@ -99,7 +99,6 @@ def create_task(
     flags["failOnFailedSeed"] = True
     flags["failOnInvalidStatus"] = True
     flags["content-header-bytes-length"] = 2048
-    flags["maxPageRetries"] = 0
 
     # remove flags we don't want to overwrite
     for flag in ("adminEmail", "output", "zimit-progress-file"):
