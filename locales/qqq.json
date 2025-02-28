@@ -41,7 +41,7 @@
 		"emailLabel": "This is the label for the text box where users will be entering an optional email.",
 		"submit": "This is the text displayed on a button to start the request.",
 		"advancedOptions": "This is the text displayed on a button to display advanced options.",
-		"fetchingDefinition": "This is the message while fetching the task definition.",
+		"fetchingDefinitionAndStatus": "This is the message while fetching the task definition.",
 		"errorFetchingDefinition": "This is the message when fetching the task definition failed.",
 		"creatingRequest": "This is the message while creating a Zimfarm request.",
 		"errorCreatingRequest": "This is the message when creating a Zimfarm request failed.",
@@ -75,7 +75,13 @@
 		"emailNotification": "This is an explanation about what to do while task is processing when email has been provided",
 		"noEmailNotification": "This is an explanation about what to do while task is processing when email has NOT been provided",
 		"settingsHeading": "This is the title of the section detailing task settings",
-		"taskNotFound": "This is the message displayed when the task is not found."
+		"taskNotFound": "This is the message displayed when the task is not found.",
+		"cancelButton": "This is the text of cancel request button",
+		"requestCancelRequested": "This is the title when task cancellation has been requested",
+		"requestCancelRequestedExplanation": "This is the message when task cancellation has been requested",
+		"requestCanceled": "This is the title when task has been cancelled",
+		"cancellingRequest": "This is the message when task cancellation is ongoing",
+		"errorCancellingRequest": "This is the popup message when task cancellation has failed"
 	},
 	"email": {
 		"requested": {
@@ -101,5 +107,15 @@
 			"retryLinkContent": "This is the content of a link to try request again",
 			"howToCheckSettings": "This explains how to double-check the settings"
 		}
+	},
+	"blockedRequest": {
+	  "blockedMissingReason": "This is the message indicating the user is blocked for an unknown reason",
+	  "contactUsIfPersist": "This is the message inviting the user to contact us if the situation persist",
+	  "zimitFreeService": "This is the message explaining why there is a quota",
+	  "quotaReached": "This is the message explaining what user should do when quota is reached",
+	  "useLinksBelowToSeeTask": "This is the message explaining the list of ongoing tasks",
+	  "goToTask": "This is the message inviting to open ongoing task",
+	  "excessiveUsage": "This is a more generic message about quota being reached",
+	  "abnormalUsage": "This is a generic error message when we fail to find quota information"
 	}
 }

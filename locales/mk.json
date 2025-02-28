@@ -38,7 +38,7 @@
 		"emailLabel": "Ваша е-пошта за да добиете врска за преземање. Не ги чуваме адресите",
 		"submit": "Да го ZIM-уваме!",
 		"advancedOptions": "напредни нагодувања",
-		"fetchingDefinition": "Вчитувам определба за вонмрежникот…",
+		"fetchingDefinitionAndStatus": "Вчитувам определба за вонмрежникот…",
 		"errorFetchingDefinition": "Грешка при добивањето на определба за вонмрежникот",
 		"creatingRequest": "Создавам барање…",
 		"errorCreatingRequest": "Грешка при создавањето на барањето"

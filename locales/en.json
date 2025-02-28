@@ -36,8 +36,9 @@
     "emailLabel": "Your e-mail to receive a download link. Address not kept",
     "submit": "Let's ZIM it!",
     "advancedOptions": "advanced options",
-    "fetchingDefinition": "Loading offliner definition…",
+    "fetchingDefinitionAndStatus": "Loading offliner definition and tracker status…",
     "errorFetchingDefinition": "Error fetching offliner definition",
+    "errorFetchingStatus": "Error fetching tracker status",
     "creatingRequest": "Creating request…",
     "errorCreatingRequest": "Error creating request",
     "offlinerNotFound": "Zimit offliner not found, we probably experience a serious issue on our infrastructure.",
@@ -70,7 +71,13 @@
     "emailNotification": "You should have received an email with the current URL. Once the task is completed you will get a second email with a download link (you may thus close this window).",
     "noEmailNotification": "You did not provide us with an email: please bookmark this page before closing the window or you will not be able to retrieve your ZIM file.",
     "settingsHeading": "Settings",
-    "taskNotFound": "Task not found. Either your URL is incorrect, or our service is experiencing an issue."
+    "taskNotFound": "Task not found. Either your URL is incorrect, or our service is experiencing an issue.",
+    "cancelButton": "Cancel request",
+    "requestCancelRequested": "Your request cancellation has been received",
+    "requestCancelRequestedExplanation": "Your request is being cancelled. This might take a few minutes.",
+    "requestCanceled": "Your request has been cancelled",
+    "cancellingRequest": "We are cancelling your request",
+    "errorCancellingRequest": "Cancellation failed"
   },
   "email": {
     "requested": {
@@ -96,5 +103,15 @@
       "retryLinkContent": "try again",
       "howToCheckSettings": "You can check the settings you used at %{taskLink}."
     }
+  },
+  "blockedRequest": {
+    "blockedMissingReason": "You are blocked but we miss the detailed reason",
+    "contactUsIfPersist": "Please contact us if the situation persist.",
+    "zimitFreeService": "Zimit being a free service, we limit the number of tasks per user.",
+    "quotaReached": "You have reached your quota, please wait for tasks to complete or contact us if you want more quota.",
+    "useLinksBelowToSeeTask": "Please use links below to monitor / cancel ongoing tasks.",
+    "goToTask": "Go to ongoing task {taskLink}",
+    "excessiveUsage": "We've detect excessive usage from your environment, please come back in few hours.",
+    "abnormalUsage": "You are blocked for abnormal usage: {status}"
   }
 }

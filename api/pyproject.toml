@@ -206,3 +206,8 @@ extraPaths = ["src"]
 pythonVersion = "3.12"
 typeCheckingMode = "strict"
 disableBytesTypePromotions = true
+
+executionEnvironments = [
+  { root = "tests", reportPrivateUsage = false},
+  { root = "src" }
+]

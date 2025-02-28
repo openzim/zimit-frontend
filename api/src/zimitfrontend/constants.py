@@ -1,6 +1,6 @@
 import os
 import pathlib
-import uuid
+import random
 
 import humanfriendly
 
@@ -107,7 +107,12 @@ class ApiConfiguration:
     callback_base_url = os.getenv(
         "CALLBACK_BASE_URL", "https://zimit.kiwix.org/api/v1/hook"
     )
-    hook_token = os.getenv("HOOK_TOKEN", uuid.uuid4().hex)
+    hook_token = os.getenv("HOOK_TOKEN", random.getrandbits(128).to_bytes(16).hex())
+
+    # tracking
+    digest_key = bytes.fromhex(
+        os.getenv("DIGEST_KEY", random.getrandbits(64).to_bytes(8).hex())
+    )
 
     locales_location = pathlib.Path(os.getenv("LOCALES_LOCATION", "../locales"))
 

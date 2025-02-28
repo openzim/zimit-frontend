@@ -37,7 +37,7 @@
 		"emailLabel": "다운로드 링크를 받기 위한 이메일입니다. 주소는 보관되지 않습니다",
 		"submit": "ZIM을 해봅시다!",
 		"advancedOptions": "고급 옵션",
-		"fetchingDefinition": "오프라이너 정의를 불러오는 중...",
+		"fetchingDefinitionAndStatus": "오프라이너 정의를 불러오는 중...",
 		"errorFetchingDefinition": "오프라이너 정의를 가져오는 중 오류가 발생했습니다",
 		"creatingRequest": "요청 생성 중…",
 		"errorCreatingRequest": "요청 생성 중 오류가 발생했습니다"

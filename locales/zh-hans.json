@@ -42,7 +42,7 @@
 		"emailLabel": "您的电子邮件用于接收下载链接。地址未保存",
 		"submit": "让我们ZIM它吧！",
 		"advancedOptions": "高级选项",
-		"fetchingDefinition": "正在加载离线程序定义...",
+		"fetchingDefinitionAndStatus": "正在加载离线程序定义...",
 		"errorFetchingDefinition": "获取离线程序定义时出错",
 		"creatingRequest": "正在创建请求…",
 		"errorCreatingRequest": "创建请求时出错",

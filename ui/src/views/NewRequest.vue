@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import FaqList from '../components/FaqList.vue'
 import NewRequestForm from '../components/NewRequestForm.vue'
+import BlockRequest from '../components/BlockRequest.vue'
 import { useI18n } from 'vue-i18n'
 import { useMainStore } from '../stores/main'
 import { onMounted } from 'vue'
@@ -9,7 +10,16 @@ const { t } = useI18n()
 const mainStore = useMainStore()
 
 onMounted(() => {
-  mainStore.loadOfflinerDefinition()
+  Promise.all([
+    mainStore.setLoading({
+      loading: true,
+      text: t('newRequest.fetchingDefinitionAndStatus')
+    }),
+    mainStore.loadOfflinerDefinition(),
+    mainStore.getTrackerStatus()
+  ]).then(() => {
+    mainStore.setLoading({ loading: false })
+  })
 })
 </script>
 
@@ -21,11 +31,14 @@ onMounted(() => {
     <div v-if="mainStore.loading">
       {{ mainStore.loadingText }}
     </div>
-    <div v-if="mainStore.offlinerNotFound" class="red">
+    <div v-else-if="mainStore.offlinerNotFound" class="red">
       {{ $t('newRequest.offlinerNotFound') }}
     </div>
-    <div v-if="mainStore.config.stop_new_requests_on">
+    <div v-else-if="mainStore.config.stop_new_requests_on">
       {{ $t('newRequest.stopNewRequestsMessage') }}
+    </div>
+    <div v-else-if="mainStore.trackerStatus?.status != 'can_add_task'">
+      <BlockRequest />
     </div>
     <NewRequestForm v-else />
     <FaqList class="faq" />
