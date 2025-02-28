@@ -1,3 +1,4 @@
+import json
 import os
 import pathlib
 import random
@@ -15,6 +16,11 @@ logger = get_logger(
         "INFO",
     ),
 )
+
+blacklist = json.loads(
+    (pathlib.Path(__file__).parent / "res/blacklist.json").read_bytes()
+)["blacklist"]
+logger.info(f"{len(blacklist)} websites are blacklisted")
 
 
 def _get_int_setting(environment_variable_name: str, default_value: int) -> int:

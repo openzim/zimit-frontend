@@ -7,7 +7,7 @@
   "kiwix_download_page": "https://kiwix.org/en/applications/",
   "kiwix_contact_us": "https://kiwix.org/en/contact-us/",
   "report_issues_page": "https://github.com/openzim/zimit/issues/",
-  "home_page": "https://zimit.kiwix.org/",
+  "home_page": "http://localhost:8001/",
   "zim_download_url": "https://s3.us-west-1.wasabisys.com/org-kiwix-zimit/zim",
   "new_request_advanced_flags": [
     "lang",

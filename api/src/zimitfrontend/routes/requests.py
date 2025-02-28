@@ -5,7 +5,7 @@ from typing import Annotated
 
 from fastapi import APIRouter, HTTPException, Path, Request
 
-from zimitfrontend.constants import ApiConfiguration, logger
+from zimitfrontend.constants import ApiConfiguration, blacklist, logger
 from zimitfrontend.routes.schemas import (
     TaskCancelRequest,
     TaskCreateRequest,
@@ -85,6 +85,20 @@ def create_task(
         )
 
     url = urllib.parse.urlparse(request.url)
+
+    matching_blacklist_entries = [
+        blacklist_entry
+        for blacklist_entry in blacklist
+        if blacklist_entry["host"].lower() in url.geturl().lower()
+    ]
+    matching_blacklist_entry = (
+        matching_blacklist_entries[0] if matching_blacklist_entries else None
+    )
+    if matching_blacklist_entry:
+        raise HTTPException(
+            HTTPStatus.BAD_REQUEST,
+            detail={"error": "blacklisted", "blacklist": matching_blacklist_entry},
+        )
 
     # generate schedule name
     ident = str(uuid.uuid4())[:8]
