@@ -109,13 +109,13 @@
 		}
 	},
 	"blockedRequest": {
-	  "blockedMissingReason": "This is the message indicating the user is blocked for an unknown reason",
-	  "contactUsIfPersist": "This is the message inviting the user to contact us if the situation persist",
-	  "zimitFreeService": "This is the message explaining why there is a quota",
-	  "quotaReached": "This is the message explaining what user should do when quota is reached",
-	  "useLinksBelowToSeeTask": "This is the message explaining the list of ongoing tasks",
-	  "goToTask": "This is the message inviting to open ongoing task",
-	  "excessiveUsage": "This is a more generic message about quota being reached",
-	  "abnormalUsage": "This is a generic error message when we fail to find quota information"
+		"blockedMissingReason": "This is the message indicating the user is blocked for an unknown reason",
+		"contactUsIfPersist": "This is the message inviting the user to contact us if the situation persist",
+		"zimitFreeService": "This is the message explaining why there is a quota",
+		"quotaReached": "This is the message explaining what user should do when quota is reached",
+		"useLinksBelowToSeeTask": "This is the message explaining the list of ongoing tasks",
+		"goToTask": "This is the message inviting to open ongoing task",
+		"excessiveUsage": "This is a more generic message about quota being reached",
+		"abnormalUsage": "This is a generic error message when we fail to find quota information"
 	}
 }
