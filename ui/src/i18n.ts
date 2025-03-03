@@ -24,6 +24,7 @@ const localesFiles = import.meta.glob('../../locales/*.json')
 // Display name must be in native language. Display name must start with an upper-character.
 // It should be provided by the translator under `language` key. If not, you might source proper values from https://w.wiki/C7AQ since Translate Wiki uses IETF codes
 export const supportedLanguages: Language[] = [
+  //  { code: 'de', display: 'Deutsch', rtl: false },
   { code: 'en', display: 'English', rtl: false },
   { code: 'es', display: 'Español', rtl: false },
   { code: 'fa', display: 'فارسی', rtl: true },

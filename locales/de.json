@@ -1,0 +1,46 @@
+{
+	"@metadata": {
+		"authors": [
+			"AnnaTheProgrammer777"
+		]
+	},
+	"language": "Deutsch",
+	"faq": {
+		"whatIsZim": "Was ist eine ZIM-Datei?",
+		"whatIsZimDescLinkContent0": "Offline",
+		"howToReadDescLinkContent0": "Kiwix",
+		"gotErrorDescLinkContent0": "Github"
+	},
+	"units": {
+		"timeLimit": {
+			"singular": "Stunde",
+			"plural": "Stunden"
+		}
+	},
+	"footer": {
+		"link0": "Kiwix"
+	},
+	"newRequest": {
+		"headingBold": "ZIM es",
+		"advancedOptions": "Erweiterte Optionen",
+		"creatingRequest": "Anfrage erstellen…"
+	},
+	"notFound": {
+		"heading": "Nicht gefunden"
+	},
+	"requestStatus": {
+		"successMessage": "Erfolgreich!",
+		"successMessageButton": "Herunterladen",
+		"partialZimContactUsLink": "Kontaktiere uns",
+		"settingsHeading": "Einstellungen"
+	},
+	"email": {
+		"succeeded": {
+			"hereItIs": "Hier ist es:",
+			"contactUsLinkContent": "Kontaktiere uns"
+		},
+		"failed": {
+			"retryLinkContent": "Erneut versuchen"
+		}
+	}
+}
