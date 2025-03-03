@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Benoit74",
-			"Mahabarata"
+			"Mahabarata",
+			"Stephane"
 		]
 	},
 	"language": "Français",
@@ -46,7 +47,8 @@
 		"errorFetchingDefinition": "Erreur lors de la récupération de la définition de l'offlineur",
 		"creatingRequest": "Création d'une requête…",
 		"errorCreatingRequest": "Erreur lors de la création de la requête",
-		"offlinerNotFound": "Offlineur Zimit offliner non trouvé, nous avons probablement un problème sérieux sur notre infrastructure."
+		"offlinerNotFound": "Offlineur Zimit offliner non trouvé, nous avons probablement un problème sérieux sur notre infrastructure.",
+		"stopNewRequestsMessage": "Zimit n'accepte temporairement pas de nouvelles tâches de maintenance, et sera de nouveau disponible dans quelques jours."
 	},
 	"notFound": {
 		"heading": "Non trouvé",
@@ -60,6 +62,7 @@
 		"zimingOf": "Ziming de",
 		"requestingSlot": "Demande d'un emplacement",
 		"requestRecorded": "Votre demande a été enregistrée et attend un emplacement sur notre infrastructure pour être exécutée. Bien que nous nous efforcions de répondre à toutes les requêtes dans un délai de 24 heures, notre infrastructure pour ce service gratuit est limitée et nous constatons parfois des pics de demandes, ce qui peut retarder le début des traitements de plusieurs jours. Soyez patient !",
+		"rankMessage": "Votre demande est à la position {task_rank} dans la file d'attente (plus elle est basse, mieux c'est; 0 signifie que cette tâche sera la prochaine à démarrer).",
 		"requestFailed": "Votre requête a échoué ! Désolé.",
 		"failureReasons": "Plusieurs raisons peuvent conduire à un échec de création du fichier ZIM. La plupart du temps, il s'agit d'une URL inadéquate… Veuillez la vérifier attentivement et créez une nouvelle requête. Si cela ne fonctionne pas, {0}.",
 		"failureReasonsLinkContent0": "ouvrir un ticket sur github",
