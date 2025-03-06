@@ -64,7 +64,9 @@
 		"emailNotification": "현재 URL이 포함된 이메일을 받았을 것입니다. 작업이 완료되면 다운로드 링크가 포함된 두 번째 이메일을 받게 됩니다. (그러므로 이 창을 닫아도 됩니다)",
 		"noEmailNotification": "이메일을 제공하지 않으셨습니다. 창을 닫기 전에 이 문서를 북마크하세요. 그렇게 하지 않으면 ZIM 파일을 검색할 수 없습니다.",
 		"settingsHeading": "설정",
-		"taskNotFound": "작업을 찾을 수 없습니다. URL이 잘못되었거나, 서비스에 문제가 발생하고 있습니다."
+		"taskNotFound": "작업을 찾을 수 없습니다. URL이 잘못되었거나, 서비스에 문제가 발생하고 있습니다.",
+		"cancelButton": "요청 취소",
+		"errorCancellingRequest": "취소 실패"
 	},
 	"email": {
 		"requested": {
