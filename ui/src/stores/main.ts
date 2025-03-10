@@ -155,17 +155,22 @@ export const useMainStore = defineStore('main', {
       }
     },
     async getTrackerStatus() {
-      const payload = {
-        uniqueId: localStorage.getItem('uniqueId')
-      }
       try {
         const response = (
-          await axios.post<TrackerStatusResponse>(
-            this.config.zimit_ui_api + '/tracker_status',
-            payload
-          )
+          await axios.post<TrackerStatusResponse>(this.config.zimit_ui_api + '/tracker_status', {
+            uniqueId: localStorage.getItem('uniqueId')
+          })
         ).data
         this.trackerStatus = response
+        if (this.trackerStatus.status == 'invalid_unique_id') {
+          localStorage.removeItem('uniqueId')
+          const response = (
+            await axios.post<TrackerStatusResponse>(this.config.zimit_ui_api + '/tracker_status', {
+              uniqueId: null
+            })
+          ).data
+          this.trackerStatus = response
+        }
       } catch (error) {
         this.handleError(this.t('newRequest.errorFetchingStatus'), error)
       }
