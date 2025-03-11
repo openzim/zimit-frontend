@@ -47,7 +47,11 @@
 		"partialZimContactUsLink": "Kontaktéiert eis",
 		"beingProcessedMessage": "Är Ufro gëtt traitéiert",
 		"settingsHeading": "Astellungen",
-		"taskNotFound": "Aufgab net fonnt. Entweder ass Är URL falsch oder eise Service huet grad Problemer."
+		"taskNotFound": "Aufgab net fonnt. Entweder ass Är URL falsch oder eise Service huet grad Problemer.",
+		"cancelButton": "Ufro annuléieren",
+		"requestCancelRequested": "D'Annulatioun vun Ärer Ufro ass ukomm",
+		"requestCancelRequestedExplanation": "Är Ufro gëtt annuléiert. Dat kéint e puer Minutten daueren.",
+		"cancellingRequest": "Mir annuléieren Är Ufro"
 	},
 	"email": {
 		"requested": {
