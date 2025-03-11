@@ -197,4 +197,8 @@ th {
 #cancel {
   margin: 1rem 0;
 }
+
+#newrequest {
+  padding-bottom: 5rem;
+}
 </style>
