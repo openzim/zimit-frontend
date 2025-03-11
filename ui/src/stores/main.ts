@@ -145,7 +145,7 @@ export const useMainStore = defineStore('main', {
           await axios.get<OfflinerDefinition>(this.config.zimfarm_api + '/offliners/zimit')
         ).data
         offlinerDefinition.flags = offlinerDefinition.flags.filter(
-          (flag) => this.config.new_request_advanced_flags.indexOf(flag.key) > -1
+          (flag) => this.config.new_request_advanced_flags.indexOf(flag.data_key) > -1
         )
         this.offlinerDefinition = offlinerDefinition
         this.offlinerNotFound = false
