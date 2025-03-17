@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Benoit74",
+			"Chimes",
 			"TFX202X"
 		]
 	},
@@ -56,10 +57,10 @@
 		"progressMessage": "{task_progression_percent}% ({task_progression_status_code})",
 		"refreshing": "正在刷新任务状态...",
 		"errorRefreshing": "刷新任务状态时出错",
-		"refreshAuto": "本页面将每{refresh_interval}秒自动刷新一次，无需手动刷新。",
+		"refreshAuto": "本页面将每隔 {refresh_interval} 秒自动刷新，您无需重新加载。",
 		"zimingOf": "Zim化",
 		"requestingSlot": "请求时段",
-		"requestRecorded": "您的请求已记录，正在等待我们的基础设施运行。虽然我们的目标是在24小时内完成所有请求，但这项免费服务的基础设施有限，有时会遇到大量用户的兴趣激增，导致请求的开始时间延迟数天。请耐心等待！",
+		"requestRecorded": "您的请求已记录，正在等待我们基础设施上的一个空位来运行。虽然我们的目标是在24小时内完成所有请求，但此免费服务的基础设施有限，有时我们会遇到需求激增的情况，在这种情况下，积压的请求可能需要几天的时间来处理。请静候佳音！",
 		"requestFailed": "您的请求失败！我们对此深感抱歉。",
 		"failureReasons": "有多种原因会导致zim化失败。大多数情况下，这是由于URL不合适...请仔细检查并创建新请求。如果此方法无效，请{0}。",
 		"failureReasonsLinkContent0": "在github上打开一张票据",

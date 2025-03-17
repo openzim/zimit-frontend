@@ -66,6 +66,7 @@
 		"settingsHeading": "설정",
 		"taskNotFound": "작업을 찾을 수 없습니다. URL이 잘못되었거나, 서비스에 문제가 발생하고 있습니다.",
 		"cancelButton": "요청 취소",
+		"requestCanceled": "요청이 취소되었습니다",
 		"errorCancellingRequest": "취소 실패"
 	},
 	"email": {
