@@ -62,7 +62,6 @@ def task_info(
 def create_task(
     request: TaskCreateRequest, http_request: Request
 ) -> TaskCreateResponse:
-
     if not http_request.client:
         raise HTTPException(
             HTTPStatus.INTERNAL_SERVER_ERROR, detail="http_request.client is missing"
@@ -92,7 +91,7 @@ def create_task(
 
     # build zimit config
     flags = request.flags
-    flags["seeds"] = url.geturl()
+    flags["seeds"] = url.geturl().lower()
     flags["name"] = flags.get("name", schedule_name)
     flags["zim-file"] = flags.get("zim-file", url.hostname) + f"_{ident}.zim"
     flags["userAgentSuffix"] = "zimit.kiwix.org+"
@@ -254,7 +253,6 @@ def cancel_task(
     task_cancel_request: TaskCancelRequest,
     http_request: Request,
 ) -> None:
-
     if not http_request.client:
         raise HTTPException(
             HTTPStatus.INTERNAL_SERVER_ERROR, detail="http_request.client is missing"
