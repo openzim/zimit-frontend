@@ -1,5 +1,6 @@
 from collections.abc import Sequence
 from pathlib import Path
+from urllib.parse import urlparse
 
 import humanfriendly
 import requests
@@ -54,3 +55,15 @@ def send_email_via_mailgun(
     )
     resp.raise_for_status()
     return resp.json().get("id") or resp.text
+
+
+def normalize_hostname(url: str) -> str:
+    """Convert URL hostname to lowercase leaving other components as they are."""
+    parsed = urlparse(url)
+    # urlparse recognizes a netloc only if it is properly introduced by '//'
+    # otherwise the input is presumed to be a relative url and starts with a
+    # path component.
+    if not (parsed.scheme or parsed.netloc):
+        parsed = urlparse("//" + url)
+
+    return parsed._replace(netloc=parsed.netloc.lower()).geturl().lstrip("/")
