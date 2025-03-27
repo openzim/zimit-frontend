@@ -45,6 +45,7 @@
 		"advancedOptions": "options avancées",
 		"fetchingDefinitionAndStatus": "Chargement définition de l'offlineur...",
 		"errorFetchingDefinition": "Erreur lors de la récupération de la définition de l'offlineur",
+		"errorFetchingStatus": "Erreur de récupération de l'état du tracker",
 		"creatingRequest": "Création d'une requête…",
 		"errorCreatingRequest": "Erreur lors de la création de la requête",
 		"offlinerNotFound": "Offlineur Zimit offliner non trouvé, nous avons probablement un problème sérieux sur notre infrastructure.",
@@ -77,7 +78,13 @@
 		"emailNotification": "Vous devriez avoir reçu un courriel avec l'URL actuelle. Lorsque la tâche sera terminée, vous recevrez un second courriel avec un lien de téléchargement (vous pouvez donc fermer cette fenêtre).",
 		"noEmailNotification": "Vous ne nous avez pas fourni d'adresse de courriel : merci de mettre cette page dans vos favoris avant de la fermer sinon vous ne pourrez pas récupérer votre fichier ZIM.",
 		"settingsHeading": "Paramètres",
-		"taskNotFound": "Tâche non trouvée. Soit votre URL est incorrecte, soit notre service rencontre un problème."
+		"taskNotFound": "Tâche non trouvée. Soit votre URL est incorrecte, soit notre service rencontre un problème.",
+		"cancelButton": "Annuler la demande",
+		"requestCancelRequested": "Votre demande d'annulation a bien été reçue",
+		"requestCancelRequestedExplanation": "Votre demande est en cours d'annulation. Cela peut prendre quelques minutes.",
+		"requestCanceled": "Votre demande a été annulée.",
+		"cancellingRequest": "Nous annulons votre demande.",
+		"errorCancellingRequest": "L'annulation a échoué"
 	},
 	"email": {
 		"requested": {
@@ -103,5 +110,15 @@
 			"retryLinkContent": "essayer à nouveau",
 			"howToCheckSettings": "Vous pouvez vérifier les paramètres que vous avez utilisés sur %{taskLink}."
 		}
+	},
+	"blockedRequest": {
+		"blockedMissingReason": "Vous avez été bloqué(e), mais il nous manque la raison",
+		"contactUsIfPersist": "Veuillez nous contacter si la situation persiste.",
+		"zimitFreeService": "Zimit étant un service gratuit, nous limitons le nombre de tâches par utilisateur.",
+		"quotaReached": "Vous avez atteint votre quota, veuillez attendre que les tâches soient terminées ou contactez-nous si vous souhaitez plus de quota.",
+		"useLinksBelowToSeeTask": "Veuillez utiliser les liens ci-dessous pour surveiller / annuler les tâches en cours.",
+		"goToTask": "Aller à la tâche en cours {taskLink}",
+		"excessiveUsage": "Nous avons détecté une utilisation excessive de la part de votre adresse, veuillez revenir dans quelques heures.",
+		"abnormalUsage": "Vous êtes bloqué(e) pour cause d'utilisation excessive ou anormale : {status}"
 	}
 }
