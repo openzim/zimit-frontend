@@ -105,13 +105,13 @@
     }
   },
   "blockedRequest": {
-    "blockedMissingReason": "You are blocked but we miss the detailed reason",
+    "blockedMissingReason": "You are blocked from posting additional requests. While the technical reason is unclear at the moment, the situation should resolve itself automatically in a couple of hours, or when your previous request will expire.",
     "contactUsIfPersist": "Please contact us if the situation persist.",
     "zimitFreeService": "Zimit being a free service, we limit the number of tasks per user.",
-    "quotaReached": "You have reached your quota, please wait for tasks to complete or contact us if you want more quota.",
-    "useLinksBelowToSeeTask": "Please use links below to monitor / cancel ongoing tasks.",
+    "quotaReached": "You have reached your task quota, please wait for ongoing tasks to complete before requesting new ones.",
+    "useLinksBelowToSeeTask": "Please use the links below to monitor / cancel ongoing tasks.",
     "goToTask": "Go to ongoing task {taskLink}",
-    "excessiveUsage": "We've detect excessive usage from your environment, please come back in few hours.",
-    "abnormalUsage": "You are blocked for abnormal usage: {status}"
+    "excessiveUsage": "We have detect excessive usage from your environment, please come back in few hours.",
+    "abnormalUsage": "Your address has been temporarily blocked from posting additional requests because of what our servers perceived as abnormal usage: {status}"
   }
 }
