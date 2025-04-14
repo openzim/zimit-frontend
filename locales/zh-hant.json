@@ -1,0 +1,121 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kly"
+		]
+	},
+	"language": "繁體中文",
+	"faq": {
+		"whatIsZim": "什麼是 ZIM 檔案？",
+		"whatIsZimDescParagraph": "ZIM 檔案格式儲存了網站內容，以供{0}使用。這把網站的正常組成部分組合成一個檔案，並對其進行壓縮，以便於儲存、共享和保管。",
+		"whatIsZimDescLinkContent0": "離線",
+		"howToRead": "如何讀取我的 ZIM 檔案？",
+		"howToReadDescParagraph": "您會需要一個 ZIM 檔案閱讀器。這通常代表 {0} 可在{1}上使用。",
+		"howToReadDescLinkContent0": "Kiwix",
+		"howToReadDescLinkContent1": "桌上型電腦、行動裝置等",
+		"missingContent": "ZIM 檔案不完整或比原始網站還小",
+		"missingContentDesc": "由於此工具的性質，我們不能讓它向任何網站發出無限制的請求。這會讓我們的基礎設施與目標網站有害。我們目前強制執行兩個限制：最多 {human_size_limit} GiB 檔案大小和 {human_time_limit}。",
+		"gotError": "我收到錯誤訊息（沒有 ZIM）或是無法讀取 ZIM 檔案",
+		"gotErrorDescParagraph": "請再次檢查您輸入的 URL，如果仍然無效，請在 {0} 上開啟錯誤工單。在工單裡標示目標網站、請求編號（在您收到的電子郵件裡）、以及您嘗試開啟 ZIM 檔案的裝置。",
+		"gotErrorDescLinkContent0": "github"
+	},
+	"units": {
+		"timeLimit": {
+			"singular": "時",
+			"plural": "時"
+		}
+	},
+	"footer": {
+		"poweredByThankTo": "由{0}和{1}提供技術支援，感謝{2}的獎勵 ❤️",
+		"link0": "Kiwix",
+		"link1": "網站記錄器",
+		"link2": "Mozilla 開放原始碼支援"
+	},
+	"header": {
+		"donate": "為保持免費。請捐款支持"
+	},
+	"newRequest": {
+		"headingParagraph": "想要網站的離線版本嗎？只要{0}！",
+		"headingBold": "進行 ZIM",
+		"urlLabel": "要轉換的網站完整 URL",
+		"emailLabel": "您的電子郵件用於接收下載連結（不會保存您的電子郵件地址）。",
+		"submit": "進行 ZIM！",
+		"advancedOptions": "進階選項",
+		"fetchingDefinitionAndStatus": "正在載入離線器定義和追蹤器狀態…",
+		"errorFetchingDefinition": "取得離線器定義時出錯",
+		"errorFetchingStatus": "取得追蹤器狀態時出錯",
+		"creatingRequest": "正在建立請求…",
+		"errorCreatingRequest": "建立請求時發生錯誤",
+		"offlinerNotFound": "找不到 Zimit 離線器，這可能是我們的基礎設施遇到了嚴重問題。",
+		"stopNewRequestsMessage": "Zimit 因為維護中暫時不接受新任務，過幾天後會恢復。"
+	},
+	"notFound": {
+		"heading": "找不到",
+		"description": "查無內容，可能是您的 URL 錯誤。您也可以返回。"
+	},
+	"requestStatus": {
+		"refreshing": "正在重整任務狀態…",
+		"errorRefreshing": "重整任務狀態時出錯",
+		"refreshAuto": "此頁面將每 {refresh_interval} 秒自動重整一次，您無需重新載入。",
+		"zimingOf": "ZIM 化",
+		"requestingSlot": "請求空檔",
+		"requestRecorded": "您的請求已被記錄下來，並在我們的基礎設施上等待空檔來進行處理。雖然我們的目標是能在 24 小時內完成所有請求，但此免費服務的基礎設施有限，有時會遇到需求暴增的情況，在這種情況下，積壓的工作可能需要幾天的時間才能處理。請耐心等待！",
+		"rankMessage": "您的請求位於佇列中的位置 {task_rank}（數字越低越好，0 表示此任務會是下一個啟動的任務）。",
+		"requestFailed": "很抱歉，您的請求失敗！",
+		"failureReasons": "有多種原因可能導致 ZIM 化失敗。大多數情況下，是出自 URL 不完整造成的…請仔細檢查並建立新的請求。如果仍然無效，{0}。",
+		"failureReasonsLinkContent0": "在 github 上開啟一個工單",
+		"successMessage": "成功！",
+		"successMessageExplanation": "下方連結將會過期，並且會在一週後刪除該檔案。",
+		"successMessageButton": "下載",
+		"partialZim": "您的 ZIM 檔案內容僅包含目標網站的一部分，因為您已達到允許免費抓取的最大檔案大小（{human_size_limit} GiB）、或是持續處理時間（{human_time_limit}）。請{contact_us_link}為您的任務購買額外的伺服器空間。",
+		"partialZimContactUsLink": "聯絡我們",
+		"beingProcessedMessage": "您的請求正在處理中",
+		"beingProcessedExplanation": "我們的系統目前正在將您提供的 URL 轉換為合適的 ZIM 檔案。依據目標大小，這可能需要幾分鐘或幾小時。",
+		"bookmarkUrl": "您可將目前瀏覽器頁面 URL 新增到書籤，再稍後查看此任務。",
+		"emailNotification": "您應該已經收到一封包含目前 URL 的電子郵件。一旦任務完成，您會收到第二封帶有下載連結的電子郵件（您可以關閉此視窗）。",
+		"noEmailNotification": "您沒有提供給我們電子郵件：請在關閉視窗之前，將此頁面加入書籤，否則您將無法檢索您的 ZIM 檔案。",
+		"settingsHeading": "設定",
+		"taskNotFound": "未找到任務。可能是您的 URL 不正確或是我們的服務發生問題。",
+		"cancelButton": "取消請求",
+		"requestCancelRequested": "已收到您的取消請求",
+		"requestCancelRequestedExplanation": "您的請求正在取消。這可能需要幾分鐘處理。",
+		"requestCanceled": "已取消您的請求",
+		"cancellingRequest": "我們正在取消您的請求",
+		"errorCancellingRequest": "取消失敗"
+	},
+	"email": {
+		"requested": {
+			"subject": "已請求 Youzim.it 任務 %{taskId}",
+			"title": "已請求 ZIM！",
+			"zimRequestRecorded": "已記錄您對 %{link} 的 ZIM 請求。",
+			"howToFollowProgress": "您可以在 %{link} 關注此請求的狀態。",
+			"emailWillBeSent": "當您的 ZIM 檔案可以下載時，我們將會向您發送另一封電子郵件。"
+		},
+		"succeeded": {
+			"subject": "Youzim.it 任務 %{taskId} 成功",
+			"title": "ZIM 準備好了！",
+			"zimRequestCompleted": "已完成您對 %{link} 的 ZIM 請求。",
+			"hereItIs": "下載連結：",
+			"incomplete": "很遺憾，ZIM 內容不完整，因為您已達到允許免費抓取的上限（%{sizeLimit}或%{timeLimit}）。請%{contactUsLink}購買額外的伺服器空間。",
+			"contactUsLinkContent": "聯絡我們"
+		},
+		"failed": {
+			"subject": "Youzim.it 任務 %{taskId} 失敗",
+			"title": "您的 ZIM 請求失敗！",
+			"weAreSorry": "相當抱歉。",
+			"checkAndRetry": "可能是您輸入的 URL（%{configUrlLink}）有錯，或是其他設定遺漏/失敗。請仔細檢查並%{retryLink}。",
+			"retryLinkContent": "再試一次",
+			"howToCheckSettings": "您可以在%{taskLink}檢查您使用的設定。"
+		}
+	},
+	"blockedRequest": {
+		"blockedMissingReason": "您被禁止發布其他請求。雖然目前技術上原因尚未釐清，但此情況通常會在幾個小時內自動解決，或者在您之前的請求到期時自動解決。",
+		"contactUsIfPersist": "若情況持續發生，請聯絡我們。",
+		"zimitFreeService": "Zimit 是一項免費服務，我們會限制每個使用者的任務數量。",
+		"quotaReached": "您已達到任務配額，請等待正在進行的任務完成後，再要求新的任務。",
+		"useLinksBelowToSeeTask": "請使用以下連結來監控/取消正在進行的任務。",
+		"goToTask": "前往正在進行的任務{taskLink}",
+		"excessiveUsage": "我們偵測到您的環境使用量過大，請在幾個小時後重試。",
+		"abnormalUsage": "由於我們的伺服器認為您的位址使用情況異常，因此您暫時無法發布其他請求：{status}"
+	}
+}
