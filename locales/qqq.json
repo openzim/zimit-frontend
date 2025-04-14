@@ -43,6 +43,7 @@
 		"advancedOptions": "This is the text displayed on a button to display advanced options.",
 		"fetchingDefinitionAndStatus": "This is the message while fetching the task definition.",
 		"errorFetchingDefinition": "This is the message when fetching the task definition failed.",
+		"errorFetchingStatus": "This is the message when fetching the task status failed",
 		"creatingRequest": "This is the message while creating a Zimfarm request.",
 		"errorCreatingRequest": "This is the message when creating a Zimfarm request failed.",
 		"offlinerNotFound": "This is the message when we failed to load offliner definition through API call.",
