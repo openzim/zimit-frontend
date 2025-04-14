@@ -37,7 +37,8 @@ export const supportedLanguages: Language[] = [
   { code: 'ro', display: 'Română', rtl: false },
   //  { code: 'sq', display: 'shqip', rtl: false },
   { code: 'sv', display: 'Svenska', rtl: false },
-  { code: 'zh-hans', display: '简体中文', rtl: false }
+  { code: 'zh-hans', display: '简体中文', rtl: false },
+  { code: 'zh-hant', display: '繁體中文', rtl: false }
 ]
 
 // Check if browser language is supported, otherwise fallback to English
