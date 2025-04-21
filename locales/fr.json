@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Bananax47",
 			"Benoit74",
 			"Mahabarata",
 			"Stephane"
@@ -119,6 +120,6 @@
 		"useLinksBelowToSeeTask": "Veuillez utiliser les liens ci-dessous pour surveiller / annuler les tâches en cours.",
 		"goToTask": "Aller à la tâche en cours {taskLink}",
 		"excessiveUsage": "Nous avons détecté une utilisation excessive de la part de votre adresse, veuillez revenir dans quelques heures.",
-		"abnormalUsage": "Vous êtes bloqué(e) pour cause d'utilisation excessive ou anormale : {status}"
+		"abnormalUsage": "Votre adresse a été temporairement bloquée et ne peut plus publier de demandes supplémentaires en raison de ce que nos serveurs ont perçu comme une utilisation anormale : {status}"
 	}
 }
