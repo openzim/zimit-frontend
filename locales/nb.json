@@ -1,0 +1,46 @@
+{
+	"@metadata": {
+		"authors": [
+			"TorgeirS"
+		]
+	},
+	"language": "norsk bokmål",
+	"faq": {
+		"whatIsZim": "Hva er en ZIM-fil?",
+		"howToReadDescLinkContent0": "Kiwix",
+		"gotErrorDescLinkContent0": "github"
+	},
+	"footer": {
+		"link0": "Kiwix"
+	},
+	"requestStatus": {
+		"successMessageButton": "Last ned",
+		"partialZimContactUsLink": "Kontakt oss",
+		"settingsHeading": "Innstillinger",
+		"cancelButton": "Avbryt forespørsel",
+		"requestCancelRequested": "Din forespørsel om å avbryte er mottatt",
+		"requestCancelRequestedExplanation": "Forespørselen din avbrytes. Det kan ta noen minutter.",
+		"requestCanceled": "Forespørselen din er avbrutt.",
+		"cancellingRequest": "Vi avbryter forespørselen din",
+		"errorCancellingRequest": "Avbrytelse mislyktes"
+	},
+	"email": {
+		"requested": {
+			"title": "ZIM etterspurt!",
+			"zimRequestRecorded": "Din ZIM-forespørsel etter %{link} er registrert.",
+			"emailWillBeSent": "Vi sender deg en ny e-post når ZIM-filen er klar til å lastes ned."
+		},
+		"succeeded": {
+			"title": "ZIM er klar!",
+			"hereItIs": "Her er den:",
+			"contactUsLinkContent": "Kontakt oss"
+		},
+		"failed": {
+			"title": "ZIM-forespørselen din mislyktes!",
+			"retryLinkContent": "forsøk igjen"
+		}
+	},
+	"blockedRequest": {
+		"contactUsIfPersist": "Ta kontakt med oss dersom situasjonen vedvarer."
+	}
+}
