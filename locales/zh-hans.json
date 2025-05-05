@@ -3,6 +3,7 @@
 		"authors": [
 			"Benoit74",
 			"Chimes",
+			"Prmsh",
 			"TFX202X"
 		]
 	},
@@ -45,9 +46,11 @@
 		"advancedOptions": "高级选项",
 		"fetchingDefinitionAndStatus": "正在加载离线程序定义...",
 		"errorFetchingDefinition": "获取离线程序定义时出错",
+		"errorFetchingStatus": "获取跟踪器状态时出错",
 		"creatingRequest": "正在创建请求…",
 		"errorCreatingRequest": "创建请求时出错",
-		"offlinerNotFound": "未找到Zimit离线程序，我们的基础设施可能遇到了严重问题。"
+		"offlinerNotFound": "未找到Zimit离线程序，我们的基础设施可能遇到了严重问题。",
+		"stopNewRequestsMessage": "因为维护，Zimit 暂不接受新任务，几天后会恢复。"
 	},
 	"notFound": {
 		"heading": "找不到页面",
