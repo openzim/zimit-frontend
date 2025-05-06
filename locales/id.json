@@ -43,9 +43,11 @@
 		"advancedOptions": "opsi lanjutan",
 		"fetchingDefinitionAndStatus": "Memuat definisi offliner…",
 		"errorFetchingDefinition": "Terjadi kesalahan saat mengambil definisi offliner",
+		"errorFetchingStatus": "Terjadi kesalahan saat mencari status pelacak",
 		"creatingRequest": "Membuat permintaan…",
 		"errorCreatingRequest": "Ada kesalahan saat membuat permintaan",
-		"offlinerNotFound": "Zimit offliner tidak ditemukan, kami mungkin mengalami masalah serius pada infrastruktur kami."
+		"offlinerNotFound": "Zimit offliner tidak ditemukan, kami mungkin mengalami masalah serius pada infrastruktur kami.",
+		"stopNewRequestsMessage": "Zimit untuk sementara tidak menerima tugas baru untuk pemeliharaan, akan kembali dalam beberapa hari."
 	},
 	"notFound": {
 		"heading": "Tidak Ditemukan",
@@ -59,6 +61,7 @@
 		"zimingOf": "Penziman dari",
 		"requestingSlot": "Meminta slot",
 		"requestRecorded": "Permintaan Anda telah dicatat dan sedang menunggu slot pada infrastruktur kami untuk dijalankan. Walaupun kami bertujuan menyelesaikan semua permintaan dalam 24 jam, infrastruktur kami untuk layanan gratis ini terbatas dan terkadang kami mengalami lonjakan permintaan, dalam hal ini penumpukan permintaan dapat memakan waktu beberapa hari untuk diproses. Harap bersabar!",
+		"rankMessage": "Permintaan Anda ada pada posisi {task_rank} dalam antrean (semakin rendah semakin baik, 0 berarti tugas ini adalah tugas berikutnya yang akan dimulai).",
 		"requestFailed": "Permintaan Anda gagal! Maaf atas hal itu.",
 		"failureReasons": "Sejumlah alasan dapat menyebabkan kegagalan penziman. Sering kali ini diakibatkan URL yang tidak memadai… Harap periksa ulang dan buat permintaan baru. Jika tidak berhasil, {0}.",
 		"failureReasonsLinkContent0": "buka tiket di github",
@@ -73,7 +76,13 @@
 		"emailNotification": "Anda seharusnya telah menerima email dengan URL saat ini. Setelah tugasnya selesai, Anda akan mendapatkan email kedua dengan tautan unduhan (Anda dapat menutup jendela ini).",
 		"noEmailNotification": "Anda tidak memberikan email kepada kami: tolong tandai halaman ini sebelum menutup jendela ini atau Anda tidak akan dapat mengambil berkas ZIM Anda.",
 		"settingsHeading": "Pengaturan",
-		"taskNotFound": "Tugas tidak ditemukan. URL Anda salah, atau layanan kami sedang mengalami masalah."
+		"taskNotFound": "Tugas tidak ditemukan. URL Anda salah, atau layanan kami sedang mengalami masalah.",
+		"cancelButton": "Batalkan permintaan",
+		"requestCancelRequested": "Permintaan pembatalan Anda telah diterima",
+		"requestCancelRequestedExplanation": "Permintaan Anda sedang dibatalkan. Proses ini mungkin memerlukan waktu beberapa menit.",
+		"requestCanceled": "Permintaan Anda telah dibatalkan",
+		"cancellingRequest": "Kami membatalkan permintaan Anda",
+		"errorCancellingRequest": "Pembatalan gagal"
 	},
 	"email": {
 		"requested": {
@@ -99,5 +108,15 @@
 			"retryLinkContent": "coba lagi",
 			"howToCheckSettings": "Anda dapat memeriksa pengaturan yang Anda gunakan di %{taskLink}."
 		}
+	},
+	"blockedRequest": {
+		"blockedMissingReason": "Anda diblokir dari mengirim permintaan tambahan. Meskipun alasan teknisnya belum jelas saat ini, situasi ini akan teratasi secara otomatis dalam beberapa jam, atau saat permintaan Anda sebelumnya berakhir.",
+		"contactUsIfPersist": "Silakan hubungi kami jika situasi ini terus berlanjut.",
+		"zimitFreeService": "Karena Zimit adalah layanan gratis, kami membatasi jumlah tugas per pengguna.",
+		"quotaReached": "Anda telah mencapai kuota tugas, harap tunggu agar tugas selesai sebelum meminta tugas baru.",
+		"useLinksBelowToSeeTask": "Silakan gunakan tautan di bawah ini untuk memantau/membatalkan tugas yang sedang berlangsung.",
+		"goToTask": "Buka tugas yang sedang berlangsung {taskLink}",
+		"excessiveUsage": "Kami mendeteksi penggunaan berlebihan dari lingkungan Anda, silakan kembali lagi dalam beberapa jam.",
+		"abnormalUsage": "Alamat Anda telah diblokir untuk sementara dari mengirim permintaan tambahan karena apa yang dianggap server kami sebagai penggunaan yang tidak normal: {status}"
 	}
 }
