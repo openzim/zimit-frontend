@@ -3,6 +3,7 @@
 		"authors": [
 			"Benoit74",
 			"Chimes",
+			"GuoPC",
 			"Prmsh",
 			"TFX202X"
 		]
@@ -64,8 +65,9 @@
 		"zimingOf": "Zim化",
 		"requestingSlot": "请求时段",
 		"requestRecorded": "您的请求已记录，正在等待我们基础设施上的一个空位来运行。虽然我们的目标是在24小时内完成所有请求，但此免费服务的基础设施有限，有时我们会遇到需求激增的情况，在这种情况下，积压的请求可能需要几天的时间来处理。请静候佳音！",
-		"requestFailed": "您的请求失败！我们对此深感抱歉。",
-		"failureReasons": "有多种原因会导致zim化失败。大多数情况下，这是由于URL不合适...请仔细检查并创建新请求。如果此方法无效，请{0}。",
+		"rankMessage": "您的请求位于队列中的位置{task_rank}（数字越低越好，0表示此任务会是下一个启动的任务）。",
+		"requestFailed": "很抱歉，您的请求失败！",
+		"failureReasons": "有多种原因会导致zim化失败。大多数情况下，这是由于URL不不完整…请仔细检查并创建新请求。如果此方法无效，请{0}。",
 		"failureReasonsLinkContent0": "在github上打开一张票据",
 		"successMessage": "成功！",
 		"successMessageExplanation": "一周后，下面的链接将会过期并且文件会被删除。",
@@ -73,12 +75,18 @@
 		"partialZim": "注意，已查询到您的档案不完整，您已达到免费抓取允许的最大文件大小（{human_size_limit} GiB）或持续时间（{human_time_limit}）。{contact_us_link}为您的任务购买额外的服务器空间。",
 		"partialZimContactUsLink": "联系我们",
 		"beingProcessedMessage": "您的请求正在处理中",
-		"beingProcessedExplanation": "我们的系统目前正在将提供的URL转换为合适的ZIM文件。根据此网站的页面数量，可能需要几分钟或几小时。",
+		"beingProcessedExplanation": "我们的系统目前正在将提供的URL转换为合适的ZIM文件。根据目标大小，这可能需要几分钟或几小时。",
 		"bookmarkUrl": "您可以将当前浏览器页面URL添加到书签，以便稍后回来查看此任务。",
-		"emailNotification": "您已收到一封包含当前URL的电子邮件，并且任务完成时您还将收到一封电子邮件通知，因此您可以安全地关闭此窗口。",
-		"noEmailNotification": "如果没有此书签，请不要关闭此窗口，否则您将无法下载ZIM，因为您没有提供电子邮件。",
+		"emailNotification": "您应该已经收到一封包含当前URL的电子邮件。一旦任务完成，您会收到第二封包含下载链接的电子邮件（您可以关闭此窗口）。",
+		"noEmailNotification": "您没有向我们提供电子邮件：请在关闭窗口之前，将此页面加入书签，否则您将无法检索您的ZIM文件。",
 		"settingsHeading": "设置",
-		"taskNotFound": "未找到任务。您的URL不正确或我们的服务遇到问题。"
+		"taskNotFound": "未找到任务。可能是您的URL不正确，或者我们的服务遇到问题。",
+		"cancelButton": "取消请求",
+		"requestCancelRequested": "已收到您的取消请求",
+		"requestCancelRequestedExplanation": "您的请求正在取消。这可能需要几分钟。",
+		"requestCanceled": "已取消您的请求",
+		"cancellingRequest": "我们正在取消您的请求",
+		"errorCancellingRequest": "取消失败"
 	},
 	"email": {
 		"requested": {
@@ -86,14 +94,14 @@
 			"title": "ZIM已请求！",
 			"zimRequestRecorded": "您对%{link}的ZIM请求已被记录。",
 			"howToFollowProgress": "您可以在%{link}关注此请求的状态。",
-			"emailWillBeSent": "一旦您的ZIM文件可以下载，我们将向您发送另一封电子邮件。"
+			"emailWillBeSent": "当您的ZIM文件可以下载时，我们将会向您发送另一封电子邮件。"
 		},
 		"succeeded": {
 			"subject": "Youzim.it任务%{taskId}成功",
 			"title": "ZIM已做好准备！",
 			"zimRequestCompleted": "您对%{link}的ZIM请求已完成。",
 			"hereItIs": "这里是：",
-			"incomplete": "遗憾的是，ZIM不完整，因为您已达到免费抓取的限制 (%{sizeLimit} 或 %{timeLimit})。%{contactUsLink}帮助我们为您购买额外的服务器空间。",
+			"incomplete": "很遗憾，ZIM不完整，因为您已达到允许免费抓取的上限 (%{sizeLimit} 或 %{timeLimit})。请%{contactUsLink}购买额外的服务器空间。",
 			"contactUsLinkContent": "联系我们"
 		},
 		"failed": {
@@ -104,5 +112,15 @@
 			"retryLinkContent": "再试一次",
 			"howToCheckSettings": "您可以在%{taskLink}检查您使用的设置。"
 		}
+	},
+	"blockedRequest": {
+		"blockedMissingReason": "您被禁止发布其他请求。虽然目前技术原因尚不清楚，但此情况通常会在几个小时内自动解决，或者在您之前的请求过期时自动解决。",
+		"contactUsIfPersist": "若情况持续发生，请联系我们。",
+		"zimitFreeService": "Zimit是一项免费服务，我们会限制每个用户的任务数量。",
+		"quotaReached": "您已达到任务配额，请等待正在进行的任务完成后，再请求新的任务。",
+		"useLinksBelowToSeeTask": "请使用以下链接来监控/取消正在进行的任务。",
+		"goToTask": "前往正在进行的任务{taskLink}",
+		"excessiveUsage": "我们检测到您的环境使用量过大，请在几个小时后重试。",
+		"abnormalUsage": "由于我们的服务器认为您的地址使用情况异常，因此您暂时无法发布其他请求：{status}"
 	}
 }
