@@ -3,6 +3,7 @@
 		"authors": [
 			"Bananax47",
 			"Benoit74",
+			"Derugon",
 			"Mahabarata",
 			"Stephane"
 		]
@@ -113,10 +114,10 @@
 		}
 	},
 	"blockedRequest": {
-		"blockedMissingReason": "Vous avez été bloqué(e), mais il nous manque la raison",
+		"blockedMissingReason": "Vous ne pouvez plus publier de demandes supplémentaires. Bien que la raison technique reste incertaine pour le moment, le problème devrait se résoudre automatiquement d’ici quelques heures, ou lorsque votre demande précédente expirera.",
 		"contactUsIfPersist": "Veuillez nous contacter si la situation persiste.",
 		"zimitFreeService": "Zimit étant un service gratuit, nous limitons le nombre de tâches par utilisateur.",
-		"quotaReached": "Vous avez atteint votre quota, veuillez attendre que les tâches soient terminées ou contactez-nous si vous souhaitez plus de quota.",
+		"quotaReached": "Vous avez atteint votre quota de tâches, veuillez attendre que les tâches en cours soient terminées avant d’en demander de nouvelles.",
 		"useLinksBelowToSeeTask": "Veuillez utiliser les liens ci-dessous pour surveiller / annuler les tâches en cours.",
 		"goToTask": "Aller à la tâche en cours {taskLink}",
 		"excessiveUsage": "Nous avons détecté une utilisation excessive de la part de votre adresse, veuillez revenir dans quelques heures.",
