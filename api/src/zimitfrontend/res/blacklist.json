@@ -45,7 +45,6 @@
         "reason": "already_zimed",
         "libraryUrl": "https://library.kiwix.org/#tag=ted"
       },
-      { "host": "wikihow.com", "reason": "forbid_or_copyrighted_by_website_owner" },
       {
         "host": "youtube.com",
         "reason": "too_big_partially_already_zimed",
@@ -131,7 +130,7 @@
         "reason": "scraper_needed",
         "githubIssue": "https://github.com/openzim/zim-requests/issues/360"
       },
-      { "host": "quora.com", "reason": "forbid_or_copyrighted_by_website_owner" },
+      { "host": "quora.com", "reason": "not_possible_with_zimit" },
       { "host": "download.kiwix.org", "reason": "not_possible_with_zimit" },
       { "host": "google.com", "reason": "not_possible_with_zimit" },
       { "host": "library.kiwix.org", "reason": "not_possible_with_zimit" },

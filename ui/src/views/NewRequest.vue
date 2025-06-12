@@ -2,7 +2,6 @@
 import FaqList from '../components/FaqList.vue'
 import NewRequestForm from '../components/NewRequestForm.vue'
 import BlacklistAlreadyZimed from '../components/BlacklistAlreadyZimed.vue'
-import BlacklistCopyright from '../components/BlacklistCopyright.vue'
 import BlacklistNotPossible from '../components/BlacklistNotPossible.vue'
 import BlacklistScraperNeeded from '../components/BlacklistScraperNeeded.vue'
 import BlacklistTooBig from '../components/BlacklistTooBig.vue'
@@ -43,9 +42,6 @@ onMounted(() => {
       {{ $t('newRequest.stopNewRequestsMessage') }}
     </div>
     <BlacklistAlreadyZimed v-else-if="mainStore.blacklistReason?.reason == 'already_zimed'" />
-    <BlacklistCopyright
-      v-else-if="mainStore.blacklistReason?.reason == 'forbid_or_copyrighted_by_website_owner'"
-    />
     <BlacklistNotPossible
       v-else-if="mainStore.blacklistReason?.reason == 'not_possible_with_zimit'"
     />

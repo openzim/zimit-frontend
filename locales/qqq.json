@@ -141,7 +141,6 @@
 		"useScraper": "This is the message inviting user to use our scraper",
 		"scraperRepoLinkContent": "This is the textual content of the link to the scraper"
 	  },
-	  "copyrighted": "This is the message indicating that there is a copyright issue",
 	  "notPossible": "This is the message indicating that it is not possible to ZIM this website",
 	  "scraperNeeded": "This is the message indicating that we intend to build a dedicated scraper",
 	  "scraperNeededLinkContent": "This is the textual content of the link to the dedicated Github issue"

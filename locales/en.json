@@ -136,7 +136,6 @@
       "useScraper": "Should you be a bit tech-savvy, you can also use {scraperRepoLink} on your own.",
       "scraperRepoLinkContent": "our dedicated scraper"
     },
-    "copyrighted": "This website is protected by copyrights and/or Kiwix has been explicitely requested not to ZIM this website.",
     "notPossible": "It is unfortunately not possible to ZIM this website with zimit.",
     "scraperNeeded": "It seems possible to develop a custom scraper for this website, but we need your support on {githubIssueLink}.",
     "scraperNeededLinkContent": "this Github issue"
