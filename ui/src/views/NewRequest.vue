@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import FaqList from '../components/FaqList.vue'
 import NewRequestForm from '../components/NewRequestForm.vue'
+import BlacklistAlreadyZimed from '../components/BlacklistAlreadyZimed.vue'
+import BlacklistNotPossible from '../components/BlacklistNotPossible.vue'
+import BlacklistScraperNeeded from '../components/BlacklistScraperNeeded.vue'
+import BlacklistTooBig from '../components/BlacklistTooBig.vue'
 import BlockRequest from '../components/BlockRequest.vue'
 import { useI18n } from 'vue-i18n'
 import { useMainStore } from '../stores/main'
@@ -37,9 +41,15 @@ onMounted(() => {
     <div v-else-if="mainStore.config.stop_new_requests_on">
       {{ $t('newRequest.stopNewRequestsMessage') }}
     </div>
-    <div v-else-if="mainStore.trackerStatus?.status != 'can_add_task'">
-      <BlockRequest />
-    </div>
+    <BlacklistAlreadyZimed v-else-if="mainStore.blacklistReason?.reason == 'already_zimed'" />
+    <BlacklistNotPossible
+      v-else-if="mainStore.blacklistReason?.reason == 'not_possible_with_zimit'"
+    />
+    <BlacklistScraperNeeded v-else-if="mainStore.blacklistReason?.reason == 'scraper_needed'" />
+    <BlacklistTooBig
+      v-else-if="mainStore.blacklistReason?.reason == 'too_big_partially_already_zimed'"
+    />
+    <BlockRequest v-else-if="mainStore.trackerStatus?.status != 'can_add_task'" />
     <NewRequestForm v-else />
     <FaqList class="faq" />
   </v-container>
