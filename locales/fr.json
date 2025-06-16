@@ -122,5 +122,31 @@
 		"goToTask": "Aller à la tâche en cours {taskLink}",
 		"excessiveUsage": "Nous avons détecté une utilisation excessive de la part de votre adresse, veuillez revenir dans quelques heures.",
 		"abnormalUsage": "Votre adresse a été temporairement bloquée et ne peut plus publier de demandes supplémentaires en raison de ce que nos serveurs ont perçu comme une utilisation anormale : {status}"
+	},
+	"blacklist": {
+		"missingReason": "Le motif du blacklistage doit être défini",
+		"missingLibraryUrl": "L’URL de la bibliothèque doit être définie dans le motif du blacklistage",
+		"missingGithubIssueUrl": "L’URL du problème Github doit être définie dans le motif du blacklistage",
+		"goBack": "Retour",
+		"contactUs": "Si vous avez besoin d’un ZIM spécial, veuillez nous contacter.",
+		"alreadyZimed": {
+			"alreadyMadeZim": "Kiwix a déjà créé un/des ZIM(s) de ce site web.",
+			"downloadFromLibrary": "Afin d’économiser nos ressources, nous vous invitons à télécharger votre ZIM depuis {link}.",
+			"downloadFromLibraryLinkContent": "notre bibliothèque",
+			"wp1Hint": "Si vous souhaitez ZIMer uniquement quelques pages spécifiques, vous pourriez être intéressé par {wp1Link}.",
+			"wp1LinkContent": "notre outil WP1"
+		},
+		"tooBig": {
+			"tooBigDetails": "Ce site web est bien trop volumineux pour être intégré dans un seul ZIM.",
+			"alreadyMadeZim": "Kiwix a déjà produit un ou quelques ZIM(s) de parties de ce site web.",
+			"downloadOrRequest": "Vous pouvez vérifier ces ZIMs dans {libraryLink} ou ouvrir un problème pour {githubRequestLink} s’il correspond à l’objectif de Kiwix.",
+			"libraryLinkContent": "notre bibliothèque",
+			"githubRequestLinkContent": "demander un autre ZIM",
+			"useScraper": "Si vous êtes un peu à l’aise avec la technologie, vous pouvez également utiliser {scraperRepoLink} par vous-même.",
+			"scraperRepoLinkContent": "notre outil d’extraction de sites web dédié"
+		},
+		"notPossible": "Il n’est malheureusement pas possible de ZIMer ce site Web avec zimit.",
+		"scraperNeeded": "Il semble possible de développer un extracteur personnalisé pour ce site web, mais nous avons besoin de votre soutien sur {githubIssueLink}.",
+		"scraperNeededLinkContent": "ce problème Github"
 	}
 }
