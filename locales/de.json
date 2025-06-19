@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"AnnaTheProgrammer777"
+			"AnnaTheProgrammer777",
+			"Nortix"
 		]
 	},
 	"language": "Deutsch",
@@ -41,6 +42,12 @@
 		},
 		"failed": {
 			"retryLinkContent": "Erneut versuchen"
+		}
+	},
+	"blacklist": {
+		"tooBig": {
+			"alreadyMadeZim": "Kiwix hat bereits einige ZIM(s) von Teilen dieser Website erstellt.",
+			"libraryLinkContent": "unsere Bibliothek"
 		}
 	}
 }
