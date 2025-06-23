@@ -92,5 +92,8 @@
 			"retryLinkContent": "다시 시도",
 			"howToCheckSettings": "%{taskLink}에서 사용한 설정을 확인할 수 있습니다."
 		}
+	},
+	"blacklist": {
+		"goBack": "돌아가기"
 	}
 }

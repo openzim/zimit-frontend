@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"AnnaTheProgrammer777",
+			"MoritzMT20",
 			"Nortix"
 		]
 	},
@@ -45,9 +46,25 @@
 		}
 	},
 	"blacklist": {
+		"missingReason": "Blacklist-Grund muss festgelegt sein",
+		"missingGithubIssueUrl": "Die Github-Problem-URL muss im Blacklist-Grund festgelegt werden",
+		"goBack": "Zurück",
+		"contactUs": "Solltest du ein spezielles ZIM benötigen, kontaktiere uns bitte.",
+		"alreadyZimed": {
+			"alreadyMadeZim": "Kiwix hat bereits ZIM(s) dieser Website erstellt.",
+			"downloadFromLibrary": "Um unsere Ressourcen zu schonen, laden wir dich ein, Dein ZIM von {link} herunterzuladen.",
+			"downloadFromLibraryLinkContent": "unsere Bibliothek",
+			"wp1LinkContent": "unser WP1-Tool"
+		},
 		"tooBig": {
+			"tooBigDetails": "Diese Website ist viel zu groß, um sie in ein einzelnes ZIM zu packen.",
 			"alreadyMadeZim": "Kiwix hat bereits einige ZIM(s) von Teilen dieser Website erstellt.",
-			"libraryLinkContent": "unsere Bibliothek"
-		}
+			"downloadOrRequest": "Du kannst diese ZIMs in {libraryLink} überprüfen oder ein issue bei {githubRequestLink} öffnen, wenn es dem Zweck von Kiwix entspricht.",
+			"libraryLinkContent": "unsere Bibliothek",
+			"githubRequestLinkContent": "ein weiteres ZIM anfordern",
+			"useScraper": "Solltest du etwas technisch versiert sein, kannst du {scraperRepoLink} auch selbst verwenden."
+		},
+		"scraperNeeded": "Es scheint möglich zu sein, einen benutzerdefinierten Scraper für diese Website zu entwickeln, aber wir benötigen Deine Unterstützung auf {githubIssueLink}.",
+		"scraperNeededLinkContent": "dieses Github-Problem"
 	}
 }
