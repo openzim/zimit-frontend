@@ -117,5 +117,31 @@
 		"goToTask": "前往正在進行的任務{taskLink}",
 		"excessiveUsage": "我們偵測到您的環境使用量過大，請在幾個小時後重試。",
 		"abnormalUsage": "由於我們的伺服器認為您的位址使用情況異常，因此您暫時無法發布其他請求：{status}"
+	},
+	"blacklist": {
+		"missingReason": "必須設定列為黑名單的原因",
+		"missingLibraryUrl": "必須在黑名單原因裡設定文庫的 URL",
+		"missingGithubIssueUrl": "必須在黑名單原因裡設定 Github 的 Issue URL",
+		"goBack": "返回",
+		"contactUs": "如果您需要特殊的 ZIM，請與我們聯絡。",
+		"alreadyZimed": {
+			"alreadyMadeZim": "Kiwix 已將此網站做成 ZIM。",
+			"downloadFromLibrary": "為了節省我們的資源，我們邀請您從 {link} 下載您的 ZIM。",
+			"downloadFromLibraryLinkContent": "我們的文庫",
+			"wp1Hint": "如果您只需 ZIM 幾個特定頁面，您可能會對 {wp1Link} 感興趣。",
+			"wp1LinkContent": "我們的 WP1 工具"
+		},
+		"tooBig": {
+			"tooBigDetails": "此網站內容太多，無法將其整合成單一 ZIM。",
+			"alreadyMadeZim": "Kiwix 已對該網站部分內容進行了少量 ZIM 處理。",
+			"downloadOrRequest": "您可以在 {libraryLink} 中檢查這些 ZIM，或是如果它符合Kiwix 用途，則在 {githubRequestLink} 開啟問題。",
+			"libraryLinkContent": "我們的文庫",
+			"githubRequestLinkContent": "請求另一個 ZIM",
+			"useScraper": "若您對技術有點了解，您也可以自己使用 {scraperRepoLink}。",
+			"scraperRepoLinkContent": "我們的專用爬取工具"
+		},
+		"notPossible": "很可惜的是，無法使用 zimit 來對此網站進行 ZIM。",
+		"scraperNeeded": "看起來可以為該網站開發一個自訂爬取工具，但我們需要您在 {githubIssueLink} 上的支援。",
+		"scraperNeededLinkContent": "此 Github 問題"
 	}
 }

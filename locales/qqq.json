@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amire80"
+			"Amire80",
+			"McDutchie"
 		]
 	},
-	"language": "This is the label used in the languages dropdown. Must be the native name of current language, starting with an upper char. Do not translate 'English' but write the native label for your language, e.g. Français in French, ...",
+	"language": "This is the label used in the languages dropdown. Must be the native name of current language, starting with an upper char. <span style=\"color: red\">'''Do not translate 'English' but write the native label for your language, e.g. Français in French, ...'''</span>",
 	"faq": {
 		"whatIsZim": "This is the question asking about the ZIM file format.",
 		"whatIsZimDescParagraph": "This is the answer about the ZIM file format. {0} is {{msg-kiwix|Zimit-ui-faq.whatIsZimDescLinkContent0}}.",
