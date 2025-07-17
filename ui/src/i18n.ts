@@ -20,6 +20,8 @@ const localesFiles = import.meta.glob('../../locales/*.json')
 // Do not mind about ordering, it is done in UI
 // If language is RTL, do not forget to also update `rtl_language_codes` constant in `api/src/zimitfrontend/constants.py`
 // Some languages below are commented out because they have started but not yet completed (we target close to 100% translated before using the translation)
+// Should a language translation level drop after being "published" (uncommented below), we do not remove it from the UI unless its completion level drops
+// below 30%.
 // You can check this at https://translatewiki.net/w/i.php?title=Special:MessageGroupStats/kiwix-zimit-frontend&suppresscomplete=0#sortable:3=desc
 // Display name must be in native language. Display name should start with an upper-character when it fits locale casing.
 // It should be provided by the translator under `language` key. If not, you might source proper values from https://w.wiki/C7AQ since Translate Wiki uses IETF codes
@@ -30,6 +32,7 @@ export const supportedLanguages: Language[] = [
   { code: 'fa', display: 'فارسی', rtl: true },
   { code: 'fr', display: 'Français', rtl: false },
   { code: 'he', display: 'עברית', rtl: true },
+  { code: 'ia', display: 'Interlingua', rtl: false },
   { code: 'id', display: 'Bahasa Indonesia', rtl: false },
   //  { code: 'ko', display: '한국어', rtl: false },
   //  { code: 'lb', display: 'Lëtzebuergesch', rtl: false },
