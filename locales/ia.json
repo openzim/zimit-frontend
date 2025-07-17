@@ -1,0 +1,147 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"language": "Interlingua",
+	"faq": {
+		"whatIsZim": "Que es un file ZIM?",
+		"whatIsZimDescParagraph": "Le formato de file ZIM immagazina contento de sito web pro uso {0}. Illo assembla le elementos normal de un sito web in un sol archivo e lo comprime pro facilitar su salveguarda, condivision e immagazinage.",
+		"whatIsZimDescLinkContent0": "foras de linea",
+		"howToRead": "Como lege io mi files ZIM?",
+		"howToReadDescParagraph": "Tu habera besonio de un lector de files ZIM. Iste es normalmente {0}, que es disponibile sur {1}.",
+		"howToReadDescLinkContent0": "Kiwix",
+		"howToReadDescLinkContent1": "computatores de scriptorio, apparatos mobile e altere dispositivos",
+		"missingContent": "Le file ZIM es incomplete o es minor que le sito web original",
+		"missingContentDesc": "A causa del natura mesme de iste instrumento, nos non pote lassar lo aperte pro requestas illimitate verso qualcunque sito web. Isto poterea esser damnose tanto pro nostre infrastructura como pro le sitos web de destination. Nos applica actualmente duo limites: {human_size_limit} GiB de dimension de file e {human_time_limit}.",
+		"gotError": "Io recipeva un message de error (necun ZIM) o non pote leger un file ZIM",
+		"gotErrorDescParagraph": "Verifica tres vices le adresse URL que tu ha inserite, e si illo ancora non functiona, aperi un ticket de problema sur {0}. Indica le sito web de destination, le numero de requesta (illo es in le message de e-mail que tu ha recipite) e le apparato sur le qual tu tentava aperir tu file ZIM.",
+		"gotErrorDescLinkContent0": "Github"
+	},
+	"units": {
+		"timeLimit": {
+			"singular": "hora",
+			"plural": "horas"
+		}
+	},
+	"footer": {
+		"poweredByThankTo": "Actionate per {0} e {1}, gratias a un dotation {2} ❤️",
+		"link0": "Kiwix",
+		"link1": "Webrecorder",
+		"link2": "Mozilla Open-Source Support"
+	},
+	"header": {
+		"donate": "Mantene isto gratuite. Dona"
+	},
+	"newRequest": {
+		"headingParagraph": "Vole un version foras de linea de un sito web? Suffice {0}!",
+		"headingBold": "facer un ZIM de illo",
+		"urlLabel": "Adresse URL complete del sito web a converter",
+		"emailLabel": "Tu adresse de e-mail pro reciper un ligamine de discargamento. Le adresse non es conservate",
+		"submit": "Face le ZIM!",
+		"advancedOptions": "optiones avantiate",
+		"fetchingDefinitionAndStatus": "Carga le definition del convertitor a foras de linea e le stato del traciator…",
+		"errorFetchingDefinition": "Un error ha occurrite durante le obtention del convertitor a foras de linea",
+		"errorFetchingStatus": "Un error ha occurrite durante le obtention del stato del traciator",
+		"creatingRequest": "Crea requesta…",
+		"errorCreatingRequest": "Un error ha occurrite durante le creation del requesta",
+		"offlinerNotFound": "Le convertitor a foras de linea Zimit non ha essite trovate. Probabilemente existe un problema grave in nostre infrastructura.",
+		"stopNewRequestsMessage": "Zimit temporarimente non accepta nove cargas de mantenentia. Illo retornara in poc dies."
+	},
+	"notFound": {
+		"heading": "Non trovate",
+		"description": "Nihil existe hic. Tu adresse URL es probabilemente incorrecte. Es suggerite retornar al pagina precedente."
+	},
+	"requestStatus": {
+		"refreshing": "Refresca stato de carga…",
+		"errorRefreshing": "Error durante le refrescamento del stato de carga",
+		"refreshAuto": "Iste pagina se refresca automaticamente cata {refresh_interval} secundas. Non es necessari recargar.",
+		"zimingOf": "Face ZIM de",
+		"requestingSlot": "Requesta spatio de tempore",
+		"requestRecorded": "Tu requesta ha essite registrate e attende un spatio in nostre infrastructura pro executar se. Ben que nos aspira a terminar tote le requestas intra 24 horas, nostre infrastructura pro iste servicio gratuite es limitate e a vices pote occurrer picos de demanda, in le qual caso le tractamento del requestas pendente pote prender plure dies. Per favor sia patiente!",
+		"rankMessage": "Tu requesta es al position {task_rank} in le cauda (plus basse es melior; 0 significa que iste carga es le proxime a comenciar).",
+		"requestFailed": "Tu requesta ha fallite! Nos lo regretta.",
+		"failureReasons": "Diverse factores pote causar un fallimento de conversion a ZIM. Le plus sovente, isto proveni de un URL inadequate… Per favor verifica lo tres vices e crea un nove requesta. Si isto non functiona, {0}.",
+		"failureReasonsLinkContent0": "aperi un ticket sur GitHub",
+		"successMessage": "Successo!",
+		"successMessageExplanation": "Le ligamine infra expirara e le file essera delite post un septimana.",
+		"successMessageButton": "Discargar",
+		"partialZim": "Tu file ZIM contine solmente un parte del sito web de destination, pois que tu ha attingite le limite maxime de dimension de file ({human_size_limit} GiB) o de duration ({human_time_limit}) permittite pro le collection gratuite de paginas web. {contact_us_link} pro comprar spatio de servitor additional pro tu carga.",
+		"partialZimContactUsLink": "Contacta nos",
+		"beingProcessedMessage": "Tu requesta es in curso de tractamento",
+		"beingProcessedExplanation": "Nostre systema actualmente converte le URL que tu ha fornite in un belle file ZIM. Secundo le grandor del objectivo, isto pote prender minutas o horas.",
+		"bookmarkUrl": "Tu pote adder le adresse URL del pagina actual al marcapaginas del navigator pro revenir plus tarde a vider iste carga.",
+		"emailNotification": "Tu debera haber recipite un mesage de e-mail con le adresse URL actual. Quando le carga es complete, tu recipera un secunde message de e-mail con un ligamine de discargamento (tu pote dunque clauder iste fenestra).",
+		"noEmailNotification": "Tu non nos ha date un adresse de e-mail. Dunque, per favor adde iste pagina al marcapaginas ante de clauder le fenestra. Si non, tu non potera recuperar tu file ZIM.",
+		"settingsHeading": "Parametros",
+		"taskNotFound": "Carga non trovate. O tu adresse URL es incorrecte, o nostre servicio ha un problema.",
+		"cancelButton": "Cancellar requesta",
+		"requestCancelRequested": "Cancellation del requesta recipite",
+		"requestCancelRequestedExplanation": "Tu requesta es in curso de cancellation. Isto pote prender qualque minutas.",
+		"requestCanceled": "Tu requesta ha essite cancellate",
+		"cancellingRequest": "Cancellation del requesta in curso",
+		"errorCancellingRequest": "Cancellation fallite"
+	},
+	"email": {
+		"requested": {
+			"subject": "Carga Youzim.it %{taskId} requestate",
+			"title": "ZIM requestate!",
+			"zimRequestRecorded": "Tu requesta de un ZIM de %{link} ha essite registrate.",
+			"howToFollowProgress": "Tu pote ora sequer le stato de iste requesta sur %{link}.",
+			"emailWillBeSent": "Nos te inviara un altere message de e-mail quando tu file ZIM es preste a esser discargate."
+		},
+		"succeeded": {
+			"subject": "Carga Youzim.it %{taskId} succedite",
+			"title": "Le ZIM es preste!",
+			"zimRequestCompleted": "Tu requesta de un ZIM de %{link} ha essite realisate.",
+			"hereItIs": "Ecce illo:",
+			"incomplete": "Le file ZIM es regrettabilemente incomplete perque tu ha attingite le limite (%{sizeLimit} o %{timeLimit}) permittite pro le collection gratuite de paginas web. %{contactUsLink} pro comprar spatio additional sur le servitor.",
+			"contactUsLinkContent": "Contacta nos"
+		},
+		"failed": {
+			"subject": "Carga Youzim.it %{taskId} fallite",
+			"title": "Tu requesta de ZIM ha fallite!",
+			"weAreSorry": "Nos vermente lo regretta.",
+			"checkAndRetry": "Isto pote esser debite a un error con le URL que tu ha inserite (%{configUrlLink}) o a parametros additional mancante / fallente. Per favor reverifica e %{retryLink}.",
+			"retryLinkContent": "tenta lo de novo",
+			"howToCheckSettings": "Tu pote verificar le parametros que tu ha usate sur %{taskLink}."
+		}
+	},
+	"blockedRequest": {
+		"blockedMissingReason": "Tu es blocate de inviar requestas additional. Benque le ration technic non es clar al momento, le situation deberea resolver se automaticamente in alcun horas o quando tu previe requesta expirara.",
+		"contactUsIfPersist": "Per favor contacta nos si le situation persiste.",
+		"zimitFreeService": "Perque Zimit es un servicio gratuite, nos limita le numero de cargas per usator.",
+		"quotaReached": "Tu ha attingite tu quota de cargas; per favor attende que le cargas in curso se termina ante de requestar noves.",
+		"useLinksBelowToSeeTask": "Per favor usa le ligamines infra pro surveliar / cancellar cargas in curso.",
+		"goToTask": "Examinar le carga in curso {taskLink}",
+		"excessiveUsage": "Nos ha detegite un utilisation excessive proveniente de tu ambiente; per favor reveni in alcun horas.",
+		"abnormalUsage": "Tu adresse ha essite temporarimente blocate de inviar requestas additional a causa de lo que nostre servitores ha percipite como un usage anormal: {status}"
+	},
+	"blacklist": {
+		"missingReason": "Le ration pro insertion in lista nigre debe esser definite",
+		"missingLibraryUrl": "Le URL del bibliotheca debe esser definite in le ration pro insertion in lista nigre",
+		"missingGithubIssueUrl": "Le URL al ticket de GitHub debe esser definite in le ration pro insertion in lista nigre",
+		"goBack": "Retornar",
+		"contactUs": "Si tu ha besonio de un ZIM special, per favor contacta nos.",
+		"alreadyZimed": {
+			"alreadyMadeZim": "Kiwix ha ja facite ZIM(s) de iste sito web.",
+			"downloadFromLibrary": " Pro conservar nostre ressources, nos te invita de discargar tu ZIM de {link}.",
+			"downloadFromLibraryLinkContent": "nostre bibliotheca",
+			"wp1Hint": "Si tu vole facer un ZIM de solmente poc paginas specific, alora {wp1Link} poterea interessar te.",
+			"wp1LinkContent": "nostre utensile WP1"
+		},
+		"tooBig": {
+			"tooBigDetails": "Iste sito web es multo troppo grande pro facer un singule ZIM de illo.",
+			"alreadyMadeZim": "Kiwix ha ja facite alcun file(s) ZIM de partes de iste sito web.",
+			"downloadOrRequest": "Tu pote examinar iste ZIMs in {libraryLink} o aperir un ticket sur {githubRequestLink} si illo corresponde al objectivo de Kiwix.",
+			"libraryLinkContent": "nostre bibliotheca",
+			"githubRequestLinkContent": "requestar un altere ZIM",
+			"useScraper": "Si tu ha un poco de saper-facer technic, tu pote etiam usar {scraperRepoLink} tu mesme.",
+			"scraperRepoLinkContent": "nostre extractor dedicate"
+		},
+		"notPossible": "Infortunatemente non es ancora possibile facer un ZIM de iste sito web con zimit.",
+		"scraperNeeded": "Pare esser possibile disveloppar un extractor personalisate pro iste sito web, ma nos ha besonio de tu adjuta sur {githubIssueLink}.",
+		"scraperNeededLinkContent": "iste ticket de GitHub"
+	}
+}
