@@ -122,7 +122,7 @@
     "contactUs": "Should you need a special ZIM, please contact us.",
     "alreadyZimed": {
       "alreadyMadeZim": "Kiwix has already made ZIM(s) of this website.",
-      "downloadFromLibrary": " To save our resources, we invite you to download your ZIM from {link}.",
+      "downloadFromLibrary": "To save our resources, we invite you to download your ZIM from {link}.",
       "downloadFromLibraryLinkContent": "our library",
       "wp1Hint": "If you want to ZIM only few specific pages, you might be interested by {wp1Link}.",
       "wp1LinkContent": "our WP1 tool"
