@@ -106,7 +106,7 @@
   },
   "blockedRequest": {
     "blockedMissingReason": "You are blocked from posting additional requests. While the technical reason is unclear at the moment, the situation should resolve itself automatically in a couple of hours, or when your previous request will expire.",
-    "contactUsIfPersist": "Please contact us if the situation persist.",
+    "contactUsIfPersist": "Please contact us if the situation persists.",
     "zimitFreeService": "Zimit being a free service, we limit the number of tasks per user.",
     "quotaReached": "You have reached your task quota, please wait for ongoing tasks to complete before requesting new ones.",
     "useLinksBelowToSeeTask": "Please use the links below to monitor / cancel ongoing tasks.",
