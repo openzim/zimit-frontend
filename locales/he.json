@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amire80"
+			"Amire80",
+			"YaronSh"
 		]
 	},
 	"language": "עברית",
@@ -75,7 +76,13 @@
 		"emailNotification": "היה אמור להגיע אליך מכתב עם ה־URL הנוכחי. אחרי שהמשימה תושלם, יגיע אליך מכתב נוסף עם קישור הורדה (ואז אפשר לסגור את החלון הזה).",
 		"noEmailNotification": "לא סיפקת לנו כתובת דוא״ל: נא להוסיף את הדף הזה לסימניות לפני סגירת החלון הזה, אחרת לא תהיה לך אפשרות לאחזר את קובץ ה־ZIM שלך.",
 		"settingsHeading": "הגדרות",
-		"taskNotFound": "המשימה לא נמצאה. או שכתובת ה־URL שלך שגויה, או שהשירות שלנו נתקל בבעיה."
+		"taskNotFound": "המשימה לא נמצאה. או שכתובת ה־URL שלך שגויה, או שהשירות שלנו נתקל בבעיה.",
+		"cancelButton": "ביטול הבקשה",
+		"requestCancelRequested": "ביטול הבקשה שלך התקבל",
+		"requestCancelRequestedExplanation": "הבקשה שלך מבוטלת. הפעולה הזאת עלולה לארוך מספר דקות.",
+		"requestCanceled": "הבקשה שלך בוטלה",
+		"cancellingRequest": "אנו מבטלים את הבקשה שלך",
+		"errorCancellingRequest": "הביטול נכשל"
 	},
 	"email": {
 		"requested": {
@@ -101,5 +108,27 @@
 			"retryLinkContent": "לנסות שוב",
 			"howToCheckSettings": "אפשר לבדוק את ההגדרות שהשתמשת בהן בכתובת %{taskLink}."
 		}
+	},
+	"blockedRequest": {
+		"contactUsIfPersist": "נא ליצור איתנו קשר אם המצב הזה נמשך.",
+		"goToTask": "מעבר למשימה שבטיפול כרגע {taskLink}",
+		"excessiveUsage": "זיהינו שימוש חריג מהסביבה שלך, נא לחזור בעוד כמה שעות."
+	},
+	"blacklist": {
+		"missingReason": "יש להגדיר סיבה לחסימה",
+		"missingLibraryUrl": "יש להגדיר את כתובת הספרייה בסיבת החסימה",
+		"goBack": "חזרה אחורה",
+		"contactUs": "אם יש לך צורך ב־ZIM מיוחד, נא ליצור איתנו קשר.",
+		"alreadyZimed": {
+			"downloadFromLibrary": " כדי לחסוך לנו משאבים, אנו מזמינים אותך להוריד את ה־ZIM שלך מ־{link}.",
+			"downloadFromLibraryLinkContent": "הספרייה שלנו"
+		},
+		"tooBig": {
+			"tooBigDetails": "האתר הזה גדול מכדי להיכנס ל־ZIM יחיד.",
+			"libraryLinkContent": "הספרייה שלנו",
+			"githubRequestLinkContent": "בקשת ZIM אחר"
+		},
+		"notPossible": "לרוע המזל אי אפשר לארוז את האתר הזה ל־ZIM עם zimit.",
+		"scraperNeededLinkContent": "התקלה הזאת ב־GitHub"
 	}
 }
