@@ -63,7 +63,8 @@ def get_task_info(task: Any) -> TaskInfo:
             sorted(
                 [
                     TaskInfoFlag(name=key, value=value)
-                    for (key, value) in zimfarm_task.config.flags.items()
+                    for (key, value) in zimfarm_task.config.offliner.items()
+                    if key != "offliner_id"
                 ],
                 key=lambda flag: flag.name,
             )

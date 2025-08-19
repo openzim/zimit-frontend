@@ -22,11 +22,11 @@ from zimitfrontend.routes.utils import (
     [
         pytest.param(
             {
-                "_id": "6341c25f-aac9-41aa-b9bb-3ddee058a0bf",
+                "id": "6341c25f-aac9-41aa-b9bb-3ddee058a0bf",
                 "status": "requested",
                 "config": {
                     "warehouse_path": "/other",
-                    "flags": {"flag2": "value2", "flag1": "value1"},
+                    "offliner": {"flag2": "value2", "flag1": "value1"},
                 },
                 "files": {
                     "file2.zim": {
@@ -67,8 +67,8 @@ from zimitfrontend.routes.utils import (
         ),
         pytest.param(
             {
-                "_id": "6341c25f-aac9-41aa-b9bb-3ddee058a0bf",
-                "config": {"warehouse_path": "/other", "flags": {}},
+                "id": "6341c25f-aac9-41aa-b9bb-3ddee058a0bf",
+                "config": {"warehouse_path": "/other", "offliner": {}},
                 "status": "blu",
                 "rank": 456,
             },
@@ -86,8 +86,8 @@ from zimitfrontend.routes.utils import (
         ),
         pytest.param(
             {
-                "_id": "6341c25f-aac9-41aa-b9bb-3ddee058a0bf",
-                "config": {"warehouse_path": "/other", "flags": {}},
+                "id": "6341c25f-aac9-41aa-b9bb-3ddee058a0bf",
+                "config": {"warehouse_path": "/other", "offliner": {}},
                 "container": {"progress": {"partialZim": False}},
                 "status": "bla",
                 "rank": 456,
@@ -106,8 +106,8 @@ from zimitfrontend.routes.utils import (
         ),
         pytest.param(
             {
-                "_id": "6341c25f-aac9-41aa-b9bb-3ddee058a0bf",
-                "config": {"warehouse_path": "/other", "flags": {}},
+                "id": "6341c25f-aac9-41aa-b9bb-3ddee058a0bf",
+                "config": {"warehouse_path": "/other", "offliner": {}},
                 "container": {"progress": {"overall": 100}},
                 "status": "bla",
                 "rank": 456,
@@ -132,11 +132,11 @@ def test_convert_zimfarm_task_to_info(task: Any, expected: TaskInfo):
 
 DEFAULT_HOOK_TASK = ZimfarmTask.model_validate(
     {
-        "_id": "6341c25f-aac9-41aa-b9bb-3ddee058a0bf",
+        "id": "6341c25f-aac9-41aa-b9bb-3ddee058a0bf",
         "status": "requested",
         "config": {
             "warehouse_path": "/other",
-            "flags": {"seeds": "https://www.acme.com"},
+            "offliner": {"seeds": "https://www.acme.com"},
         },
         "files": {
             "file2.zim": {
@@ -152,7 +152,6 @@ DEFAULT_HOOK_TASK = ZimfarmTask.model_validate(
         },
         "notification": {"ended": {"webhook": ["bla"]}},
         "container": {"progress": {"partialZim": True}},
-        "flags": {"flag2": "value2", "flag1": "value1"},
         "rank": 123,
     }
 )

@@ -1,7 +1,7 @@
 from typing import Any
 
 from humps import camelize
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict
 
 
 class CamelModel(BaseModel):
@@ -54,7 +54,7 @@ class TrackerStatusResponse(CamelModel):
 
 class ZimfarmTaskConfig(BaseModel):
     warehouse_path: str
-    flags: dict[str, Any]
+    offliner: dict[str, Any]
 
 
 class ZimfarmTaskFile(BaseModel):
@@ -81,7 +81,7 @@ class ZimfarmTaskContainer(BaseModel):
 
 
 class ZimfarmTask(BaseModel):
-    id: str = Field(alias="_id")
+    id: str
     status: str
     config: ZimfarmTaskConfig
     files: dict[str, ZimfarmTaskFile] | None = None

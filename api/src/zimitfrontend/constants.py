@@ -78,7 +78,7 @@ class ApiConfiguration:
     ).split("|")
 
     zimfarm_api_url = os.getenv(
-        "INTERNAL_ZIMFARM_WEBAPI", "https://api.farm.zimit.kiwix.org/v1"
+        "INTERNAL_ZIMFARM_WEBAPI", "https://api.farm.zimit.kiwix.org/v2"
     )
     zimfarm_requests_timeout = _get_time_setting("ZIMFARM_REQUESTS_TIMEOUT", "10s")
     mailgun_requests_timeout = _get_time_setting("MAILGUN_REQUESTS_TIMEOUT", "10s")

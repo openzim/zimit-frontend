@@ -85,12 +85,10 @@ class Tracker:
 
     def _ongoing_task_has_finished(self, task_id: str) -> bool:
         # first try to find the requested task
-        success, status, task = query_api(
-            "GET", f"/requested-tasks/{task_id}?hide_secrets="
-        )
+        success, status, task = query_api("GET", f"/requested-tasks/{task_id}")
         if status == HTTPStatus.NOT_FOUND:
             # if it fails, try to find the task
-            success, status, task = query_api("GET", f"/tasks/{task_id}?hide_secrets=")
+            success, status, task = query_api("GET", f"/tasks/{task_id}")
         if not success:
             logger.warning(
                 f"Unable to find ongoing task {task_id} status via HTTP {status}: "

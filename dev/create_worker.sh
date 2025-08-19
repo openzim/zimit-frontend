@@ -1,16 +1,17 @@
 echo "Retrieving access token"
 
 ZF_ADMIN_TOKEN="$(curl -s -X 'POST' \
-    'http://localhost:8002/v1/auth/authorize' \
+    'http://localhost:8002/v2/auth/authorize' \
     -H 'accept: application/json' \
-    -H 'Content-Type: application/x-www-form-urlencoded' \
-    -d 'username=admin&password=admin' \
+    -H 'Content-Type: application/json' \
+    -d '{"username":"admin","password":"admin"}' \
     | jq -r '.access_token')"
+
 
 echo "Worker check-in (will create if missing)"
 
 curl -s -X 'PUT' \
-  'http://localhost:8002/v1/workers/worker/check-in' \
+  'http://localhost:8002/v2/workers/worker/check-in' \
   -H 'accept: */*' \
   -H 'Content-Type: application/json' \
   -H "Authorization: Bearer $ZF_ADMIN_TOKEN" \
