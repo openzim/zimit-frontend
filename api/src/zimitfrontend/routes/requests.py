@@ -36,10 +36,10 @@ def task_info(
     task_id: Annotated[str, Path()],
 ) -> TaskInfo:
     # first try to find the task
-    _, status, task = query_api("GET", f"/tasks/{task_id}?hide_secrets=")
+    _, status, task = query_api("GET", f"/tasks/{task_id}")
     if status == HTTPStatus.NOT_FOUND:
         # if it fails, try to find the requested task
-        _, status, task = query_api("GET", f"/requested-tasks/{task_id}?hide_secrets=")
+        _, status, task = query_api("GET", f"/requested-tasks/{task_id}")
     if status != HTTPStatus.OK:
         raise HTTPException(
             status_code=HTTPStatus.BAD_REQUEST,
@@ -108,7 +108,9 @@ def create_task(
     flags = request.flags
     flags["seeds"] = normalize_hostname(request.url)
     flags["name"] = flags.get("name", schedule_name)
-    flags["zim-file"] = flags.get("zim-file", url.hostname) + f"_{ident}.zim"
+    flags["zim-file"] = (
+        flags.get("zim-file", url.hostname) + "_eng" + f"_{ident}" + "_{period}.zim"
+    )
     flags["userAgentSuffix"] = "zimit.kiwix.org+"
     flags["failOnFailedSeed"] = True
     flags["failOnInvalidStatus"] = True
@@ -141,7 +143,6 @@ def create_task(
     flags["timeSoftLimit"] = _cap_limit(time_limit, ApiConfiguration.zimit_time_limit)
 
     config = {
-        "task_name": "zimit",
         "warehouse_path": "/other",
         "image": {
             "name": ApiConfiguration.zimit_image.split(":")[0],
@@ -156,7 +157,7 @@ def create_task(
         },
         "platform": None,
         "monitor": False,
-        "flags": flags,
+        "offliner": {"offliner_id": "zimit", **flags},
     }
 
     # create schedule payload
@@ -190,7 +191,7 @@ def create_task(
     # create a unique schedule for that request on the zimfarm
     success, status, resp = query_api(
         "POST",
-        "/schedules/",
+        "/schedules",
         payload=payload,  # pyright: ignore[reportUnknownArgumentType]
     )
     if not success:
@@ -209,7 +210,7 @@ def create_task(
     # request a task for that newly created schedule
     success, status, resp = query_api(
         "POST",
-        "/requested-tasks/",
+        "/requested-tasks",
         payload={
             "schedule_names": [schedule_name],
             "worker": ApiConfiguration.task_worker,
@@ -285,7 +286,7 @@ def cancel_task(
         )
 
     # search as requested task
-    _, status, task = query_api("GET", f"/requested-tasks/{task_id}?hide_secrets=")
+    _, status, task = query_api("GET", f"/requested-tasks/{task_id}")
     if status == HTTPStatus.OK:
         _, status, task = query_api("DELETE", f"/requested-tasks/{task_id}")
         if status != HTTPStatus.OK:
@@ -309,7 +310,7 @@ def cancel_task(
         )
 
     # search as running task
-    _, status, task = query_api("GET", f"/tasks/{task_id}?hide_secrets=")
+    _, status, task = query_api("GET", f"/tasks/{task_id}")
     if status == HTTPStatus.OK:
         if task["status"] not in [
             "reserved",

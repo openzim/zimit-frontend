@@ -2,14 +2,14 @@
 <body>
 {% if task.status == "requested" %}
 <h2>{{ translate('email.requested.title')}}</h2>
-<p>{{ translate('email.requested.zimRequestRecorded', link='<a href="' +  task.config.flags.seeds + '">' +  task.config.flags.seeds + '</a>') | safe}}</p>
+<p>{{ translate('email.requested.zimRequestRecorded', link='<a href="' +  task.config.offliner.seeds + '">' +  task.config.offliner.seeds + '</a>') | safe}}</p>
 <p>{{ translate('email.requested.howToFollowProgress', link='<a href="' + base_url + '/#/request/' + task.id + '">' +  base_url + '/#/request/' + task.id + '</a>') | safe}}</p>
 <p>{{ translate('email.requested.emailWillBeSent')}}</p>
 {% endif %}
 
 {% if task.status == "succeeded" %}
 <h2>{{ translate('email.succeeded.title')}}</h2>
-<p>{{ translate('email.succeeded.zimRequestCompleted', link='<a href="' +  task.config.flags.seeds + '">' +  task.config.flags.seeds + '</a>') | safe}}</p>
+<p>{{ translate('email.succeeded.zimRequestCompleted', link='<a href="' +  task.config.offliner.seeds + '">' +  task.config.offliner.seeds + '</a>') | safe}}</p>
 <p>{{ translate('email.succeeded.hereItIs')}}</p>
 {% if task.files %}<ul>
 {% for file in task.files.values() %}<li><a href="{{ download_url }}{{ task.config.warehouse_path }}/{{ file.name }}">{{ file.name }}</a> ({{ file.size|format_size }})</li>{% endfor %}
@@ -21,7 +21,7 @@
 {% if task.status in ("failed", "canceled") %}
 <h2>{{ translate('email.failed.title')}}</h2>
 <p>{{ translate('email.failed.weAreSorry')}}</p>
-<p>{{ translate('email.failed.checkAndRetry', configUrlLink='<a href="' +  task.config.flags.seeds + '">' +  task.config.flags.seeds + '</a>', retryLink='<a href="' + base_url + '">' + translate('email.failed.retryLinkContent') + '</a>') | safe}}</p>
+<p>{{ translate('email.failed.checkAndRetry', configUrlLink='<a href="' +  task.config.offliner.seeds + '">' +  task.config.offliner.seeds + '</a>', retryLink='<a href="' + base_url + '">' + translate('email.failed.retryLinkContent') + '</a>') | safe}}</p>
 <p>{{ translate('email.failed.howToCheckSettings', taskLink='<a href="' + base_url + '/#/request/' + task.id + '">' + base_url + '/#/request/' + task.id + '</a>') | safe}}</p>{% endif %}
 </body>
 </html>
