@@ -108,9 +108,7 @@ def create_task(
     flags = request.flags
     flags["seeds"] = normalize_hostname(request.url)
     flags["name"] = flags.get("name", schedule_name)
-    flags["zim-file"] = (
-        flags.get("zim-file", url.hostname) + "_eng" + f"_{ident}" + "_{period}.zim"
-    )
+    flags["zim-file"] = flags.get("zim-file", url.hostname) + f"_{ident}.zim"
     flags["userAgentSuffix"] = "zimit.kiwix.org+"
     flags["failOnFailedSeed"] = True
     flags["failOnInvalidStatus"] = True
