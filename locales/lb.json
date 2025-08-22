@@ -75,5 +75,8 @@
 			"retryLinkContent": "probéiert nach eng Kéier",
 			"howToCheckSettings": "Dir kënnt d'Astellungen, déi Dir benotzt hutt, ënner %{taskLink} iwwerpréiwen."
 		}
+	},
+	"blockedRequest": {
+		"contactUsIfPersist": "Kontaktéiert eis wgl., wann d'Situatioun bestoe bleift."
 	}
 }

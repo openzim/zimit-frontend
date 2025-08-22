@@ -44,9 +44,11 @@
 		"advancedOptions": "opciones avanzadas",
 		"fetchingDefinitionAndStatus": "Cargando definición sin conexión y estatus del seguimiento…",
 		"errorFetchingDefinition": "Error en la búsqueda de la definición del offliner",
+		"errorFetchingStatus": "Error al obtener el estado del rastreador",
 		"creatingRequest": "Creando solicitud…",
 		"errorCreatingRequest": "Error al crear la solicitud",
-		"offlinerNotFound": "Zimit offliner no encontrado, probablemente experimentamos un problema grave en nuestra infraestructura."
+		"offlinerNotFound": "Zimit offliner no encontrado, probablemente experimentamos un problema grave en nuestra infraestructura.",
+		"stopNewRequestsMessage": "Temporalmente Zimit no acepta nuevas peticiones por mantenimiento, vuelva otra vez en unos días."
 	},
 	"notFound": {
 		"heading": "No encontrado",
@@ -60,6 +62,7 @@
 		"zimingOf": "Creando ZIM de \\",
 		"requestingSlot": "Solicitar espacio",
 		"requestRecorded": "Su solicitud ha sido registrada y está esperando un hueco en nuestra infraestructura para ejecutarse. Aunque nuestro objetivo es completar todas las solicitudes dentro de 24 horas, nuestra infraestructura en este servicio gratuito es limitada y a veces experimentamos una oleada de interés por parte de muchos usuarios, lo que retrasa el inicio de las solicitudes a varios días. Tenga paciencia!",
+		"rankMessage": "Su petición está en la posición {task_rank} de la cola (cuanto más bajo mejor, 0 significa que será la siguiente en iniciar).",
 		"requestFailed": "Lo sentimos, su solicitud ha fallado.",
 		"failureReasons": "Varias razones pueden llevar a un fallo al crear un ZIM. La mayoría de las veces, se trata de una URL inadecuada... Por favor, compruébala tres veces y cree una nueva petición. Si eso no funciona, {0}.",
 		"failureReasonsLinkContent0": "abrir un ticket en github",
@@ -108,20 +111,39 @@
 		}
 	},
 	"blockedRequest": {
+		"blockedMissingReason": "Se le ha prohibido publicar solicitudes adicionales. Si bien la razón técnica no está clara en este momento, la situación debería resolverse automáticamente en un par de horas, o cuando expire su solicitud anterior.",
 		"contactUsIfPersist": "Por favor, contáctenos si la situación persiste.",
-		"useLinksBelowToSeeTask": "Por favor, use los enlaces abajo mostrados para monitorear/cancelar las tareas en curso."
+		"zimitFreeService": "Al ser Zimit un servicio gratuito limitamos el número de peticiones por usuario.",
+		"quotaReached": "Ha alcanzado su cuota de peticiones, espere a que se completen las tareas en curso antes de solicitar otras nuevas.",
+		"useLinksBelowToSeeTask": "Por favor, use los enlaces abajo mostrados para monitorear/cancelar las tareas en curso.",
+		"goToTask": "Ir a la tarea en curso {taskLink}",
+		"excessiveUsage": "Hemos detectado un uso excesivo desde su entorno, por favor, vuelva en unas horas.",
+		"abnormalUsage": "Su dirección ha sido bloqueada temporalmente de poder enviar peticiones adicionales por lo que nuestros servidores han percibido como un uso anormal: {status}"
 	},
 	"blacklist": {
+		"missingReason": "Se debe establecer el motivo de la lista negra",
+		"missingLibraryUrl": "La URL de la biblioteca debe establecerse en el motivo de la lista negra",
+		"missingGithubIssueUrl": "La URL de la incidencia de Github debe establecerse en el motivo de la lista negra",
 		"goBack": "Volver",
+		"contactUs": "Si necesita un ZIM especial, contáctenos.",
 		"alreadyZimed": {
+			"alreadyMadeZim": "Kiwix ya ha creado ZIM(s) de esta página.",
+			"downloadFromLibrary": "Para ahorrar nuestros recursos le invitamos a descargar su ZIM a través de {link}.",
 			"downloadFromLibraryLinkContent": "nuestra biblioteca",
+			"wp1Hint": "Si solo desea crear un Zim de unas páginas específicas podría probar {wp1Link}.",
 			"wp1LinkContent": "nuestra herramienta WP1"
 		},
 		"tooBig": {
 			"tooBigDetails": "Esta página web es demasiado grande para convertirla en un solo archivo ZIM",
+			"alreadyMadeZim": "Kiwix ya ha creado unos pocos ZIM(s) de porciones de esta página.",
+			"downloadOrRequest": "Puede comprobar estos ZIMs en {libraryLink} o abrir una incidencia en {githubRequestLink} si coincide con el propósito de Kiwix.",
 			"libraryLinkContent": "nuestra biblioteca",
-			"githubRequestLinkContent": "pedir otro ZIM"
+			"githubRequestLinkContent": "pedir otro ZIM",
+			"useScraper": "Si usted es algo versado con la tecnología también podría utilizar {scraperRepoLink} por su propia cuenta.",
+			"scraperRepoLinkContent": "nuestro raspador web dedicado"
 		},
+		"notPossible": "Desafortunadamente no es posible crear un ZIM de esta página web usando zimit.",
+		"scraperNeeded": "Parece ser posible desarrolar un raspador web personalizado para esta página, pero necesitaremos su colaboración en {githubIssueLink}.",
 		"scraperNeededLinkContent": "esta incidencia en Github"
 	}
 }
