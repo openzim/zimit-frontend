@@ -161,7 +161,7 @@ def create_task(
     # create schedule payload
     payload = {  # pyright: ignore[reportUnknownVariableType]
         "name": schedule_name,
-        "language": {"code": "eng", "name_en": "English", "name_native": "English"},
+        "language": "eng",
         "category": "other",
         "periodicity": "manually",
         "tags": [],
