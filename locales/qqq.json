@@ -136,10 +136,10 @@
 		"tooBig": {
 			"tooBigDetails": "This is the message indicating that website is too big",
 			"alreadyMadeZim": "This is the message indicating that few ZIMs have already been built",
-			"downloadOrRequest": "This is the message inviting user to download ZIM or open a request",
-			"libraryLinkContent": "This is the textual content of the download link",
-			"githubRequestLinkContent": "This is the textual content of the Github request link",
-			"useScraper": "This is the message inviting user to use our scraper",
+			"downloadOrRequest": "This is the message inviting user to download ZIM or open a request\n\n* <code>{libraryLink}</code> is replaced by {{msg-kiwix|Zimit-ui-blacklist.tooBig.libraryLinkContent}}\n* <code>{githubRequestLink}</code> is replaced by {{msg-kiwix|Zimit-ui-blacklist.tooBig.githubRequestLinkContent}}",
+			"libraryLinkContent": "This is the textual content of the download link <code>{libraryLink}</code> in {{msg-kiwix|Zimit-ui-blacklist.tooBig.downloadOrRequest}}",
+			"githubRequestLinkContent": "This is the textual content of the Github request link, <code>{githubRequestLink}</code> in {{msg-kiwix|Zimit-ui-blacklist.tooBig.downloadOrRequest}}",
+			"useScraper": "This is the message inviting user to use our scraper. <code>{scraperLink}</code> is replaced by {{msg-kiwix|Zimit-ui-blacklist.tooBig.scraperRepoLinkContent}}",
 			"scraperRepoLinkContent": "This is the textual content of the link to the scraper"
 		},
 		"notPossible": "This is the message indicating that it is not possible to ZIM this website",
