@@ -1,0 +1,148 @@
+{
+	"@metadata": {
+		"authors": [
+			"ABPMAB",
+			"McDutchie"
+		]
+	},
+	"language": "Nederlands",
+	"faq": {
+		"whatIsZim": "Wat is een ZIM-bestand?",
+		"whatIsZimDescParagraph": "Het ZIM-bestandsformaat slaat website-inhoud op voor gebruik {0}. De normale onderdelen van een website worden in één archief samengebracht en gecomprimeerd om het geheel makkelijker te kunnen opslaan, delen en bewaren.",
+		"whatIsZimDescLinkContent0": "offline",
+		"howToRead": "Hoe lees ik mijn ZIM-bestanden?",
+		"howToReadDescParagraph": "U hebt een ZIM-bestandlezer nodig. Meestal is dat {0}, wat beschikbaar is voor {1}.",
+		"howToReadDescLinkContent0": "Kiwix",
+		"howToReadDescLinkContent1": "bureaucomputers, mobiele apparaten en dergelijke",
+		"missingContent": "Het ZIM-bestand is onvolledig of kleiner dan de originele website",
+		"missingContentDesc": "Vanwege de aard van deze tool kunnen we deze niet open laten staan voor onbeperkte verzoeken naar elke website. Dit kan schadelijk zijn voor zowel onze infrastructuur als de doelwebsites. We hanteren momenteel twee limieten: {human_size_limit} GiB voor de bestandsgrootte en {human_time_limit}.",
+		"gotError": "Ik kreeg een foutmelding (geen ZIM) of kon een ZIM-bestand niet lezen",
+		"gotErrorDescParagraph": "Controleer de ingevoerde URL driemaal. Als deze nog altijd niet werkt, open dan een bugticket op {0}. Vermeld de doelwebsite, het aanvraagnummer (dit staat in de e-mail die u hebt ontvangen) en het apparaat waarop u uw ZIM-bestand hebt geprobeerd te openen.",
+		"gotErrorDescLinkContent0": "GitHub"
+	},
+	"units": {
+		"timeLimit": {
+			"singular": "uur",
+			"plural": "uur"
+		}
+	},
+	"footer": {
+		"poweredByThankTo": "Aangedreven door {0} en {1}, dankzij een {2} Award ❤️",
+		"link0": "Kiwix",
+		"link1": "Webrecorder",
+		"link2": "Mozilla Open Source Support"
+	},
+	"header": {
+		"donate": "Houd dit gratis. Doneer"
+	},
+	"newRequest": {
+		"headingParagraph": "Wilt u een offline versie van een website? {0} maar!",
+		"headingBold": "ZIM hem",
+		"urlLabel": "Volledige URL van de website die moet worden omgezet",
+		"emailLabel": "Uw e-mailadres om een downloadlink te ontvangen. Het adres wordt niet bewaard.",
+		"submit": "Laten we ZIM'en!",
+		"advancedOptions": "geavanceerde opties",
+		"fetchingDefinitionAndStatus": "Definitie en trackerstatus van de offliner laden…",
+		"errorFetchingDefinition": "Fout bij het ophalen van de definitie van de offliner",
+		"errorFetchingStatus": "Fout bij het ophalen van de trackerstatus",
+		"creatingRequest": "Aanvraag wordt gemaakt…",
+		"errorCreatingRequest": "Fout bij het maken van de aanvraag",
+		"offlinerNotFound": "De offliner Zimit niet gevonden. Er is waarschijnlijk een ernstig probleem met onze infrastructuur.",
+		"stopNewRequestsMessage": "Zimit accepteert tijdelijk geen nieuwe onderhoudstaken. Hij is over een paar dagen weer terug."
+	},
+	"notFound": {
+		"heading": "Niet gevonden",
+		"description": "Er staat hier niets. Uw URL klopt waarschijnlijk niet. Misschien wilt u teruggaan."
+	},
+	"requestStatus": {
+		"refreshing": "Taakstatus vernieuwen…",
+		"errorRefreshing": "Fout bij het vernieuwen van de taakstatus",
+		"refreshAuto": "Deze pagina wordt automatisch elke {refresh_interval} seconden vernieuwd. U hoeft de pagina niet opnieuw te laden.",
+		"zimingOf": "ZIM’en van",
+		"requestingSlot": "Tijdsinterval wordt aangevraagd",
+		"requestRecorded": "Uw aanvraag is ingediend en wacht nu op een plek in onze infrastructuur om te worden uitgevoerd. Hoewel we ernaar streven alle aanvragen binnen 24 uur te verwerken, is onze infrastructuur voor deze gratis dienst beperkt en krijgen we soms pieken in de vraag. In dat geval kan het enkele dagen duren voordat de achterstand is ingelopen. Wees geduldig!",
+		"rankMessage": "Uw verzoek staat op positie {task_rank} in de wachtrij (hoe lager hoe beter, 0 betekent dat deze taak als volgende wordt gestart).",
+		"requestFailed": "Uw aanvraag is mislukt! Sorry.",
+		"failureReasons": "Er zijn verschillende redenen die kunnen leiden tot een mislukte omzetting in ZIM. Meestal komt dit door een onjuiste URL. Controleer deze drie keer en maak een nieuwe aanvraag aan. Als dat niet werkt, {0}.",
+		"failureReasonsLinkContent0": "open dan een ticket op GitHub",
+		"successMessage": "Gelukt!",
+		"successMessageExplanation": "Na een week vervalt de onderstaande koppeling en wordt het bestand verwijderd.",
+		"successMessageButton": "Downloaden",
+		"partialZim": "Uw ZIM-bestand bevat slechts een deel van de doelwebsite, omdat u de maximale bestandsgrootte ({human_size_limit} GiB) of duur ({human_time_limit}) voor gratis crawlen hebt bereikt. {contact_us_link} om extra serverruimte voor uw taak aan te schaffen.",
+		"partialZimContactUsLink": "Contact opnemen",
+		"beingProcessedMessage": "Uw aanvraag wordt verwerkt",
+		"beingProcessedExplanation": "Ons systeem is momenteel bezig de door u opgegeven URL om te zetten in een mooi ZIM-bestand. Afhankelijk van de gewenste bestandsgrootte kan dit enkele minuten of uren duren.",
+		"bookmarkUrl": "U kunt de huidige URL van uw browserpagina als bladwijzer opslaan, zodat u deze taak later nog eens kunt bekijken.",
+		"emailNotification": "U zou een e-mail met de huidige URL moeten hebben ontvangen. Zodra de taak is voltooid, ontvangt u een tweede e-mail met een downloadlink (u kunt dit venster dus sluiten).",
+		"noEmailNotification": "U hebt ons geen e-mailadres verstrekt. Voeg deze pagina toe aan uw bladwijzers voordat u het venster sluit, anders kunt u straks uw ZIM-bestand niet ophalen.",
+		"settingsHeading": "Instellingen",
+		"taskNotFound": "Taak niet gevonden. Uw URL is onjuist of er is een probleem met onze dienst.",
+		"cancelButton": "Aanvraag annuleren",
+		"requestCancelRequested": "De annulering van uw aanvraag is ontvangen",
+		"requestCancelRequestedExplanation": "Uw aanvraag wordt geannuleerd. Dit kan enkele minuten duren.",
+		"requestCanceled": "Uw aanvraag is geannuleerd",
+		"cancellingRequest": "Wij annuleren nu uw aanvraag",
+		"errorCancellingRequest": "Annulering mislukt"
+	},
+	"email": {
+		"requested": {
+			"subject": "Youzim.it-taak %{taskId} aangevraagd",
+			"title": "ZIM aangevraagd!",
+			"zimRequestRecorded": "Uw ZIM-aanvraag van %{link} is ingediend.",
+			"howToFollowProgress": "U kunt de status van deze aanvraag volgen op %{link}.",
+			"emailWillBeSent": "Zodra uw ZIM-bestand klaar is om te downloaden sturen wij u nog een e-mail."
+		},
+		"succeeded": {
+			"subject": "Youzim.it-taak %{taskId} geslaagd",
+			"title": "De ZIM is klaar!",
+			"zimRequestCompleted": "Uw ZIM-aanvraag van %{link} is voltooid.",
+			"hereItIs": "Hier is het:",
+			"incomplete": "De ZIM is helaas niet compleet omdat u de limiet voor gratis crawlen (%{sizeLimit} of %{timeLimit}) hebt bereikt. %{contactUsLink} om extra serverruimte aan te schaffen.",
+			"contactUsLinkContent": "Contact opnemen"
+		},
+		"failed": {
+			"subject": "Youzim.it-taak %{taskId} mislukt",
+			"title": "Uw ZIM-aanvraag is mislukt!",
+			"weAreSorry": "Het spijt ons zeer.",
+			"checkAndRetry": "Dit kan te wijten zijn aan een fout in de ingevoerde URL (%{configUrlLink}) of ontbrekende/mislukte aanvullende instellingen. Controleer deze nogmaals en %{retryLink}.",
+			"retryLinkContent": "opnieuw proberen",
+			"howToCheckSettings": "U kunt de instellingen die u hebt gebruikt controleren op %{taskLink}."
+		}
+	},
+	"blockedRequest": {
+		"blockedMissingReason": "U kunt nu geen nieuwe aanvragen insturen. Hoewel de technische reden op dit moment onduidelijk is, zou de situatie zich over een paar uur automatisch moeten oplossen, of wanneer uw vorige aanvraag verloopt.",
+		"contactUsIfPersist": "Neem contact met ons op als de situatie aanhoudt.",
+		"zimitFreeService": "Zimit is een gratis service, dus we beperken het aantal taken per gebruiker.",
+		"quotaReached": "U hebt uw takenquotum bereikt. Wacht tot de actieve taken zijn voltooid voordat u nieuwe taken aanvraagt.",
+		"useLinksBelowToSeeTask": "Gebruik de onderstaande koppelingen om lopende taken te controleren of te annuleren.",
+		"goToTask": "Naar de lopende taak {taskLink}",
+		"excessiveUsage": "We hebben overmatig gebruik in uw omgeving gedetecteerd. Kom over een paar uur nog eens terug.",
+		"abnormalUsage": "Uw adres is tijdelijk geblokkeerd voor het insturen van nieuwe aanvragen omdat onze servers abnormaal gebruik hebben waargenomen: {status}"
+	},
+	"blacklist": {
+		"missingReason": "Reden voor zwarte lijst moet worden ingesteld",
+		"missingLibraryUrl": "Bibliotheek-URL moet worden ingesteld in de reden voor zwarte lijst",
+		"missingGithubIssueUrl": "GitHub-issue-URL moet worden ingesteld in de reden voor zwarte lijst",
+		"goBack": "Teruggaan",
+		"contactUs": "Mocht u een speciale ZIM nodig hebben, neem dan contact met ons op.",
+		"alreadyZimed": {
+			"alreadyMadeZim": "Kiwix heeft al ZIM(s) van deze website gemaakt.",
+			"downloadFromLibrary": "Om onze middelen te besparen, nodigen wij u uit om uw ZIM te downloaden via {link}.",
+			"downloadFromLibraryLinkContent": "onze bibliotheek",
+			"wp1Hint": "Als u alleen een paar specifieke pagina's wilt ZIM’en, is {wp1Link} wellicht iets voor u.",
+			"wp1LinkContent": "onze WP1-tool"
+		},
+		"tooBig": {
+			"tooBigDetails": "Deze website is veel te groot om er één ZIM van te maken.",
+			"alreadyMadeZim": "Kiwix heeft al wat ZIM’s van delen van deze website gemaakt.",
+			"downloadOrRequest": "U kunt deze ZIM’s bekijken in {libraryLink} of een ticket openen om {githubRequestLink} als dat strookt met het doel van Kiwix.",
+			"libraryLinkContent": "onze bibliotheek",
+			"githubRequestLinkContent": "een andere ZIM aan te vragen",
+			"useScraper": "Als u een beetje technisch onderlegd bent, kunt u ook zelf {scraperRepoLink} gebruiken.",
+			"scraperRepoLinkContent": "onze toegewijde ‘scraper’"
+		},
+		"notPossible": "Helaas is het niet mogelijk om deze website te ZIM-en met zimit.",
+		"scraperNeeded": "Het lijkt mogelijk om een aangepaste scraper voor deze website te ontwikkelen, maar we hebben uw hulp nodig op {githubIssueLink}.",
+		"scraperNeededLinkContent": "dit Github-ticket"
+	}
+}

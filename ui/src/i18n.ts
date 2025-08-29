@@ -36,8 +36,9 @@ export const supportedLanguages: Language[] = [
   { code: 'id', display: 'Bahasa Indonesia', rtl: false },
   //  { code: 'ko', display: '한국어', rtl: false },
   //  { code: 'lb', display: 'Lëtzebuergesch', rtl: false },
-  //  { code: 'mk', display: 'македонски', rtl: false }
-  //  { code: 'nb', display: 'norsk bokmål', rtl: false }
+  //  { code: 'mk', display: 'македонски', rtl: false },
+  { code: 'nl', display: 'Nederlands', rtl: false },
+  //  { code: 'nb', display: 'norsk bokmål', rtl: false },
   { code: 'ro', display: 'Română', rtl: false },
   //  { code: 'sq', display: 'shqip', rtl: false },
   { code: 'sv', display: 'Svenska', rtl: false },
