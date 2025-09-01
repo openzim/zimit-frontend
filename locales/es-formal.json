@@ -1,0 +1,147 @@
+{
+	"@metadata": {
+		"authors": [
+			"Camachevaz"
+		]
+	},
+	"language": "Español",
+	"faq": {
+		"whatIsZim": "¿Qué es un archivo ZIM?",
+		"whatIsZimDescParagraph": "El archivo de formato ZIM guarda contenido de sitios web para su uso {0}. Ensambla la constitución normal de un sitio web en un solo archivo, y lo comprime para fácilmente guardarlo, compartirlo, y almacenarlo.",
+		"whatIsZimDescLinkContent0": "fuera de línea",
+		"howToRead": "¿Cómo puedo leer mis archivos ZIM?",
+		"howToReadDescParagraph": "Necesitarás un lector de archivos ZIM. Esto normalmente es {0}, que está disponible en {1}.",
+		"howToReadDescLinkContent0": "Kiwix",
+		"howToReadDescLinkContent1": "computadoras de escritorio, dispositivos móviles, y más",
+		"missingContent": "El archivo ZIM es incompatible o más pequeño que el sitio original",
+		"missingContentDesc": "Debido a la misma naturaleza de esta herramienta, no podemos dejarla abierta para peticiones ilimitadas hacia cualquier sitio web. Eso puede ser perjudicial tanto para nuestra infraestructura, pero también para los sitios web objetivo. Actualmente aplicamos dos límitesː {human_size_limit} GiB tamaño de archivo y {human_time_limit}.",
+		"gotError": "Obtuve un mensaje de error (ningún ZIM) o no pude leer un archivo ZIM",
+		"gotErrorDescParagraph": "Revise tres veces la URL que ingresó, y si aún no está funcionando entonces abra un incidente de error en {0}. Indique el sitio web objetivo, el número de petición (está en el correo electrónico que recibió), y el dispositivo en el que trató de abrir el archivo ZIM.",
+		"gotErrorDescLinkContent0": "github"
+	},
+	"units": {
+		"timeLimit": {
+			"singular": "hora",
+			"plural": "horas"
+		}
+	},
+	"footer": {
+		"poweredByThankTo": "Funciona con {0} y {1}, gracias a un premio {2} ❤️",
+		"link0": "Kiwix",
+		"link1": "Grabador web",
+		"link2": "Apoyo de código abierto Mozilla"
+	},
+	"header": {
+		"donate": "Mantenga esto gratuito. Done"
+	},
+	"newRequest": {
+		"headingParagraph": "¿Quiere una versión fuera de línea de un sitio web? ¡Solo {0}ǃ",
+		"headingBold": "Hacerlo ZIM",
+		"urlLabel": "URL completa del sitio a convertir",
+		"emailLabel": "Su correo electrónico para recibir un enlace de descarga. No guardamos la dirección",
+		"submit": "¡Hagámoslo ZIMǃ",
+		"advancedOptions": "opciones avanzadas",
+		"fetchingDefinitionAndStatus": "Cargando definición offliner y estatus del rastreador…",
+		"errorFetchingDefinition": "Error al obtener la definición offliner",
+		"errorFetchingStatus": "Error al obtener el estatus del rastreador",
+		"creatingRequest": "Creando petición…",
+		"errorCreatingRequest": "Error creando petición",
+		"offlinerNotFound": "No se encontró Zimit offliner, probablemente experimentamos un problema serio en nuestra infraestructura.",
+		"stopNewRequestsMessage": "Zimit no acepta temporalmente nuevas tareas para mantenimiento, estará de vuelta en unos cuantos días."
+	},
+	"notFound": {
+		"heading": "No Encontrado",
+		"description": "No hay nada aquí, su URL está probablemente equivocada. Tal vez quiera retroceder."
+	},
+	"requestStatus": {
+		"refreshing": "Actualizando el estado de la tarea…",
+		"errorRefreshing": "Error al refrescar el estado de la tarea",
+		"refreshAuto": "Esta página se actualizará automáticamente cada {refresh_interval} segundos, no es necesario recargarla.",
+		"zimingOf": "Creando ZIM de",
+		"requestingSlot": "Solicitando espacio",
+		"requestRecorded": "Su petición ha sido registrada y está esperando un espacio en nuestra infraestructura para ejecutar. Aunque nuestro objetivo es completar todas las peticiones dentro de 24 horas, nuestra infraestructura para este servicio gratuito es limitada y a veces experimentamos picos de demanda, en dichos casos las peticiones pueden retrasarse varios días para ser procesadas ¡Por favor tenga pacienciaǃ",
+		"rankMessage": "Su petición está en la posición {task_rank} de la cola de trabajo (mientras más baja mejor, 0 significa que esta tarea es la próxima a iniciar).",
+		"requestFailed": "¡Su petición ha falladoǃ Lo lamentamos.",
+		"failureReasons": "Hay varias razones por las que crear un ZIM puede fallar. La mayoría del tiempo es por una URL inadecuada… Por favor revise tres veces y cree una nueva petición. Si eso no funciona, {0}.",
+		"failureReasonsLinkContent0": "abrir un ticket en github",
+		"successMessage": "¡Éxitoǃ",
+		"successMessageExplanation": "El enlace debajo expirará y el archivo será borrado después de una semana.",
+		"successMessageButton": "Descargar",
+		"partialZim": "Su archivo ZIM contiene solo una parte del sitio web objetivo ya que ha alcanzado el tamaño máximo de ({human_size_limit} GiB) o la duración ({human_time_limit}) permitidos para el rastreo gratuito. {contact_us_link} para adquirir espacio adicional en el servidor para su tarea.",
+		"partialZimContactUsLink": "Contáctenos",
+		"beingProcessedMessage": "Su petición está siendo procesada",
+		"beingProcessedExplanation": "Nuestro sistema está actualmente convirtiendo la URL provista en un buen archivo ZIM. Dependiendo del tamaño del objetivo puede ser cuestión de minutos, u horas.",
+		"bookmarkUrl": "Puede agregar esta página a los Marcadores para volver después a ver esta tarea.",
+		"emailNotification": "Debe haber recibido un correo electrónico con la URL actual. Una vez que esta tarea sea completada recibirá un segundo correo electrónico con el enlace de descarga (por lo que puede cerrar esta ventana).",
+		"noEmailNotification": "No nos proporcionó un correo electrónicoː por favor agregue esta página a los marcadores antes de cerrarla o no será posible que recupere su archivo ZIM.",
+		"settingsHeading": "Ajustes",
+		"taskNotFound": "La tarea no fue encontrada. Su URL es incorrecto, o nuestro servicio está experimentando un problema.",
+		"cancelButton": "Cancelar petición",
+		"requestCancelRequested": "Su solicitud de cancelación ha sido recibida",
+		"requestCancelRequestedExplanation": "Su petición está siendo cancelada. Esto puede tomar varios minutos.",
+		"requestCanceled": "Su solicitud ha sido cancelada",
+		"cancellingRequest": "Estamos cancelando su petición",
+		"errorCancellingRequest": "Cancelación fallida"
+	},
+	"email": {
+		"requested": {
+			"subject": "Tarea %{taskId} Youzim.it solicitada",
+			"title": "¡ZIM solicitadoǃ",
+			"zimRequestRecorded": "Su solicitud ZIM de %{link} ha sido registrada.",
+			"howToFollowProgress": "Puede seguir el estado de esta solicitud en %{link}.",
+			"emailWillBeSent": "Le enviaremos otro correo electrónico cuando su archivo ZIM esté listo para descargar."
+		},
+		"succeeded": {
+			"subject": "La tarea %{taskId} Youzim.it ha sido realizada exitosamente",
+			"title": "¡El ZIM está listoǃ",
+			"zimRequestCompleted": "Su solicitud ZIM de %{link} se ha completado.",
+			"hereItIs": "Aquí estáː",
+			"incomplete": "El ZIM está desafortunadamente incompleto porque ha alcanzado el límite (%{sizeLimit} o %{timeLimit}) permitidos para rastreo gratuito. %{contactUsLink} para adquirir almacenamiento adicional en el servidor.",
+			"contactUsLinkContent": "Contáctenos"
+		},
+		"failed": {
+			"subject": "La tarea %{taskId} Youzim.it ha fallado",
+			"title": "¡Su solicitud ZIM ha falladoǃ",
+			"weAreSorry": "Lo sentimos mucho.",
+			"checkAndRetry": "Esto puede deberse a un error con la URL que ingresó (%{configUrlLink}) o ajustes adicionales faltantes / fallidos. Por favor revise de nuevo y %{retryLink}.",
+			"retryLinkContent": "intente de nuevo",
+			"howToCheckSettings": "Puede revisar los ajustes que usó en %{taskLink}."
+		}
+	},
+	"blockedRequest": {
+		"blockedMissingReason": "Ha sido bloqueado de publicar solicitudes adicionales. Aunque la razón técnica no está clara en este momento, la situación debe resolverse por sí misma automáticamente en un par de horas, o cuando expire su solicitud anterior.",
+		"contactUsIfPersist": "Por favor contáctenos si la situación persiste.",
+		"zimitFreeService": "Al ser Zimit un servicio gratuito, limitamos el número de tareas por usuario.",
+		"quotaReached": "Ha alcanzado el tope de tareas, por favor espere a que las tareas en curso se completen antes de solicitar nuevas.",
+		"useLinksBelowToSeeTask": "Por favor use los enlaces debajo para monitorear / cancelar sus tareas en curso.",
+		"goToTask": "I a tarea en curso {taskLink}",
+		"excessiveUsage": "Hemos detectado uso excesivo desde su entorno, por favor vuelva en unas horas.",
+		"abnormalUsage": "Su dirección ha sido temporalmente bloqueada de publicar solicitudes adicionales porque nuestros servidores percibieron un uso anormalː {status}"
+	},
+	"blacklist": {
+		"missingReason": "Las razones para agregar a la lista negra deben ser establecidas.",
+		"missingLibraryUrl": "La URL de la biblioteca debe estar establecida en la razón para agregar a la lista negra",
+		"missingGithubIssueUrl": "La URL del Issue en Github debe ser establecida en la razón para agregar a la lista negra",
+		"goBack": "Retroceder",
+		"contactUs": "Si necesitara un ZIM especial, por favor contáctenos.",
+		"alreadyZimed": {
+			"alreadyMadeZim": "Kiwix ya ha hecho archivo(s) ZIM de este sitio.",
+			"downloadFromLibrary": "Para ahorrar nuestros recursos, le invitamos a que descargue su ZIM de {link}.",
+			"downloadFromLibraryLinkContent": "Nuestra biblioteca",
+			"wp1Hint": "Si desea hacer ZIM solo ciertas páginas específicas, podría estar interesado en {wp1Link}.",
+			"wp1LinkContent": "Nuestra herramienta WP1"
+		},
+		"tooBig": {
+			"tooBigDetails": "Este sitio web es demasiado grande para hacerlo un solo archivo ZIM.",
+			"alreadyMadeZim": "Kiwix ya ha hecho algun(os) ZIM de partes de este sitio web.",
+			"downloadOrRequest": "Puede revisar estos ZIMs en {libraryLink} o abrir un incidente en {githubRequestLink} si coincide con el propósito de Kiwix.",
+			"libraryLinkContent": "Nuestra biblioteca",
+			"githubRequestLinkContent": "Solicitar otro ZIM",
+			"useScraper": "Si es algo versado con la tecnología, también puede usar {scraperRepoLink} por su cuenta.",
+			"scraperRepoLinkContent": "Nuestro Scraper dedicado"
+		},
+		"notPossible": "Desafortunadamente no es posible hacer un ZIM de este sitio web con Zimit.",
+		"scraperNeeded": "Parece ser posible desarrollar un Scraper personalizado para este sitio web, pero necesitamos su apoyo en {githubIssueLink}.",
+		"scraperNeededLinkContent": "este incidente Github"
+	}
+}
