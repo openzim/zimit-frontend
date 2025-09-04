@@ -1,0 +1,89 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eleassar"
+		]
+	},
+	"language": "Slovenščina",
+	"faq": {
+		"whatIsZim": "Kaj je datoteka ZIM?",
+		"whatIsZimDescParagraph": "Format datoteke ZIM shranjuje vsebino spletnega mesta za uporabo {0}. Običajno sestavino spletnega mesta sestavi v en sam arhiv in jo stisne, da olajša shranjevanje, skupno rabo in shranjevanje.",
+		"whatIsZimDescLinkContent0": "brez povezave",
+		"howToRead": "Kako preberem svoje datoteke ZIM?",
+		"howToReadDescParagraph": "Potrebovali boste bralnik datotek ZIM. To običajno pomeni {0}, ki je na voljo na {1}.",
+		"howToReadDescLinkContent0": "Kiwix",
+		"howToReadDescLinkContent1": "namizni računalniki, mobilne naprave in drugo",
+		"missingContent": "Datoteka ZIM je nepopolna ali manjša od originalnega spletnega mesta",
+		"missingContentDesc": "Zaradi same narave tega orodja ga ne moremo pustiti odprtega za neomejeno število zahtevkov do nobenega spletnega mesta. To bi lahko bilo škodljivo tako za našo infrastrukturo kot tudi za ciljna spletna mesta. Trenutno uporabljamo dve omejitvi: velikost datoteke {human_size_limit} GiB in {human_time_limit}.",
+		"gotError": "Prejel sem sporočilo o napaki (ni datoteke ZIM) ali datoteke ZIM nisem mogel prebrati.",
+		"gotErrorDescParagraph": "Trikrat preverite vneseni URL, in če še vedno ne deluje, odprite prijavo napake na {0}. Navedite ciljno spletno mesto, številko zahtevka (najdete jo v prejetem e-poštnem sporočilu) in napravo, na kateri ste poskušali odpreti datoteko ZIM.",
+		"gotErrorDescLinkContent0": "github"
+	},
+	"units": {
+		"timeLimit": {
+			"singular": "ura",
+			"plural": "ure"
+		}
+	},
+	"footer": {
+		"poweredByThankTo": "Poganjata {0} in {1}, zahvaljujoč nagradi {2} ❤️",
+		"link0": "Kiwix",
+		"link1": "Webrecorder",
+		"link2": "Mozilla Open-Source Support"
+	},
+	"header": {
+		"donate": "Naj bo to brezplačno. Donirajte."
+	},
+	"newRequest": {
+		"headingParagraph": "Želite različico spletnega mesta brez povezave? Preprosto {0}!",
+		"headingBold": "ZIM-ajte to",
+		"urlLabel": "Celotni URL spletnega mesta za pretvorbo",
+		"emailLabel": "Vaš e-poštni naslov za prejem povezave za prenos. Naslov se ne shrani.",
+		"submit": "ZIM-ajmo to!",
+		"advancedOptions": "napredne možnosti",
+		"fetchingDefinitionAndStatus": "Nalaganje definicije nespletnega modula in stanja sledilnika ...",
+		"errorFetchingDefinition": "Napaka pri pridobivanju definicije nespletnega modula",
+		"errorFetchingStatus": "Napaka pri pridobivanju stanja sledilnika",
+		"creatingRequest": "UStvarjanje zahtevka ...",
+		"errorCreatingRequest": "Napaka pri ustvarjanju zahtevka",
+		"offlinerNotFound": "Nespletni modul Zimit ni bil najden; verjetno gre za resno napako na naši infrastrukturi.",
+		"stopNewRequestsMessage": "Zimit začasno ne sprejema novih vzdrževalnih nalog. Znova bo na voljo v nekaj dneh."
+	},
+	"notFound": {
+		"heading": "Ni najdeno",
+		"description": "Tu ni ničesar, vaš URL je verjetno napačen. Morda se želite vrniti nazaj."
+	},
+	"requestStatus": {
+		"progressMessage": "{task_progression_percent}% ({task_progression_status_code})",
+		"refreshing": "Osveževanje stanja opravila ...",
+		"errorRefreshing": "Napaka pri osveževanju stanja opravila",
+		"refreshAuto": "Ta stran se bo samodejno osvežila vsakih {refresh_interval} sekund, zato je ni treba znova naložiti.",
+		"zimingOf": "Zimanje od",
+		"requestingSlot": "Zahtevanje reže",
+		"requestRecorded": "Vaš zahtevek je zabeležen in čaka na prosto mesto na naši infrastrukturi za izvedbo. Čeprav si prizadevamo, da bi vse zahteve izpolnili v 24 urah, je naša infrastruktura za to brezplačno storitev omejena in včasih pride do porasta povpraševanja, v tem primeru lahko zaradi zaostanka obdelava traja več dni. Prosimo za potrpežljivost!",
+		"rankMessage": "Vaš zahtevek je v čakalni vrsti na {task_rank}. mestu (nižje kot je, bolje je, 0 pomeni, da je to opravilo naslednje, ki se začne).",
+		"requestFailed": "Vaš zahtevek ni bil uspešno izveden! Žal nam je.",
+		"failureReasons": "Do napake pri shranjevanju v datoteko ZIM lahko pride iz več vzrokov. Večinoma gre za neustrezen URL ... Prosimo, trikrat preverite in ustvarite nov zahtevek. Če to ne deluje, {0}.",
+		"failureReasonsLinkContent0": "odprite zahtevek v GitHubu",
+		"successMessage": "Uspelo!",
+		"successMessageExplanation": "Spodnja povezava bo potekla in datoteka bo po enem tednu izbrisana.",
+		"successMessageButton": "Prenesi",
+		"partialZim": "Pozor, upoštevajte, da je vaš arhiv nepopoln, dosegli ste največjo dovoljeno velikost datoteke ({human_size_limit} GiB) ali trajanje ({human_time_limit}) za prosto iskanje po vsebini. {contact_us_link} za nakup dodatnega strežniškega prostora za vaša opravila.",
+		"partialZimContactUsLink": "Stik z nami",
+		"beingProcessedMessage": "Vaš zahtevek je v obdelavi",
+		"beingProcessedExplanation": "Naš sistem trenutno pretvarja URL, ki ste ga navedli, v lepo datoteko ZIM. Odvisno od velikosti cilja lahko to traja nekaj minut ali ur.",
+		"bookmarkUrl": "Trenutni URL strani v brskalniku si lahko dodate med zaznamke, da si boste to opravilo ogledali pozneje.",
+		"emailNotification": "Prejeti bi morali e-poštno sporočilo s trenutnim URL-jem. Drugo e-poštno obvestilo pa boste prejeli, ko bo naloga končana (to okno lahko torej zaprete).",
+		"taskNotFound": "Naloga ni najdena. Ali vaš URL ni pravilen ali pa ima naša storitev težave."
+	},
+	"email": {
+		"requested": {
+			"zimRequestRecorded": "Vaša zahtevek ZIM %{link} je zabeležen."
+		},
+		"failed": {
+			"title": "Vaš zahtevek ZIM je spodletel!",
+			"retryLinkContent": "poskusi znova",
+			"howToCheckSettings": "Nastavitve, ki ste jih uporabili, lahko preverite na %{taskLink}."
+		}
+	}
+}
