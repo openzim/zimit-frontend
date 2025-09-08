@@ -36,7 +36,7 @@ def get_url(path: str) -> str:
 
 def get_token_headers(token: str) -> dict[str, str]:
     return {
-        "Authorization": f"Token {token}",
+        "Authorization": f"Bearer {token}",
         "Content-type": "application/json",
     }
 
@@ -44,10 +44,9 @@ def get_token_headers(token: str) -> dict[str, str]:
 def get_token(username: str, password: str) -> tuple[str, str]:
     req = requests.post(
         url=get_url("/auth/authorize"),
-        headers={
+        json={
             "username": username,
             "password": password,
-            "Content-type": "application/json",
         },
         timeout=ApiConfiguration.zimfarm_requests_timeout,
     )
