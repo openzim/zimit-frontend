@@ -74,16 +74,75 @@
 		"beingProcessedExplanation": "Naš sistem trenutno pretvarja URL, ki ste ga navedli, v lepo datoteko ZIM. Odvisno od velikosti cilja lahko to traja nekaj minut ali ur.",
 		"bookmarkUrl": "Trenutni URL strani v brskalniku si lahko dodate med zaznamke, da si boste to opravilo ogledali pozneje.",
 		"emailNotification": "Prejeti bi morali e-poštno sporočilo s trenutnim URL-jem. Drugo e-poštno obvestilo pa boste prejeli, ko bo naloga končana (to okno lahko torej zaprete).",
-		"taskNotFound": "Naloga ni najdena. Ali vaš URL ni pravilen ali pa ima naša storitev težave."
+		"noEmailNotification": "Niste nam posredovali e-poštnega naslova: Pred zaprtjem okna dodajte to stran med zaznamke, sicer ne boste mogli pridobiti datoteke ZIM.",
+		"settingsHeading": "Nastavitve",
+		"taskNotFound": "Naloga ni najdena. Ali vaš URL ni pravilen ali pa ima naša storitev težave.",
+		"cancelButton": "Prekliči zahtevek",
+		"requestCancelRequested": "Vaš zahtevek za preklic je prejet",
+		"requestCancelRequestedExplanation": "Vaš zahtevek bo preklican. To lahko traja nekaj minut.",
+		"requestCanceled": "Vaš zahtevek je preklican",
+		"cancellingRequest": "Preklicujemo vaš zahtevek",
+		"errorCancellingRequest": "Preklic ni uspel"
 	},
 	"email": {
 		"requested": {
-			"zimRequestRecorded": "Vaša zahtevek ZIM %{link} je zabeležen."
+			"subject": "Zahtevano opravilo Youzim.it %{taskId}",
+			"title": "ZIM zahtevan!",
+			"zimRequestRecorded": "Vaša zahtevek ZIM %{link} je zabeležen.",
+			"howToFollowProgress": "Stanje tega zahtevka lahko spremljate na %{link}.",
+			"emailWillBeSent": "Ko bo datoteka ZIM pripravljena za prenos, vam bomo poslali še eno e-poštno sporočilo."
+		},
+		"succeeded": {
+			"subject": "Opravilo Youzim.it %{taskId} je uspešno končano",
+			"title": "ZIM je pripravljen!",
+			"zimRequestCompleted": "Vaš zahtevek ZIM %{link} je končan.",
+			"hereItIs": "Tukaj je:",
+			"incomplete": "ZIM je žal nepopoln, ker ste dosegli omejitev (%{sizeLimit} ali %{timeLimit}), dovoljeno za brezplačno pregledovanje. %{contactUsLink} za nakup dodatnega strežniškega prostora.",
+			"contactUsLinkContent": "Kontaktirajte nas"
 		},
 		"failed": {
+			"subject": "Opravilo Youzim.it %{taskId} je spodletelo",
 			"title": "Vaš zahtevek ZIM je spodletel!",
+			"weAreSorry": "Res nam je žal.",
+			"checkAndRetry": "To je lahko posledica napake v URL-ju, ki ste ga vnesli (%{configUrlLink}), ali manjkajočih/neuspešnih dodatnih nastavitev. Prosimo, dvakrat preverite in %{retryLink}.",
 			"retryLinkContent": "poskusi znova",
 			"howToCheckSettings": "Nastavitve, ki ste jih uporabili, lahko preverite na %{taskLink}."
 		}
+	},
+	"blockedRequest": {
+		"blockedMissingReason": "Objavljanje dodatnih zahtevkov vam je onemogočeno. Čeprav tehnični razlog trenutno ni jasen, bi se morala situacija samodejno rešiti v nekaj urah oziroma ko bo potekel vaš prejšnji zahtevek.",
+		"contactUsIfPersist": "Če se situacija nadaljuje, nas kontaktirajte.",
+		"zimitFreeService": "Ker je Zimit brezplačna storitev, omejujemo število opravil na uporabnika.",
+		"quotaReached": "Dosegli ste kvoto opravil. Preden zahtevate nova, počakajte, da se končajo potekajoča opravila.",
+		"useLinksBelowToSeeTask": "Za spremljanje/preklic potekajočih opravil uporabite spodnje povezave.",
+		"goToTask": "Pojdi na potekajoče opravilo {taskLink}",
+		"excessiveUsage": "Zaznali smo prekomerno uporabo iz vašega okolja. Prosimo, vrnite se čez nekaj ur.",
+		"abnormalUsage": "Vaš naslov je bil začasno blokiran za objavljanje dodatnih zahtevkov zaradi nenormalne uporabe, ki so jo zaznali naši strežniki: {status}"
+	},
+	"blacklist": {
+		"missingReason": "Nastavljen mora biti razlog za črni seznam.",
+		"missingLibraryUrl": "URL knjižnice mora biti nastavljen v razlogu za črni seznam",
+		"missingGithubIssueUrl": "URL težave GitHub mora biti nastavljen v razlogu za črni seznam",
+		"goBack": "Pojdi nazaj",
+		"contactUs": "Če potrebujete poseben ZIM, nas kontaktirajte.",
+		"alreadyZimed": {
+			"alreadyMadeZim": "Kiwix je že ustvaril ZIM(-e) za to spletno mesto.",
+			"downloadFromLibrary": "Zaradi varčevanja z viri vas vabimo, da si prenesete svoj ZIM iz {link}.",
+			"downloadFromLibraryLinkContent": "naše knjižnice",
+			"wp1Hint": "Če želite ZIM samo za nekaj določenih strani, vas bo morda zanimalo {wp1Link}.",
+			"wp1LinkContent": "naše orodje WP1"
+		},
+		"tooBig": {
+			"tooBigDetails": "To spletno mesto je preveliko, da bi ga lahko spravili v en sam ZIM.",
+			"alreadyMadeZim": "Kiwix je že izdelal nekaj ZIM(ov) delov tega spletnega mesta.",
+			"downloadOrRequest": "Te ZIM-e lahko preverite v {libraryLink} ali odprete zadevo za {githubRequestLink}, če ustreza namenu Kiwixa.",
+			"libraryLinkContent": "naši knjižnici",
+			"githubRequestLinkContent": "zahtevanje še enega ZIM",
+			"useScraper": "Če ste nekoliko tehnično podkovani, lahko {scraperRepoLink} uporabite tudi sami.",
+			"scraperRepoLinkContent": "naš namenski strgalnik"
+		},
+		"notPossible": "Žal tega spletnega mesta ni mogoče ZIM-ati z zimitom.",
+		"scraperNeeded": "Zdi se, da je mogoče za to spletno mesto razviti strgalnik po meri, vendar potrebujemo pri {githubIssueLink} vašo podporo.",
+		"scraperNeededLinkContent": "tej zadevi na GitHubu"
 	}
 }
