@@ -41,7 +41,7 @@ export const supportedLanguages: Language[] = [
   { code: 'nl', display: 'Nederlands', rtl: false },
   //  { code: 'nb', display: 'norsk bokmål', rtl: false },
   { code: 'ro', display: 'Română', rtl: false },
-  //  { code: 'sl', display: 'Slovenščina', rtl: false },
+  { code: 'sl', display: 'Slovenščina', rtl: false },
   //  { code: 'sq', display: 'shqip', rtl: false },
   { code: 'sv', display: 'Svenska', rtl: false },
   { code: 'zh-hans', display: '简体中文', rtl: false },
