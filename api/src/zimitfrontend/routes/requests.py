@@ -195,10 +195,10 @@ def create_task(
     if not success:
         logger.error(f"Unable to create schedule via HTTP {status}: {resp}")
         message = f"Unable to create schedule via HTTP {status}: {resp}"
-        if status == HTTPStatus.BAD_REQUEST:
+        if status in [HTTPStatus.BAD_REQUEST, HTTPStatus.UNPROCESSABLE_ENTITY]:
             # if Zimfarm replied this is a bad request, then this is most probably
             # a bad request due to user input so we can track it like a bad request
-            raise HTTPException(status_code=HTTPStatus.BAD_REQUEST, detail=message)
+            raise HTTPException(status_code=status, detail=message)
         else:
             # otherwise, this is most probably an internal problem in our systems
             raise HTTPException(
