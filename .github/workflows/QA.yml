@@ -68,3 +68,25 @@ jobs:
         working-directory: ui
         run: |
           yarn type-check
+
+  check-i18n:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Retrieve source code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: api/pyproject.toml
+          architecture: x64
+
+      - name: Install dependencies
+        working-directory: api
+        run: |
+          pip install -U pip
+          pip install -e .
+
+      - name: Validate i18n translations
+        run: python -m zimitfrontend.scripts.validate_i18n
