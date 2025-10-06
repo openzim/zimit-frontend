@@ -82,6 +82,23 @@ def main() -> int:
 
     errors: list[str] = []
 
+    # 0. Check required directories and files exist
+    print("📂 Checking required directories and files...")
+    required_paths = [
+        (locales_dir, "locales directory"),
+        (api_dir, "api directory"),
+        (ui_dir, "ui directory"),
+        (ui_dir / "src" / "i18n.ts", "ui/src/i18n.ts"),
+    ]
+
+    for path, description in required_paths:
+        if not path.exists():
+            print(f"   ❌ Missing {description}: {path}")
+            return 1
+        print(f"   ✅ Found {description}")
+
+    print()
+
     # 1. Load and validate locale files
     print("📁 Checking locale files...")
     en_path = locales_dir / "en.json"
@@ -139,62 +156,57 @@ def main() -> int:
     key_locations: dict[str, list[str]] = {}
 
     # Python files
-    if api_dir.exists():
-        for py_file in api_dir.rglob("*.py"):
-            # Skip node_modules and this validation script itself
-            if "node_modules" in str(py_file) or py_file.samefile(Path(__file__)):
-                continue
-            keys = extract_keys_from_python(py_file)
-            if keys:
-                print(f"   Found {len(keys)} keys in {py_file.relative_to(repo_root)}")
-                code_keys.update(keys)
-                for key in keys:
-                    key_locations.setdefault(key, []).append(
-                        str(py_file.relative_to(repo_root))
-                    )
+    for py_file in api_dir.rglob("*.py"):
+        # Skip node_modules and this validation script itself
+        if "node_modules" in str(py_file) or py_file.samefile(Path(__file__)):
+            continue
+        keys = extract_keys_from_python(py_file)
+        if keys:
+            print(f"   Found {len(keys)} keys in {py_file.relative_to(repo_root)}")
+            code_keys.update(keys)
+            for key in keys:
+                key_locations.setdefault(key, []).append(
+                    str(py_file.relative_to(repo_root))
+                )
 
     # Jinja templates (HTML and TXT files)
-    if api_dir.exists():
-        for template_file in list(api_dir.rglob("*.html")) + list(
-            api_dir.rglob("*.txt")
-        ):
-            if "node_modules" in str(template_file):
-                continue
-            keys = extract_keys_from_jinja(template_file)
-            if keys:
-                rel_path = template_file.relative_to(repo_root)
-                print(f"   Found {len(keys)} keys in {rel_path}")
-                code_keys.update(keys)
-                for key in keys:
-                    key_locations.setdefault(key, []).append(
-                        str(template_file.relative_to(repo_root))
-                    )
+    for template_file in list(api_dir.rglob("*.html")) + list(api_dir.rglob("*.txt")):
+        if "node_modules" in str(template_file):
+            continue
+        keys = extract_keys_from_jinja(template_file)
+        if keys:
+            rel_path = template_file.relative_to(repo_root)
+            print(f"   Found {len(keys)} keys in {rel_path}")
+            code_keys.update(keys)
+            for key in keys:
+                key_locations.setdefault(key, []).append(
+                    str(template_file.relative_to(repo_root))
+                )
 
     # Vue/TS files
-    if ui_dir.exists():
-        for vue_file in ui_dir.rglob("*.vue"):
-            if "node_modules" in str(vue_file):
-                continue
-            keys = extract_keys_from_vue_ts(vue_file)
-            if keys:
-                print(f"   Found {len(keys)} keys in {vue_file.relative_to(repo_root)}")
-                code_keys.update(keys)
-                for key in keys:
-                    key_locations.setdefault(key, []).append(
-                        str(vue_file.relative_to(repo_root))
-                    )
+    for vue_file in ui_dir.rglob("*.vue"):
+        if "node_modules" in str(vue_file):
+            continue
+        keys = extract_keys_from_vue_ts(vue_file)
+        if keys:
+            print(f"   Found {len(keys)} keys in {vue_file.relative_to(repo_root)}")
+            code_keys.update(keys)
+            for key in keys:
+                key_locations.setdefault(key, []).append(
+                    str(vue_file.relative_to(repo_root))
+                )
 
-        for ts_file in ui_dir.rglob("*.ts"):
-            if "node_modules" in str(ts_file):
-                continue
-            keys = extract_keys_from_vue_ts(ts_file)
-            if keys:
-                print(f"   Found {len(keys)} keys in {ts_file.relative_to(repo_root)}")
-                code_keys.update(keys)
-                for key in keys:
-                    key_locations.setdefault(key, []).append(
-                        str(ts_file.relative_to(repo_root))
-                    )
+    for ts_file in ui_dir.rglob("*.ts"):
+        if "node_modules" in str(ts_file):
+            continue
+        keys = extract_keys_from_vue_ts(ts_file)
+        if keys:
+            print(f"   Found {len(keys)} keys in {ts_file.relative_to(repo_root)}")
+            code_keys.update(keys)
+            for key in keys:
+                key_locations.setdefault(key, []).append(
+                    str(ts_file.relative_to(repo_root))
+                )
 
     print(f"   Total unique keys used in code: {len(code_keys)}")
     print()
@@ -231,46 +243,43 @@ def main() -> int:
     # 4. Check that all locale files are referenced in ui/src/i18n.ts
     print("📋 Checking locale files are registered in ui/src/i18n.ts...")
     i18n_ts_path = ui_dir / "src" / "i18n.ts"
-    if i18n_ts_path.exists():
-        i18n_ts_content = i18n_ts_path.read_text(encoding="utf-8")
-        # Extract language codes from supportedLanguages array (active and commented)
-        # Match both: { code: 'en', ... } and //  { code: 'en', ... }
-        pattern = r"(?://\s*)?{\s*code:\s*['\"]([^'\"]+)['\"]"
-        referenced_codes = set(re.findall(pattern, i18n_ts_content))
+    i18n_ts_content = i18n_ts_path.read_text(encoding="utf-8")
+    # Extract language codes from supportedLanguages array (active and commented)
+    # Match both: { code: 'en', ... } and //  { code: 'en', ... }
+    pattern = r"(?://\s*)?{\s*code:\s*['\"]([^'\"]+)['\"]"
+    referenced_codes: set[str] = set(re.findall(pattern, i18n_ts_content))
 
-        # Get all locale files except qqq.json (which is for documentation)
-        locale_codes = set()
-        for locale_file in locales_dir.glob("*.json"):
-            if locale_file.name != "qqq.json":
-                locale_code = locale_file.stem
-                locale_codes.add(locale_code)
+    # Get all locale files except qqq.json (which is for documentation)
+    locale_codes: set[str] = set()
+    for locale_file in locales_dir.glob("*.json"):
+        if locale_file.name != "qqq.json":
+            locale_code = locale_file.stem
+            locale_codes.add(locale_code)
 
-        # Check for missing references
-        missing_refs = locale_codes - referenced_codes
-        if missing_refs:
+    # Check for missing references
+    missing_refs: set[str] = locale_codes - referenced_codes
+    if missing_refs:
+        errors.append(
+            f"❌ Locale files not referenced in ui/src/i18n.ts "
+            f"({len(missing_refs)}):"
+        )
+        for code in sorted(missing_refs):
             errors.append(
-                f"❌ Locale files not referenced in ui/src/i18n.ts "
-                f"({len(missing_refs)}):"
+                f"   - {code}.json (add to supportedLanguages array, "
+                f"can be commented out)"
             )
-            for code in sorted(missing_refs):
-                errors.append(
-                    f"   - {code}.json (add to supportedLanguages array, "
-                    f"can be commented out)"
-                )
-        else:
-            print("   ✅ All locale files are registered in ui/src/i18n.ts")
-
-        # Check for references to non-existent files
-        extra_refs = referenced_codes - locale_codes
-        if extra_refs:
-            errors.append(
-                f"❌ Languages in ui/src/i18n.ts without locale files "
-                f"({len(extra_refs)}):"
-            )
-            for code in sorted(extra_refs):
-                errors.append(f"   - {code} (missing locales/{code}.json)")
     else:
-        print("   ⚠️  ui/src/i18n.ts not found, skipping check")
+        print("   ✅ All locale files are registered in ui/src/i18n.ts")
+
+    # Check for references to non-existent files
+    extra_refs: set[str] = referenced_codes - locale_codes
+    if extra_refs:
+        errors.append(
+            f"❌ Languages in ui/src/i18n.ts without locale files "
+            f"({len(extra_refs)}):"
+        )
+        for code in sorted(extra_refs):
+            errors.append(f"   - {code} (missing locales/{code}.json)")
 
     print()
 
