@@ -228,7 +228,53 @@ def main() -> int:
 
     print()
 
-    # 4. Report results
+    # 4. Check that all locale files are referenced in ui/src/i18n.ts
+    print("📋 Checking locale files are registered in ui/src/i18n.ts...")
+    i18n_ts_path = ui_dir / "src" / "i18n.ts"
+    if i18n_ts_path.exists():
+        i18n_ts_content = i18n_ts_path.read_text(encoding="utf-8")
+        # Extract language codes from supportedLanguages array (active and commented)
+        # Match both: { code: 'en', ... } and //  { code: 'en', ... }
+        pattern = r"(?://\s*)?{\s*code:\s*['\"]([^'\"]+)['\"]"
+        referenced_codes = set(re.findall(pattern, i18n_ts_content))
+
+        # Get all locale files except qqq.json (which is for documentation)
+        locale_codes = set()
+        for locale_file in locales_dir.glob("*.json"):
+            if locale_file.name != "qqq.json":
+                locale_code = locale_file.stem
+                locale_codes.add(locale_code)
+
+        # Check for missing references
+        missing_refs = locale_codes - referenced_codes
+        if missing_refs:
+            errors.append(
+                f"❌ Locale files not referenced in ui/src/i18n.ts "
+                f"({len(missing_refs)}):"
+            )
+            for code in sorted(missing_refs):
+                errors.append(
+                    f"   - {code}.json (add to supportedLanguages array, "
+                    f"can be commented out)"
+                )
+        else:
+            print("   ✅ All locale files are registered in ui/src/i18n.ts")
+
+        # Check for references to non-existent files
+        extra_refs = referenced_codes - locale_codes
+        if extra_refs:
+            errors.append(
+                f"❌ Languages in ui/src/i18n.ts without locale files "
+                f"({len(extra_refs)}):"
+            )
+            for code in sorted(extra_refs):
+                errors.append(f"   - {code} (missing locales/{code}.json)")
+    else:
+        print("   ⚠️  ui/src/i18n.ts not found, skipping check")
+
+    print()
+
+    # 5. Report results
     if errors:
         print("❌ Validation failed!\n")
         for error in errors:
