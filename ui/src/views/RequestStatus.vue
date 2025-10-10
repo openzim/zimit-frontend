@@ -85,7 +85,7 @@ watch(
             <p>{{ $t('requestStatus.requestRecorded') }}</p>
             <i18n-t keypath="requestStatus.rankMessage" tag="strong">
               <template #task_rank>
-                {{ mainStore.taskData.rank }}
+                {{ mainStore.taskData.rank + 1}}
               </template>
             </i18n-t>
             <p v-if="mainStore.taskData.hasEmail">{{ $t('requestStatus.bookmarkUrl') }}</p>
