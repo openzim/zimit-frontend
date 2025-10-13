@@ -62,7 +62,7 @@
 		"zimingOf": "Creando ZIM de \\",
 		"requestingSlot": "Solicitar espacio",
 		"requestRecorded": "Su solicitud ha sido registrada y está esperando un hueco en nuestra infraestructura para ejecutarse. Aunque nuestro objetivo es completar todas las solicitudes dentro de 24 horas, nuestra infraestructura en este servicio gratuito es limitada y a veces experimentamos una oleada de interés por parte de muchos usuarios, lo que retrasa el inicio de las solicitudes a varios días. Tenga paciencia!",
-		"rankMessage": "Su petición está en la posición {task_rank} de la cola (cuanto más bajo mejor, 0 significa que será la siguiente en iniciar).",
+		"rankMessage": "Su petición está en la posición {task_rank} de la cola (cuanto más bajo mejor, 1 significa que será la siguiente en iniciar).",
 		"requestFailed": "Lo sentimos, su solicitud ha fallado.",
 		"failureReasons": "Varias razones pueden llevar a un fallo al crear un ZIM. La mayoría de las veces, se trata de una URL inadecuada... Por favor, compruébala tres veces y cree una nueva petición. Si eso no funciona, {0}.",
 		"failureReasonsLinkContent0": "abrir un ticket en github",

@@ -61,7 +61,7 @@
 		"zimingOf": "ZIM’en van",
 		"requestingSlot": "Tijdsinterval wordt aangevraagd",
 		"requestRecorded": "Uw aanvraag is ingediend en wacht nu op een plek in onze infrastructuur om te worden uitgevoerd. Hoewel we ernaar streven alle aanvragen binnen 24 uur te verwerken, is onze infrastructuur voor deze gratis dienst beperkt en krijgen we soms pieken in de vraag. In dat geval kan het enkele dagen duren voordat de achterstand is ingelopen. Wees geduldig!",
-		"rankMessage": "Uw verzoek staat op positie {task_rank} in de wachtrij (hoe lager hoe beter, 0 betekent dat deze taak als volgende wordt gestart).",
+		"rankMessage": "Uw verzoek staat op positie {task_rank} in de wachtrij (hoe lager hoe beter, 1 betekent dat deze taak als volgende wordt gestart).",
 		"requestFailed": "Uw aanvraag is mislukt! Sorry.",
 		"failureReasons": "Er zijn verschillende redenen die kunnen leiden tot een mislukte omzetting in ZIM. Meestal komt dit door een onjuiste URL. Controleer deze drie keer en maak een nieuwe aanvraag aan. Als dat niet werkt, {0}.",
 		"failureReasonsLinkContent0": "open dan een ticket op GitHub",

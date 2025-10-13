@@ -60,7 +60,7 @@
 		"zimingOf": "Face ZIM de",
 		"requestingSlot": "Requesta spatio de tempore",
 		"requestRecorded": "Tu requesta ha essite registrate e attende un spatio in nostre infrastructura pro executar se. Ben que nos aspira a terminar tote le requestas intra 24 horas, nostre infrastructura pro iste servicio gratuite es limitate e a vices pote occurrer picos de demanda, in le qual caso le tractamento del requestas pendente pote prender plure dies. Per favor sia patiente!",
-		"rankMessage": "Tu requesta es al position {task_rank} in le cauda (plus basse es melior; 0 significa que iste carga es le proxime a comenciar).",
+		"rankMessage": "Tu requesta es al position {task_rank} in le cauda (plus basse es melior; 1 significa que iste carga es le proxime a comenciar).",
 		"requestFailed": "Tu requesta ha fallite! Nos lo regretta.",
 		"failureReasons": "Diverse factores pote causar un fallimento de conversion a ZIM. Le plus sovente, isto proveni de un URL inadequate… Per favor verifica lo tres vices e crea un nove requesta. Si isto non functiona, {0}.",
 		"failureReasonsLinkContent0": "aperi un ticket sur GitHub",

@@ -83,7 +83,7 @@ watch(
         <v-alert :title="$t('requestStatus.requestingSlot')" color="warning" variant="tonal">
           <template #text>
             <p>{{ $t('requestStatus.requestRecorded') }}</p>
-            <i18n-t keypath="requestStatus.rankMessage" tag="strong">
+            <i18n-t v-if="mainStore.taskData.rank" keypath="requestStatus.rankMessage" tag="strong">
               <template #task_rank>
                 {{ mainStore.taskData.rank + 1}}
               </template>

@@ -56,7 +56,7 @@
     "zimingOf": "Ziming of ",
     "requestingSlot": "Requesting slot",
     "requestRecorded": "Your request has been recorded and is awaiting a slot on our infrastructure to run. While we aim to complete all requests within 24 hours, our infrastructure for this free service is limited and we sometimes experience demand surges, in which case the backlog can take several days to process. Please be patient!",
-    "rankMessage": "Your request is at position {task_rank} in the queue (the lower the better, 0 means this task is the next to start).",
+    "rankMessage": "Your request is at position {task_rank} in the queue (the lower the better, 1 means this task is the next to start).",
     "requestFailed": "Your request has failed! Sorry about that.",
     "failureReasons": "A number of reasons can lead to a ziming failure. Most of the time this comes from an inadequate URL… Please triple check and create a new request. If that doesn't work, {0}.",
     "failureReasonsLinkContent0": "open a ticket in github",

@@ -61,7 +61,7 @@
 		"zimingOf": "Penziman dari",
 		"requestingSlot": "Meminta slot",
 		"requestRecorded": "Permintaan Anda telah dicatat dan sedang menunggu slot pada infrastruktur kami untuk dijalankan. Walaupun kami bertujuan menyelesaikan semua permintaan dalam 24 jam, infrastruktur kami untuk layanan gratis ini terbatas dan terkadang kami mengalami lonjakan permintaan, dalam hal ini penumpukan permintaan dapat memakan waktu beberapa hari untuk diproses. Harap bersabar!",
-		"rankMessage": "Permintaan Anda ada pada posisi {task_rank} dalam antrean (semakin rendah semakin baik, 0 berarti tugas ini adalah tugas berikutnya yang akan dimulai).",
+		"rankMessage": "Permintaan Anda ada pada posisi {task_rank} dalam antrean (semakin rendah semakin baik, 1 berarti tugas ini adalah tugas berikutnya yang akan dimulai).",
 		"requestFailed": "Permintaan Anda gagal! Maaf atas hal itu.",
 		"failureReasons": "Sejumlah alasan dapat menyebabkan kegagalan penziman. Sering kali ini diakibatkan URL yang tidak memadai… Harap periksa ulang dan buat permintaan baru. Jika tidak berhasil, {0}.",
 		"failureReasonsLinkContent0": "buka tiket di github",
