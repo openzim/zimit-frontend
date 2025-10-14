@@ -61,7 +61,7 @@
 		"zimingOf": "Zimanje od",
 		"requestingSlot": "Zahtevanje reže",
 		"requestRecorded": "Vaš zahtevek je zabeležen in čaka na prosto mesto na naši infrastrukturi za izvedbo. Čeprav si prizadevamo, da bi vse zahteve izpolnili v 24 urah, je naša infrastruktura za to brezplačno storitev omejena in včasih pride do porasta povpraševanja, v tem primeru lahko zaradi zaostanka obdelava traja več dni. Prosimo za potrpežljivost!",
-		"rankMessage": "Vaš zahtevek je v čakalni vrsti na {task_rank}. mestu (nižje kot je, bolje je, 0 pomeni, da je to opravilo naslednje, ki se začne).",
+		"rankMessage": "Vaš zahtevek je v čakalni vrsti na {task_rank}. mestu (nižje kot je, bolje je, 1 pomeni, da je to opravilo naslednje, ki se začne).",
 		"requestFailed": "Vaš zahtevek ni bil uspešno izveden! Žal nam je.",
 		"failureReasons": "Do napake pri shranjevanju v datoteko ZIM lahko pride iz več vzrokov. Večinoma gre za neustrezen URL ... Prosimo, trikrat preverite in ustvarite nov zahtevek. Če to ne deluje, {0}.",
 		"failureReasonsLinkContent0": "odprite zahtevek v GitHubu",
