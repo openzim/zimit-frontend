@@ -79,6 +79,7 @@ def get_task_info(task: Any) -> TaskInfo:
             else 0
         ),
         rank=zimfarm_task.rank,
+        offliner_definition_version=zimfarm_task.version,
     )
 
 

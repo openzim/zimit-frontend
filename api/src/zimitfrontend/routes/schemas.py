@@ -24,6 +24,7 @@ class TaskInfo(CamelModel):
     flags: list[TaskInfoFlag]
     progress: int | None
     rank: int | None
+    offliner_definition_version: str
 
 
 class TaskCreateRequest(CamelModel):
@@ -90,6 +91,7 @@ class ZimfarmTask(BaseModel):
     # rank is populated only on GET /requested_tasks/{id}, and not on any of
     # other endpoint and not on the webhook calls
     rank: int | None = None
+    version: str
 
 
 class HookStatus(BaseModel):
