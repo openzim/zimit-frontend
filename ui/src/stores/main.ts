@@ -1,5 +1,5 @@
-import { defineStore } from 'pinia'
 import axios, { AxiosError } from 'axios'
+import { defineStore } from 'pinia'
 
 import constants from '../constants'
 import { getCurrentLocale, setCurrentLocale, type Language } from '../i18n'
@@ -9,6 +9,7 @@ export type RootState = {
   loading: boolean
   loadingText: string
   offlinerDefinition: OfflinerDefinition | undefined
+  currentOfflinerDefinitionVersion: string | undefined
   offlinerNotFound: boolean
   formValues: NameValue[]
   taskId: string
@@ -82,6 +83,19 @@ export type BlacklistEntry = {
   wp1Hint: boolean | null
 }
 
+export interface Paginator {
+  count: number
+  skip: number
+  limit: number
+  page_size: number
+  page: number
+}
+
+export interface ListResponse<T> {
+  meta: Paginator
+  items: T[]
+}
+
 export const useMainStore = defineStore('main', {
   state: () =>
     ({
@@ -89,6 +103,8 @@ export const useMainStore = defineStore('main', {
       loading: false,
       loadingText: '',
       offlinerDefinition: undefined,
+      offlinerDefinitionVersions: [] as string[],
+      currentOfflinerDefinitionVersion: undefined,
       offlinerNotFound: false,
       formValues: [] as NameValue[],
       taskId: '',
@@ -96,6 +112,7 @@ export const useMainStore = defineStore('main', {
       taskNotFound: false,
       snackbarDisplayed: false,
       snackbarContent: '',
+      trackerStatus: undefined,
       blacklistReason: undefined
     }) as RootState,
   actions: {
@@ -132,6 +149,10 @@ export const useMainStore = defineStore('main', {
     saveOfflinersDefinitions(offlinersDefinitions: OfflinerDefinition) {
       this.offlinerDefinition = offlinersDefinitions
     },
+
+    setCurrentOfflinerDefinitionVersion(version: string) {
+      this.currentOfflinerDefinitionVersion = version
+    },
     increment() {
       this.count++
     },
@@ -152,8 +173,24 @@ export const useMainStore = defineStore('main', {
     },
     async loadOfflinerDefinition() {
       try {
+        const versions = (
+          await axios.get<ListResponse<string>>(
+            this.config.zimfarm_api + '/offliners/zimit/versions'
+          )
+        ).data
+
+        if (versions.items.length == 0) {
+          this.offlinerNotFound = true
+          const message = 'No offliner definitions found'
+          this.handleError(message, new Error(message))
+          return
+        }
+        // load the latest version
+        this.currentOfflinerDefinitionVersion = versions.items[0]
         const offlinerDefinition = (
-          await axios.get<OfflinerDefinition>(this.config.zimfarm_api + '/offliners/zimit')
+          await axios.get<OfflinerDefinition>(
+            this.config.zimfarm_api + '/offliners/zimit/' + this.currentOfflinerDefinitionVersion
+          )
         ).data
         offlinerDefinition.flags = offlinerDefinition.flags.filter(
           (flag) => this.config.new_request_advanced_flags.indexOf(flag.data_key) > -1
