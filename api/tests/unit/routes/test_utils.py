@@ -48,6 +48,8 @@ from zimitfrontend.routes.utils import (
                 "notification": {"ended": {"webhook": ["bla"]}},
                 "container": {"progress": {"partialZim": True}},
                 "rank": 123,
+                "offliner": "zimit",
+                "version": "initial",
             },
             TaskInfo(
                 id="6341c25f-aac9-41aa-b9bb-3ddee058a0bf",
@@ -72,6 +74,8 @@ from zimitfrontend.routes.utils import (
                 "config": {"warehouse_path": "/other", "offliner": {}},
                 "status": "blu",
                 "rank": 456,
+                "offliner": "zimit",
+                "version": "initial",
             },
             TaskInfo(
                 id="6341c25f-aac9-41aa-b9bb-3ddee058a0bf",
@@ -93,6 +97,8 @@ from zimitfrontend.routes.utils import (
                 "container": {"progress": {"partialZim": False}},
                 "status": "bla",
                 "rank": 456,
+                "offliner": "zimit",
+                "version": "initial",
             },
             TaskInfo(
                 id="6341c25f-aac9-41aa-b9bb-3ddee058a0bf",
@@ -114,6 +120,8 @@ from zimitfrontend.routes.utils import (
                 "container": {"progress": {"overall": 100}},
                 "status": "bla",
                 "rank": 456,
+                "offliner": "zimit",
+                "version": "initial",
             },
             TaskInfo(
                 id="6341c25f-aac9-41aa-b9bb-3ddee058a0bf",
@@ -157,6 +165,8 @@ DEFAULT_HOOK_TASK = ZimfarmTask.model_validate(
         "notification": {"ended": {"webhook": ["bla"]}},
         "container": {"progress": {"partialZim": True}},
         "rank": 123,
+        "offliner": "zimit",
+        "version": "initial",
     }
 )
 
