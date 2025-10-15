@@ -72,6 +72,7 @@ export type TaskData = {
   downloadLink: string
   progress: number
   rank: number | undefined
+  offlinerDefinitionVersion: string
 }
 
 export type BlacklistEntry = {
@@ -133,6 +134,7 @@ export const useMainStore = defineStore('main', {
         this.taskData = (
           await axios.get<TaskData>(this.config.zimit_ui_api + '/requests/' + this.taskId)
         ).data
+        await this.loadOfflinerDefinitionVersion(this.taskData.offlinerDefinitionVersion)
         this.taskNotFound = false
       } catch (error) {
         this.handleError(this.t('requestStatus.errorRefreshing'), error)
@@ -200,6 +202,25 @@ export const useMainStore = defineStore('main', {
       } catch (error) {
         this.handleError(this.t('newRequest.errorFetchingDefinition'), error)
         this.offlinerNotFound = true
+      }
+    },
+    async loadOfflinerDefinitionVersion(version: string) {
+      if (version == this.currentOfflinerDefinitionVersion && this.offlinerDefinition) {
+        return
+      }
+      try {
+        const offlinerDefinition = (
+          await axios.get<OfflinerDefinition>(
+            this.config.zimfarm_api + '/offliners/zimit/' + version
+          )
+        ).data
+        this.offlinerDefinition = offlinerDefinition
+        this.offlinerNotFound = false
+        this.currentOfflinerDefinitionVersion = version
+      } catch (error) {
+        this.handleError(this.t('newRequest.errorFetchingDefinition'), error)
+        this.offlinerNotFound = true
+        this.currentOfflinerDefinitionVersion = undefined
       }
     },
     async getTrackerStatus() {
