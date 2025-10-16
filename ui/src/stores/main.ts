@@ -275,13 +275,6 @@ export const useMainStore = defineStore('main', {
     loadingStatus(state) {
       return { shoudDisplay: state.loading, text: state.loadingText }
     },
-    offlinerFlags(state) {
-      return (
-        state.offlinerDefinition?.flags.filter(
-          (flag) => this.config.new_request_advanced_flags.indexOf(flag.data_key) > -1
-        ) || []
-      )
-    },
     getFormValue: (state) => {
       return (name: string) => {
         const formValue = state.formValues.find((formValue) => formValue.name === name)
