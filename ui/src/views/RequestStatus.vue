@@ -56,7 +56,7 @@ watch(
 
       <p v-if="mainStore.loading">{{ mainStore.loadingText }}</p>
     </div>
-    <div v-if="mainStore.taskData">
+    <div v-if="mainStore.taskData && mainStore.offlinerDefinition">
       <h1>
         {{ $t('requestStatus.zimingOf')
         }}<a :href="mainStore.taskUrl" target="_blank">{{ mainStore.taskUrl }}</a>

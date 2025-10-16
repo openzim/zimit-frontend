@@ -134,7 +134,9 @@ export const useMainStore = defineStore('main', {
         this.taskData = (
           await axios.get<TaskData>(this.config.zimit_ui_api + '/requests/' + this.taskId)
         ).data
-        await this.loadOfflinerDefinitionVersion(this.taskData.offlinerDefinitionVersion)
+        if (this.taskData.offlinerDefinitionVersion != this.currentOfflinerDefinitionVersion) {
+          await this.loadOfflinerDefinitionVersion(this.taskData.offlinerDefinitionVersion)
+        }
         this.taskNotFound = false
       } catch (error) {
         this.handleError(this.t('requestStatus.errorRefreshing'), error)
@@ -189,25 +191,13 @@ export const useMainStore = defineStore('main', {
         }
         // load the latest version
         this.currentOfflinerDefinitionVersion = versions.items[0]
-        const offlinerDefinition = (
-          await axios.get<OfflinerDefinition>(
-            this.config.zimfarm_api + '/offliners/zimit/' + this.currentOfflinerDefinitionVersion
-          )
-        ).data
-        offlinerDefinition.flags = offlinerDefinition.flags.filter(
-          (flag) => this.config.new_request_advanced_flags.indexOf(flag.data_key) > -1
-        )
-        this.offlinerDefinition = offlinerDefinition
-        this.offlinerNotFound = false
+        await this.loadOfflinerDefinitionVersion(this.currentOfflinerDefinitionVersion)
       } catch (error) {
         this.handleError(this.t('newRequest.errorFetchingDefinition'), error)
         this.offlinerNotFound = true
       }
     },
     async loadOfflinerDefinitionVersion(version: string) {
-      if (version == this.currentOfflinerDefinitionVersion && this.offlinerDefinition) {
-        return
-      }
       try {
         const offlinerDefinition = (
           await axios.get<OfflinerDefinition>(
@@ -216,11 +206,9 @@ export const useMainStore = defineStore('main', {
         ).data
         this.offlinerDefinition = offlinerDefinition
         this.offlinerNotFound = false
-        this.currentOfflinerDefinitionVersion = version
       } catch (error) {
         this.handleError(this.t('newRequest.errorFetchingDefinition'), error)
         this.offlinerNotFound = true
-        this.currentOfflinerDefinitionVersion = undefined
       }
     },
     async getTrackerStatus() {
@@ -321,7 +309,11 @@ export const useMainStore = defineStore('main', {
       return { shoudDisplay: state.loading, text: state.loadingText }
     },
     offlinerFlags(state) {
-      return state.offlinerDefinition?.flags || []
+      return (
+        state.offlinerDefinition?.flags.filter(
+          (flag) => this.config.new_request_advanced_flags.indexOf(flag.data_key) > -1
+        ) || []
+      )
     },
     getFormValue: (state) => {
       return (name: string) => {
