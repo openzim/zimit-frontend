@@ -20,7 +20,11 @@ const getKeyLabel = (key: string, offlinerDefinition: OfflinerDefinition) => {
 }
 
 onMounted(() => {
-  Promise.all([mainStore.getTrackerStatus(), mainStore.loadTaskId(route.params.taskId)])
+  Promise.all([
+    mainStore.getTrackerStatus(),
+    mainStore.loadOfflinerDefinition(),
+    mainStore.loadTaskId(route.params.taskId)
+  ])
 
   // Reload task periodically
   if (!config) {

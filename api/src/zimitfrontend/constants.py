@@ -85,6 +85,9 @@ class ApiConfiguration:
     zimfarm_username = os.getenv("_ZIMFARM_USERNAME", "-")
     zimfarm_password = os.getenv("_ZIMFARM_PASSWORD", "-")
     zimit_image = os.getenv("ZIMIT_IMAGE", "openzim/zimit:1.2.0")
+    zimit_definition_version = os.getenv("ZIMIT_DEFINITION_VERSION", "")
+    if not zimit_definition_version:
+        _, zimit_definition_version = zimit_image.split(":")
 
     zimit_size_limit = _get_int_setting("ZIMIT_SIZE_LIMIT", 2**30 * 4)
     zimit_time_limit = _get_int_setting("ZIMIT_TIME_LIMIT", 3600 * 2)

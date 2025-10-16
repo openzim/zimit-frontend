@@ -103,3 +103,29 @@ class HookProcessingResult(BaseModel):
     mail_target: str | None = None
     mail_subject: str | None = None
     mail_body: str | None = None
+
+
+class Choice(BaseModel):
+    title: str
+    value: str
+
+
+class FlagSchema(BaseModel):
+    data_key: str
+    key: str
+    type: str
+    choices: list[Choice] | None = None
+    label: str
+    description: str
+    required: bool = False
+    secret: bool = False
+    min: int | None = None
+    max: int | None = None
+    min_length: int | None = None
+    max_length: int | None = None
+    pattern: str | None = None
+
+
+class OfflinerDefinitionSchema(BaseModel):
+    help: str
+    flags: list[FlagSchema]

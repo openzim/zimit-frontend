@@ -9,7 +9,6 @@ export type RootState = {
   loading: boolean
   loadingText: string
   offlinerDefinition: OfflinerDefinition | undefined
-  currentOfflinerDefinitionVersion: string | undefined
   offlinerNotFound: boolean
   formValues: NameValue[]
   taskId: string
@@ -104,8 +103,6 @@ export const useMainStore = defineStore('main', {
       loading: false,
       loadingText: '',
       offlinerDefinition: undefined,
-      offlinerDefinitionVersions: [] as string[],
-      currentOfflinerDefinitionVersion: undefined,
       offlinerNotFound: false,
       formValues: [] as NameValue[],
       taskId: '',
@@ -134,9 +131,6 @@ export const useMainStore = defineStore('main', {
         this.taskData = (
           await axios.get<TaskData>(this.config.zimit_ui_api + '/requests/' + this.taskId)
         ).data
-        if (this.taskData.offlinerDefinitionVersion != this.currentOfflinerDefinitionVersion) {
-          await this.loadOfflinerDefinitionVersion(this.taskData.offlinerDefinitionVersion)
-        }
         this.taskNotFound = false
       } catch (error) {
         this.handleError(this.t('requestStatus.errorRefreshing'), error)
@@ -154,9 +148,6 @@ export const useMainStore = defineStore('main', {
       this.offlinerDefinition = offlinersDefinitions
     },
 
-    setCurrentOfflinerDefinitionVersion(version: string) {
-      this.currentOfflinerDefinitionVersion = version
-    },
     increment() {
       this.count++
     },
@@ -177,32 +168,8 @@ export const useMainStore = defineStore('main', {
     },
     async loadOfflinerDefinition() {
       try {
-        const versions = (
-          await axios.get<ListResponse<string>>(
-            this.config.zimfarm_api + '/offliners/zimit/versions'
-          )
-        ).data
-
-        if (versions.items.length == 0) {
-          this.offlinerNotFound = true
-          const message = 'No offliner definitions found'
-          this.handleError(message, new Error(message))
-          return
-        }
-        // load the latest version
-        this.currentOfflinerDefinitionVersion = versions.items[0]
-        await this.loadOfflinerDefinitionVersion(this.currentOfflinerDefinitionVersion)
-      } catch (error) {
-        this.handleError(this.t('newRequest.errorFetchingDefinition'), error)
-        this.offlinerNotFound = true
-      }
-    },
-    async loadOfflinerDefinitionVersion(version: string) {
-      try {
         const offlinerDefinition = (
-          await axios.get<OfflinerDefinition>(
-            this.config.zimfarm_api + '/offliners/zimit/' + version
-          )
+          await axios.get<OfflinerDefinition>(this.config.zimit_ui_api + '/offliner-definition')
         ).data
         this.offlinerDefinition = offlinerDefinition
         this.offlinerNotFound = false

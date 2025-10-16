@@ -1,7 +1,6 @@
 {
   "stop_new_requests_on": false,
   "zimit_ui_api": "http://localhost:8002/api/v1",
-  "zimfarm_api": "http://localhost:8004/v1",
   "wikipedia_offline_article": "https://en.wikipedia.org/wiki/Offline",
   "kiwix_home_page": "https://kiwix.org",
   "kiwix_download_page": "https://kiwix.org/en/applications/",
