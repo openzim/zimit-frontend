@@ -1,35 +1,79 @@
 services:
   zimfarm-db:
-    image: postgres:15.2-bullseye
+    image: postgres:17.3-bookworm
+    container_name: zimarm-postgresdb
     ports:
-      - 127.0.0.1:5432:5432
+      - 127.0.0.1:2345:5432
     volumes:
       - zimfarm_data:/var/lib/postgresql/data
+      - ./postgres-initdb:/docker-entrypoint-initdb.d
     environment:
       - POSTGRES_DB=zimfarm
       - POSTGRES_USER=zimfarm
       - POSTGRES_PASSWORD=zimpass
+    healthcheck:
+      test: ["CMD", "pg_isready", "-q", "-d", "dbname=zimfarm user=zimfarm"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
   zimfarm-api:
-    image: ghcr.io/openzim/zimfarm-dispatcher:latest
+    image: ghcr.io/openzim/zimfarm-backend:latest
+    container_name: zimfarm-api
     ports:
       - 127.0.0.1:8004:80
     environment:
       BINDING_HOST: 0.0.0.0
       JWT_SECRET: DH8kSxcflUVfNRdkEiJJCn2dOOKI3qfw
       POSTGRES_URI: postgresql+psycopg://zimfarm:zimpass@zimfarm-db:5432/zimfarm
-      ALEMBIC_UPGRADE_HEAD_ON_START: "1"
-      ZIMIT_USE_RELAXED_SCHEMA: "y"
+      INIT_USERNAME: admin
+      INIT_PASSWORD: admin
+      ZIMIT_USE_RELAXED_SCHEMA: true
+      ALLOWED_ORIGINS: http://localhost:8003
     depends_on:
-      - zimfarm-db
+      zimfarm-db:
+        condition: service_healthy
+    command:
+      - uvicorn
+      - zimfarm_backend.main:app
+      - --host
+      - "0.0.0.0"
+      - --port
+      - "80"
+      - --proxy-headers
+      - --forwarded-allow-ips
+      - "*"
   zimfarm-ui:
     image: ghcr.io/openzim/zimfarm-ui:latest
+    container_name: zimfarm-ui
     ports:
       - 127.0.0.1:8003:80
-    environment:
-      ZIMFARM_WEBAPI: http://localhost:8004/v1
+    volumes:
+      - ./zimfarm_ui_dev/config.json:/usr/share/nginx/html/config.json:ro
     depends_on:
-      - zimfarm-api
+      zimfarm-api:
+        condition: service_healthy
+  zimfarm-worker-manager:
+    image: ghcr.io/openzim/zimfarm-worker-manager:latest
+    container_name: zimfarm-worker-manager
+    depends_on:
+      zimfarm-api:
+        condition: service_healthy
+    command: worker-manager --webapi-uri 'http://zimfarm-api:80/v2' --username test_worker --name test_worker
+    environment:
+      - DEBUG=true
+      - TASK_WORKER_IMAGE=ghcr.io/openzim/zimfarm-task-worker:latest
+      - ENVIRONMENT=development
+      - ZIMFARM_DISK=4Gb
+      - ZIMFARM_MEMORY=2Gb
+      - ZIMFARM_CPU=1
+      - POLL_INTERVAL=10
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./id_ed25519:/etc/ssh/keys/zimfarm
+    profiles:
+      - worker
   zimit-api:
+    container_name: zimit-api
     build:
       dockerfile: Dockerfile-api
       context: ..
@@ -52,16 +96,19 @@ services:
     ports:
       - 127.0.0.1:8002:80
     environment:
-      INTERNAL_ZIMFARM_WEBAPI: http://zimfarm-api:80/v1
+      INTERNAL_ZIMFARM_WEBAPI: http://zimfarm-api:80/v2
       _ZIMFARM_USERNAME: admin
       _ZIMFARM_PASSWORD: admin
-      TASK_WORKER: worker
+      TASK_WORKER: test_worker
       HOOK_TOKEN: a_very_secret_token
       CALLBACK_BASE_URL: http://zimit-api:80/api/v1/requests/hook
       DIGEST_KEY: d1a2df7f0a229cc6
+      ZIMIT_IMAGE: openzim/zimit:3.0.5
+      ZIMIT_DEFINITION_VERSION: dev
     depends_on:
       - zimfarm-api
   zimit-ui-dev:
+    container_name: zimit-ui-dev
     build:
       dockerfile: dev/zimit_ui_dev/Dockerfile
       context: ..
@@ -74,6 +121,7 @@ services:
     depends_on:
       - zimit-api
   zimit-ui-prod:
+    container_name: zimit-ui-prod
     build:
       dockerfile: Dockerfile-ui
       context: ..

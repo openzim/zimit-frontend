@@ -133,3 +133,7 @@ dmypy.json
 # ignore all editor files, this is not standard configuration in this place
 .vscode
 *.vim
+
+# ignore worker SSH keys
+id_ed25519*
+id_rsa*
