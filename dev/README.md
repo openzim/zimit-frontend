@@ -14,34 +14,38 @@ Zimfarm UI, API worker, and DB are deployed with official production Docker imag
 
 ## List of containers
 
-### zimit_ui_prod
+### zimit-ui-prod
 
 This container is Zimit frontend UI as served in production (already compiled as a static website, so not possible to live-edit)
 
-### zimit_ui_dev
+### zimit-ui-dev
 
 This container is Zimit frontend UI served in development mode (possible to live-edit)
 
-### zimit_api
+### zimit-api
 
 This container is Zimit frontend API server (only slightly modified to enable live reload of edits)
 
-## zimfarm_db
+## zimfarm-db
 
 This container is a local Zimfarm database
 
-## zimfarm_api
+## zimfarm-api
 
 This container is a local Zimfarm API
 
-## zimfarm_ui
+## zimfarm-ui
 
 This container is a local Zimfarm UI
 
-## zimfarm_worker_manager
+## zimfarm-worker-manager
 
-Ths container is a local Zimfarm worker manager. It pulls the Zimfarm task worker image to
+This container is a local Zimfarm worker manager. It pulls the Zimfarm task worker image to
 execute tasks
+
+## zimfarm-receiver
+
+This container stores the uploaded files/logs for each task.
 
 ## Instructions
 
@@ -55,9 +59,16 @@ execute tasks
   ```
 
 - To start the compose services (with a registered worker):
+
   ```sh
   cd dev
   docker compose --profile worker up --build
+  ```
+
+- If you are running with worker profile, you will need to create warehouse paths to upload the logs and files for each task.
+  ```sh
+  docker exec -it zimfarm-receiver bash
+  /contrib/create-warehouse-paths.sh
   ```
 
 If it is your first execution of the dev stack, you need to create offliners and a "virtual" worker in Zimfarm DB. Thus, you need to start the services without the worker

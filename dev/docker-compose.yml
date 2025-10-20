@@ -29,6 +29,11 @@ services:
       INIT_PASSWORD: admin
       ZIMIT_USE_RELAXED_SCHEMA: true
       ALLOWED_ORIGINS: http://localhost:8003
+      # upload artifacts, logs and zim to receiver for simplicity
+      ARTIFACTS_UPLOAD_URI: sftp://uploader@zimfarm-receiver:22/logs/ # reusing logs dir, kind of a hack
+      LOGS_UPLOAD_URI: sftp://uploader@zimfarm-receiver:22/logs/
+      ZIM_UPLOAD_URI: sftp://uploader@zimfarm-receiver:22/zim/
+      ZIMCHECK_OPTION: --all
     depends_on:
       zimfarm-db:
         condition: service_healthy
@@ -70,6 +75,20 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./id_ed25519:/etc/ssh/keys/zimfarm
+    profiles:
+      - worker
+  zimfarm-receiver:
+    image: ghcr.io/openzim/zimfarm-receiver:latest
+    container_name: zimfarm-receiver
+    ports:
+      - 127.0.0.1:8222:22
+    volumes:
+      - ./create-warehouse-paths.sh:/contrib/create-warehouse-paths.sh
+    environment:
+      - ZIMFARM_WEBAPI=http://zimfarm-api:80/v2
+    depends_on:
+      zimfarm-api:
+        condition: service_healthy
     profiles:
       - worker
   zimit-api:
