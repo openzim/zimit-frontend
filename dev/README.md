@@ -55,14 +55,14 @@ This container stores the uploaded files/logs for each task.
 
   ```sh
   cd dev
-  docker compose up --build
+  docker compose up --pull always --build
   ```
 
 - To start the compose services (with a registered worker):
 
   ```sh
   cd dev
-  docker compose --profile worker up --build
+  docker compose --profile worker up --pull always --build
   ```
 
 - If you are running with worker profile, you will need to create warehouse paths to upload the logs and files for each task.
