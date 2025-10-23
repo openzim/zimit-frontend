@@ -77,7 +77,7 @@ response=$(curl -s -w "\n%{http_code}" -X 'PUT' \
   -H "Authorization: Bearer $ZF_USER_TOKEN" \
   -d '{
   "username": "test_worker",
-  "cpu": 1,
+  "cpu": 3,
   "memory": 2147483648,
   "disk": 4294967296,
   "offliners": [
@@ -101,8 +101,6 @@ response=$(curl -s -w "\n%{http_code}" -X POST "${ZIMFARM_BASE_API_URL}/users/te
   -H "Authorization: Bearer $ZF_USER_TOKEN" \
   -H 'Content-Type: application/json; charset=utf-8' \
   -d "$payload")
-
-echo "Move/Copy the worker keys to where the worker manager can access it (typically a docker volume mount if you are running in a container)"
 
 http_code=$(echo "$response" | tail -n1)
 response=$(echo "$response" | head -n -1)
