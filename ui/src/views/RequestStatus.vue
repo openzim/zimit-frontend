@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { inject, onMounted, onBeforeUnmount, watch } from 'vue'
+import { inject, onBeforeUnmount, onMounted, watch } from 'vue'
 import type { Config } from '../config'
 import constants from '../constants'
+import type { OfflinerDefinition } from '../stores/main'
 
 import { useRoute } from 'vue-router'
 const route = useRoute()
@@ -13,8 +14,17 @@ const config = inject<Config>(constants.config)
 
 let refreshInterval: ReturnType<typeof setInterval> | undefined
 
+const getKeyLabel = (key: string, offlinerDefinition: OfflinerDefinition) => {
+  const flag = offlinerDefinition.flags.find((flag) => flag.key == key || flag.data_key == key)
+  return flag?.label
+}
+
 onMounted(() => {
-  Promise.all([mainStore.getTrackerStatus(), mainStore.loadTaskId(route.params.taskId)])
+  Promise.all([
+    mainStore.getTrackerStatus(),
+    mainStore.loadOfflinerDefinition(),
+    mainStore.loadTaskId(route.params.taskId)
+  ])
 
   // Reload task periodically
   if (!config) {
@@ -50,7 +60,7 @@ watch(
 
       <p v-if="mainStore.loading">{{ mainStore.loadingText }}</p>
     </div>
-    <div v-if="mainStore.taskData">
+    <div v-if="mainStore.taskData && mainStore.offlinerDefinition">
       <h1>
         {{ $t('requestStatus.zimingOf')
         }}<a :href="mainStore.taskUrl" target="_blank">{{ mainStore.taskUrl }}</a>
@@ -85,7 +95,7 @@ watch(
             <p>{{ $t('requestStatus.requestRecorded') }}</p>
             <i18n-t v-if="mainStore.taskData.rank" keypath="requestStatus.rankMessage" tag="strong">
               <template #task_rank>
-                {{ mainStore.taskData.rank + 1}}
+                {{ mainStore.taskData.rank + 1 }}
               </template>
             </i18n-t>
             <p v-if="mainStore.taskData.hasEmail">{{ $t('requestStatus.bookmarkUrl') }}</p>
@@ -168,12 +178,13 @@ watch(
         <tbody>
           <tr
             v-for="(flag, index) in mainStore.taskData.flags.filter(
-              (flag) => config?.task_status_hidden_flags.indexOf(flag.name) == -1
+              (flag) =>
+                config?.task_status_hidden_flags.indexOf(flag.name) == -1 && flag.value !== null
             )"
             :key="flag.name"
             :class="{ 'striped-row': index % 2 === 0 }"
           >
-            <th>{{ flag.name }}</th>
+            <th>{{ getKeyLabel(flag.name, mainStore.offlinerDefinition!) }}</th>
             <td>{{ flag.value }}</td>
           </tr>
         </tbody>

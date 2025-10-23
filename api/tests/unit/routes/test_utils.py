@@ -48,6 +48,8 @@ from zimitfrontend.routes.utils import (
                 "notification": {"ended": {"webhook": ["bla"]}},
                 "container": {"progress": {"partialZim": True}},
                 "rank": 123,
+                "offliner": "zimit",
+                "version": "initial",
             },
             TaskInfo(
                 id="6341c25f-aac9-41aa-b9bb-3ddee058a0bf",
@@ -62,6 +64,7 @@ from zimitfrontend.routes.utils import (
                 ],
                 progress=0,
                 rank=123,
+                offliner_definition_version="initial",
             ),
             id="full",
         ),
@@ -71,6 +74,8 @@ from zimitfrontend.routes.utils import (
                 "config": {"warehouse_path": "/other", "offliner": {}},
                 "status": "blu",
                 "rank": 456,
+                "offliner": "zimit",
+                "version": "initial",
             },
             TaskInfo(
                 id="6341c25f-aac9-41aa-b9bb-3ddee058a0bf",
@@ -81,6 +86,7 @@ from zimitfrontend.routes.utils import (
                 flags=[],
                 progress=0,
                 rank=456,
+                offliner_definition_version="initial",
             ),
             id="simple",
         ),
@@ -91,6 +97,8 @@ from zimitfrontend.routes.utils import (
                 "container": {"progress": {"partialZim": False}},
                 "status": "bla",
                 "rank": 456,
+                "offliner": "zimit",
+                "version": "initial",
             },
             TaskInfo(
                 id="6341c25f-aac9-41aa-b9bb-3ddee058a0bf",
@@ -101,6 +109,7 @@ from zimitfrontend.routes.utils import (
                 flags=[],
                 progress=0,
                 rank=456,
+                offliner_definition_version="initial",
             ),
             id="limit_not_hit",
         ),
@@ -111,6 +120,8 @@ from zimitfrontend.routes.utils import (
                 "container": {"progress": {"overall": 100}},
                 "status": "bla",
                 "rank": 456,
+                "offliner": "zimit",
+                "version": "initial",
             },
             TaskInfo(
                 id="6341c25f-aac9-41aa-b9bb-3ddee058a0bf",
@@ -121,6 +132,7 @@ from zimitfrontend.routes.utils import (
                 flags=[],
                 progress=100,
                 rank=456,
+                offliner_definition_version="initial",
             ),
             id="no_limit_info",
         ),
@@ -153,6 +165,8 @@ DEFAULT_HOOK_TASK = ZimfarmTask.model_validate(
         "notification": {"ended": {"webhook": ["bla"]}},
         "container": {"progress": {"partialZim": True}},
         "rank": 123,
+        "offliner": "zimit",
+        "version": "initial",
     }
 )
 

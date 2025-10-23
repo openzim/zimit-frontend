@@ -1,5 +1,5 @@
-import { defineStore } from 'pinia'
 import axios, { AxiosError } from 'axios'
+import { defineStore } from 'pinia'
 
 import constants from '../constants'
 import { getCurrentLocale, setCurrentLocale, type Language } from '../i18n'
@@ -71,6 +71,7 @@ export type TaskData = {
   downloadLink: string
   progress: number
   rank: number | undefined
+  offlinerDefinitionVersion: string
 }
 
 export type BlacklistEntry = {
@@ -80,6 +81,19 @@ export type BlacklistEntry = {
   githubIssue: string | null
   scraperUrl: string | null
   wp1Hint: boolean | null
+}
+
+export interface Paginator {
+  count: number
+  skip: number
+  limit: number
+  page_size: number
+  page: number
+}
+
+export interface ListResponse<T> {
+  meta: Paginator
+  items: T[]
 }
 
 export const useMainStore = defineStore('main', {
@@ -96,6 +110,7 @@ export const useMainStore = defineStore('main', {
       taskNotFound: false,
       snackbarDisplayed: false,
       snackbarContent: '',
+      trackerStatus: undefined,
       blacklistReason: undefined
     }) as RootState,
   actions: {
@@ -132,6 +147,7 @@ export const useMainStore = defineStore('main', {
     saveOfflinersDefinitions(offlinersDefinitions: OfflinerDefinition) {
       this.offlinerDefinition = offlinersDefinitions
     },
+
     increment() {
       this.count++
     },
@@ -153,11 +169,8 @@ export const useMainStore = defineStore('main', {
     async loadOfflinerDefinition() {
       try {
         const offlinerDefinition = (
-          await axios.get<OfflinerDefinition>(this.config.zimfarm_api + '/offliners/zimit')
+          await axios.get<OfflinerDefinition>(this.config.zimit_ui_api + '/offliner-definition')
         ).data
-        offlinerDefinition.flags = offlinerDefinition.flags.filter(
-          (flag) => this.config.new_request_advanced_flags.indexOf(flag.data_key) > -1
-        )
         this.offlinerDefinition = offlinerDefinition
         this.offlinerNotFound = false
       } catch (error) {
@@ -261,9 +274,6 @@ export const useMainStore = defineStore('main', {
   getters: {
     loadingStatus(state) {
       return { shoudDisplay: state.loading, text: state.loadingText }
-    },
-    offlinerFlags(state) {
-      return state.offlinerDefinition?.flags || []
     },
     getFormValue: (state) => {
       return (name: string) => {

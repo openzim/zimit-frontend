@@ -6,7 +6,6 @@ import constants from './constants'
 export type Config = {
   stop_new_requests_on: boolean
   zimit_ui_api: string
-  zimfarm_api: string
   wikipedia_offline_article: string
   kiwix_home_page: string
   kiwix_download_page: string
