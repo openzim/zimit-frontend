@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Apq",
 			"Larsa"
 		]
 	},
@@ -43,9 +44,11 @@
 		"advancedOptions": "avancerade alternativ",
 		"fetchingDefinitionAndStatus": "Laddar ej-uppkopplad-definition...",
 		"errorFetchingDefinition": "Det gick inte att hämta ej-uppkopplad-definitionen",
+		"errorFetchingStatus": "Fel vid hämtning av spårningsstatus",
 		"creatingRequest": "Skapa förfrågan...",
 		"errorCreatingRequest": "Det gick inte att skapa förfrågan",
-		"offlinerNotFound": "Zimit ej-uppkopplare inte hittat, vi upplever förmodligen ett allvarligt problem med vår infrastruktur."
+		"offlinerNotFound": "Zimit ej-uppkopplare inte hittat, vi upplever förmodligen ett allvarligt problem med vår infrastruktur.",
+		"stopNewRequestsMessage": "Zimit tar tillfälligt inte emot nya uppgifter för underhåll, är tillbaka om några dagar."
 	},
 	"notFound": {
 		"heading": "Hittades inte",
@@ -58,6 +61,7 @@
 		"zimingOf": "Ziming av",
 		"requestingSlot": "Efterfrågar plats",
 		"requestRecorded": "Din förfrågan har registrerats och väntar på att få en körningsplats i vår infrastruktur. Även om vi siktar på att slutföra alla förfrågningar inom 24 timmar, är vår infrastruktur för den här kostnadsfria tjänsten begränsad och vi upplever ibland efterfrågeökningar, då kan eftersläpningen ta flera dagar att behandla. Ha tålamod!",
+		"rankMessage": "Din förfrågan är på plats {task_rank} i kön (ju lägre desto bättre, där 1 betyder att den här uppgiften är näst på tur att starta).",
 		"requestFailed": "Din begäran har misslyckats! Ber om ursäkt för det.",
 		"failureReasons": "Ett antal orsaker kan leda till ett zimingfel. Oftast kommer detta från en otillräcklig URL... Vänligen kontrollera tredubbelt och skapa en ny begäran. Om det inte fungerar, {0}.",
 		"failureReasonsLinkContent0": "öppna ett ärende i github",
@@ -72,7 +76,13 @@
 		"emailNotification": "Du borde ha fått ett e-postmeddelande med aktuell webbadress. När uppgiften är klar får du ett andra e-postmeddelande med en nedladdningslänk (du kan alltså stänga det här fönstret).",
 		"noEmailNotification": "Du har inte gett oss ett e-post adress: vänligen bokmärk den här sidan innan du stänger fönstret, annars kommer du inte att kunna hämta din ZIM-fil.",
 		"settingsHeading": "Inställningar",
-		"taskNotFound": "Uppgiften hittades inte. Antingen är din webbadress felaktig eller så har det uppstått ett problem med vår tjänst."
+		"taskNotFound": "Uppgiften hittades inte. Antingen är din webbadress felaktig eller så har det uppstått ett problem med vår tjänst.",
+		"cancelButton": "Avbryt förfrågan",
+		"requestCancelRequested": "Din förfrågan om att avbryta har mottagits",
+		"requestCancelRequestedExplanation": "Din förfrågan avbryts. Det kan ta några minuter.",
+		"requestCanceled": "Din förfrågan är avbruten.",
+		"cancellingRequest": "Vi avbryter din förfrågan",
+		"errorCancellingRequest": "Avbrytning misslyckades"
 	},
 	"email": {
 		"requested": {
@@ -98,5 +108,41 @@
 			"retryLinkContent": "försök igen",
 			"howToCheckSettings": "Du kan kontrollera inställningarna du använde på %{taskLink}."
 		}
+	},
+	"blockedRequest": {
+		"blockedMissingReason": "Du är blockerad från att skicka ytterligare förfrågningar. Den tekniska orsaken är oklar för tillfället, men situationen bör lösas automatiskt inom ett par timmar, eller när din tidigare förfrågan löper ut.",
+		"contactUsIfPersist": "Vänligen kontakta oss om situationen kvarstår.",
+		"zimitFreeService": "Eftersom Zimit är en gratistjänst begränsar vi antalet uppgifter per användare.",
+		"quotaReached": "Du har nått din uppgiftskvot. Vänta tills pågående uppgifter är klara innan du begär nya.",
+		"useLinksBelowToSeeTask": "Använd länkarna nedan för att övervaka/avbryta pågående uppgifter.",
+		"goToTask": "Gå till pågående uppgift {taskLink}",
+		"excessiveUsage": "Vi har upptäckt överdriven användning i din miljö. Välkommen åter om några timmar.",
+		"abnormalUsage": "Din adress har tillfälligt blockerats från att skicka ytterligare förfrågningar på grund av vad våra servrar uppfattade som onormal användning: {status}"
+	},
+	"blacklist": {
+		"missingReason": "Orsak till svartlistan måste anges",
+		"missingLibraryUrl": "Biblioteks-URL måste anges svartlistningens anledning",
+		"missingGithubIssueUrl": "Github Issue URL måste anges i svartlistningens anledning",
+		"goBack": "Tillbaka",
+		"contactUs": "Om du behöver en speciell ZIM, vänligen kontakta oss.",
+		"alreadyZimed": {
+			"alreadyMadeZim": "Kiwix har redan skapat ZIM(er) av den här webbplatsen.",
+			"downloadFromLibrary": "För att spara på våra resurser ber vi dig att ladda ner din ZIM från {link}.",
+			"downloadFromLibraryLinkContent": "vårt bibliotek",
+			"wp1Hint": "Om du bara vill ZIM:a ett fåtal specifika sidor kanske du är intresserad av {wp1Link}.",
+			"wp1LinkContent": "vårt WP1-verktyg"
+		},
+		"tooBig": {
+			"tooBigDetails": "Den här webbplatsen är alldeles för stor för att bli en enda ZIM.",
+			"alreadyMadeZim": "Kiwix har redan skapat några ZIM-filer av delar av denna webbplats.",
+			"downloadOrRequest": "Du kan kolla dessa ZIM-filer i {libraryLink} eller öppna ett ärende till {githubRequestLink} om det matchar Kiwix syfte.",
+			"libraryLinkContent": "vårt bibliotek",
+			"githubRequestLinkContent": "begär ytterligare en ZIM",
+			"useScraper": "Om du är lite tekniskt kunnig kan du också använda {scraperRepoLink} på egen hand.",
+			"scraperRepoLinkContent": "vår dedikerade skrapa"
+		},
+		"notPossible": "Det är tyvärr inte möjligt att ZIM:a denna webbplats med zimit.",
+		"scraperNeeded": "Det verkar möjligt att utveckla en anpassad skrapa för den här webbplatsen, men vi behöver ditt stöd på {githubIssueLink}.",
+		"scraperNeededLinkContent": "den här Github-frågan"
 	}
 }
