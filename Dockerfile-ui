@@ -18,5 +18,6 @@ FROM caddy:2.8-alpine
 LABEL org.opencontainers.image.source https://github.com/openzim/zimit-frontend
 
 COPY --from=ui_builder /src/ui/dist /usr/share/caddy
+COPY Caddyfile /etc/caddy/Caddyfile
 
 COPY locales /locales

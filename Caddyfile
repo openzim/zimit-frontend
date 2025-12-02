@@ -1,0 +1,21 @@
+:80 {
+    root * /usr/share/caddy
+    file_server
+
+    # --- SPA Routing (fallback to index.html) ---
+    try_files {path} {path}/ /index.html
+
+    # --- Cache Policies ---
+
+    @index path_regexp rootIndex ^/(|index\.html)$
+    header @index Cache-Control "no-cache"
+
+    @json path *.json
+    header @json Cache-Control "no-cache"
+
+    @assets path *.js *.css
+    header @assets Cache-Control "public, max-age=2592000, immutable"
+
+    @images path *.png *.jpg *.jpeg *.gif *.webp *.ico *.svg
+    header @images Cache-Control "public, max-age=2592000"
+}
