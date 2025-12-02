@@ -8,11 +8,10 @@ from starlette.requests import Request
 
 from zimitfrontend import __about__
 from zimitfrontend.constants import ApiConfiguration, logger
-from zimitfrontend.routes import hook, requests, tracker
+from zimitfrontend.routes import hook, offliners, requests, tracker
 
 
 class Main:
-
     def create_app(self) -> FastAPI:
         self.app = FastAPI(
             title=__about__.__api_title__,
@@ -74,6 +73,7 @@ class Main:
         api.include_router(router=requests.router)
         api.include_router(router=hook.router)
         api.include_router(router=tracker.router)
+        api.include_router(router=offliners.router)
 
         self.app.mount(f"/api/{__about__.__api_version__}", api)
 

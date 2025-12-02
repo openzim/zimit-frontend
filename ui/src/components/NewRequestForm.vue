@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, inject, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import type { Config } from '../config'
+import constants from '../constants'
 import { useMainStore } from '../stores/main'
 import NewRequestSelect from './NewRequestSelect.vue'
 import NewRequestSwitch from './NewRequestSwitch.vue'
@@ -8,9 +10,16 @@ import NewRequestText from './NewRequestText.vue'
 
 const { t } = useI18n()
 const mainStore = useMainStore()
+const config = inject<Config>(constants.config)!
 const isFormValid = ref(false)
 const showAdvanced = ref(false)
 
+const offlinerFlags = computed(
+  () =>
+    mainStore.offlinerDefinition?.flags.filter(
+      (flag) => config.new_request_advanced_flags.indexOf(flag.data_key) > -1
+    ) || []
+)
 const hasDefinitions = computed(() => mainStore.offlinerDefinition !== undefined)
 </script>
 
@@ -48,7 +57,7 @@ const hasDefinitions = computed(() => mainStore.offlinerDefinition !== undefined
       <v-table id="advanced-settings">
         <tbody>
           <tr
-            v-for="(flag, index) in mainStore.offlinerFlags"
+            v-for="(flag, index) in offlinerFlags"
             :key="flag.key"
             :class="{ 'striped-row': index % 2 === 0 }"
           >
