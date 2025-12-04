@@ -33,6 +33,7 @@ onMounted(() => {
   }
   refreshInterval = setInterval(() => {
     mainStore.loadTaskId(mainStore.taskId)
+    mainStore.getTrackerStatus()
   }, config.zimit_refresh_after * 1000)
 })
 
@@ -76,7 +77,7 @@ watch(
       <v-progress-linear
         v-model="mainStore.taskProgression"
         height="25"
-        striped
+        :striped="mainStore.taskOngoing"
         :color="mainStore.taskSucceeded ? 'success' : mainStore.taskFailed ? 'error' : 'info'"
       >
         <i18n-t keypath="requestStatus.progressMessage" tag="strong">
