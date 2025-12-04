@@ -15,6 +15,7 @@
   "dependencies": {
     "axios": "^1.7.7",
     "pinia": "^2.2.2",
+    "split-by-grapheme": "^1.0.1",
     "vue": "^3.5.6",
     "vue-i18n": "10.0.1",
     "vue-matomo": "^4.2.0",

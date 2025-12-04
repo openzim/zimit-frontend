@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import { useMainStore } from '../stores/main'
 import constants from '../constants'
 
@@ -7,7 +6,7 @@ const mainStore = useMainStore()
 
 const props = defineProps({
   choices: {
-    type: Array<string>,
+    type: Array<{ title: string; value: string | undefined }>,
     required: true
   },
   multiple: {
@@ -23,19 +22,17 @@ const props = defineProps({
     required: true
   }
 })
-const choices = computed(() => {
-  return [...props.choices, constants.not_set_magic_value]
-})
 </script>
 
 <template>
   <v-select
-    :items="choices"
+    :items="props.choices"
     density="compact"
     :multiple="props.multiple"
-    :value="mainStore.getFormValue(dataKey) || constants.not_set_magic_value"
+    :model-value="mainStore.getFormValue(dataKey)"
     hide-details="auto"
     bg-color="white"
+    :placeholder="constants.not_set_magic_value"
     @update:model-value="(value) => mainStore.setFormValue(props.dataKey, value)"
   />
 </template>
