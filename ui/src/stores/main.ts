@@ -37,7 +37,12 @@ export type OfflinerFlag = {
   label: string
   required: boolean
   type: string
-  choices: string[]
+  choices?: Array<{ title: string; value: string | undefined }>
+  min: number | null
+  max: number | null
+  min_length: number | null
+  max_length: number | null
+  pattern: string | null
 }
 
 export type NameValue = {

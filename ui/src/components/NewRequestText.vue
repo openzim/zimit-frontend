@@ -27,8 +27,15 @@ const props = defineProps({
   required: {
     type: Boolean,
     default: false
+  },
+  rules: {
+    type: Array as () => Array<(value: unknown) => boolean | string>,
+    required: false,
+    default: undefined
   }
 })
+
+const computedRules = props.rules || getRulesFromFieldType(props.type, props.required)
 </script>
 
 <!-- Supports integer, float, url, email, text
@@ -41,7 +48,7 @@ const props = defineProps({
     :label="props.label"
     :value="mainStore.getFormValue(props.dataKey)"
     :step="props.type == 'integer' ? 1 : props.type == 'float' ? 0.1 : undefined"
-    :rules="getRulesFromFieldType(props.type, props.required)"
+    :rules="computedRules"
     hide-details="auto"
     bg-color="white"
     @update:model-value="(value) => mainStore.setFormValue(props.dataKey, value)"
