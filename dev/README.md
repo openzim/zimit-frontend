@@ -1,4 +1,6 @@
-This is a docker-compose configuration to be used **only** for development purpose. There is
+## Development Stack Overview
+
+The `docker-compose.yml` file for this project is a docker-compose configuration to be used **only** for development purpose. There is
 almost zero security in the stack configuration.
 
 It is composed of the Zimit frontend UI and API (of course), but also a local Zimfarm DB,
@@ -116,3 +118,14 @@ You might open following URLs in your favorite browser:
 - [Zimfarm API](http://localhost:8004)
 
 You can login into Zimfarm UI with username `admin` and password `admin`.
+
+## Contributing
+The `api` folder is a Python project that contains the code for the `zimit-api` described in the Overview while the `ui` folder is a Vue 3 project.
+If you want to contribute code to this project, you would need to install
+[Hatch](https://hatch.pypa.io/latest/) for managing dependencies of the Python project and [Yarn](https://classic.yarnpkg.com/en/) for the Vue 3 project.
+
+This project is configured to use git pre-commit hooks. If you have set up the Python project, `pre-commit` would be installed in the virtual environment. To install the hooks, use:
+```sh
+pre-commit install
+```
+Additionally, you would need to [install Prettier](https://prettier.io/docs/install) globally on your machine. This is because the pre-commit hook uses your machine's Prettier to lint files in the `ui` folder.
