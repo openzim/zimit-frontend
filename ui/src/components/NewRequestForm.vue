@@ -207,8 +207,9 @@ const hasDefinitions = computed(() => mainStore.offlinerDefinition !== undefined
                 :data-key="flag.data_key"
                 :type="flag.type"
                 :rules="getFlagRules(flag)"
+                :max-length="flag.max_length ?? undefined"
+                :description="flag.description"
               />
-              <span>{{ flag.description }}</span>
             </td>
           </tr>
         </tbody>
