@@ -7,7 +7,7 @@ from zimitfrontend.constants import ApiConfiguration, logger
 
 
 def setup_i18n() -> None:
-    """Configure python-i18n"""
+    """Configure i18nice"""
     i18n.set("locale", "en")  # pyright: ignore[reportUnknownMemberType]
     i18n.set("fallback", "en")  # pyright: ignore[reportUnknownMemberType]
     i18n.set("file_format", "json")  # pyright: ignore[reportUnknownMemberType]
