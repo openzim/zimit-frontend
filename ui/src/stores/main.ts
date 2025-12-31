@@ -51,6 +51,13 @@ export type NameValue = {
   value: any
 }
 
+export type BlockRule = {
+  url: string
+  type: 'block' | 'allowOnly'
+  inFrameUrl?: string
+  frameTextMatch?: string
+}
+
 export type TrackerStatusResponse = {
   status: string
   ongoingTasks: string[] | undefined
@@ -210,15 +217,22 @@ export const useMainStore = defineStore('main', {
         url: this.getFormValue('url'),
         lang: getCurrentLocale(),
         email: this.getFormValue('email'),
-        flags: this.formValues
-          .filter((flag) => this.config.new_request_advanced_flags.indexOf(flag.name) > -1)
-          .reduce(
-            (acc, flag) => {
-              acc[flag.name] = flag.value
-              return acc
-            },
-            {} as { [key: string]: string }
-          )
+        flags: {
+          ...this.formValues
+            .filter((flag) => this.config.new_request_advanced_flags.indexOf(flag.name) > -1)
+            .reduce(
+              (acc, flag) => {
+                acc[flag.name] = flag.value
+                return acc
+              },
+              {} as { [key: string]: string }
+            ),
+          ...(this.getFormValue('blockRules') &&
+            JSON.parse(this.getFormValue('blockRules')) &&
+            JSON.parse(this.getFormValue('blockRules')).length > 0 && {
+              blockRules: JSON.parse(this.getFormValue('blockRules'))
+            })
+        }
       }
       this.setLoading({
         loading: true,
