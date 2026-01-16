@@ -6,6 +6,7 @@ import BlacklistNotPossible from '../components/BlacklistNotPossible.vue'
 import BlacklistScraperNeeded from '../components/BlacklistScraperNeeded.vue'
 import BlacklistTooBig from '../components/BlacklistTooBig.vue'
 import BlockRequest from '../components/BlockRequest.vue'
+import SurveyBanner from '../components/SurveyBanner.vue'
 import { useI18n } from 'vue-i18n'
 import { useMainStore } from '../stores/main'
 import { onMounted } from 'vue'
@@ -29,6 +30,7 @@ onMounted(() => {
 
 <template>
   <v-container id="newrequest" class="pt-0">
+    <SurveyBanner />
     <i18n-t keypath="newRequest.headingParagraph" tag="h1">
       <strong>{{ t('newRequest.headingBold') }}</strong>
     </i18n-t>
