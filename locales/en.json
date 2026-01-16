@@ -139,5 +139,10 @@
     "notPossible": "It is unfortunately not possible to ZIM this website with zimit.",
     "scraperNeeded": "It seems possible to develop a custom scraper for this website, but we need your support on {githubIssueLink}.",
     "scraperNeededLinkContent": "this Github issue"
+  },
+  "survey": {
+    "ctaTitle": "Help us improve Zimit!",
+    "ctaMessage": "Share your feedback in our quick survey",
+    "buttonTakeSurvey": "Take Survey"
   }
 }

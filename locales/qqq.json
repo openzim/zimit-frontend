@@ -145,5 +145,10 @@
 		"notPossible": "This is the message indicating that it is not possible to ZIM this website",
 		"scraperNeeded": "This is the message indicating that we intend to build a dedicated scraper",
 		"scraperNeededLinkContent": "This is the textual content of the link to the dedicated Github issue"
+	},
+	"survey": {
+		"ctaTitle": "This is the title of a banner to ask user to help us improve zimit-frontend",
+		"ctaMessage": "This is the message of a banner to ask user to help us improve zimit-frontend",
+		"buttonTakeSurvey": "This is the button text to take a survey"
 	}
 }
