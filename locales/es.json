@@ -145,5 +145,10 @@
 		"notPossible": "Desafortunadamente no es posible crear un ZIM de esta página web usando zimit.",
 		"scraperNeeded": "Parece ser posible desarrolar un raspador web personalizado para esta página, pero necesitaremos su colaboración en {githubIssueLink}.",
 		"scraperNeededLinkContent": "esta incidencia en Github"
+	},
+	"survey": {
+		"ctaTitle": "¡Ayúdanos a mejorar Zimit!",
+		"ctaMessage": "Comparte tus comentarios en nuestra breve encuesta",
+		"buttonTakeSurvey": "Realizar la encuesta"
 	}
 }

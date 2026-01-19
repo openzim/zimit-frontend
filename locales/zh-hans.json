@@ -148,5 +148,10 @@
 		"notPossible": "遗憾的是，无法使用zimit来ZIM此网站。",
 		"scraperNeeded": "似乎可以开发一个针对这个网站的自定义爬虫，但我们需要您在{githubIssueLink}上的支持。",
 		"scraperNeededLinkContent": "这个Github问题"
+	},
+	"survey": {
+		"ctaTitle": "帮助我们改进Zimit！",
+		"ctaMessage": "请在我们的简短调查中分享您的反馈意见",
+		"buttonTakeSurvey": "参加调查"
 	}
 }

@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Key0121",
 			"Kly",
 			"SupaplexTW"
 		]
@@ -144,5 +145,10 @@
 		"notPossible": "很可惜的是，無法使用 zimit 來對此網站進行 ZIM。",
 		"scraperNeeded": "看起來可以為該網站開發一個自訂爬取工具，但我們需要您在 {githubIssueLink} 上的支援。",
 		"scraperNeededLinkContent": "此 Github 問題"
+	},
+	"survey": {
+		"ctaTitle": "協助我們改善 Zimit！",
+		"ctaMessage": "請在我們的簡短調查分享您的回饋意見",
+		"buttonTakeSurvey": "參加調查"
 	}
 }
