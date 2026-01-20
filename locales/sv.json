@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Apq",
-			"Larsa"
+			"Larsa",
+			"Stefan2255"
 		]
 	},
 	"language": "Svenska",
@@ -144,5 +145,10 @@
 		"notPossible": "Det är tyvärr inte möjligt att ZIM:a denna webbplats med zimit.",
 		"scraperNeeded": "Det verkar möjligt att utveckla en anpassad skrapa för den här webbplatsen, men vi behöver ditt stöd på {githubIssueLink}.",
 		"scraperNeededLinkContent": "den här Github-frågan"
+	},
+	"survey": {
+		"ctaTitle": "Hjälp oss att förbättra Zimit!",
+		"ctaMessage": "Dela din feedback i vår snabba undersökning",
+		"buttonTakeSurvey": "Delta i undersökningen"
 	}
 }
