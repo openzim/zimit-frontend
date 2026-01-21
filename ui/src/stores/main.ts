@@ -68,7 +68,7 @@ export type TaskData = {
   // // eslint-disable-next-line @typescript-eslint/no-explicit-any
   // container: any
   status: string
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
   // files: any
   // filesParsed: TaskDataFile[]
   hasEmail: boolean

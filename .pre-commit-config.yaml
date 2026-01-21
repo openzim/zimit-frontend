@@ -34,12 +34,15 @@ repos:
         files: ui\/.*$ # files in ui folder
         minimum_pre_commit_version: "2.9.2"
   - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: v8.56.0 # for some reasons, 8.57.0 has not been published
+    rev: v9.35.0
     hooks:
       - id: eslint
+        additional_dependencies:
+          - eslint@9.29.0
+          - eslint-plugin-vue@10.2.0
+          - jiti@2.4.2
         types: [file]
-        files: ui\/.*(?:\.[jt]sx?|\.vue)$ # *.js, *.jsx, *.ts, *.tsx, *.vue in ui/src folder
+        files: ui\/src\/.*(?:\.[jt]sx?|\.vue)$ # *.js, *.jsx, *.ts, *.tsx, *.vue in ui/src folder
         args:
           - --config
-          - ui/.eslintrc.cjs
-          - --no-ignore
+          - ui/eslint.config.ts
