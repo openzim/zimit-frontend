@@ -2,6 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"AnnaTheProgrammer777",
+			"Brettchenweber",
+			"LeoGe25",
 			"MoritzMT20",
 			"Nortix"
 		]
@@ -66,5 +68,10 @@
 		},
 		"scraperNeeded": "Es scheint möglich zu sein, einen benutzerdefinierten Scraper für diese Website zu entwickeln, aber wir benötigen Deine Unterstützung auf {githubIssueLink}.",
 		"scraperNeededLinkContent": "dieses Github-Problem"
+	},
+	"survey": {
+		"ctaTitle": "Helft mit, Zimit zu verbessern",
+		"ctaMessage": "Teilen Sie Ihr Feedback in unserer kurzen Umfrage",
+		"buttonTakeSurvey": "Umfrage durchführen"
 	}
 }
