@@ -144,5 +144,10 @@
 		"notPossible": "Žal tega spletnega mesta ni mogoče ZIM-ati z zimitom.",
 		"scraperNeeded": "Zdi se, da je mogoče za to spletno mesto razviti strgalnik po meri, vendar potrebujemo pri {githubIssueLink} vašo podporo.",
 		"scraperNeededLinkContent": "tej zadevi na GitHubu"
+	},
+	"survey": {
+		"ctaTitle": "Pomagajte nam izboljšati Zimit!",
+		"ctaMessage": "Delite svoje mnenje v naši kratki anketi",
+		"buttonTakeSurvey": "Izpolni anketo"
 	}
 }

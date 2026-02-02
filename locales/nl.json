@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"ABPMAB",
-			"McDutchie"
+			"McDutchie",
+			"Siebrand"
 		]
 	},
 	"language": "Nederlands",
@@ -144,5 +145,10 @@
 		"notPossible": "Helaas is het niet mogelijk om deze website te ZIM-en met zimit.",
 		"scraperNeeded": "Het lijkt mogelijk om een aangepaste scraper voor deze website te ontwikkelen, maar we hebben uw hulp nodig op {githubIssueLink}.",
 		"scraperNeededLinkContent": "dit Github-ticket"
+	},
+	"survey": {
+		"ctaTitle": "Help ons Zimit te verbeteren!",
+		"ctaMessage": "Geef uw terugkoppeling in onze korte vragenlijst",
+		"buttonTakeSurvey": "Vragenlijst invullen"
 	}
 }
