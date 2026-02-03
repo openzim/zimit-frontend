@@ -143,5 +143,10 @@
 		"notPossible": "Infortunatemente non es ancora possibile facer un ZIM de iste sito web con zimit.",
 		"scraperNeeded": "Pare esser possibile disveloppar un extractor personalisate pro iste sito web, ma nos ha besonio de tu adjuta sur {githubIssueLink}.",
 		"scraperNeededLinkContent": "iste ticket de GitHub"
+	},
+	"survey": {
+		"ctaTitle": "Adjuta nos a meliorar Zimit!",
+		"ctaMessage": "Condivide tu commentarios in nostre curte sondage",
+		"buttonTakeSurvey": "Responder al sondage"
 	}
 }
