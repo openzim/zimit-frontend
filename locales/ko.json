@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Benoit74",
+			"YeBoy371",
 			"Ykhwong"
 		]
 	},
@@ -10,7 +11,7 @@
 		"whatIsZim": "ZIM 파일은 무엇입니까?",
 		"whatIsZimDescLinkContent0": "오프라인",
 		"howToRead": "ZIM 파일을 어떻게 읽습니까?",
-		"howToReadDescLinkContent0": "키윅스",
+		"howToReadDescLinkContent0": "Kiwix",
 		"howToReadDescLinkContent1": "데스크톱 컴퓨터, 모바일 기기 등",
 		"missingContent": "ZIM 파일이 불완전하거나 원본 웹사이트보다 작습니다",
 		"gotError": "오류 메시지(ZIM 없음)를 받았거나 ZIM 파일을 읽지 못했습니다",
@@ -23,7 +24,7 @@
 		}
 	},
 	"footer": {
-		"link0": "키윅스",
+		"link0": "Kiwix",
 		"link1": "웹레코더",
 		"link2": "모질라 오픈 소스 지원"
 	},
