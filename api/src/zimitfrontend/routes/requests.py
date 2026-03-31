@@ -100,14 +100,14 @@ def create_task(
             detail={"error": "blacklisted", "blacklist": matching_blacklist_entry},
         )
 
-    # generate schedule name
+    # generate recipe name
     ident = str(uuid.uuid4())[:8]
-    schedule_name = f"{url.hostname}_{ident}"
+    recipe_name = f"{url.hostname}_{ident}"
 
     # build zimit config
     flags = request.flags
     flags["seeds"] = normalize_hostname(request.url)
-    flags["name"] = flags.get("name", schedule_name)
+    flags["name"] = flags.get("name", recipe_name)
     flags["zim-file"] = flags.get("zim-file", url.hostname) + f"_{ident}.zim"
     flags["userAgentSuffix"] = "zimit.kiwix.org+"
     flags["failOnFailedSeed"] = True
@@ -158,9 +158,9 @@ def create_task(
         "offliner": {"offliner_id": "zimit", **flags},
     }
 
-    # create schedule payload
+    # create recipe payload
     payload = {  # pyright: ignore[reportUnknownVariableType]
-        "name": schedule_name,
+        "name": recipe_name,
         "language": "eng",
         "category": "other",
         "periodicity": "manually",
@@ -187,15 +187,15 @@ def create_task(
             }
         )
 
-    # create a unique schedule for that request on the zimfarm
+    # create a unique recipe for that request on the zimfarm
     success, status, resp = query_api(
         "POST",
-        "/schedules",
+        "/recipes",
         payload=payload,  # pyright: ignore[reportUnknownArgumentType]
     )
     if not success:
-        logger.error(f"Unable to create schedule via HTTP {status}: {resp}")
-        message = f"Unable to create schedule via HTTP {status}: {resp}"
+        logger.error(f"Unable to create recipe via HTTP {status}: {resp}")
+        message = f"Unable to create recipe via HTTP {status}: {resp}"
         if status in [HTTPStatus.BAD_REQUEST, HTTPStatus.UNPROCESSABLE_ENTITY]:
             # if Zimfarm replied this is a bad request, then this is most probably
             # a bad request due to user input so we can track it like a bad request
@@ -206,20 +206,20 @@ def create_task(
                 status_code=HTTPStatus.INTERNAL_SERVER_ERROR, detail=message
             )
 
-    # request a task for that newly created schedule
+    # request a task for that newly created recipe
     success, status, resp = query_api(
         "POST",
         "/requested-tasks",
         payload={
-            "schedule_names": [schedule_name],
+            "recipe_names": [recipe_name],
             "worker": ApiConfiguration.task_worker,
         },
     )
     if not success:
-        logger.error(f"Unable to request {schedule_name} via HTTP {status}: {resp}")
+        logger.error(f"Unable to request {recipe_name} via HTTP {status}: {resp}")
         raise HTTPException(
             status_code=HTTPStatus.INTERNAL_SERVER_ERROR,
-            detail=f"Unable to request schedule via HTTP {status}): {resp}",
+            detail=f"Unable to request recipe via HTTP {status}): {resp}",
         )
 
     try:
@@ -234,12 +234,10 @@ def create_task(
             detail=f"Couldn't retrieve requested task id: {exc}",
         ) from exc
 
-    # remove newly created schedule (not needed anymore)
-    success, status, resp = query_api("DELETE", f"/schedules/{schedule_name}")
+    # remove newly created recipe (not needed anymore)
+    success, status, resp = query_api("DELETE", f"/recipes/{recipe_name}")
     if not success:
-        logger.error(
-            f"Unable to remove schedule {schedule_name} via HTTP {status}: {resp}"
-        )
+        logger.error(f"Unable to remove recipe {recipe_name} via HTTP {status}: {resp}")
 
     add_task = tracker.add_task(
         http_request.client.host,
