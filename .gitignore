@@ -137,3 +137,4 @@ dmypy.json
 # ignore worker SSH keys
 id_ed25519*
 id_rsa*
+docker-compose.override.yml

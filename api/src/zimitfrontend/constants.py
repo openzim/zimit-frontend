@@ -1,3 +1,4 @@
+import datetime
 import json
 import os
 import pathlib
@@ -82,8 +83,20 @@ class ApiConfiguration:
     )
     zimfarm_requests_timeout = _get_time_setting("ZIMFARM_REQUESTS_TIMEOUT", "10s")
     mailgun_requests_timeout = _get_time_setting("MAILGUN_REQUESTS_TIMEOUT", "10s")
+    auth_mode = os.getenv("AUTH_MODE", default="local")
+    zimfarm_oauth_issuer = os.getenv(
+        "ZIMFARM_OAUTH_ISSUER", default="https://ory.login.kiwix.org"
+    )
     zimfarm_username = os.getenv("_ZIMFARM_USERNAME", "-")
     zimfarm_password = os.getenv("_ZIMFARM_PASSWORD", "-")
+    zimfarm_oauth_client_id = os.getenv("ZIMFARM_OAUTH_CLIENT_ID", default="")
+    zimfarm_oauth_client_secret = os.getenv("ZIMFARM_OAUTH_CLIENT_SECRET", default="")
+    zimfarm_oauth_audience_id = os.getenv("ZIMFARM_OAUTH_AUDIENCE_ID", default="")
+    zimfarm_token_renewal_window = datetime.timedelta(
+        seconds=humanfriendly.parse_timespan(
+            os.getenv("ZIMFARM_TOKEN_RENEWAL_WINDOW", default="2m")
+        )
+    )
     zimit_image = os.getenv("ZIMIT_IMAGE", "openzim/zimit:1.2.0")
     zimit_definition_version = os.getenv("ZIMIT_DEFINITION_VERSION", "")
     if not zimit_definition_version:
