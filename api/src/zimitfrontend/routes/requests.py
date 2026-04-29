@@ -114,6 +114,9 @@ def create_task(
     flags["failOnInvalidStatus"] = True
     flags["content-header-bytes-length"] = 2048
 
+    if request.block_rules:
+        flags["blockRules"] = request.block_rules
+
     # remove flags we don't want to overwrite
     for flag in ("adminEmail", "output", "zimit-progress-file"):
         if flag in flags:
@@ -131,9 +134,9 @@ def create_task(
         size_limit = int(flags.get("sizeSoftLimit", ApiConfiguration.zimit_size_limit))
     except Exception:
         size_limit = ApiConfiguration.zimit_size_limit
-    flags["sizeSoftLimit"] = str(
-        _cap_limit(size_limit, ApiConfiguration.zimit_size_limit)
-    )
+    capped_limit = _cap_limit(size_limit, ApiConfiguration.zimit_size_limit)
+    flags["sizeSoftLimit"] = str(capped_limit)
+    flags["sizeHardLimit"] = str(capped_limit)  # enforce strict backend limit for downloads
     try:
         time_limit = int(flags.get("timeSoftLimit", ApiConfiguration.zimit_time_limit))
     except Exception:
