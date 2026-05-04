@@ -121,8 +121,8 @@ class FlagSchema(BaseModel):
     secret: bool = False
     min: int | None = None
     max: int | None = None
-    min_length: int | None = None
-    max_length: int | None = None
+    min_graphemes: int | None = None
+    max_graphemes: int | None = None
     pattern: str | None = None
 
 
