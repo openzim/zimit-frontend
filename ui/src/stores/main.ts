@@ -40,8 +40,8 @@ export type OfflinerFlag = {
   choices?: Array<{ title: string; value: string | undefined }>
   min: number | null
   max: number | null
-  min_length: number | null
-  max_length: number | null
+  min_graphemes: number | null
+  max_graphemes: number | null
   pattern: string | null
 }
 

@@ -73,17 +73,17 @@ const getFlagRules = (flag: OfflinerFlag) => {
     })
   }
 
-  // Add validation for min, max, min_length, and pattern constraints
+  // Add validation for min, max, min_graphemes, and pattern constraints
   const shouldValidate = (value: unknown) => {
     return value !== null && value !== undefined && value !== ''
   }
 
   // Min length validation
-  if (flag.min_length !== null) {
+  if (flag.min_graphemes !== null) {
     rules.push((value: unknown) => {
       if (shouldValidate(value) && typeof value === 'string') {
-        if (value.split(byGrapheme).length < flag.min_length!) {
-          return `Minimum length is ${flag.min_length} characters`
+        if (value.split(byGrapheme).length < flag.min_graphemes!) {
+          return `Minimum length is ${flag.min_graphemes} characters`
         }
       }
       return true
@@ -91,11 +91,11 @@ const getFlagRules = (flag: OfflinerFlag) => {
   }
 
   // Max length validation
-  if (flag.max_length !== null) {
+  if (flag.max_graphemes !== null) {
     rules.push((value: unknown) => {
       if (shouldValidate(value) && typeof value === 'string') {
-        if (value.split(byGrapheme).length > flag.max_length!) {
-          return `Maximum length is ${flag.max_length} characters`
+        if (value.split(byGrapheme).length > flag.max_graphemes!) {
+          return `Maximum length is ${flag.max_graphemes} characters`
         }
       }
       return true
@@ -207,7 +207,7 @@ const hasDefinitions = computed(() => mainStore.offlinerDefinition !== undefined
                 :data-key="flag.data_key"
                 :type="flag.type"
                 :rules="getFlagRules(flag)"
-                :max-length="flag.max_length ?? undefined"
+                :max-length="flag.max_graphemes ?? undefined"
                 :description="flag.description"
               />
             </td>
