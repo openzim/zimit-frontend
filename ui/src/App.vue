@@ -57,7 +57,7 @@ watch(
         append-icon="fa-gift"
         variant="outlined"
         size="large"
-        href="https://kiwix.org/en/get-involved/#donate"
+        href="https://donate.kiwix.org/"
         target="_blank"
       >
         {{ t('header.donate') }}
