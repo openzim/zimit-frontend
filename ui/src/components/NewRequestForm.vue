@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, inject, ref } from 'vue'
+import { computed, inject, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { byGrapheme } from 'split-by-grapheme'
 import type { Config } from '../config'
@@ -8,12 +8,29 @@ import { useMainStore, type OfflinerFlag } from '../stores/main'
 import NewRequestSelect from './NewRequestSelect.vue'
 import NewRequestSwitch from './NewRequestSwitch.vue'
 import NewRequestText from './NewRequestText.vue'
+import NewRequestTextarea from './NewRequestTextarea.vue'
 
 const { t } = useI18n()
 const mainStore = useMainStore()
 const config = inject<Config>(constants.config)!
 const isFormValid = ref(false)
 const showAdvanced = ref(false)
+
+const blockRulesInput = ref('')
+const blockRulesValid = ref(true)
+
+watch(blockRulesInput, (newValue) => {
+  if (newValue === '') {
+    blockRulesValid.value = true
+    return
+  }
+  try {
+    const parsed = JSON.parse(newValue)
+    blockRulesValid.value = Array.isArray(parsed) // Ensure it's an array of objects
+  } catch (e) {
+    blockRulesValid.value = false
+  }
+})
 
 const offlinerFlags = computed(
   () =>
@@ -212,13 +229,29 @@ const hasDefinitions = computed(() => mainStore.offlinerDefinition !== undefined
               />
             </td>
           </tr>
+          <tr :class="{ 'striped-row': offlinerFlags.length % 2 === 0 }">
+            <th>{{ t('newRequest.blockRulesLabel') }}</th>
+            <td>
+              <NewRequestTextarea
+                data-key="blockRules"
+                :label="t('newRequest.blockRulesLabel')"
+                :placeholder="t('newRequest.blockRulesPlaceholder')"
+                :description="t('newRequest.blockRulesDescription')"
+                v-model="blockRulesInput"
+                :rules="[
+                  (value: string) =>
+                    blockRulesValid || t('newRequest.blockRulesInvalidJson'),
+                ]"
+              />
+            </td>
+          </tr>
         </tbody>
       </v-table>
       <v-container class="small-width">
         <v-btn
           class="black"
           rounded="xl"
-          :disabled="!isFormValid"
+          :disabled="!isFormValid || !blockRulesValid"
           @click="mainStore.submitRequest()"
           >{{ t('newRequest.submit') }}</v-btn
         >

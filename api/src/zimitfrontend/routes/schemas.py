@@ -32,6 +32,7 @@ class TaskCreateRequest(CamelModel):
     lang: str
     email: str | None = None
     flags: dict[str, Any]
+    block_rules: list[dict[str, Any]] | None = None
     unique_id: str | None
 
 
