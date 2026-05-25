@@ -113,7 +113,7 @@
 	"blockedRequest": {
 		"blockedMissingReason": "U kunt nu geen nieuwe aanvragen insturen. Hoewel de technische reden op dit moment onduidelijk is, zou de situatie zich over een paar uur automatisch moeten oplossen, of wanneer uw vorige aanvraag verloopt.",
 		"contactUsIfPersist": "Neem contact met ons op als de situatie aanhoudt.",
-		"zimitFreeService": "Zimit is een gratis service, dus we beperken het aantal taken per gebruiker.",
+		"zimitFreeService": "Zimit is een gratis dienst, dus we beperken het aantal taken per gebruiker.",
 		"quotaReached": "U hebt uw takenquotum bereikt. Wacht tot de actieve taken zijn voltooid voordat u nieuwe taken aanvraagt.",
 		"useLinksBelowToSeeTask": "Gebruik de onderstaande koppelingen om lopende taken te controleren of te annuleren.",
 		"goToTask": "Naar de lopende taak {taskLink}",

@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Benoit74",
+			"Tensama0415",
 			"YeBoy371",
 			"Ykhwong"
 		]
@@ -9,12 +10,16 @@
 	"language": "한국어",
 	"faq": {
 		"whatIsZim": "ZIM 파일은 무엇입니까?",
+		"whatIsZimDescParagraph": "ZIM 파일 형식은 {0} 사용을 위해 웹사이트 콘텐츠를 저장합니다. 웹사이트의 일반적인 구성 요소를 단일 아카이브로 조립하고 압축하여 저장, 공유 및 보관이 더 쉽도록 합니다.",
 		"whatIsZimDescLinkContent0": "오프라인",
 		"howToRead": "ZIM 파일을 어떻게 읽습니까?",
+		"howToReadDescParagraph": "ZIM 파일 리더가 필요합니다. 일반적으로 {0}을(를) 의미하며, 이는 {1}에서 사용할 수 있습니다.",
 		"howToReadDescLinkContent0": "Kiwix",
 		"howToReadDescLinkContent1": "데스크톱 컴퓨터, 모바일 기기 등",
 		"missingContent": "ZIM 파일이 불완전하거나 원본 웹사이트보다 작습니다",
+		"missingContentDesc": "이 도구의 특성상 어떤 웹사이트에 대해서도 무제한 요청을 허용할 수 없습니다. 이는 저희 인프라뿐 아니라 대상 웹사이트에도 악영향을 미칠 수 있습니다. 현재 저희는 {human_size_limit}(GiB)와(과) {human_time_limit}(이)라는 두 가지 제한을 적용하고 있습니다.",
 		"gotError": "오류 메시지(ZIM 없음)를 받았거나 ZIM 파일을 읽지 못했습니다",
+		"gotErrorDescParagraph": "입력한 URL을 세 번 확인하고, 그래도 작동하지 않으면 {0}에 버그 티켓을 제출하세요. 대상 웹사이트, 요청 번호(수신한 이메일에 있습니다), ZIM 파일을 열려고 시도한 기기를 명시해 주세요.",
 		"gotErrorDescLinkContent0": "깃허브"
 	},
 	"units": {
@@ -24,6 +29,7 @@
 		}
 	},
 	"footer": {
+		"poweredByThankTo": "{0} 및 {1}의 지원과 {2} 어워드 덕분에 이 프로젝트가 성공적으로 완료되었습니다 ❤️",
 		"link0": "Kiwix",
 		"link1": "웹레코더",
 		"link2": "모질라 오픈 소스 지원"
@@ -40,8 +46,11 @@
 		"advancedOptions": "고급 옵션",
 		"fetchingDefinitionAndStatus": "오프라이너 정의를 불러오는 중...",
 		"errorFetchingDefinition": "오프라이너 정의를 가져오는 중 오류가 발생했습니다",
+		"errorFetchingStatus": "추적기 상태를 가져오는 중 오류 발생",
 		"creatingRequest": "요청 생성 중…",
-		"errorCreatingRequest": "요청 생성 중 오류가 발생했습니다"
+		"errorCreatingRequest": "요청 생성 중 오류가 발생했습니다",
+		"offlinerNotFound": "Zimit 오프라인을 찾을 수 없습니다. 인프라에 심각한 문제가 발생한 것 같습니다.",
+		"stopNewRequestsMessage": "Zimit은 현재 유지보수 관련 신규 작업을 일시적으로 접수하지 않습니다. 며칠 내로 다시 서비스를 시작할 예정입니다."
 	},
 	"notFound": {
 		"heading": "찾을 수 없음",
@@ -52,12 +61,17 @@
 		"refreshing": "작업 상태를 갱신하는 중…",
 		"errorRefreshing": "작업 상태를 갱신하는 중 오류가 발생했습니다",
 		"refreshAuto": "이 페이지는 {refresh_interval}초마다 자동으로 갱신되므로 다시 불러올 필요가 없습니다.",
+		"zimingOf": "다음의 Zim",
 		"requestingSlot": "슬롯 요청",
+		"requestRecorded": "고객님의 요청이 접수되었으며, 처리 시스템 가동을 위해 대기 중입니다. 모든 요청은 24시간 이내에 처리하는 것을 목표로 하고 있지만, 무료 서비스 특성상 시스템 용량이 제한적이며 수요 급증 시에는 처리 시간이 며칠까지 소요될 수 있습니다. 양해 부탁드립니다!",
+		"rankMessage": "귀하의 요청은 대기열에서 {task_rank}번째 위치에 있습니다(순위가 낮을수록 좋으며, 1은 해당 작업이 가장 먼저 시작됨을 의미합니다).",
 		"requestFailed": "요청을 실패했습니다! 죄송합니다.",
+		"failureReasons": "ziming 실패에는 여러 가지 이유가 있을 수 있습니다. 대부분의 경우 이는 부적절한 URL에서 발생합니다. URL을 다시 한번 확인하고 새 요청을 생성해 주세요. 그래도 문제가 해결되지 않으면 {0}을(를) 시도해 보세요.",
 		"failureReasonsLinkContent0": "깃허브에 티켓 개시",
 		"successMessage": "성공했습니다!",
 		"successMessageExplanation": "아래 링크는 만료되며 파일은 일주일 후에 삭제됩니다.",
 		"successMessageButton": "다운로드",
+		"partialZim": "최대 파일 크기({human_size_limit} GiB) 또는 무료 크롤링 허용 시간({human_time_limit})을 초과했기 때문에 ZIM 파일에 대상 웹사이트의 일부만 포함되어 있습니다. 작업에 필요한 추가 서버 공간을 구매하려면 {contact_us_link}로 문의해 주세요.",
 		"partialZimContactUsLink": "문의하기",
 		"beingProcessedMessage": "요청을 처리 중입니다",
 		"beingProcessedExplanation": "현재 저희 시스템은 귀하가 제공한 URL을 멋진 ZIM 파일로 변환하고 있습니다. 대상 크기에 따라 몇 분 또는 몇 시간이 걸릴 수 있습니다.",
@@ -67,6 +81,8 @@
 		"settingsHeading": "설정",
 		"taskNotFound": "작업을 찾을 수 없습니다. URL이 잘못되었거나, 서비스에 문제가 발생하고 있습니다.",
 		"cancelButton": "요청 취소",
+		"requestCancelRequested": "취소 요청이 접수되었습니다.",
+		"requestCancelRequestedExplanation": "요청하신 내용이 취소 중입니다. 몇 분 정도 소요될 수 있습니다.",
 		"requestCanceled": "요청이 취소되었습니다",
 		"cancellingRequest": "요청을 취소하고 있습니다",
 		"errorCancellingRequest": "취소 실패"
@@ -84,6 +100,7 @@
 			"title": "ZIM이 준비되었습니다!",
 			"zimRequestCompleted": "%{link}의 ZIM 요청이 완료되었습니다.",
 			"hereItIs": "다음과 같습니다.",
+			"incomplete": "ZIM은 무료 크롤링 허용 한도(%{sizeLimit} 또는 %{timeLimit})에 도달하여 불완전한 상태입니다. 추가 서버 공간을 구매하려면 %{contactUsLink}로 문의해 주세요.",
 			"contactUsLinkContent": "문의하기"
 		},
 		"failed": {
@@ -96,13 +113,44 @@
 		}
 	},
 	"blockedRequest": {
-		"contactUsIfPersist": "문제가 지속되면 문의해 주시기 바랍니다."
+		"blockedMissingReason": "추가 요청을 게시할 수 없습니다. 현재 기술적인 이유는 불분명하지만, 몇 시간 후 또는 이전 요청이 만료되면 자동으로 해결될 것입니다.",
+		"contactUsIfPersist": "문제가 지속되면 문의해 주시기 바랍니다.",
+		"zimitFreeService": "Zimit은 무료 서비스이기 때문에, 사용자당 작업 수가 제한됩니다.",
+		"quotaReached": "작업 할당량을 초과했습니다. 새로운 작업을 요청하기 전에 진행 중인 작업이 완료될 때까지 기다려 주세요.",
+		"useLinksBelowToSeeTask": "진행 중인 작업을 모니터링/취소하려면 아래 링크를 사용하세요.",
+		"goToTask": "진행 중인 작업 {taskLink}(으)로 이동",
+		"excessiveUsage": "현재 환경에서 과도한 사용량이 감지되었습니다. 몇 시간 후에 다시 확인해 주세요.",
+		"abnormalUsage": "서버에서 비정상적인 사용량으로 감지되어 당신의 주소로부터 추가 요청을 게시하는 것이 일시적으로 차단되었습니다: {status}"
 	},
 	"blacklist": {
+		"missingReason": "차단 목록 이유를 설정해야 합니다",
+		"missingLibraryUrl": "차단 목록 이유에 도서관 URL이 설정되어야 합니다",
+		"missingGithubIssueUrl": "차단 목록 이유에 깃허브 이슈 URL이 설정되어야 합니다",
 		"goBack": "돌아가기",
+		"contactUs": "특별한 ZIM이 필요하시면 저희에게 문의해 주세요.",
+		"alreadyZimed": {
+			"alreadyMadeZim": "Kiwix는 이미 이 웹사이트의 ZIM을 만들었습니다.",
+			"downloadFromLibrary": "자원을 절약하기 위해 {link}에서 ZIM을 다운로드하시기 바랍니다.",
+			"downloadFromLibraryLinkContent": "저희의 도서관",
+			"wp1Hint": "특정 문서 몇 개만 ZIM으로 압축하고 싶다면 {wp1Link}을 이용해 보세요.",
+			"wp1LinkContent": "저희의 WP1 도구"
+		},
 		"tooBig": {
 			"tooBigDetails": "이 웹사이트는 너무 커서 하나의 ZIM으로 통합할 수 없습니다.",
-			"alreadyMadeZim": "Kiwix는 이미 이 웹사이트의 일부를 ZIM으로 만들었습니다."
-		}
+			"alreadyMadeZim": "Kiwix는 이미 이 웹사이트의 일부를 ZIM으로 만들었습니다.",
+			"downloadOrRequest": "{libraryLink}에서 해당 ZIM을 확인하거나 키윅스의 목적과 일치하는 경우 {githubRequestLink}에 이슈를 제기할 수 있습니다.",
+			"libraryLinkContent": "저희의 도서관",
+			"githubRequestLinkContent": "다른 ZIM을 요청",
+			"useScraper": "기술에 어느 정도 능숙하다면 {scraperRepoLink}를 직접 사용할 수도 있습니다.",
+			"scraperRepoLinkContent": "저희의 전용 스크레이퍼"
+		},
+		"notPossible": "유감스럽게도 zimit을 사용하여 이 웹사이트를 ZIM하는 것은 불가능합니다.",
+		"scraperNeeded": "이 웹사이트에 대한 맞춤형 스크래퍼를 개발하는 것이 가능해 보이지만, {githubIssueLink}에 대한 여러분의 지원이 필요합니다.",
+		"scraperNeededLinkContent": "이 깃허브 이슈"
+	},
+	"survey": {
+		"ctaTitle": "Zimit 개선에 도움을 주세요!",
+		"ctaMessage": "간단한 설문조사에 참여하여 의견을 공유해 주세요.",
+		"buttonTakeSurvey": "설문 조사 참가"
 	}
 }
