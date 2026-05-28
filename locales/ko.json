@@ -14,7 +14,7 @@
 		"whatIsZimDescLinkContent0": "오프라인",
 		"howToRead": "ZIM 파일을 어떻게 읽습니까?",
 		"howToReadDescParagraph": "ZIM 파일 리더가 필요합니다. 일반적으로 {0}을(를) 의미하며, 이는 {1}에서 사용할 수 있습니다.",
-		"howToReadDescLinkContent0": "Kiwix",
+		"howToReadDescLinkContent0": "키윅스",
 		"howToReadDescLinkContent1": "데스크톱 컴퓨터, 모바일 기기 등",
 		"missingContent": "ZIM 파일이 불완전하거나 원본 웹사이트보다 작습니다",
 		"missingContentDesc": "이 도구의 특성상 어떤 웹사이트에 대해서도 무제한 요청을 허용할 수 없습니다. 이는 저희 인프라뿐 아니라 대상 웹사이트에도 악영향을 미칠 수 있습니다. 현재 저희는 {human_size_limit}(GiB)와(과) {human_time_limit}(이)라는 두 가지 제한을 적용하고 있습니다.",
@@ -30,7 +30,7 @@
 	},
 	"footer": {
 		"poweredByThankTo": "{0} 및 {1}의 지원과 {2} 어워드 덕분에 이 프로젝트가 성공적으로 완료되었습니다 ❤️",
-		"link0": "Kiwix",
+		"link0": "키윅스",
 		"link1": "웹레코더",
 		"link2": "모질라 오픈 소스 지원"
 	},
