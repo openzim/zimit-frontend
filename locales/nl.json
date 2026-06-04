@@ -16,7 +16,7 @@
 		"howToReadDescLinkContent0": "Kiwix",
 		"howToReadDescLinkContent1": "bureaucomputers, mobiele apparaten en dergelijke",
 		"missingContent": "Het ZIM-bestand is onvolledig of kleiner dan de originele website",
-		"missingContentDesc": "Vanwege de aard van deze tool kunnen we deze niet open laten staan voor onbeperkte verzoeken naar elke website. Dit kan schadelijk zijn voor zowel onze infrastructuur als de doelwebsites. We hanteren momenteel twee limieten: {human_size_limit} GiB voor de bestandsgrootte en {human_time_limit}.",
+		"missingContentDesc": "Vanwege de aard van dit hulpmiddel kunnen we deze niet open laten staan voor onbeperkte verzoeken naar elke website. Dit kan schadelijk zijn voor zowel onze infrastructuur als de doelwebsites. We hanteren momenteel twee limieten: {human_size_limit} GiB voor de bestandsgrootte en {human_time_limit}.",
 		"gotError": "Ik kreeg een foutmelding (geen ZIM) of kon een ZIM-bestand niet lezen",
 		"gotErrorDescParagraph": "Controleer de ingevoerde URL driemaal. Als deze nog altijd niet werkt, open dan een bugticket op {0}. Vermeld de doelwebsite, het aanvraagnummer (dit staat in de e-mail die u hebt ontvangen) en het apparaat waarop u uw ZIM-bestand hebt geprobeerd te openen.",
 		"gotErrorDescLinkContent0": "GitHub"
@@ -131,7 +131,7 @@
 			"downloadFromLibrary": "Om onze middelen te besparen, nodigen wij u uit om uw ZIM te downloaden via {link}.",
 			"downloadFromLibraryLinkContent": "onze bibliotheek",
 			"wp1Hint": "Als u alleen een paar specifieke pagina's wilt ZIM’en, is {wp1Link} wellicht iets voor u.",
-			"wp1LinkContent": "onze WP1-tool"
+			"wp1LinkContent": "ons WP1-hulpmiddel"
 		},
 		"tooBig": {
 			"tooBigDetails": "Deze website is veel te groot om er één ZIM van te maken.",
