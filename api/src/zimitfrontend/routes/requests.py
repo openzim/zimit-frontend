@@ -162,7 +162,6 @@ def create_task(
     payload = {  # pyright: ignore[reportUnknownVariableType]
         "name": recipe_name,
         "language": "eng",
-        "category": "other",
         "periodicity": "manually",
         "tags": [],
         "enabled": True,
