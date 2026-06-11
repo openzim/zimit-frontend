@@ -15,7 +15,7 @@
 		"howToReadDescParagraph": "U hebt een ZIM-bestandlezer nodig. Meestal is dat {0}, wat beschikbaar is voor {1}.",
 		"howToReadDescLinkContent0": "Kiwix",
 		"howToReadDescLinkContent1": "bureaucomputers, mobiele apparaten en dergelijke",
-		"missingContent": "Het ZIM-bestand is onvolledig of kleiner dan de originele website",
+		"missingContent": "Het ZIM-bestand is onvolledig of kleiner dan de oorspronkelijke website",
 		"missingContentDesc": "Vanwege de aard van dit hulpmiddel kunnen we deze niet open laten staan voor onbeperkte verzoeken naar elke website. Dit kan schadelijk zijn voor zowel onze infrastructuur als de doelwebsites. We hanteren momenteel twee limieten: {human_size_limit} GiB voor de bestandsgrootte en {human_time_limit}.",
 		"gotError": "Ik kreeg een foutmelding (geen ZIM) of kon een ZIM-bestand niet lezen",
 		"gotErrorDescParagraph": "Controleer de ingevoerde URL driemaal. Als deze nog altijd niet werkt, open dan een bugticket op {0}. Vermeld de doelwebsite, het aanvraagnummer (dit staat in de e-mail die u hebt ontvangen) en het apparaat waarop u uw ZIM-bestand hebt geprobeerd te openen.",
@@ -121,9 +121,9 @@
 		"abnormalUsage": "Uw adres is tijdelijk geblokkeerd voor het insturen van nieuwe aanvragen omdat onze servers abnormaal gebruik hebben waargenomen: {status}"
 	},
 	"blacklist": {
-		"missingReason": "Reden voor zwarte lijst moet worden ingesteld",
-		"missingLibraryUrl": "Bibliotheek-URL moet worden ingesteld in de reden voor zwarte lijst",
-		"missingGithubIssueUrl": "GitHub-issue-URL moet worden ingesteld in de reden voor zwarte lijst",
+		"missingReason": "Reden voor blokkeerlijst moet worden ingesteld",
+		"missingLibraryUrl": "Bibliotheek-url moet worden ingesteld in de reden voor blokkeerlijst",
+		"missingGithubIssueUrl": "GitHub-melding-url moet worden ingesteld in de reden voor blokkeerlijst",
 		"goBack": "Teruggaan",
 		"contactUs": "Mocht u een speciale ZIM nodig hebben, neem dan contact met ons op.",
 		"alreadyZimed": {
