@@ -78,5 +78,14 @@
 	},
 	"blockedRequest": {
 		"contactUsIfPersist": "Kontaktéiert eis wgl., wann d'Situatioun bestoe bleift."
+	},
+	"blacklist": {
+		"goBack": "Zeréck goen",
+		"contactUs": "Wann dir e spezielle ZIM braucht, kontaktéiert eis wgl."
+	},
+	"survey": {
+		"ctaTitle": "Hëlleft eis, Zimit ze verbesseren!",
+		"ctaMessage": "Deelt Äre Feedback an enger kuerzer Ëmfro",
+		"buttonTakeSurvey": "Bei der Ëmfro matmaachen"
 	}
 }
