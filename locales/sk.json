@@ -1,0 +1,153 @@
+{
+	"@metadata": {
+		"authors": [
+			"Wizzard"
+		]
+	},
+	"language": "slovenčina",
+	"faq": {
+		"whatIsZim": "Čo je súbor ZIM?",
+		"whatIsZimDescParagraph": "Formát súboru ZIM ukladá obsah webových stránok na {0} používanie. Zostaví bežné súčasti webovej stránky do jediného archívu a skomprimuje ho tak, aby sa dal ľahšie uložiť, zdieľať a uschovať.",
+		"whatIsZimDescLinkContent0": "offline",
+		"howToRead": "Ako čítam svoje súbory ZIM?",
+		"howToReadDescParagraph": "Budete potrebovať čítačku súborov ZIM. To zvyčajne znamená {0}, ktorý je dostupný na {1}.",
+		"howToReadDescLinkContent0": "Kiwix",
+		"howToReadDescLinkContent1": "stolových počítačoch, mobilných zariadeniach a ďalších",
+		"missingContent": "Súbor ZIM je neúplný alebo menší ako pôvodná webová stránka",
+		"missingContentDesc": "Vzhľadom na samotnú povahu tohto nástroja ho nemôžeme nechať otvorený pre neobmedzené požiadavky voči akejkoľvek webovej stránke. To by mohlo byť škodlivé pre našu infraštruktúru, ale aj pre cieľové webové stránky. Momentálne uplatňujeme dva limity: veľkosť súboru {human_size_limit} GiB a {human_time_limit}.",
+		"gotError": "Dostal som chybové hlásenie (žiadny ZIM) alebo sa mi nepodarilo prečítať súbor ZIM",
+		"gotErrorDescParagraph": "Trikrát skontrolujte URL, ktorú ste zadali, a ak stále nefunguje, otvorte hlásenie chyby na {0}. Uveďte cieľovú webovú stránku, číslo požiadavky (nájdete ho v e-maile, ktorý ste dostali) a zariadenie, na ktorom ste sa pokúsili otvoriť svoj súbor ZIM.",
+		"gotErrorDescLinkContent0": "github"
+	},
+	"units": {
+		"timeLimit": {
+			"singular": "hodina",
+			"plural": "hodín"
+		}
+	},
+	"footer": {
+		"poweredByThankTo": "Poháňané {0} a {1}, vďaka oceneniu {2} ❤️",
+		"link0": "Kiwix",
+		"link1": "Webrecorder",
+		"link2": "Mozilla Open-Source Support"
+	},
+	"header": {
+		"donate": "Zachovajte to zadarmo. Prispejte"
+	},
+	"newRequest": {
+		"headingParagraph": "Chcete offline verziu webovej stránky? Stačí {0}!",
+		"headingBold": "vytvoriť ZIM",
+		"urlLabel": "Úplná URL webovej stránky, ktorá sa má konvertovať",
+		"emailLabel": "Váš e-mail na doručenie odkazu na stiahnutie. Adresa sa neuchováva",
+		"submit": "Vytvorme ZIM!",
+		"advancedOptions": "rozšírené možnosti",
+		"fetchingDefinitionAndStatus": "Načítava sa definícia offlineru a stav sledovača…",
+		"errorFetchingDefinition": "Chyba pri načítavaní definície offlineru",
+		"errorFetchingStatus": "Chyba pri načítavaní stavu sledovača",
+		"creatingRequest": "Vytvára sa požiadavka…",
+		"errorCreatingRequest": "Chyba pri vytváraní požiadavky",
+		"offlinerNotFound": "Offliner Zimit sa nenašiel, pravdepodobne máme vážny problém s našou infraštruktúrou.",
+		"stopNewRequestsMessage": "Zimit dočasne neprijíma nové úlohy kvôli údržbe, vráti sa o niekoľko dní."
+	},
+	"notFound": {
+		"heading": "Nenájdené",
+		"description": "Nič tu nie je, vaša URL je pravdepodobne nesprávna. Možno by ste sa chceli vrátiť späť."
+	},
+	"requestStatus": {
+		"progressMessage": "{task_progression_percent} % ({task_progression_status_code})",
+		"refreshing": "Obnovuje sa stav úlohy…",
+		"errorRefreshing": "Chyba pri obnovovaní stavu úlohy",
+		"refreshAuto": "Táto stránka sa automaticky obnoví každých {refresh_interval} sekúnd, nemusíte ju znova načítavať.",
+		"zimingOf": "Vytváranie ZIM z",
+		"requestingSlot": "Žiada sa o slot",
+		"requestRecorded": "Vaša požiadavka bola zaznamenaná a čaká na slot v našej infraštruktúre, aby sa spustila. Hoci sa snažíme dokončiť všetky požiadavky do 24 hodín, naša infraštruktúra pre túto bezplatnú službu je obmedzená a niekedy zaznamenávame nárasty dopytu, v takom prípade môže spracovanie nevybavených požiadaviek trvať niekoľko dní. Buďte prosím trpezliví!",
+		"rankMessage": "Vaša požiadavka je na pozícii {task_rank} v poradí (čím nižšie, tým lepšie; 1 znamená, že táto úloha sa spustí ako ďalšia).",
+		"requestFailed": "Vaša požiadavka zlyhala! Je nám to ľúto.",
+		"failureReasons": "K zlyhaniu vytvárania ZIM môže viesť viacero dôvodov. Väčšinou to býva nevhodná URL… Trikrát to prosím skontrolujte a vytvorte novú požiadavku. Ak to nepomôže, {0}.",
+		"failureReasonsLinkContent0": "otvorte hlásenie na githube",
+		"successMessage": "Úspech!",
+		"successMessageExplanation": "Odkaz nižšie po týždni vyprší a súbor bude zmazaný.",
+		"successMessageButton": "Stiahnuť",
+		"partialZim": "Váš súbor ZIM obsahuje iba časť cieľovej webovej stránky, pretože ste dosiahli maximálnu veľkosť súboru ({human_size_limit} GiB) alebo trvanie ({human_time_limit}) povolené pre bezplatné prehľadávanie. {contact_us_link}, ak si chcete pre svoju úlohu zakúpiť ďalší priestor na serveri.",
+		"partialZimContactUsLink": "Kontaktujte nás",
+		"beingProcessedMessage": "Vaša požiadavka sa spracúva",
+		"beingProcessedExplanation": "Náš systém práve konvertuje URL, ktorú ste poskytli, na pekný súbor ZIM. V závislosti od cieľovej veľkosti to môže byť otázka minút alebo hodín.",
+		"bookmarkUrl": "URL aktuálnej stránky prehliadača si môžete pridať do záložiek, aby ste sa k tejto úlohe mohli vrátiť neskôr.",
+		"emailNotification": "Mali by ste dostať e-mail s aktuálnou URL. Po dokončení úlohy dostanete druhý e-mail s odkazom na stiahnutie (toto okno teda môžete zatvoriť).",
+		"noEmailNotification": "Neposkytli ste nám e-mail: pred zatvorením okna si prosím pridajte túto stránku do záložiek, inak nebudete môcť získať svoj súbor ZIM.",
+		"settingsHeading": "Nastavenia",
+		"taskNotFound": "Úloha sa nenašla. Buď je vaša URL nesprávna, alebo naša služba zaznamenáva problém.",
+		"cancelButton": "Zrušiť požiadavku",
+		"requestCancelRequested": "Vaša žiadosť o zrušenie požiadavky bola prijatá",
+		"requestCancelRequestedExplanation": "Vaša požiadavka sa ruší. Môže to trvať niekoľko minút.",
+		"requestCanceled": "Vaša požiadavka bola zrušená",
+		"cancellingRequest": "Rušíme vašu požiadavku",
+		"errorCancellingRequest": "Zrušenie zlyhalo"
+	},
+	"email": {
+		"requested": {
+			"subject": "Úloha Youzim.it %{taskId} bola vyžiadaná",
+			"title": "ZIM vyžiadaný!",
+			"zimRequestRecorded": "Vaša požiadavka na ZIM z %{link} bola zaznamenaná.",
+			"howToFollowProgress": "Stav tejto požiadavky môžete sledovať na %{link}.",
+			"emailWillBeSent": "Keď bude váš súbor ZIM pripravený na stiahnutie, pošleme vám ďalší e-mail."
+		},
+		"succeeded": {
+			"subject": "Úloha Youzim.it %{taskId} bola úspešná",
+			"title": "ZIM je pripravený!",
+			"zimRequestCompleted": "Vaša požiadavka na ZIM z %{link} bola dokončená.",
+			"hereItIs": "Tu je:",
+			"incomplete": "ZIM je, žiaľ, neúplný, pretože ste dosiahli limit (%{sizeLimit} alebo %{timeLimit}) povolený pre bezplatné prehľadávanie. %{contactUsLink}, ak si chcete zakúpiť ďalší priestor na serveri.",
+			"contactUsLinkContent": "Kontaktujte nás"
+		},
+		"failed": {
+			"subject": "Úloha Youzim.it %{taskId} zlyhala",
+			"title": "Vaša požiadavka na ZIM zlyhala!",
+			"weAreSorry": "Naozaj nás to mrzí.",
+			"checkAndRetry": "Môže to byť spôsobené chybou v URL, ktorú ste zadali (%{configUrlLink}), alebo chýbajúcimi/zlyhávajúcimi ďalšími nastaveniami. Prosím, dôkladne to skontrolujte a %{retryLink}.",
+			"retryLinkContent": "skúste to znova",
+			"howToCheckSettings": "Nastavenia, ktoré ste použili, si môžete skontrolovať na %{taskLink}."
+		}
+	},
+	"blockedRequest": {
+		"blockedMissingReason": "Máte zablokované odosielanie ďalších požiadaviek. Hoci technický dôvod je momentálne nejasný, situácia by sa mala automaticky vyriešiť o niekoľko hodín alebo keď vyprší vaša predchádzajúca požiadavka.",
+		"contactUsIfPersist": "Ak situácia pretrváva, kontaktujte nás prosím.",
+		"zimitFreeService": "Keďže Zimit je bezplatná služba, obmedzujeme počet úloh na používateľa.",
+		"quotaReached": "Dosiahli ste svoju kvótu úloh, pred vyžiadaním nových prosím počkajte na dokončenie prebiehajúcich úloh.",
+		"useLinksBelowToSeeTask": "Na monitorovanie/zrušenie prebiehajúcich úloh použite prosím odkazy nižšie.",
+		"goToTask": "Prejsť na prebiehajúcu úlohu {taskLink}",
+		"excessiveUsage": "Zaznamenali sme nadmerné používanie z vášho prostredia, vráťte sa prosím o niekoľko hodín.",
+		"abnormalUsage": "Vaša adresa bola dočasne zablokovaná pre odosielanie ďalších požiadaviek kvôli tomu, čo naše servery vyhodnotili ako neobvyklé používanie: {status}"
+	},
+	"blacklist": {
+		"missingReason": "Musí byť nastavený dôvod na čiernej listine",
+		"missingLibraryUrl": "V dôvode na čiernej listine musí byť nastavená URL knižnice",
+		"missingGithubIssueUrl": "V dôvode na čiernej listine musí byť nastavená URL hlásenia na Githube",
+		"goBack": "Späť",
+		"contactUs": "Ak potrebujete špeciálny ZIM, kontaktujte nás prosím.",
+		"alreadyZimed": {
+			"alreadyMadeZim": "Kiwix už z tejto webovej stránky vytvoril ZIM.",
+			"downloadFromLibrary": "Aby sme šetrili naše zdroje, pozývame vás stiahnuť si svoj ZIM z {link}.",
+			"downloadFromLibraryLinkContent": "našej knižnice",
+			"wp1Hint": "Ak chcete zazimovať iba niekoľko konkrétnych stránok, mohol by vás zaujímať {wp1Link}.",
+			"wp1LinkContent": "náš nástroj WP1"
+		},
+		"tooBig": {
+			"tooBigDetails": "Táto webová stránka je príliš veľká na to, aby sa zmestila do jediného ZIM.",
+			"alreadyMadeZim": "Kiwix už vytvoril niekoľko ZIM z častí tejto webovej stránky.",
+			"downloadOrRequest": "Tieto ZIM si môžete pozrieť v {libraryLink} alebo otvoriť hlásenie na {githubRequestLink}, ak to zodpovedá účelu Kiwixu.",
+			"libraryLinkContent": "našej knižnici",
+			"githubRequestLinkContent": "vyžiadanie ďalšieho ZIM",
+			"useScraper": "Ak ste trochu technicky zdatní, môžete použiť aj {scraperRepoLink} na vlastnú päsť.",
+			"scraperRepoLinkContent": "náš špecializovaný scraper"
+		},
+		"notPossible": "Túto webovú stránku, žiaľ, nie je možné zazimovať pomocou zimit.",
+		"scraperNeeded": "Zdá sa, že pre túto webovú stránku je možné vyvinúť vlastný scraper, ale potrebujeme vašu podporu na {githubIssueLink}.",
+		"scraperNeededLinkContent": "tomto hlásení na Githube"
+	},
+	"survey": {
+		"ctaTitle": "Pomôžte nám zlepšiť Zimit!",
+		"ctaMessage": "Podeľte sa o svoju spätnú väzbu v našom rýchlom prieskume",
+		"buttonTakeSurvey": "Vyplniť prieskum"
+	}
+}
