@@ -30,7 +30,7 @@ onMounted(() => {
 
 <template>
   <v-container id="newrequest" class="pt-0">
-    <SurveyBanner />
+    <SurveyBanner v-if="0"/>
     <i18n-t keypath="newRequest.headingParagraph" tag="h1">
       <strong>{{ t('newRequest.headingBold') }}</strong>
     </i18n-t>
