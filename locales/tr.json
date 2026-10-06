@@ -1,0 +1,130 @@
+{
+	"@metadata": {
+		"authors": [
+			"Efygz"
+		]
+	},
+	"language": "Türkçe",
+	"faq": {
+		"whatIsZim": "ZIM dosyası nedir?",
+		"whatIsZimDescLinkContent0": "çevrimdışı",
+		"howToRead": "ZIM dosyalarımı nasıl okuyabilirim?",
+		"howToReadDescParagraph": "Bir ZIM dosya okuyucusuna ihtiyacınız olacaktır. Bu genellikle {0} anlamına gelir ve bu da {1} adresinde mevcuttur.",
+		"howToReadDescLinkContent0": "Kiwix",
+		"howToReadDescLinkContent1": "masaüstü bilgisayarlar, mobil cihazlar ve daha fazlası",
+		"gotErrorDescLinkContent0": "github"
+	},
+	"units": {
+		"timeLimit": {
+			"singular": "saat",
+			"plural": "saat"
+		}
+	},
+	"footer": {
+		"poweredByThankTo": "{0} ve {1} tarafından desteklenmektedir, {2} Ödülü sayesinde ❤️",
+		"link0": "Kiwix",
+		"link1": "Web kaydedici",
+		"link2": "Mozilla Açık Kaynak Desteği"
+	},
+	"header": {
+		"donate": "Bu hizmeti ücretsiz tutmamıza yardım edin. Bağış yapın."
+	},
+	"newRequest": {
+		"headingBold": "ZIM’le",
+		"urlLabel": "Dönüştürülecek web sitesinin tam URL'si",
+		"emailLabel": "İndirme bağlantısını almak için e-posta adresiniz. Adresiniz kaydedilmeyecektir.",
+		"submit": "Hadi ZIM’leyelim!",
+		"advancedOptions": "gelişmiş seçenekler",
+		"creatingRequest": "Talep oluşturuluyor…",
+		"errorCreatingRequest": "Talep oluşturulurken hata oluştu",
+		"offlinerNotFound": "Zimit offliner bulunamadı, muhtemelen altyapımızda ciddi bir sorun yaşıyoruz.",
+		"stopNewRequestsMessage": "Zimit, bakım çalışmaları nedeniyle geçici olarak yeni iş kabul etmiyor, birkaç gün içinde geri dönecek."
+	},
+	"notFound": {
+		"heading": "Bulunamadı",
+		"description": "Burada hiçbir şey yok, URL'niz muhtemelen yanlış. Belki geri dönmek istersiniz."
+	},
+	"requestStatus": {
+		"refreshing": "İşlem durumu yenileniyor…",
+		"errorRefreshing": "İşlem durumu yenilenirken hata oluştu",
+		"refreshAuto": "Bu sayfa her {refresh_interval} saniyede bir otomatik olarak yenilenecektir, yeniden yüklemenize gerek yoktur.",
+		"zimingOf": "Bu adresin Zim’lemesi:",
+		"successMessage": "Başarılı!",
+		"successMessageButton": "İndir",
+		"partialZimContactUsLink": "Bize ulaşın",
+		"beingProcessedMessage": "İsteğiniz işlemde",
+		"settingsHeading": "Ayarlar",
+		"cancelButton": "İsteği iptal et",
+		"requestCancelRequested": "İptal talebiniz alındı",
+		"requestCancelRequestedExplanation": "İsteğiniz iptal ediliyor. Bu işlem birkaç dakika sürebilir.",
+		"requestCanceled": "İsteğiniz iptal edildi",
+		"cancellingRequest": "Talebinizi iptal ediyoruz",
+		"errorCancellingRequest": "İptal başarısız oldu"
+	},
+	"email": {
+		"requested": {
+			"subject": "Youzim.it %{taskId} görevi talep edildi",
+			"title": "ZIM istendi!",
+			"zimRequestRecorded": "%{link} adına yaptığınız ZIM isteği kaydedildi.",
+			"howToFollowProgress": "Bu isteğin durumunu %{link} adresinden takip edebilirsiniz.",
+			"emailWillBeSent": "ZIM dosyanız indirmeye hazır olduğunda size başka bir e-posta göndereceğiz."
+		},
+		"succeeded": {
+			"subject": "Youzim.it %{taskId} görevi başarıyla tamamlandı.",
+			"title": "ZIM hazır!",
+			"zimRequestCompleted": "%{link} adına yaptığınız ZIM isteği tamamlandı.",
+			"hereItIs": "İşte burada:",
+			"incomplete": "Ücretsiz tarama için izin verilen sınıra (%{sizeLimit} veya %{timeLimit}) ulaştığınız için ZIM maalesef tamamlanmamıştır. Ek sunucu alanı satın almak için %{contactUsLink} adresini ziyaret edin.",
+			"contactUsLinkContent": "Bize ulaşın"
+		},
+		"failed": {
+			"subject": "Youzim.it %{taskId} görevi başarısız oldu.",
+			"title": "ZIM talebiniz başarısız oldu!",
+			"weAreSorry": "Gerçekten üzgünüz.",
+			"checkAndRetry": "Bu durum, girdiğiniz URL'de (%{configUrlLink}) bir hata veya eksik/başarısız ek ayarlar nedeniyle olabilir. Lütfen tekrar kontrol edin ve %{retryLink} komutunu çalıştırın.",
+			"retryLinkContent": "yeniden dene",
+			"howToCheckSettings": "Kullandığınız ayarları %{taskLink} adresinden kontrol edebilirsiniz."
+		}
+	},
+	"blockedRequest": {
+		"blockedMissingReason": "Ek istek göndermeniz engellendi. Teknik neden şu an için belirsiz olsa da, durum birkaç saat içinde veya önceki isteğinizin süresi dolduğunda muhtemelen otomatik olarak düzelecektir.",
+		"contactUsIfPersist": "Durum devam ederse lütfen bizimle iletişime geçin.",
+		"zimitFreeService": "Zimit ücretsiz bir hizmet olduğundan, kullanıcı başına görev sayısını sınırlıyoruz.",
+		"quotaReached": "İstek kotanıza ulaştınız, lütfen yeni talepler oluşturmadan önce devam eden işlemlerin tamamlanmasını bekleyin.",
+		"useLinksBelowToSeeTask": "Devam eden işlemleri takip etmek/iptal etmek için lütfen aşağıdaki bağlantıları kullanın.",
+		"goToTask": "Devam eden göreve git {taskLink}",
+		"excessiveUsage": "Ortamınızdan aşırı kullanım tespit ettik, lütfen birkaç saat sonra tekrar deneyin.",
+		"abnormalUsage": "Sunucularımızın anormal kullanım olarak algıladığı durum nedeniyle adresiniz geçici olarak istek göndermeye kapatılmıştır: {status}"
+	},
+	"blacklist": {
+		"missingReason": "Kara listeye alınma nedeni belirtilmeli",
+		"missingLibraryUrl": "Kütüphane URL'si kara listeye alma nedenine eklenmelidir",
+		"missingGithubIssueUrl": "GitHub Sorun URL'si kara listeye alma nedenine eklenmelidir",
+		"goBack": "Geri dön",
+		"contactUs": "Özel bir ZIM'e ihtiyacınız olursa, lütfen bizimle iletişime geçin.",
+		"alreadyZimed": {
+			"alreadyMadeZim": "Kiwix bu web sitesinin ZIM'(ler)ini zaten oluşturmuş.",
+			"downloadFromLibrary": "Kaynaklarımızı korumak için ZIM dosyasını {link} adresinden indirmenizi rica ederiz.",
+			"downloadFromLibraryLinkContent": "kütüphanemiz",
+			"wp1Hint": "Yalnızca belirli birkaç sayfayı ZIM’lemek istiyorsanız, {wp1Link} ilginizi çekebilir.",
+			"wp1LinkContent": "WP1 aracımız"
+		},
+		"tooBig": {
+			"tooBigDetails": "Bu web sitesi tek bir ZIM dosyasına sığmayacak kadar büyük.",
+			"alreadyMadeZim": "Kiwix bu web sitesinin bazı bölümlerinin ZIM versiyonlarını zaten oluşturdu.",
+			"downloadOrRequest": "Bu ZIM dosyalarını {libraryLink} adresinden inceleyebilir veya Kiwix'in amacına uygunsa {githubRequestLink} adresine bir sorun bildirebilirsiniz.",
+			"libraryLinkContent": "kütüphanemiz",
+			"githubRequestLinkContent": "başka bir ZIM talep et",
+			"useScraper": "Teknolojiye biraz aşina iseniz, {scraperRepoLink}'i kendiniz de kullanabilirsiniz.",
+			"scraperRepoLinkContent": "özel kazıyıcı/scraper programımız"
+		},
+		"notPossible": "Maalesef bu web sitesini Zimit ile ZIM'lemek mümkün değil.",
+		"scraperNeeded": "Bu web sitesi için özel bir veri çekme aracı geliştirmek mümkün görünüyor, ancak {githubIssueLink} adresinde desteğinize ihtiyacımız var.",
+		"scraperNeededLinkContent": "bu Github sorunu"
+	},
+	"survey": {
+		"ctaTitle": "Zimit'i geliştirmemize yardım et!",
+		"ctaMessage": "Kısa anketimize katılarak görüşlerinizi paylaşın",
+		"buttonTakeSurvey": "Anketi Doldur"
+	}
+}
