@@ -108,6 +108,8 @@ class ApiConfiguration:
     task_cpu = _get_int_setting("TASK_CPU", 3)
     task_memory = _get_size_setting("TASK_MEMORY", "1GiB")
     task_disk = _get_size_setting("TASK_DISK", "1GiB")
+    # Comma-seperated names of teams that tasks will belong to
+    task_teams = os.getenv("TASK_TEAMS", "Kiwix").split(",")
 
     task_worker = os.getenv("TASK_WORKER")
 
