@@ -167,6 +167,7 @@ def create_task(
         "enabled": True,
         "config": config,
         "version": ApiConfiguration.zimit_definition_version,
+        "teams": ApiConfiguration.task_teams,
     }
 
     # add notification callback if email supplied
