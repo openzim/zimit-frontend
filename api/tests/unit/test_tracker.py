@@ -245,6 +245,26 @@ def test_custom_max_tasks(tracker: Tracker):
     assert result.new_unique_id is None
 
 
+def test_stale_task_removal():
+    tracker = Tracker()
+    tracker.known_clients = [
+        ClientInfo(
+            ip_address=CLIENT_2_IP,
+            unique_id=CLIENT_2_VALID_ID,
+            ongoing_tasks=[TASK_ID1],
+        )
+    ]
+
+    def custom_ongoing_task_has_finished(task_id: str):
+        tracker.known_clients[0].ongoing_tasks.clear()
+        return True
+
+    tracker.ongoing_task_has_finished = custom_ongoing_task_has_finished
+
+    result = tracker.add_task(CLIENT_2_IP, None, None)
+    assert result.status == AddTaskStatus.CAN_ADD_TASK
+
+
 def test_generate_validate_id():
     assert is_valid_unique_id(generate_unique_id())
 
