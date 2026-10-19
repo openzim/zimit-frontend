@@ -35,11 +35,11 @@
 		"donate": "Bu hizmeti ücretsiz tutmamıza yardım edin. Bağış yapın."
 	},
 	"newRequest": {
-		"headingParagraph": "Bir web sitesinin çevrimdışı sürümünü mü istiyorsunuz? Sadece {0}!",
+		"headingParagraph": "Bir web sitesinin çevrimdışı sürümünü mü istiyorsun? Sadece {0}!",
 		"headingBold": "ZIM’le",
 		"urlLabel": "Dönüştürülecek web sitesinin tam URL'si",
 		"emailLabel": "İndirme bağlantısını almak için e-posta adresiniz. Adresiniz kaydedilmeyecektir.",
-		"submit": "Hadi ZIM’leyelim!",
+		"submit": "ZIM'le!",
 		"advancedOptions": "gelişmiş seçenekler",
 		"fetchingDefinitionAndStatus": "Çevrimdışı tanım ve takipçi durumları yükleniyor…",
 		"errorFetchingDefinition": "Çevrimdışı tanım alımında hata",
