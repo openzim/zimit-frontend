@@ -17,6 +17,7 @@ class Main:
             title=__about__.__api_title__,
             description=__about__.__api_description__,
             version=__about__.__version__,
+            redirect_slashes=False,
         )
 
         @self.app.get("/api")
@@ -33,6 +34,7 @@ class Main:
             description=__about__.__api_description__,
             version=__about__.__version__,
             docs_url="/",
+            redirect_slashes=False,
             openapi_tags=[
                 {
                     "name": "all",
