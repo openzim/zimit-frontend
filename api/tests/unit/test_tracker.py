@@ -1,7 +1,10 @@
+import threading
+
 import pytest
 
 from zimitfrontend.constants import ApiConfiguration
 from zimitfrontend.tracker import (
+    AddTaskResponse,
     AddTaskStatus,
     ClientInfo,
     Tracker,
@@ -285,3 +288,47 @@ def test_validate_bad_id(prefix: str, suffix: str):
 )
 def test_validate_known_ids(identifier: str, *, is_valid: bool):
     assert is_valid_unique_id(identifier) == is_valid
+
+
+def test_concurrent_refresh_of_same_finished_task():
+    """Two concurrent requests of the same client both see the same task as finished.
+
+    Regression test for #193: concurrent requests would crash with
+    ValueError: list.remove(x): x not in list when attempting to remove
+    already-removed tasks or clients from in-memory lists.
+    """
+    tracker = Tracker()
+    tracker.known_clients = [
+        ClientInfo(
+            ip_address=CLIENT_2_IP,
+            unique_id=CLIENT_2_VALID_ID,
+            ongoing_tasks=[TASK_ID1],
+        )
+    ]
+    both_checked = threading.Barrier(2, timeout=5)
+
+    def finished_after_both_checked(_task_id: str) -> bool:
+        both_checked.wait()
+        return True
+
+    tracker.ongoing_task_has_finished = finished_after_both_checked
+
+    results: list[AddTaskResponse] = []
+    errors: list[Exception] = []
+
+    def request():
+        try:
+            results.append(tracker.add_task(CLIENT_2_IP, None, None))
+        except Exception as exc:
+            errors.append(exc)
+
+    threads = [threading.Thread(target=request) for _ in range(2)]
+    for thread in threads:
+        thread.start()
+    for thread in threads:
+        thread.join(timeout=10)
+
+    assert all(not thread.is_alive() for thread in threads)
+    assert not errors
+    assert [r.status for r in results] == [AddTaskStatus.CAN_ADD_TASK] * 2
+    assert tracker.known_clients == []
