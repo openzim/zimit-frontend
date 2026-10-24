@@ -147,6 +147,25 @@ const getFlagRules = (flag: OfflinerFlag) => {
     })
   }
 
+  if (['scopeIncludeRx', 'scopeExcludeRx'].includes(flag.data_key)) {
+    rules.push((value: unknown) => {
+      if (
+        value === null ||
+        value === undefined ||
+        typeof value !== 'string' ||
+        value.trim() === ''
+      ) {
+        return true
+      }
+      try {
+        new RegExp(value)
+        return true
+      } catch {
+        return 'Please enter a valid regular expression'
+      }
+    })
+  }
+
   return rules
 }
 
