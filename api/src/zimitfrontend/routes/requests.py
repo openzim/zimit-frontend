@@ -85,6 +85,14 @@ def create_task(
         )
 
     url = urllib.parse.urlparse(request.url)
+    if url.scheme not in ("http", "https") or not url.hostname:
+        raise HTTPException(
+            HTTPStatus.BAD_REQUEST,
+            detail={
+                "error": "invalid_url",
+                "message": "A valid HTTP or HTTPS URL with a hostname is required",
+            },
+        )
 
     matching_blacklist_entries = [
         blacklist_entry
@@ -108,7 +116,8 @@ def create_task(
     flags = request.flags
     flags["seeds"] = normalize_hostname(request.url)
     flags["name"] = flags.get("name", recipe_name)
-    flags["zim-file"] = flags.get("zim-file", url.hostname) + f"_{ident}.zim"
+    zim_file = flags.get("zim-file") or url.hostname
+    flags["zim-file"] = f"{zim_file}_{ident}.zim"
     flags["userAgentSuffix"] = "zimit.kiwix.org+"
     flags["failOnFailedSeed"] = True
     flags["failOnInvalidStatus"] = True
