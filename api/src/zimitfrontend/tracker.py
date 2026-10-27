@@ -1,4 +1,5 @@
 import hmac
+import threading
 from enum import Enum
 from http import HTTPStatus
 from uuid import uuid4
@@ -58,27 +59,34 @@ def is_valid_unique_id(unique_id: str) -> bool:
 class Tracker:
     def __init__(self):
         self.known_clients: list[ClientInfo] = []
+        self._lock = threading.Lock()
         self.ongoing_task_has_finished = self._ongoing_task_has_finished
         self.has_reached_maximum_tasks = self._has_reached_maximum_tasks
 
     def _refresh_ongoing_tasks(self, ip_address: str, unique_id: str | None):
-        clients_to_refresh = filter(
-            lambda client: client.ip_address == ip_address
-            or (unique_id and client.unique_id == unique_id),
-            self.known_clients,
-        )
-        completed_clients: list[ClientInfo] = []
-        for client in clients_to_refresh:
-            completed_tasks: list[str] = []
-            for task in client.ongoing_tasks:
-                if self.ongoing_task_has_finished(task):
-                    completed_tasks.append(task)
-            for task in completed_tasks:
-                client.ongoing_tasks.remove(task)
-                if len(client.ongoing_tasks) == 0:
-                    completed_clients.append(client)
-        for client in completed_clients:
-            self.known_clients.remove(client)
+        with self._lock:
+            to_check: list[tuple[ClientInfo, list[str]]] = [
+                (client, list(client.ongoing_tasks))
+                for client in self.known_clients
+                if client.ip_address == ip_address
+                or (unique_id and client.unique_id == unique_id)
+            ]
+
+        finished: list[tuple[ClientInfo, list[str]]] = [
+            (
+                client,
+                [task for task in tasks if self.ongoing_task_has_finished(task)],
+            )
+            for client, tasks in to_check
+        ]
+
+        with self._lock:
+            for client, finished_tasks in finished:
+                for task in finished_tasks:
+                    if task in client.ongoing_tasks:
+                        client.ongoing_tasks.remove(task)
+                if not client.ongoing_tasks and client in self.known_clients:
+                    self.known_clients.remove(client)
 
     def _has_reached_maximum_tasks(self, client_info: ClientInfo) -> bool:
         return len(client_info.ongoing_tasks) > 0
