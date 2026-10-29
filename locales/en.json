@@ -42,7 +42,11 @@
     "creatingRequest": "Creating request…",
     "errorCreatingRequest": "Error creating request",
     "offlinerNotFound": "Zimit offliner not found, we probably experience a serious issue on our infrastructure.",
-    "stopNewRequestsMessage": "Zimit temporarily does not accept new tasks for maintenance, will be back in few days."
+    "stopNewRequestsMessage": "Zimit temporarily does not accept new tasks for maintenance, will be back in few days.",
+    "blockRulesLabel": "Block Rules (JSON Array)",
+    "blockRulesPlaceholder": "[ { \"url\": \"google-analytics\\.com\", \"type\": \"block\" } ]",
+    "blockRulesDescription": "Additional rules for blocking certain URLs from being loaded (page resources, iframe resources, etc.). Must be a JSON array of objects, e.g., [ { \"url\": \"regex\", \"type\": \"block|allowOnly\", \"inFrameUrl\": \"...\", \"frameTextMatch\": \"...\" } ].",
+    "blockRulesInvalidJson": "Invalid JSON for block rules. Please ensure it's a valid JSON array of objects."
   },
   "notFound": {
     "heading": "Not Found",
