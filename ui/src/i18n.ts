@@ -39,6 +39,7 @@ export const supportedLanguages: Language[] = [
   //  { code: 'mk', display: 'македонски', rtl: false },
   { code: 'nl', display: 'Nederlands', rtl: false },
   //  { code: 'nb', display: 'norsk bokmål', rtl: false },
+  { code: 'ps', display: 'پښتو', rtl: true },
   { code: 'ro', display: 'Română', rtl: false },
   { code: 'sl', display: 'Slovenščina', rtl: false },
   { code: 'tr', display: 'Türkçe', rtl: false },
