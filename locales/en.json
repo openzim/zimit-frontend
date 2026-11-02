@@ -42,7 +42,9 @@
     "creatingRequest": "Creating request…",
     "errorCreatingRequest": "Error creating request",
     "offlinerNotFound": "Zimit offliner not found, we probably experience a serious issue on our infrastructure.",
-    "stopNewRequestsMessage": "Zimit temporarily does not accept new tasks for maintenance, will be back in few days."
+    "stopNewRequestsMessage": "Zimit temporarily does not accept new tasks for maintenance, will be back in few days.",
+    "blockRulesDescription": "Enter one URL regular expression per line. These rules block matching page resources during the crawl. Structured JSON rules are not supported; they are only available through Browsertrix's YAML configuration.",
+    "blockRulesInvalidRegex": "Please enter a valid regular expression (one per line)."
   },
   "notFound": {
     "heading": "Not Found",
