@@ -8,6 +8,7 @@ import { useMainStore, type OfflinerFlag } from '../stores/main'
 import NewRequestSelect from './NewRequestSelect.vue'
 import NewRequestSwitch from './NewRequestSwitch.vue'
 import NewRequestText from './NewRequestText.vue'
+import NewRequestTextarea from './NewRequestTextarea.vue'
 
 const { t } = useI18n()
 const mainStore = useMainStore()
@@ -15,10 +16,18 @@ const config = inject<Config>(constants.config)!
 const isFormValid = ref(false)
 const showAdvanced = ref(false)
 
+// Flags which must always be shown in advanced options, even when the deployed
+// config.json predates the feature. The production config is managed outside this
+// repository, so relying only on `new_request_advanced_flags` would keep the
+// setting invisible on instances which have not updated their config yet.
+const alwaysExposedFlags = ['blockRules']
+
 const offlinerFlags = computed(
   () =>
     mainStore.offlinerDefinition?.flags.filter(
-      (flag) => config.new_request_advanced_flags.indexOf(flag.data_key) > -1
+      (flag) =>
+        alwaysExposedFlags.includes(flag.data_key) ||
+        config.new_request_advanced_flags.indexOf(flag.data_key) > -1
     ) || []
 )
 
@@ -166,6 +175,29 @@ const getFlagRules = (flag: OfflinerFlag) => {
     })
   }
 
+  // zimit forwards --blockRules to Browsertrix as a single string, and Browsertrix
+  // treats each string as a URL regular expression. Users can enter one regex per
+  // line; the store combines them into a single alternation before submission.
+  if (flag.data_key === 'blockRules') {
+    rules.push((value: unknown) => {
+      if (typeof value !== 'string' || value.trim() === '') {
+        return true
+      }
+      for (const rule of value.split(/\r?\n/)) {
+        const trimmedRule = rule.trim()
+        if (trimmedRule === '') {
+          continue
+        }
+        try {
+          new RegExp(trimmedRule)
+        } catch {
+          return t('newRequest.blockRulesInvalidRegex')
+        }
+      }
+      return true
+    })
+  }
+
   return rules
 }
 
@@ -220,6 +252,13 @@ const hasDefinitions = computed(() => mainStore.offlinerDefinition !== undefined
                 :choices="flag.choices"
                 :multiple="flag.type == 'list-of-string-enum'"
                 :data-key="flag.data_key"
+              />
+              <NewRequestTextarea
+                v-else-if="flag.data_key === 'blockRules'"
+                :data-key="flag.data_key"
+                :label="flag.label"
+                :rules="getFlagRules(flag)"
+                :description="t('newRequest.blockRulesDescription')"
               />
               <NewRequestText
                 v-else
