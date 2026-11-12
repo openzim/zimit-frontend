@@ -20,7 +20,7 @@
     "vue-i18n": "10.0.6",
     "vue-matomo": "^4.2.0",
     "vue-router": "^4.4.5",
-    "vuetify": "^3.7.1"
+    "vuetify": "^4.3.1"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
