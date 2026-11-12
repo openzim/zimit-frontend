@@ -56,7 +56,7 @@ watch(
         class="donate-btn btn-green-rev"
         append-icon="fa-gift"
         variant="outlined"
-        size="large"
+        :size="smAndDown ? 'default' : 'large'"
         href="https://donate.kiwix.org/"
         target="_blank"
       >
@@ -91,28 +91,33 @@ footer {
   position: fixed;
   bottom: 0;
   left: 0;
-  padding-top: 1em;
-  padding-bottom: 1em;
+  padding: 1em 1rem;
+  box-sizing: border-box;
 }
 
 .logo-img {
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
 }
 
 .logo-div {
   padding-top: 2em;
   padding-bottom: 2em;
+  padding-inline: 1rem;
 }
 
 .logo-div-sm {
   padding-top: 8em;
   padding-bottom: 2em;
+  padding-inline: 1rem;
 }
 
 .top-corner {
   position: absolute;
-  top: 10px;
-  inset-inline-end: 10px;
+  top: 1rem;
+  inset-inline-end: 1rem;
+  max-width: calc(100% - 2rem);
   z-index: 999;
   min-width: 10rem;
   display: flex;
@@ -125,5 +130,6 @@ footer {
   border-color: black;
   border-width: 2px;
   color: #82ca2a;
+  max-width: 100%;
 }
 </style>
