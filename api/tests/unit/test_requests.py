@@ -107,6 +107,31 @@ def test_create_task_zim_file_fallback_when_missing(client: TestClient):
         assert zim_file.endswith(".zim")
 
 
+def test_create_task_forwards_block_rules_as_string(client: TestClient):
+    block_rules = r"google-analytics\.com|doubleclick\.net"
+    with patch("zimitfrontend.routes.requests.query_api") as mock_query_api:
+        mock_query_api.side_effect = [
+            (True, HTTPStatus.CREATED, {"_id": "recipe123"}),
+            (True, HTTPStatus.CREATED, {"requested": ["task123"]}),
+            (True, HTTPStatus.OK, {}),
+        ]
+        response = client.post(
+            "/api/v1/requests",
+            json={
+                "url": "https://www.example.com/page",
+                "lang": "en",
+                "flags": {"blockRules": block_rules},
+                "uniqueId": None,
+            },
+        )
+        assert response.status_code == HTTPStatus.CREATED
+
+        recipe_payload = mock_query_api.call_args_list[0].kwargs["payload"]
+        offliner = recipe_payload["config"]["offliner"]
+        assert offliner["blockRules"] == block_rules
+        assert isinstance(offliner["blockRules"], str)
+
+
 def test_create_task_custom_zim_file(client: TestClient):
     with patch("zimitfrontend.routes.requests.query_api") as mock_query_api:
         mock_query_api.side_effect = [

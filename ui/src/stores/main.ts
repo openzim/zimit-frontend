@@ -3,6 +3,7 @@ import { defineStore } from 'pinia'
 
 import constants from '../constants'
 import { getCurrentLocale, setCurrentLocale, type Language } from '../i18n'
+import { normalizeBlockRules } from '../utils/utils'
 
 export type RootState = {
   count: number
@@ -205,20 +206,32 @@ export const useMainStore = defineStore('main', {
       }
     },
     async submitRequest() {
+      const flags = this.formValues
+        .filter((flag) => this.config.new_request_advanced_flags.indexOf(flag.name) > -1)
+        .reduce(
+          (acc, flag) => {
+            acc[flag.name] = flag.value
+            return acc
+          },
+          {} as { [key: string]: string }
+        )
+
+      // blockRules is always exposed by the UI and is edited as one regex per line.
+      // zimit expects a single string, so replace the raw textarea value with the
+      // combined regex (or remove it when the field is empty).
+      const blockRules = normalizeBlockRules(this.getFormValue('blockRules'))
+      if (blockRules) {
+        flags['blockRules'] = blockRules
+      } else {
+        delete flags['blockRules']
+      }
+
       const payload = {
         uniqueId: localStorage.getItem('uniqueId'),
         url: this.getFormValue('url'),
         lang: getCurrentLocale(),
         email: this.getFormValue('email'),
-        flags: this.formValues
-          .filter((flag) => this.config.new_request_advanced_flags.indexOf(flag.name) > -1)
-          .reduce(
-            (acc, flag) => {
-              acc[flag.name] = flag.value
-              return acc
-            },
-            {} as { [key: string]: string }
-          )
+        flags
       }
       this.setLoading({
         loading: true,

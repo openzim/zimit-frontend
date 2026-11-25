@@ -1,5 +1,30 @@
 import constants from '../constants'
 
+/**
+ * Convert the user-provided block rules (one regular expression per line) into
+ * the single URL regex string expected by zimit's --blockRules option.
+ *
+ * Browsertrix also accepts structured rules through its YAML config, but zimit
+ * only forwards a plain string to the crawler, so multiple simple rules are
+ * combined here using an alternation.
+ */
+export const normalizeBlockRules = (value: unknown): string | undefined => {
+  if (typeof value !== 'string') {
+    return undefined
+  }
+  const rules = value
+    .split(/\r?\n/)
+    .map((rule) => rule.trim())
+    .filter((rule) => rule !== '')
+  if (rules.length === 0) {
+    return undefined
+  }
+  if (rules.length === 1) {
+    return rules[0]
+  }
+  return rules.map((rule) => `(?:${rule})`).join('|')
+}
+
 export const getRulesFromFieldType = (
   type: string,
   required: boolean
